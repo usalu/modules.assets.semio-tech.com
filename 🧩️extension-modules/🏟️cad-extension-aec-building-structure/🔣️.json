@@ -16,12 +16,12 @@
   "descriptorVersion": 1,
   "execution": "declarative",
   "executionProtocol": {
-    "appChannelVersion": 17
+    "appChannelVersion": 19
   },
   "hashes": {
-    "coreWasmSha256": "dd79aabf58076d5af95e8449a45d923ce0e93c312359561fe6a06f318daef719",
-    "descriptorSha256": "503ad73a65723eb465f75771bfec56ef5e4df987f9f09fbc0d5ba7c0151e76a1",
-    "wasmSha256": "4edd8a67c635057699334a25ae6b4858b7857c24bc703acf98b920a122623e06"
+    "coreWasmSha256": "9b4fbece0730a3a90877ba86669e8bc9a4fa8cf488cfbf6c154b57d4f8ad0226",
+    "descriptorSha256": "f1b8df4903af891b7015eb866fcd68fbb038eee12002e71e945e3dfc65ce79f7",
+    "wasmSha256": "cd6a886ac5702c44650c791c2800938f54853abf2fc2933cd734019bb114968b"
   },
   "manifest": {
     "apps": [],
@@ -31,7 +31,7 @@
     "dependencies": [
       {
         "pluginId": "cad",
-        "version": "*"
+        "version": "=0.1.0"
       }
     ],
     "examples": [],

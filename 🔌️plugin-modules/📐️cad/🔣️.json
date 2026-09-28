@@ -24,43 +24,8 @@
             "subset": "*"
           },
           {
-            "artifactKind": "s.stdio.dwg",
-            "standard": "ac1018",
-            "subset": "*"
-          },
-          {
-            "artifactKind": "s.stdio.gltf",
-            "standard": "2.0",
-            "subset": "*"
-          },
-          {
-            "artifactKind": "s.stdio.ifc",
-            "standard": "4",
-            "subset": "*"
-          },
-          {
             "artifactKind": "s.stdio.json",
             "standard": "rfc8259",
-            "subset": "*"
-          },
-          {
-            "artifactKind": "s.stdio.obj",
-            "standard": "3.0",
-            "subset": "*"
-          },
-          {
-            "artifactKind": "s.stdio.png",
-            "standard": "1.2",
-            "subset": "*"
-          },
-          {
-            "artifactKind": "s.stdio.step",
-            "standard": "ap214",
-            "subset": "*"
-          },
-          {
-            "artifactKind": "s.stdio.stl",
-            "standard": "ascii",
             "subset": "*"
           }
         ],
@@ -87,99 +52,8 @@
       },
       {
         "counterpart": {
-          "artifactKind": "s.stdio.dwg",
-          "standard": "ac1018",
-          "subset": "*"
-        },
-        "direction": "import",
-        "owner": {
-          "artifactKind": "s.cad.cad",
-          "standard": "1",
-          "subset": "*"
-        }
-      },
-      {
-        "counterpart": {
-          "artifactKind": "s.stdio.gltf",
-          "standard": "2.0",
-          "subset": "*"
-        },
-        "direction": "import",
-        "owner": {
-          "artifactKind": "s.cad.cad",
-          "standard": "1",
-          "subset": "*"
-        }
-      },
-      {
-        "counterpart": {
-          "artifactKind": "s.stdio.ifc",
-          "standard": "4",
-          "subset": "*"
-        },
-        "direction": "import",
-        "owner": {
-          "artifactKind": "s.cad.cad",
-          "standard": "1",
-          "subset": "*"
-        }
-      },
-      {
-        "counterpart": {
           "artifactKind": "s.stdio.json",
           "standard": "rfc8259",
-          "subset": "*"
-        },
-        "direction": "import",
-        "owner": {
-          "artifactKind": "s.cad.cad",
-          "standard": "1",
-          "subset": "*"
-        }
-      },
-      {
-        "counterpart": {
-          "artifactKind": "s.stdio.obj",
-          "standard": "3.0",
-          "subset": "*"
-        },
-        "direction": "import",
-        "owner": {
-          "artifactKind": "s.cad.cad",
-          "standard": "1",
-          "subset": "*"
-        }
-      },
-      {
-        "counterpart": {
-          "artifactKind": "s.stdio.png",
-          "standard": "1.2",
-          "subset": "*"
-        },
-        "direction": "import",
-        "owner": {
-          "artifactKind": "s.cad.cad",
-          "standard": "1",
-          "subset": "*"
-        }
-      },
-      {
-        "counterpart": {
-          "artifactKind": "s.stdio.step",
-          "standard": "ap214",
-          "subset": "*"
-        },
-        "direction": "import",
-        "owner": {
-          "artifactKind": "s.cad.cad",
-          "standard": "1",
-          "subset": "*"
-        }
-      },
-      {
-        "counterpart": {
-          "artifactKind": "s.stdio.stl",
-          "standard": "ascii",
           "subset": "*"
         },
         "direction": "import",
@@ -291,12 +165,12 @@
   "descriptorVersion": 1,
   "execution": "isolated",
   "executionProtocol": {
-    "appChannelVersion": 17
+    "appChannelVersion": 19
   },
   "hashes": {
-    "coreWasmSha256": "8642f9267e84f082f7adddfceca10d85a8486aee1ac5e3948b31cabab2c49da5",
-    "descriptorSha256": "110c4a651d208089996c99f0e3abbfbfaeef5f9a836e9c315cb9f02cc8f90cac",
-    "wasmSha256": "d231e99d3b94afd1771d1c7c610bb19fcedfc34210a505960c8bd8c0931cba45"
+    "coreWasmSha256": "6bb2c16388ac583610154067701f5c1136559d72cebb92e687d8d00a2b137f71",
+    "descriptorSha256": "16c77130a4dd21fa6f4e4a814ba39c756e8f4ab4dab4df71e7893f463db3eda1",
+    "wasmSha256": "2c7eb3e690b17325c20418ee3b69d7539d55fe079484b47b5b69524a8b781b98"
   },
   "manifest": {
     "apps": [
@@ -879,11 +753,11 @@
               "description": {
                 "native": {
                   "de": "Schreibt die vorbereitete Transformation fest in die Geometrie der ausgewählten Objekte.",
-                  "en": "Bakes the staged transformation into the selected objects' geometry."
+                  "en": "Bakes the staged transformation into the selected objects' geometry; refused until composed pane models support it."
                 },
                 "reuse": {
                   "de": "Schreibt die vorbereitete Transformation fest in die Geometrie der ausgewählten Objekte.",
-                  "en": "Bakes the staged transformation into the selected objects' geometry."
+                  "en": "Bakes the staged transformation into the selected objects' geometry; refused until composed pane models support it."
                 }
               },
               "effects": {
@@ -899,7 +773,7 @@
                 "class": "interactive",
                 "expectedRevision": true,
                 "idempotency": "none",
-                "interactiveJob": "batchOnlyPendingRewrite",
+                "interactiveJob": "migrated",
                 "preview": "diff",
                 "undo": {
                   "kind": "inverse"
@@ -932,12 +806,12 @@
             "semantics": {
               "description": {
                 "native": {
-                  "de": "Liest eine CAD-Datei (STEP, OBJ, STL) in das Modell ein.",
-                  "en": "Reads a CAD file (STEP, OBJ, STL) into the model."
+                  "de": "Ersetzt die gesamte CAD-Szene durch eine räumliche Szenendatei; einzelne STEP-, OBJ- oder STL-Objekte werden abgelehnt, bis zusammengesetzte Bereichsmodelle sie unterstützen.",
+                  "en": "Replaces the whole CAD scene with a spatial scene file; single STEP, OBJ or STL objects are refused until composed pane models support them."
                 },
                 "reuse": {
-                  "de": "Liest eine CAD-Datei (STEP, OBJ, STL) in das Modell ein.",
-                  "en": "Reads a CAD file (STEP, OBJ, STL) into the model."
+                  "de": "Ersetzt die gesamte CAD-Szene durch eine räumliche Szenendatei; einzelne STEP-, OBJ- oder STL-Objekte werden abgelehnt, bis zusammengesetzte Bereichsmodelle sie unterstützen.",
+                  "en": "Replaces the whole CAD scene with a spatial scene file; single STEP, OBJ or STL objects are refused until composed pane models support them."
                 }
               },
               "effects": {
@@ -953,7 +827,7 @@
                 "class": "interactive",
                 "expectedRevision": true,
                 "idempotency": "none",
-                "interactiveJob": "batchOnlyPendingRewrite",
+                "interactiveJob": "migrated",
                 "preview": "diff",
                 "undo": {
                   "kind": "inverse"
@@ -988,6 +862,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Setzt eine benannte Eigenschaft einer Referenz in der Play-Definition des Modells — Ziel, Platzierung oder Parameter.",
+                  "en": "Sets one named property of one reference in the model's play definition — its target, placement or parameter."
+                },
+                "reuse": {
+                  "de": "Setzt eine benannte Eigenschaft einer Referenz in der Play-Definition des Modells — Ziel, Platzierung oder Parameter.",
+                  "en": "Sets one named property of one reference in the model's play definition — its target, placement or parameter."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -1064,7 +948,7 @@
             "args": [],
             "iconId": "camera",
             "id": "setCamera",
-            "inPalette": true,
+            "inPalette": false,
             "kind": "view",
             "label": {
               "native": {
@@ -1077,6 +961,7 @@
               }
             },
             "semantics": {
+              "audience": "chrome",
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -1164,7 +1049,7 @@
             "args": [],
             "iconId": "scan",
             "id": "setProjectionParam",
-            "inPalette": true,
+            "inPalette": false,
             "kind": "view",
             "label": {
               "native": {
@@ -1177,6 +1062,7 @@
               }
             },
             "semantics": {
+              "audience": "chrome",
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -1997,7 +1883,7 @@
                 }
               },
               "effects": {
-                "destructive": false,
+                "destructive": true,
                 "external": false,
                 "reversible": false
               },
@@ -2006,14 +1892,14 @@
                 "class": "interactive",
                 "expectedRevision": false,
                 "idempotency": "none",
-                "interactiveJob": "batchOnlyPendingRewrite",
+                "interactiveJob": "migrated",
                 "preview": "none",
                 "undo": {
                   "kind": "none"
                 }
               },
               "policy": {
-                "approval": "never",
+                "approval": "whenDestructive",
                 "scopes": [
                   "shell.navigate"
                 ]
@@ -2048,7 +1934,7 @@
                 }
               },
               "effects": {
-                "destructive": false,
+                "destructive": true,
                 "external": false,
                 "reversible": false
               },
@@ -2057,14 +1943,14 @@
                 "class": "interactive",
                 "expectedRevision": false,
                 "idempotency": "none",
-                "interactiveJob": "batchOnlyPendingRewrite",
+                "interactiveJob": "migrated",
                 "preview": "none",
                 "undo": {
                   "kind": "none"
                 }
               },
               "policy": {
-                "approval": "never",
+                "approval": "whenDestructive",
                 "scopes": [
                   "shell.navigate"
                 ]
@@ -2159,7 +2045,7 @@
                 }
               },
               "effects": {
-                "destructive": false,
+                "destructive": true,
                 "external": false,
                 "reversible": false
               },
@@ -2168,14 +2054,14 @@
                 "class": "interactive",
                 "expectedRevision": false,
                 "idempotency": "none",
-                "interactiveJob": "batchOnlyPendingRewrite",
+                "interactiveJob": "migrated",
                 "preview": "none",
                 "undo": {
                   "kind": "none"
                 }
               },
               "policy": {
-                "approval": "never",
+                "approval": "whenDestructive",
                 "scopes": [
                   "shell.navigate"
                 ]
@@ -3020,6 +2906,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Öffnet den Tutorial-Rekorder für das geöffnete Dokument, damit die nächsten Interaktionen als Tutorial aufgezeichnet werden.",
+                  "en": "Opens the tutorial recorder on the open document so the next interactions are recorded as a tutorial."
+                },
+                "reuse": {
+                  "de": "Öffnet den Tutorial-Rekorder für das geöffnete Dokument, damit die nächsten Interaktionen als Tutorial aufgezeichnet werden.",
+                  "en": "Opens the tutorial recorder on the open document so the next interactions are recorded as a tutorial."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -3125,6 +3021,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Filtert den Verlaufsbereich auf alle Einträge, nur Dokumentoperationen oder alles außer Dokumentoperationen; das Dokument wird nicht verändert.",
+                  "en": "Filters the history panel to all entries, only document operations, or everything except document operations; the document is not changed."
+                },
+                "reuse": {
+                  "de": "Filtert den Verlaufsbereich auf alle Einträge, nur Dokumentoperationen oder alles außer Dokumentoperationen; das Dokument wird nicht verändert.",
+                  "en": "Filters the history panel to all entries, only document operations, or everything except document operations; the document is not changed."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -3223,6 +3129,16 @@
             },
             "semantics": {
               "audience": "chrome",
+              "description": {
+                "native": {
+                  "de": "Vermerkt eine bereits erfolgte Shell-Wirkung (Navigation, Export, Start) im Sitzungsprotokoll; das Dokument wird nicht verändert.",
+                  "en": "Records a shell effect that already happened (navigation, export, spawn) in the session command log; the document is not changed."
+                },
+                "reuse": {
+                  "de": "Vermerkt eine bereits erfolgte Shell-Wirkung (Navigation, Export, Start) im Sitzungsprotokoll; das Dokument wird nicht verändert.",
+                  "en": "Records a shell effect that already happened (navigation, export, spawn) in the session command log; the document is not changed."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -4056,11 +3972,11 @@
                 "kind": "interaction",
                 "label": {
                   "native": {
-                    "de": "Hover",
+                    "de": "Darüberfahren",
                     "en": "Hover"
                   },
                   "reuse": {
-                    "de": "Hover",
+                    "de": "Darüberfahren",
                     "en": "Hover"
                   }
                 },
@@ -4342,6 +4258,51 @@
                   "reuse": {
                     "de": "Granularität festlegen",
                     "en": "Set Granularity"
+                  }
+                },
+                "semantics": {
+                  "effects": {
+                    "destructive": false,
+                    "external": false,
+                    "reads": [
+                      "config:{self}"
+                    ],
+                    "reversible": false
+                  },
+                  "execution": {
+                    "cancellable": false,
+                    "class": "interactive",
+                    "expectedRevision": false,
+                    "idempotency": "none",
+                    "interactiveJob": "migrated",
+                    "preview": "none",
+                    "undo": {
+                      "kind": "none"
+                    }
+                  },
+                  "policy": {
+                    "approval": "never",
+                    "scopes": [
+                      "artifacts.read",
+                      "shell.observe"
+                    ]
+                  }
+                }
+              },
+              {
+                "args": [],
+                "iconId": "square",
+                "id": "cancelTypedOperation",
+                "inPalette": false,
+                "kind": "view",
+                "label": {
+                  "native": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  },
+                  "reuse": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
                   }
                 },
                 "semantics": {
@@ -4685,11 +4646,11 @@
                 "kind": "interaction",
                 "label": {
                   "native": {
-                    "de": "Hover",
+                    "de": "Darüberfahren",
                     "en": "Hover"
                   },
                   "reuse": {
-                    "de": "Hover",
+                    "de": "Darüberfahren",
                     "en": "Hover"
                   }
                 },
@@ -4971,6 +4932,51 @@
                   "reuse": {
                     "de": "Granularität festlegen",
                     "en": "Set Granularity"
+                  }
+                },
+                "semantics": {
+                  "effects": {
+                    "destructive": false,
+                    "external": false,
+                    "reads": [
+                      "config:{self}"
+                    ],
+                    "reversible": false
+                  },
+                  "execution": {
+                    "cancellable": false,
+                    "class": "interactive",
+                    "expectedRevision": false,
+                    "idempotency": "none",
+                    "interactiveJob": "migrated",
+                    "preview": "none",
+                    "undo": {
+                      "kind": "none"
+                    }
+                  },
+                  "policy": {
+                    "approval": "never",
+                    "scopes": [
+                      "artifacts.read",
+                      "shell.observe"
+                    ]
+                  }
+                }
+              },
+              {
+                "args": [],
+                "iconId": "square",
+                "id": "cancelTypedOperation",
+                "inPalette": false,
+                "kind": "view",
+                "label": {
+                  "native": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  },
+                  "reuse": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
                   }
                 },
                 "semantics": {
@@ -5314,11 +5320,11 @@
                 "kind": "interaction",
                 "label": {
                   "native": {
-                    "de": "Hover",
+                    "de": "Darüberfahren",
                     "en": "Hover"
                   },
                   "reuse": {
-                    "de": "Hover",
+                    "de": "Darüberfahren",
                     "en": "Hover"
                   }
                 },
@@ -5600,6 +5606,51 @@
                   "reuse": {
                     "de": "Granularität festlegen",
                     "en": "Set Granularity"
+                  }
+                },
+                "semantics": {
+                  "effects": {
+                    "destructive": false,
+                    "external": false,
+                    "reads": [
+                      "config:{self}"
+                    ],
+                    "reversible": false
+                  },
+                  "execution": {
+                    "cancellable": false,
+                    "class": "interactive",
+                    "expectedRevision": false,
+                    "idempotency": "none",
+                    "interactiveJob": "migrated",
+                    "preview": "none",
+                    "undo": {
+                      "kind": "none"
+                    }
+                  },
+                  "policy": {
+                    "approval": "never",
+                    "scopes": [
+                      "artifacts.read",
+                      "shell.observe"
+                    ]
+                  }
+                }
+              },
+              {
+                "args": [],
+                "iconId": "square",
+                "id": "cancelTypedOperation",
+                "inPalette": false,
+                "kind": "view",
+                "label": {
+                  "native": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  },
+                  "reuse": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
                   }
                 },
                 "semantics": {
@@ -5943,11 +5994,11 @@
                 "kind": "interaction",
                 "label": {
                   "native": {
-                    "de": "Hover",
+                    "de": "Darüberfahren",
                     "en": "Hover"
                   },
                   "reuse": {
-                    "de": "Hover",
+                    "de": "Darüberfahren",
                     "en": "Hover"
                   }
                 },
@@ -6229,6 +6280,51 @@
                   "reuse": {
                     "de": "Granularität festlegen",
                     "en": "Set Granularity"
+                  }
+                },
+                "semantics": {
+                  "effects": {
+                    "destructive": false,
+                    "external": false,
+                    "reads": [
+                      "config:{self}"
+                    ],
+                    "reversible": false
+                  },
+                  "execution": {
+                    "cancellable": false,
+                    "class": "interactive",
+                    "expectedRevision": false,
+                    "idempotency": "none",
+                    "interactiveJob": "migrated",
+                    "preview": "none",
+                    "undo": {
+                      "kind": "none"
+                    }
+                  },
+                  "policy": {
+                    "approval": "never",
+                    "scopes": [
+                      "artifacts.read",
+                      "shell.observe"
+                    ]
+                  }
+                }
+              },
+              {
+                "args": [],
+                "iconId": "square",
+                "id": "cancelTypedOperation",
+                "inPalette": false,
+                "kind": "view",
+                "label": {
+                  "native": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  },
+                  "reuse": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
                   }
                 },
                 "semantics": {
@@ -6995,6 +7091,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Öffnet den Tutorial-Rekorder für das geöffnete Dokument, damit die nächsten Interaktionen als Tutorial aufgezeichnet werden.",
+                  "en": "Opens the tutorial recorder on the open document so the next interactions are recorded as a tutorial."
+                },
+                "reuse": {
+                  "de": "Öffnet den Tutorial-Rekorder für das geöffnete Dokument, damit die nächsten Interaktionen als Tutorial aufgezeichnet werden.",
+                  "en": "Opens the tutorial recorder on the open document so the next interactions are recorded as a tutorial."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -7100,6 +7206,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Filtert den Verlaufsbereich auf alle Einträge, nur Dokumentoperationen oder alles außer Dokumentoperationen; das Dokument wird nicht verändert.",
+                  "en": "Filters the history panel to all entries, only document operations, or everything except document operations; the document is not changed."
+                },
+                "reuse": {
+                  "de": "Filtert den Verlaufsbereich auf alle Einträge, nur Dokumentoperationen oder alles außer Dokumentoperationen; das Dokument wird nicht verändert.",
+                  "en": "Filters the history panel to all entries, only document operations, or everything except document operations; the document is not changed."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -7198,6 +7314,16 @@
             },
             "semantics": {
               "audience": "chrome",
+              "description": {
+                "native": {
+                  "de": "Vermerkt eine bereits erfolgte Shell-Wirkung (Navigation, Export, Start) im Sitzungsprotokoll; das Dokument wird nicht verändert.",
+                  "en": "Records a shell effect that already happened (navigation, export, spawn) in the session command log; the document is not changed."
+                },
+                "reuse": {
+                  "de": "Vermerkt eine bereits erfolgte Shell-Wirkung (Navigation, Export, Start) im Sitzungsprotokoll; das Dokument wird nicht verändert.",
+                  "en": "Records a shell effect that already happened (navigation, export, spawn) in the session command log; the document is not changed."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -7371,7 +7497,53 @@
         "utilities": [],
         "windowKinds": [
           {
-            "actions": [],
+            "actions": [
+              {
+                "args": [],
+                "iconId": "square",
+                "id": "cancelTypedOperation",
+                "inPalette": false,
+                "kind": "view",
+                "label": {
+                  "native": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  },
+                  "reuse": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  }
+                },
+                "semantics": {
+                  "effects": {
+                    "destructive": false,
+                    "external": false,
+                    "reads": [
+                      "config:{self}"
+                    ],
+                    "reversible": false
+                  },
+                  "execution": {
+                    "cancellable": false,
+                    "class": "interactive",
+                    "expectedRevision": false,
+                    "idempotency": "none",
+                    "interactiveJob": "migrated",
+                    "preview": "none",
+                    "undo": {
+                      "kind": "none"
+                    }
+                  },
+                  "policy": {
+                    "approval": "never",
+                    "scopes": [
+                      "artifacts.read",
+                      "shell.observe"
+                    ]
+                  }
+                }
+              }
+            ],
             "bodyKey": "cad.view.shape",
             "capabilities": [],
             "iconId": "cad-shape",
@@ -7414,7 +7586,7 @@
     "commands": [],
     "examples": [
       {
-        "artifactJson": "semio cad.cad.dsl v1\nschema=6361642e646f63756d656e74\nid=68657861676f6e616c2d6375742d636f6e63726574652d666f726573742d6c656674\nshapeModel=[73686170652d6d6f64656c2d36646465623865393364643235623263,73686170652d6d6f64656c2d3664646562386539336464323562326321732e737464696f2e73656d696f4076312f6d6f64656c]\nbuildingModel=[6275696c64696e672d6d6f64656c2d65636635383066666435646664343433,6275696c64696e672d6d6f64656c2d6563663538306666643564666434343321732e737464696f2e73656d696f4076312f6d6f64656c]\nenergyModel=[656e657267792d6d6f64656c2d35633835376630366234383961373036,656e657267792d6d6f64656c2d3563383537663036623438396137303621732e737464696f2e73656d696f4076312f6d6f64656c]\nstructureClassicModel=[7374727563747572652d636c61737369632d6d6f64656c2d38613131376135336563353862633036,7374727563747572652d636c61737369632d6d6f64656c2d3861313137613533656335386263303621732e737464696f2e73656d696f4076312f6d6f64656c]\ndrawings=[]\nreferencesByModelDefinitionId=7b226165632e6275696c64696e67223a5b7b226964223a227265662d636f6e63726574652d666f72657374222c22736f7572636555726c223a222f6361642d6173736574732ff09f8cb2efb88f636f6e63726574652d666f726573742d7265666572656e63652ff09f96bcefb88f2e706e67222c226d656469614b696e64223a22696d616765222c226f726967696e223a5b2d392e372c2d382e3331323030303030303030303030312c302e30315d2c226f7269656e746174696f6e223a6e756c6c2c227363616c65223a6e756c6c2c227769647468576f726c64223a32382e362c2268696464656e223a66616c73652c226c6f636b6564223a747275652c226f706163697479223a312e307d5d2c226165632e6275696c64696e672e656e65726779223a5b7b226964223a227265662d636f6e63726574652d666f72657374222c22736f7572636555726c223a222f6361642d6173736574732ff09f8cb2efb88f636f6e63726574652d666f726573742d7265666572656e63652ff09f96bcefb88f2e706e67222c226d656469614b696e64223a22696d616765222c226f726967696e223a5b2d392e372c2d382e3331323030303030303030303030312c302e30315d2c226f7269656e746174696f6e223a6e756c6c2c227363616c65223a6e756c6c2c227769647468576f726c64223a32382e362c2268696464656e223a66616c73652c226c6f636b6564223a747275652c226f706163697479223a312e307d5d2c226165632e6275696c64696e672e7374727563747572652e636c6173736963223a5b7b226964223a227265662d636f6e63726574652d666f72657374222c22736f7572636555726c223a222f6361642d6173736574732ff09f8cb2efb88f636f6e63726574652d666f726573742d7265666572656e63652ff09f96bcefb88f2e706e67222c226d656469614b696e64223a22696d616765222c226f726967696e223a5b2d392e372c2d382e3331323030303030303030303030312c302e30315d2c226f7269656e746174696f6e223a6e756c6c2c227363616c65223a6e756c6c2c227769647468576f726c64223a32382e362c2268696464656e223a66616c73652c226c6f636b6564223a747275652c226f706163697479223a312e307d5d2c227370617469616c2e7368617065223a5b7b226964223a227265662d636f6e63726574652d666f72657374222c22736f7572636555726c223a222f6361642d6173736574732ff09f8cb2efb88f636f6e63726574652d666f726573742d7265666572656e63652ff09f96bcefb88f2e706e67222c226d656469614b696e64223a22696d616765222c226f726967696e223a5b2d392e372c2d382e3331323030303030303030303030312c302e30315d2c226f7269656e746174696f6e223a6e756c6c2c227363616c65223a6e756c6c2c227769647468576f726c64223a32382e362c2268696464656e223a66616c73652c226c6f636b6564223a747275652c226f706163697479223a312e307d5d7d\nnodes=5b7b226964223a226e6f64652d726f6f74222c226c6162656c223a22436f6e637265746520466f72657374204c656674222c226b696e64223a2267726f7570227d5d",
+        "artifactJson": "semio cad.cad.dsl v1\nschema=cad.document id=hexagonal-cut-concrete-forest-left shape-model=child_id=shape-model-6ddeb8e93dd25b2c target=\"shape-model-6ddeb8e93dd25b2c!s.stdio.semio@v1/model\" building-model=child_id=building-model-ecf580ffd5dfd443 target=\"building-model-ecf580ffd5dfd443!s.stdio.semio@v1/model\" energy-model=child_id=energy-model-5c857f06b489a706 target=\"energy-model-5c857f06b489a706!s.stdio.semio@v1/model\" structure-classic-model=child_id=structure-classic-model-8a117a53ec58bc06 target=\"structure-classic-model-8a117a53ec58bc06!s.stdio.semio@v1/model\" drawings=[ ] references-by-model-definition-id={\n  aec.building=[ id=ref-concrete-forest source-url=\"/cad-assets/🌲️concrete-forest-reference/🖼️.png\" media-kind=image origin=-9.7,-8.312000000000001,0.01 width-world=28.6 hidden=false locked=true opacity=1 ] aec.building.energy=[ id=ref-concrete-forest source-url=\"/cad-assets/🌲️concrete-forest-reference/🖼️.png\" media-kind=image origin=-9.7,-8.312000000000001,0.01 width-world=28.6 hidden=false locked=true opacity=1 ] aec.building.structure.classic=[ id=ref-concrete-forest source-url=\"/cad-assets/🌲️concrete-forest-reference/🖼️.png\" media-kind=image origin=-9.7,-8.312000000000001,0.01 width-world=28.6 hidden=false locked=true opacity=1 ] spatial.shape=[ id=ref-concrete-forest source-url=\"/cad-assets/🌲️concrete-forest-reference/🖼️.png\" media-kind=image origin=-9.7,-8.312000000000001,0.01 width-world=28.6 hidden=false locked=true opacity=1 ]\n}\nnodes=[ id=node-root label=\"Concrete Forest Left\" kind=group ]\n",
         "dialect": {
           "artifactKind": "s.cad.cad",
           "standard": "1",
