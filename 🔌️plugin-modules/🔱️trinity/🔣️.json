@@ -235,12 +235,12 @@
   "descriptorVersion": 1,
   "execution": "isolated",
   "executionProtocol": {
-    "appChannelVersion": 17
+    "appChannelVersion": 19
   },
   "hashes": {
-    "coreWasmSha256": "fab3770b0729f7d0d7df3781886e45f26e422f03dcf36ad5b21b528170dd50c0",
-    "descriptorSha256": "e444f4cf9f279fb44bb7844b910b026a0a2e2a5fd8f6bc505e56c5f4c4fe66c4",
-    "wasmSha256": "7c09f7725904ce42141fc67b6074a61dca3edfee41a417fc6b10387d4be4ec80"
+    "coreWasmSha256": "1afd6ce8eb882aac1d71a2bbb9f92af7f4781183c013c748be9efc2c454ac46e",
+    "descriptorSha256": "1a0cb8ff033445e7743c57758bf6cd57a8fda6a8a1b9443835df995823abccdf",
+    "wasmSha256": "6e5fc5a20736ae1252c3c256f6e15792ba9978e098b89d9cc58af1129d78c560"
   },
   "manifest": {
     "apps": [
@@ -264,6 +264,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Löscht alle ausgewählten Knoten des Bauteilgraphen samt aller daran angeschlossenen Kanten.",
+                  "en": "Deletes every selected node of the component graph together with every edge attached to them."
+                },
+                "reuse": {
+                  "de": "Löscht alle ausgewählten Knoten des Bauteilgraphen samt aller daran angeschlossenen Kanten.",
+                  "en": "Deletes every selected node of the component graph together with every edge attached to them."
+                }
+              },
               "effects": {
                 "destructive": true,
                 "external": false,
@@ -297,15 +307,15 @@
                 "id": "nodeIds",
                 "label": {
                   "native": {
-                    "de": "Knoten",
-                    "en": "Nodes"
+                    "de": "Knoten (leer: Auswahl)",
+                    "en": "Nodes (empty: selection)"
                   },
                   "reuse": {
-                    "de": "Knoten",
-                    "en": "Nodes"
+                    "de": "Knoten (leer: Auswahl)",
+                    "en": "Nodes (empty: selection)"
                   }
                 },
-                "required": true,
+                "required": false,
                 "schema": {
                   "kind": "string"
                 }
@@ -375,6 +385,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Benennt die angegebenen Knoten um, ohne Ids die ausgewählten; der Name ist das einzige Feld, das ein Jack-Knoten erlaubt.",
+                  "en": "Renames the given nodes, or the selected ones when no ids are given; name is the only field a Jack node allows."
+                },
+                "reuse": {
+                  "de": "Benennt die angegebenen Knoten um, ohne Ids die ausgewählten; der Name ist das einzige Feld, das ein Jack-Knoten erlaubt.",
+                  "en": "Renames the given nodes, or the selected ones when no ids are given; name is the only field a Jack node allows."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -455,8 +475,18 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Führt eine Jack-Graphabfrage (oder die aktuelle des Editors) auf dem Bauteilgraphen aus und zeigt die Treffer im angegebenen Ergebnisfenster; CREATE-, SET- oder DELETE-Klauseln ändern den Graphen.",
+                  "en": "Runs a Jack graph query (or the editor's current one) against the component graph and shows the matches in the given results window; CREATE, SET or DELETE clauses change the graph."
+                },
+                "reuse": {
+                  "de": "Führt eine Jack-Graphabfrage (oder die aktuelle des Editors) auf dem Bauteilgraphen aus und zeigt die Treffer im angegebenen Ergebnisfenster; CREATE-, SET- oder DELETE-Klauseln ändern den Graphen.",
+                  "en": "Runs a Jack graph query (or the editor's current one) against the component graph and shows the matches in the given results window; CREATE, SET or DELETE clauses change the graph."
+                }
+              },
               "effects": {
-                "destructive": false,
+                "destructive": true,
                 "external": false,
                 "reversible": true,
                 "writes": [
@@ -641,6 +671,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Setzt eine der mitgelieferten Beispielabfragen in den Abfrage-Editor, führt sie aus und zeigt ihre Treffer im angegebenen Ergebnisfenster.",
+                  "en": "Puts one of the bundled example queries into the query editor, runs it and shows its matches in the given results window."
+                },
+                "reuse": {
+                  "de": "Setzt eine der mitgelieferten Beispielabfragen in den Abfrage-Editor, führt sie aus und zeigt ihre Treffer im angegebenen Ergebnisfenster.",
+                  "en": "Puts one of the bundled example queries into the query editor, runs it and shows its matches in the given results window."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -719,6 +759,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Ersetzt den gesamten Bauteilgraphen durch eine mitgelieferte Fixture (den Nakagin Capsule Tower oder die Astkette), anhand der Beispiel-Id.",
+                  "en": "Replaces the whole component graph with a bundled fixture (the Nakagin capsule tower or the branch chain), by example id."
+                },
+                "reuse": {
+                  "de": "Ersetzt den gesamten Bauteilgraphen durch eine mitgelieferte Fixture (den Nakagin Capsule Tower oder die Astkette), anhand der Beispiel-Id.",
+                  "en": "Replaces the whole component graph with a bundled fixture (the Nakagin capsule tower or the branch chain), by example id."
+                }
+              },
               "effects": {
                 "destructive": true,
                 "external": false,
@@ -763,6 +813,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Ersetzt den gesamten Bauteilgraphen durch einen, der aus dem angegebenen Fixture-JSON gelesen wird; ungültiges JSON ändert nichts.",
+                  "en": "Replaces the whole component graph with one parsed from the given fixture JSON; invalid JSON changes nothing."
+                },
+                "reuse": {
+                  "de": "Ersetzt den gesamten Bauteilgraphen durch einen, der aus dem angegebenen Fixture-JSON gelesen wird; ungültiges JSON ändert nichts.",
+                  "en": "Replaces the whole component graph with one parsed from the given fixture JSON; invalid JSON changes nothing."
+                }
+              },
               "effects": {
                 "destructive": true,
                 "external": false,
@@ -1556,6 +1616,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Öffnet den Tutorial-Rekorder für das geöffnete Dokument, damit die nächsten Interaktionen als Tutorial aufgezeichnet werden.",
+                  "en": "Opens the tutorial recorder on the open document so the next interactions are recorded as a tutorial."
+                },
+                "reuse": {
+                  "de": "Öffnet den Tutorial-Rekorder für das geöffnete Dokument, damit die nächsten Interaktionen als Tutorial aufgezeichnet werden.",
+                  "en": "Opens the tutorial recorder on the open document so the next interactions are recorded as a tutorial."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -1661,6 +1731,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Filtert den Verlaufsbereich auf alle Einträge, nur Dokumentoperationen oder alles außer Dokumentoperationen; das Dokument wird nicht verändert.",
+                  "en": "Filters the history panel to all entries, only document operations, or everything except document operations; the document is not changed."
+                },
+                "reuse": {
+                  "de": "Filtert den Verlaufsbereich auf alle Einträge, nur Dokumentoperationen oder alles außer Dokumentoperationen; das Dokument wird nicht verändert.",
+                  "en": "Filters the history panel to all entries, only document operations, or everything except document operations; the document is not changed."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -1759,6 +1839,16 @@
             },
             "semantics": {
               "audience": "chrome",
+              "description": {
+                "native": {
+                  "de": "Vermerkt eine bereits erfolgte Shell-Wirkung (Navigation, Export, Start) im Sitzungsprotokoll; das Dokument wird nicht verändert.",
+                  "en": "Records a shell effect that already happened (navigation, export, spawn) in the session command log; the document is not changed."
+                },
+                "reuse": {
+                  "de": "Vermerkt eine bereits erfolgte Shell-Wirkung (Navigation, Export, Start) im Sitzungsprotokoll; das Dokument wird nicht verändert.",
+                  "en": "Records a shell effect that already happened (navigation, export, spawn) in the session command log; the document is not changed."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -2456,7 +2546,7 @@
                 "args": [],
                 "iconId": "eye",
                 "id": "nodeGraphViewport",
-                "inPalette": true,
+                "inPalette": false,
                 "kind": "view",
                 "label": {
                   "native": {
@@ -2469,6 +2559,7 @@
                   }
                 },
                 "semantics": {
+                  "audience": "chrome",
                   "effects": {
                     "destructive": false,
                     "external": false,
@@ -2514,6 +2605,16 @@
                   }
                 },
                 "semantics": {
+                  "description": {
+                    "native": {
+                      "de": "Legt die Detailstufe fest, mit der das Graphfenster den Bauteilgraphen zeichnet; nur die Ansicht dieses Fensters ändert sich.",
+                      "en": "Sets the level of detail the graph window draws the component graph with; only that window's view changes."
+                    },
+                    "reuse": {
+                      "de": "Legt die Detailstufe fest, mit der das Graphfenster den Bauteilgraphen zeichnet; nur die Ansicht dieses Fensters ändert sich.",
+                      "en": "Sets the level of detail the graph window draws the component graph with; only that window's view changes."
+                    }
+                  },
                   "effects": {
                     "destructive": false,
                     "external": false,
@@ -2824,11 +2925,11 @@
                 "kind": "interaction",
                 "label": {
                   "native": {
-                    "de": "Hover",
+                    "de": "Darüberfahren",
                     "en": "Hover"
                   },
                   "reuse": {
-                    "de": "Hover",
+                    "de": "Darüberfahren",
                     "en": "Hover"
                   }
                 },
@@ -3200,6 +3301,16 @@
                   }
                 },
                 "semantics": {
+                  "description": {
+                    "native": {
+                      "de": "Startet einen Lauf des angegebenen Werkzeugs (etwa eines Lösers) in einem Fenster; der Lauf zeigt sein Ergebnis als vorläufige Vorschau und ändert nichts, bis er abgeschlossen wird.",
+                      "en": "Starts a run of the given tool (such as a solver) in a window; the run shows its result as a provisional preview and changes nothing until it is finalized."
+                    },
+                    "reuse": {
+                      "de": "Startet einen Lauf des angegebenen Werkzeugs (etwa eines Lösers) in einem Fenster; der Lauf zeigt sein Ergebnis als vorläufige Vorschau und ändert nichts, bis er abgeschlossen wird.",
+                      "en": "Starts a run of the given tool (such as a solver) in a window; the run shows its result as a provisional preview and changes nothing until it is finalized."
+                    }
+                  },
                   "effects": {
                     "destructive": false,
                     "external": false,
@@ -3289,6 +3400,16 @@
                   }
                 },
                 "semantics": {
+                  "description": {
+                    "native": {
+                      "de": "Hält einen laufenden Werkzeuglauf beim aktuellen Schritt an, damit sein Fortschritt geprüft, schrittweise fortgeführt oder fortgesetzt werden kann.",
+                      "en": "Pauses a running tool run at its current step so its progress can be inspected, stepped or resumed."
+                    },
+                    "reuse": {
+                      "de": "Hält einen laufenden Werkzeuglauf beim aktuellen Schritt an, damit sein Fortschritt geprüft, schrittweise fortgeführt oder fortgesetzt werden kann.",
+                      "en": "Pauses a running tool run at its current step so its progress can be inspected, stepped or resumed."
+                    }
+                  },
                   "effects": {
                     "destructive": false,
                     "external": false,
@@ -3378,6 +3499,16 @@
                   }
                 },
                 "semantics": {
+                  "description": {
+                    "native": {
+                      "de": "Setzt einen pausierten Werkzeuglauf an dem Schritt fort, an dem er angehalten wurde.",
+                      "en": "Continues a paused tool run from the step where it stopped."
+                    },
+                    "reuse": {
+                      "de": "Setzt einen pausierten Werkzeuglauf an dem Schritt fort, an dem er angehalten wurde.",
+                      "en": "Continues a paused tool run from the step where it stopped."
+                    }
+                  },
                   "effects": {
                     "destructive": false,
                     "external": false,
@@ -3467,6 +3598,16 @@
                   }
                 },
                 "semantics": {
+                  "description": {
+                    "native": {
+                      "de": "Führt einen pausierten Werkzeuglauf genau einen Schritt weiter und hält ihn wieder an.",
+                      "en": "Advances a paused tool run by exactly one step and pauses it again."
+                    },
+                    "reuse": {
+                      "de": "Führt einen pausierten Werkzeuglauf genau einen Schritt weiter und hält ihn wieder an.",
+                      "en": "Advances a paused tool run by exactly one step and pauses it again."
+                    }
+                  },
                   "effects": {
                     "destructive": false,
                     "external": false,
@@ -3556,6 +3697,16 @@
                   }
                 },
                 "semantics": {
+                  "description": {
+                    "native": {
+                      "de": "Bricht einen Werkzeuglauf ab und verwirft sein vorläufiges Ergebnis; das Dokument bleibt genau so, wie es vor dem Start war.",
+                      "en": "Stops a tool run and discards its provisional result; the document stays exactly as it was before the run started."
+                    },
+                    "reuse": {
+                      "de": "Bricht einen Werkzeuglauf ab und verwirft sein vorläufiges Ergebnis; das Dokument bleibt genau so, wie es vor dem Start war.",
+                      "en": "Stops a tool run and discards its provisional result; the document stays exactly as it was before the run started."
+                    }
+                  },
                   "effects": {
                     "destructive": false,
                     "external": false,
@@ -3645,6 +3796,16 @@
                   }
                 },
                 "semantics": {
+                  "description": {
+                    "native": {
+                      "de": "Übernimmt das vorläufige Ergebnis eines laufenden, pausierten oder fertigen Werkzeuglaufs als eine rückgängig machbare Änderung in das Dokument.",
+                      "en": "Commits the provisional result of a running, paused or complete tool run into the document as one undoable edit."
+                    },
+                    "reuse": {
+                      "de": "Übernimmt das vorläufige Ergebnis eines laufenden, pausierten oder fertigen Werkzeuglaufs als eine rückgängig machbare Änderung in das Dokument.",
+                      "en": "Commits the provisional result of a running, paused or complete tool run into the document as one undoable edit."
+                    }
+                  },
                   "effects": {
                     "destructive": false,
                     "external": false,
@@ -3710,6 +3871,16 @@
                   }
                 },
                 "semantics": {
+                  "description": {
+                    "native": {
+                      "de": "Schließt das Panel eines abgeschlossenen, abgebrochenen oder fehlgeschlagenen Werkzeuglaufs; das Dokument bleibt unberührt.",
+                      "en": "Closes the panel of a finalized, aborted or failed tool run; the document is not touched."
+                    },
+                    "reuse": {
+                      "de": "Schließt das Panel eines abgeschlossenen, abgebrochenen oder fehlgeschlagenen Werkzeuglaufs; das Dokument bleibt unberührt.",
+                      "en": "Closes the panel of a finalized, aborted or failed tool run; the document is not touched."
+                    }
+                  },
                   "effects": {
                     "destructive": false,
                     "external": false,
@@ -3730,6 +3901,51 @@
                     "approval": "never",
                     "scopes": [
                       "artifacts.write"
+                    ]
+                  }
+                }
+              },
+              {
+                "args": [],
+                "iconId": "square",
+                "id": "cancelTypedOperation",
+                "inPalette": false,
+                "kind": "view",
+                "label": {
+                  "native": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  },
+                  "reuse": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  }
+                },
+                "semantics": {
+                  "effects": {
+                    "destructive": false,
+                    "external": false,
+                    "reads": [
+                      "config:{self}"
+                    ],
+                    "reversible": false
+                  },
+                  "execution": {
+                    "cancellable": false,
+                    "class": "interactive",
+                    "expectedRevision": false,
+                    "idempotency": "none",
+                    "interactiveJob": "migrated",
+                    "preview": "none",
+                    "undo": {
+                      "kind": "none"
+                    }
+                  },
+                  "policy": {
+                    "approval": "never",
+                    "scopes": [
+                      "artifacts.read",
+                      "shell.observe"
                     ]
                   }
                 }
@@ -3766,7 +3982,7 @@
                 "args": [],
                 "iconId": "typography",
                 "id": "textEdit",
-                "inPalette": true,
+                "inPalette": false,
                 "kind": "view",
                 "label": {
                   "native": {
@@ -3811,7 +4027,7 @@
                 "args": [],
                 "iconId": "text-cursor",
                 "id": "textSelect",
-                "inPalette": true,
+                "inPalette": false,
                 "kind": "view",
                 "label": {
                   "native": {
@@ -3870,6 +4086,16 @@
                   }
                 },
                 "semantics": {
+                  "description": {
+                    "native": {
+                      "de": "Formatiert die Jack-Abfrage im Abfrage-Editorfenster neu; das Graphdokument ändert sich nicht, eine nicht lesbare Abfrage bleibt wie sie ist.",
+                      "en": "Reformats the Jack query in the query editor window; the graph document is not changed, and a query that does not parse is left as it is."
+                    },
+                    "reuse": {
+                      "de": "Formatiert die Jack-Abfrage im Abfrage-Editorfenster neu; das Graphdokument ändert sich nicht, eine nicht lesbare Abfrage bleibt wie sie ist.",
+                      "en": "Reformats the Jack query in the query editor window; the graph document is not changed, and a query that does not parse is left as it is."
+                    }
+                  },
                   "effects": {
                     "destructive": false,
                     "external": false,
@@ -4180,11 +4406,11 @@
                 "kind": "interaction",
                 "label": {
                   "native": {
-                    "de": "Hover",
+                    "de": "Darüberfahren",
                     "en": "Hover"
                   },
                   "reuse": {
-                    "de": "Hover",
+                    "de": "Darüberfahren",
                     "en": "Hover"
                   }
                 },
@@ -4556,6 +4782,16 @@
                   }
                 },
                 "semantics": {
+                  "description": {
+                    "native": {
+                      "de": "Startet einen Lauf des angegebenen Werkzeugs (etwa eines Lösers) in einem Fenster; der Lauf zeigt sein Ergebnis als vorläufige Vorschau und ändert nichts, bis er abgeschlossen wird.",
+                      "en": "Starts a run of the given tool (such as a solver) in a window; the run shows its result as a provisional preview and changes nothing until it is finalized."
+                    },
+                    "reuse": {
+                      "de": "Startet einen Lauf des angegebenen Werkzeugs (etwa eines Lösers) in einem Fenster; der Lauf zeigt sein Ergebnis als vorläufige Vorschau und ändert nichts, bis er abgeschlossen wird.",
+                      "en": "Starts a run of the given tool (such as a solver) in a window; the run shows its result as a provisional preview and changes nothing until it is finalized."
+                    }
+                  },
                   "effects": {
                     "destructive": false,
                     "external": false,
@@ -4645,6 +4881,16 @@
                   }
                 },
                 "semantics": {
+                  "description": {
+                    "native": {
+                      "de": "Hält einen laufenden Werkzeuglauf beim aktuellen Schritt an, damit sein Fortschritt geprüft, schrittweise fortgeführt oder fortgesetzt werden kann.",
+                      "en": "Pauses a running tool run at its current step so its progress can be inspected, stepped or resumed."
+                    },
+                    "reuse": {
+                      "de": "Hält einen laufenden Werkzeuglauf beim aktuellen Schritt an, damit sein Fortschritt geprüft, schrittweise fortgeführt oder fortgesetzt werden kann.",
+                      "en": "Pauses a running tool run at its current step so its progress can be inspected, stepped or resumed."
+                    }
+                  },
                   "effects": {
                     "destructive": false,
                     "external": false,
@@ -4734,6 +4980,16 @@
                   }
                 },
                 "semantics": {
+                  "description": {
+                    "native": {
+                      "de": "Setzt einen pausierten Werkzeuglauf an dem Schritt fort, an dem er angehalten wurde.",
+                      "en": "Continues a paused tool run from the step where it stopped."
+                    },
+                    "reuse": {
+                      "de": "Setzt einen pausierten Werkzeuglauf an dem Schritt fort, an dem er angehalten wurde.",
+                      "en": "Continues a paused tool run from the step where it stopped."
+                    }
+                  },
                   "effects": {
                     "destructive": false,
                     "external": false,
@@ -4823,6 +5079,16 @@
                   }
                 },
                 "semantics": {
+                  "description": {
+                    "native": {
+                      "de": "Führt einen pausierten Werkzeuglauf genau einen Schritt weiter und hält ihn wieder an.",
+                      "en": "Advances a paused tool run by exactly one step and pauses it again."
+                    },
+                    "reuse": {
+                      "de": "Führt einen pausierten Werkzeuglauf genau einen Schritt weiter und hält ihn wieder an.",
+                      "en": "Advances a paused tool run by exactly one step and pauses it again."
+                    }
+                  },
                   "effects": {
                     "destructive": false,
                     "external": false,
@@ -4912,6 +5178,16 @@
                   }
                 },
                 "semantics": {
+                  "description": {
+                    "native": {
+                      "de": "Bricht einen Werkzeuglauf ab und verwirft sein vorläufiges Ergebnis; das Dokument bleibt genau so, wie es vor dem Start war.",
+                      "en": "Stops a tool run and discards its provisional result; the document stays exactly as it was before the run started."
+                    },
+                    "reuse": {
+                      "de": "Bricht einen Werkzeuglauf ab und verwirft sein vorläufiges Ergebnis; das Dokument bleibt genau so, wie es vor dem Start war.",
+                      "en": "Stops a tool run and discards its provisional result; the document stays exactly as it was before the run started."
+                    }
+                  },
                   "effects": {
                     "destructive": false,
                     "external": false,
@@ -5001,6 +5277,16 @@
                   }
                 },
                 "semantics": {
+                  "description": {
+                    "native": {
+                      "de": "Übernimmt das vorläufige Ergebnis eines laufenden, pausierten oder fertigen Werkzeuglaufs als eine rückgängig machbare Änderung in das Dokument.",
+                      "en": "Commits the provisional result of a running, paused or complete tool run into the document as one undoable edit."
+                    },
+                    "reuse": {
+                      "de": "Übernimmt das vorläufige Ergebnis eines laufenden, pausierten oder fertigen Werkzeuglaufs als eine rückgängig machbare Änderung in das Dokument.",
+                      "en": "Commits the provisional result of a running, paused or complete tool run into the document as one undoable edit."
+                    }
+                  },
                   "effects": {
                     "destructive": false,
                     "external": false,
@@ -5066,6 +5352,16 @@
                   }
                 },
                 "semantics": {
+                  "description": {
+                    "native": {
+                      "de": "Schließt das Panel eines abgeschlossenen, abgebrochenen oder fehlgeschlagenen Werkzeuglaufs; das Dokument bleibt unberührt.",
+                      "en": "Closes the panel of a finalized, aborted or failed tool run; the document is not touched."
+                    },
+                    "reuse": {
+                      "de": "Schließt das Panel eines abgeschlossenen, abgebrochenen oder fehlgeschlagenen Werkzeuglaufs; das Dokument bleibt unberührt.",
+                      "en": "Closes the panel of a finalized, aborted or failed tool run; the document is not touched."
+                    }
+                  },
                   "effects": {
                     "destructive": false,
                     "external": false,
@@ -5086,6 +5382,51 @@
                     "approval": "never",
                     "scopes": [
                       "artifacts.write"
+                    ]
+                  }
+                }
+              },
+              {
+                "args": [],
+                "iconId": "square",
+                "id": "cancelTypedOperation",
+                "inPalette": false,
+                "kind": "view",
+                "label": {
+                  "native": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  },
+                  "reuse": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  }
+                },
+                "semantics": {
+                  "effects": {
+                    "destructive": false,
+                    "external": false,
+                    "reads": [
+                      "config:{self}"
+                    ],
+                    "reversible": false
+                  },
+                  "execution": {
+                    "cancellable": false,
+                    "class": "interactive",
+                    "expectedRevision": false,
+                    "idempotency": "none",
+                    "interactiveJob": "migrated",
+                    "preview": "none",
+                    "undo": {
+                      "kind": "none"
+                    }
+                  },
+                  "policy": {
+                    "approval": "never",
+                    "scopes": [
+                      "artifacts.read",
+                      "shell.observe"
                     ]
                   }
                 }
@@ -5398,11 +5739,11 @@
                 "kind": "interaction",
                 "label": {
                   "native": {
-                    "de": "Hover",
+                    "de": "Darüberfahren",
                     "en": "Hover"
                   },
                   "reuse": {
-                    "de": "Hover",
+                    "de": "Darüberfahren",
                     "en": "Hover"
                   }
                 },
@@ -5774,6 +6115,16 @@
                   }
                 },
                 "semantics": {
+                  "description": {
+                    "native": {
+                      "de": "Startet einen Lauf des angegebenen Werkzeugs (etwa eines Lösers) in einem Fenster; der Lauf zeigt sein Ergebnis als vorläufige Vorschau und ändert nichts, bis er abgeschlossen wird.",
+                      "en": "Starts a run of the given tool (such as a solver) in a window; the run shows its result as a provisional preview and changes nothing until it is finalized."
+                    },
+                    "reuse": {
+                      "de": "Startet einen Lauf des angegebenen Werkzeugs (etwa eines Lösers) in einem Fenster; der Lauf zeigt sein Ergebnis als vorläufige Vorschau und ändert nichts, bis er abgeschlossen wird.",
+                      "en": "Starts a run of the given tool (such as a solver) in a window; the run shows its result as a provisional preview and changes nothing until it is finalized."
+                    }
+                  },
                   "effects": {
                     "destructive": false,
                     "external": false,
@@ -5863,6 +6214,16 @@
                   }
                 },
                 "semantics": {
+                  "description": {
+                    "native": {
+                      "de": "Hält einen laufenden Werkzeuglauf beim aktuellen Schritt an, damit sein Fortschritt geprüft, schrittweise fortgeführt oder fortgesetzt werden kann.",
+                      "en": "Pauses a running tool run at its current step so its progress can be inspected, stepped or resumed."
+                    },
+                    "reuse": {
+                      "de": "Hält einen laufenden Werkzeuglauf beim aktuellen Schritt an, damit sein Fortschritt geprüft, schrittweise fortgeführt oder fortgesetzt werden kann.",
+                      "en": "Pauses a running tool run at its current step so its progress can be inspected, stepped or resumed."
+                    }
+                  },
                   "effects": {
                     "destructive": false,
                     "external": false,
@@ -5952,6 +6313,16 @@
                   }
                 },
                 "semantics": {
+                  "description": {
+                    "native": {
+                      "de": "Setzt einen pausierten Werkzeuglauf an dem Schritt fort, an dem er angehalten wurde.",
+                      "en": "Continues a paused tool run from the step where it stopped."
+                    },
+                    "reuse": {
+                      "de": "Setzt einen pausierten Werkzeuglauf an dem Schritt fort, an dem er angehalten wurde.",
+                      "en": "Continues a paused tool run from the step where it stopped."
+                    }
+                  },
                   "effects": {
                     "destructive": false,
                     "external": false,
@@ -6041,6 +6412,16 @@
                   }
                 },
                 "semantics": {
+                  "description": {
+                    "native": {
+                      "de": "Führt einen pausierten Werkzeuglauf genau einen Schritt weiter und hält ihn wieder an.",
+                      "en": "Advances a paused tool run by exactly one step and pauses it again."
+                    },
+                    "reuse": {
+                      "de": "Führt einen pausierten Werkzeuglauf genau einen Schritt weiter und hält ihn wieder an.",
+                      "en": "Advances a paused tool run by exactly one step and pauses it again."
+                    }
+                  },
                   "effects": {
                     "destructive": false,
                     "external": false,
@@ -6130,6 +6511,16 @@
                   }
                 },
                 "semantics": {
+                  "description": {
+                    "native": {
+                      "de": "Bricht einen Werkzeuglauf ab und verwirft sein vorläufiges Ergebnis; das Dokument bleibt genau so, wie es vor dem Start war.",
+                      "en": "Stops a tool run and discards its provisional result; the document stays exactly as it was before the run started."
+                    },
+                    "reuse": {
+                      "de": "Bricht einen Werkzeuglauf ab und verwirft sein vorläufiges Ergebnis; das Dokument bleibt genau so, wie es vor dem Start war.",
+                      "en": "Stops a tool run and discards its provisional result; the document stays exactly as it was before the run started."
+                    }
+                  },
                   "effects": {
                     "destructive": false,
                     "external": false,
@@ -6219,6 +6610,16 @@
                   }
                 },
                 "semantics": {
+                  "description": {
+                    "native": {
+                      "de": "Übernimmt das vorläufige Ergebnis eines laufenden, pausierten oder fertigen Werkzeuglaufs als eine rückgängig machbare Änderung in das Dokument.",
+                      "en": "Commits the provisional result of a running, paused or complete tool run into the document as one undoable edit."
+                    },
+                    "reuse": {
+                      "de": "Übernimmt das vorläufige Ergebnis eines laufenden, pausierten oder fertigen Werkzeuglaufs als eine rückgängig machbare Änderung in das Dokument.",
+                      "en": "Commits the provisional result of a running, paused or complete tool run into the document as one undoable edit."
+                    }
+                  },
                   "effects": {
                     "destructive": false,
                     "external": false,
@@ -6284,6 +6685,16 @@
                   }
                 },
                 "semantics": {
+                  "description": {
+                    "native": {
+                      "de": "Schließt das Panel eines abgeschlossenen, abgebrochenen oder fehlgeschlagenen Werkzeuglaufs; das Dokument bleibt unberührt.",
+                      "en": "Closes the panel of a finalized, aborted or failed tool run; the document is not touched."
+                    },
+                    "reuse": {
+                      "de": "Schließt das Panel eines abgeschlossenen, abgebrochenen oder fehlgeschlagenen Werkzeuglaufs; das Dokument bleibt unberührt.",
+                      "en": "Closes the panel of a finalized, aborted or failed tool run; the document is not touched."
+                    }
+                  },
                   "effects": {
                     "destructive": false,
                     "external": false,
@@ -6304,6 +6715,51 @@
                     "approval": "never",
                     "scopes": [
                       "artifacts.write"
+                    ]
+                  }
+                }
+              },
+              {
+                "args": [],
+                "iconId": "square",
+                "id": "cancelTypedOperation",
+                "inPalette": false,
+                "kind": "view",
+                "label": {
+                  "native": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  },
+                  "reuse": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  }
+                },
+                "semantics": {
+                  "effects": {
+                    "destructive": false,
+                    "external": false,
+                    "reads": [
+                      "config:{self}"
+                    ],
+                    "reversible": false
+                  },
+                  "execution": {
+                    "cancellable": false,
+                    "class": "interactive",
+                    "expectedRevision": false,
+                    "idempotency": "none",
+                    "interactiveJob": "migrated",
+                    "preview": "none",
+                    "undo": {
+                      "kind": "none"
+                    }
+                  },
+                  "policy": {
+                    "approval": "never",
+                    "scopes": [
+                      "artifacts.read",
+                      "shell.observe"
                     ]
                   }
                 }
@@ -7039,6 +7495,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Öffnet den Tutorial-Rekorder für das geöffnete Dokument, damit die nächsten Interaktionen als Tutorial aufgezeichnet werden.",
+                  "en": "Opens the tutorial recorder on the open document so the next interactions are recorded as a tutorial."
+                },
+                "reuse": {
+                  "de": "Öffnet den Tutorial-Rekorder für das geöffnete Dokument, damit die nächsten Interaktionen als Tutorial aufgezeichnet werden.",
+                  "en": "Opens the tutorial recorder on the open document so the next interactions are recorded as a tutorial."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -7144,6 +7610,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Filtert den Verlaufsbereich auf alle Einträge, nur Dokumentoperationen oder alles außer Dokumentoperationen; das Dokument wird nicht verändert.",
+                  "en": "Filters the history panel to all entries, only document operations, or everything except document operations; the document is not changed."
+                },
+                "reuse": {
+                  "de": "Filtert den Verlaufsbereich auf alle Einträge, nur Dokumentoperationen oder alles außer Dokumentoperationen; das Dokument wird nicht verändert.",
+                  "en": "Filters the history panel to all entries, only document operations, or everything except document operations; the document is not changed."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -7242,6 +7718,16 @@
             },
             "semantics": {
               "audience": "chrome",
+              "description": {
+                "native": {
+                  "de": "Vermerkt eine bereits erfolgte Shell-Wirkung (Navigation, Export, Start) im Sitzungsprotokoll; das Dokument wird nicht verändert.",
+                  "en": "Records a shell effect that already happened (navigation, export, spawn) in the session command log; the document is not changed."
+                },
+                "reuse": {
+                  "de": "Vermerkt eine bereits erfolgte Shell-Wirkung (Navigation, Export, Start) im Sitzungsprotokoll; das Dokument wird nicht verändert.",
+                  "en": "Records a shell effect that already happened (navigation, export, spawn) in the session command log; the document is not changed."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -7314,7 +7800,7 @@
             "class": "data",
             "form": "value"
           },
-          "artifactSchema": "",
+          "artifactSchema": "trinity.graph",
           "exportFormats": [],
           "importFormats": [],
           "ports": []
@@ -7416,7 +7902,53 @@
         "utilities": [],
         "windowKinds": [
           {
-            "actions": [],
+            "actions": [
+              {
+                "args": [],
+                "iconId": "square",
+                "id": "cancelTypedOperation",
+                "inPalette": false,
+                "kind": "view",
+                "label": {
+                  "native": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  },
+                  "reuse": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  }
+                },
+                "semantics": {
+                  "effects": {
+                    "destructive": false,
+                    "external": false,
+                    "reads": [
+                      "config:{self}"
+                    ],
+                    "reversible": false
+                  },
+                  "execution": {
+                    "cancellable": false,
+                    "class": "interactive",
+                    "expectedRevision": false,
+                    "idempotency": "none",
+                    "interactiveJob": "migrated",
+                    "preview": "none",
+                    "undo": {
+                      "kind": "none"
+                    }
+                  },
+                  "policy": {
+                    "approval": "never",
+                    "scopes": [
+                      "artifacts.read",
+                      "shell.observe"
+                    ]
+                  }
+                }
+              }
+            ],
             "bodyKey": "trinity.jack.view.graph",
             "capabilities": [],
             "iconId": "graph-dag",
@@ -7560,6 +8092,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Fügt der Umschreiberegel eine Klausel der angegebenen Art hinzu (where, create, merge, set, delete oder parameter); eine where-Klausel wird nur einmal hinzugefügt.",
+                  "en": "Adds a clause of the given kind (where, create, merge, set, delete or parameter) to the rewriting rule; a where clause is only added once."
+                },
+                "reuse": {
+                  "de": "Fügt der Umschreiberegel eine Klausel der angegebenen Art hinzu (where, create, merge, set, delete oder parameter); eine where-Klausel wird nur einmal hinzugefügt.",
+                  "en": "Adds a clause of the given kind (where, create, merge, set, delete or parameter) to the rewriting rule; a where clause is only added once."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -7605,8 +8147,18 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Setzt die Umschreiberegel auf die leere Standardregel zurück und verwirft Muster, Klauseln und Parameter.",
+                  "en": "Resets the rewriting rule to the blank default rule, discarding its pattern, clauses and parameters."
+                },
+                "reuse": {
+                  "de": "Setzt die Umschreiberegel auf die leere Standardregel zurück und verwirft Muster, Klauseln und Parameter.",
+                  "en": "Resets the rewriting rule to the blank default rule, discarding its pattern, clauses and parameters."
+                }
+              },
               "effects": {
-                "destructive": false,
+                "destructive": true,
                 "external": false,
                 "reversible": true,
                 "writes": [
@@ -7683,6 +8235,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Ersetzt die gesamte Umschreiberegel durch die mitgelieferte Demo-Regel oder die leere Standardregel, anhand der Beispiel-Id.",
+                  "en": "Replaces the whole rewriting rule with the bundled demo rule, or with the blank default rule, by example id."
+                },
+                "reuse": {
+                  "de": "Ersetzt die gesamte Umschreiberegel durch die mitgelieferte Demo-Regel oder die leere Standardregel, anhand der Beispiel-Id.",
+                  "en": "Replaces the whole rewriting rule with the bundled demo rule, or with the blank default rule, by example id."
+                }
+              },
               "effects": {
                 "destructive": true,
                 "external": false,
@@ -7763,6 +8325,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Setzt den gebundenen Wert eines benannten Regelparameters, gelesen als Zahl, Wahrheitswert oder Zeichenkette gemäß seiner deklarierten Art.",
+                  "en": "Sets the bound value of one named rule parameter, parsed as a number, boolean or string according to its declared kind."
+                },
+                "reuse": {
+                  "de": "Setzt den gebundenen Wert eines benannten Regelparameters, gelesen als Zahl, Wahrheitswert oder Zeichenkette gemäß seiner deklarierten Art.",
+                  "en": "Sets the bound value of one named rule parameter, parsed as a number, boolean or string according to its declared kind."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -7796,15 +8368,15 @@
                 "id": "nodeIds",
                 "label": {
                   "native": {
-                    "de": "Knoten",
-                    "en": "Nodes"
+                    "de": "Knoten (leer: Auswahl)",
+                    "en": "Nodes (empty: selection)"
                   },
                   "reuse": {
-                    "de": "Knoten",
-                    "en": "Nodes"
+                    "de": "Knoten (leer: Auswahl)",
+                    "en": "Nodes (empty: selection)"
                   }
                 },
-                "required": true,
+                "required": false,
                 "schema": {
                   "kind": "string"
                 }
@@ -7888,6 +8460,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Setzt Name oder Art der angegebenen Knoten im Beispielgraphen der Regel.",
+                  "en": "Sets the name or kind of the given nodes in the rule's example graph."
+                },
+                "reuse": {
+                  "de": "Setzt Name oder Art der angegebenen Knoten im Beispielgraphen der Regel.",
+                  "en": "Sets the name or kind of the given nodes in the rule's example graph."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -7920,7 +8502,7 @@
             "category": "transform",
             "iconId": "sparkles",
             "id": "nodeGraphEdit",
-            "inPalette": true,
+            "inPalette": false,
             "kind": "mutation",
             "label": {
               "native": {
@@ -7933,6 +8515,7 @@
               }
             },
             "semantics": {
+              "audience": "input",
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -7996,8 +8579,18 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Ersetzt die linke Seite der Regel, das Graphmuster, das sie erkennt, durch das angegebene JSON.",
+                  "en": "Replaces the rule's left-hand side, the graph pattern it matches, with the given JSON."
+                },
+                "reuse": {
+                  "de": "Ersetzt die linke Seite der Regel, das Graphmuster, das sie erkennt, durch das angegebene JSON.",
+                  "en": "Replaces the rule's left-hand side, the graph pattern it matches, with the given JSON."
+                }
+              },
               "effects": {
-                "destructive": false,
+                "destructive": true,
                 "external": false,
                 "reversible": true,
                 "writes": [
@@ -8059,8 +8652,18 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Ersetzt die rechte Seite der Regel, was sie für jeden Treffer schreibt, durch das angegebene JSON und setzt die Parameterbindungen auf ihre Standardwerte zurück.",
+                  "en": "Replaces the rule's right-hand side, what it writes for each match, with the given JSON and resets the parameter bindings to their defaults."
+                },
+                "reuse": {
+                  "de": "Ersetzt die rechte Seite der Regel, was sie für jeden Treffer schreibt, durch das angegebene JSON und setzt die Parameterbindungen auf ihre Standardwerte zurück.",
+                  "en": "Replaces the rule's right-hand side, what it writes for each match, with the given JSON and resets the parameter bindings to their defaults."
+                }
+              },
               "effects": {
-                "destructive": false,
+                "destructive": true,
                 "external": false,
                 "reversible": true,
                 "writes": [
@@ -8091,7 +8694,7 @@
             "category": "view",
             "iconId": "eye",
             "id": "nodeGraphViewport",
-            "inPalette": true,
+            "inPalette": false,
             "kind": "view",
             "label": {
               "native": {
@@ -8104,6 +8707,7 @@
               }
             },
             "semantics": {
+              "audience": "chrome",
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -8150,8 +8754,18 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Verwirft alle manuellen Knotenpositionen des Regelgraphen, sodass er wieder automatisch angeordnet wird.",
+                  "en": "Drops every manual node position of the rule graph so it is laid out automatically again."
+                },
+                "reuse": {
+                  "de": "Verwirft alle manuellen Knotenpositionen des Regelgraphen, sodass er wieder automatisch angeordnet wird.",
+                  "en": "Drops every manual node position of the rule graph so it is laid out automatically again."
+                }
+              },
               "effects": {
-                "destructive": false,
+                "destructive": true,
                 "external": false,
                 "reversible": true,
                 "writes": [
@@ -8195,6 +8809,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Legt die Detailstufe fest, mit der das Graphfenster der Regel zeichnet; nur die Ansicht dieses Fensters ändert sich.",
+                  "en": "Sets the level of detail the rule's graph window draws with; only that window's view changes."
+                },
+                "reuse": {
+                  "de": "Legt die Detailstufe fest, mit der das Graphfenster der Regel zeichnet; nur die Ansicht dieses Fensters ändert sich.",
+                  "en": "Sets the level of detail the rule's graph window draws with; only that window's view changes."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -8926,6 +9550,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Öffnet den Tutorial-Rekorder für das geöffnete Dokument, damit die nächsten Interaktionen als Tutorial aufgezeichnet werden.",
+                  "en": "Opens the tutorial recorder on the open document so the next interactions are recorded as a tutorial."
+                },
+                "reuse": {
+                  "de": "Öffnet den Tutorial-Rekorder für das geöffnete Dokument, damit die nächsten Interaktionen als Tutorial aufgezeichnet werden.",
+                  "en": "Opens the tutorial recorder on the open document so the next interactions are recorded as a tutorial."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -9031,6 +9665,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Filtert den Verlaufsbereich auf alle Einträge, nur Dokumentoperationen oder alles außer Dokumentoperationen; das Dokument wird nicht verändert.",
+                  "en": "Filters the history panel to all entries, only document operations, or everything except document operations; the document is not changed."
+                },
+                "reuse": {
+                  "de": "Filtert den Verlaufsbereich auf alle Einträge, nur Dokumentoperationen oder alles außer Dokumentoperationen; das Dokument wird nicht verändert.",
+                  "en": "Filters the history panel to all entries, only document operations, or everything except document operations; the document is not changed."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -9129,6 +9773,16 @@
             },
             "semantics": {
               "audience": "chrome",
+              "description": {
+                "native": {
+                  "de": "Vermerkt eine bereits erfolgte Shell-Wirkung (Navigation, Export, Start) im Sitzungsprotokoll; das Dokument wird nicht verändert.",
+                  "en": "Records a shell effect that already happened (navigation, export, spawn) in the session command log; the document is not changed."
+                },
+                "reuse": {
+                  "de": "Vermerkt eine bereits erfolgte Shell-Wirkung (Navigation, Export, Start) im Sitzungsprotokoll; das Dokument wird nicht verändert.",
+                  "en": "Records a shell effect that already happened (navigation, export, spawn) in the session command log; the document is not changed."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -9154,7 +9808,31 @@
             }
           }
         ],
-        "artifactKinds": [],
+        "artifactKinds": [
+          {
+            "componentKind": "trinity",
+            "dimension": "text",
+            "exportFormats": [],
+            "exportStdioKinds": [
+              "stdio.json",
+              "stdio.txt"
+            ],
+            "id": "text.rewriting",
+            "importFormats": [],
+            "importStdioKinds": [
+              "stdio.json",
+              "stdio.txt"
+            ],
+            "mediaCapability": "meshOnly",
+            "mediaType": {
+              "class": "text",
+              "form": "document"
+            },
+            "name": "Trinity Rewrite Rule",
+            "schema": "trinity.rewrite.rule",
+            "sourceFormat": "trinity.rewrite.rule"
+          }
+        ],
         "breadcrumb": [
           "semio",
           "trinity",
@@ -9817,11 +10495,11 @@
                 "kind": "interaction",
                 "label": {
                   "native": {
-                    "de": "Hover",
+                    "de": "Darüberfahren",
                     "en": "Hover"
                   },
                   "reuse": {
-                    "de": "Hover",
+                    "de": "Darüberfahren",
                     "en": "Hover"
                   }
                 },
@@ -10103,6 +10781,51 @@
                   "reuse": {
                     "de": "Granularität festlegen",
                     "en": "Set Granularity"
+                  }
+                },
+                "semantics": {
+                  "effects": {
+                    "destructive": false,
+                    "external": false,
+                    "reads": [
+                      "config:{self}"
+                    ],
+                    "reversible": false
+                  },
+                  "execution": {
+                    "cancellable": false,
+                    "class": "interactive",
+                    "expectedRevision": false,
+                    "idempotency": "none",
+                    "interactiveJob": "migrated",
+                    "preview": "none",
+                    "undo": {
+                      "kind": "none"
+                    }
+                  },
+                  "policy": {
+                    "approval": "never",
+                    "scopes": [
+                      "artifacts.read",
+                      "shell.observe"
+                    ]
+                  }
+                }
+              },
+              {
+                "args": [],
+                "iconId": "square",
+                "id": "cancelTypedOperation",
+                "inPalette": false,
+                "kind": "view",
+                "label": {
+                  "native": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  },
+                  "reuse": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
                   }
                 },
                 "semantics": {
@@ -10444,11 +11167,11 @@
                 "kind": "interaction",
                 "label": {
                   "native": {
-                    "de": "Hover",
+                    "de": "Darüberfahren",
                     "en": "Hover"
                   },
                   "reuse": {
-                    "de": "Hover",
+                    "de": "Darüberfahren",
                     "en": "Hover"
                   }
                 },
@@ -10730,6 +11453,51 @@
                   "reuse": {
                     "de": "Granularität festlegen",
                     "en": "Set Granularity"
+                  }
+                },
+                "semantics": {
+                  "effects": {
+                    "destructive": false,
+                    "external": false,
+                    "reads": [
+                      "config:{self}"
+                    ],
+                    "reversible": false
+                  },
+                  "execution": {
+                    "cancellable": false,
+                    "class": "interactive",
+                    "expectedRevision": false,
+                    "idempotency": "none",
+                    "interactiveJob": "migrated",
+                    "preview": "none",
+                    "undo": {
+                      "kind": "none"
+                    }
+                  },
+                  "policy": {
+                    "approval": "never",
+                    "scopes": [
+                      "artifacts.read",
+                      "shell.observe"
+                    ]
+                  }
+                }
+              },
+              {
+                "args": [],
+                "iconId": "square",
+                "id": "cancelTypedOperation",
+                "inPalette": false,
+                "kind": "view",
+                "label": {
+                  "native": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  },
+                  "reuse": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
                   }
                 },
                 "semantics": {
@@ -11071,11 +11839,11 @@
                 "kind": "interaction",
                 "label": {
                   "native": {
-                    "de": "Hover",
+                    "de": "Darüberfahren",
                     "en": "Hover"
                   },
                   "reuse": {
-                    "de": "Hover",
+                    "de": "Darüberfahren",
                     "en": "Hover"
                   }
                 },
@@ -11357,6 +12125,51 @@
                   "reuse": {
                     "de": "Granularität festlegen",
                     "en": "Set Granularity"
+                  }
+                },
+                "semantics": {
+                  "effects": {
+                    "destructive": false,
+                    "external": false,
+                    "reads": [
+                      "config:{self}"
+                    ],
+                    "reversible": false
+                  },
+                  "execution": {
+                    "cancellable": false,
+                    "class": "interactive",
+                    "expectedRevision": false,
+                    "idempotency": "none",
+                    "interactiveJob": "migrated",
+                    "preview": "none",
+                    "undo": {
+                      "kind": "none"
+                    }
+                  },
+                  "policy": {
+                    "approval": "never",
+                    "scopes": [
+                      "artifacts.read",
+                      "shell.observe"
+                    ]
+                  }
+                }
+              },
+              {
+                "args": [],
+                "iconId": "square",
+                "id": "cancelTypedOperation",
+                "inPalette": false,
+                "kind": "view",
+                "label": {
+                  "native": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  },
+                  "reuse": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
                   }
                 },
                 "semantics": {
@@ -11698,11 +12511,11 @@
                 "kind": "interaction",
                 "label": {
                   "native": {
-                    "de": "Hover",
+                    "de": "Darüberfahren",
                     "en": "Hover"
                   },
                   "reuse": {
-                    "de": "Hover",
+                    "de": "Darüberfahren",
                     "en": "Hover"
                   }
                 },
@@ -11984,6 +12797,51 @@
                   "reuse": {
                     "de": "Granularität festlegen",
                     "en": "Set Granularity"
+                  }
+                },
+                "semantics": {
+                  "effects": {
+                    "destructive": false,
+                    "external": false,
+                    "reads": [
+                      "config:{self}"
+                    ],
+                    "reversible": false
+                  },
+                  "execution": {
+                    "cancellable": false,
+                    "class": "interactive",
+                    "expectedRevision": false,
+                    "idempotency": "none",
+                    "interactiveJob": "migrated",
+                    "preview": "none",
+                    "undo": {
+                      "kind": "none"
+                    }
+                  },
+                  "policy": {
+                    "approval": "never",
+                    "scopes": [
+                      "artifacts.read",
+                      "shell.observe"
+                    ]
+                  }
+                }
+              },
+              {
+                "args": [],
+                "iconId": "square",
+                "id": "cancelTypedOperation",
+                "inPalette": false,
+                "kind": "view",
+                "label": {
+                  "native": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  },
+                  "reuse": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
                   }
                 },
                 "semantics": {
@@ -12325,11 +13183,11 @@
                 "kind": "interaction",
                 "label": {
                   "native": {
-                    "de": "Hover",
+                    "de": "Darüberfahren",
                     "en": "Hover"
                   },
                   "reuse": {
-                    "de": "Hover",
+                    "de": "Darüberfahren",
                     "en": "Hover"
                   }
                 },
@@ -12611,6 +13469,51 @@
                   "reuse": {
                     "de": "Granularität festlegen",
                     "en": "Set Granularity"
+                  }
+                },
+                "semantics": {
+                  "effects": {
+                    "destructive": false,
+                    "external": false,
+                    "reads": [
+                      "config:{self}"
+                    ],
+                    "reversible": false
+                  },
+                  "execution": {
+                    "cancellable": false,
+                    "class": "interactive",
+                    "expectedRevision": false,
+                    "idempotency": "none",
+                    "interactiveJob": "migrated",
+                    "preview": "none",
+                    "undo": {
+                      "kind": "none"
+                    }
+                  },
+                  "policy": {
+                    "approval": "never",
+                    "scopes": [
+                      "artifacts.read",
+                      "shell.observe"
+                    ]
+                  }
+                }
+              },
+              {
+                "args": [],
+                "iconId": "square",
+                "id": "cancelTypedOperation",
+                "inPalette": false,
+                "kind": "view",
+                "label": {
+                  "native": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  },
+                  "reuse": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
                   }
                 },
                 "semantics": {
@@ -12950,11 +13853,11 @@
                 "kind": "interaction",
                 "label": {
                   "native": {
-                    "de": "Hover",
+                    "de": "Darüberfahren",
                     "en": "Hover"
                   },
                   "reuse": {
-                    "de": "Hover",
+                    "de": "Darüberfahren",
                     "en": "Hover"
                   }
                 },
@@ -13236,6 +14139,51 @@
                   "reuse": {
                     "de": "Granularität festlegen",
                     "en": "Set Granularity"
+                  }
+                },
+                "semantics": {
+                  "effects": {
+                    "destructive": false,
+                    "external": false,
+                    "reads": [
+                      "config:{self}"
+                    ],
+                    "reversible": false
+                  },
+                  "execution": {
+                    "cancellable": false,
+                    "class": "interactive",
+                    "expectedRevision": false,
+                    "idempotency": "none",
+                    "interactiveJob": "migrated",
+                    "preview": "none",
+                    "undo": {
+                      "kind": "none"
+                    }
+                  },
+                  "policy": {
+                    "approval": "never",
+                    "scopes": [
+                      "artifacts.read",
+                      "shell.observe"
+                    ]
+                  }
+                }
+              },
+              {
+                "args": [],
+                "iconId": "square",
+                "id": "cancelTypedOperation",
+                "inPalette": false,
+                "kind": "view",
+                "label": {
+                  "native": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  },
+                  "reuse": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
                   }
                 },
                 "semantics": {
@@ -13998,6 +14946,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Öffnet den Tutorial-Rekorder für das geöffnete Dokument, damit die nächsten Interaktionen als Tutorial aufgezeichnet werden.",
+                  "en": "Opens the tutorial recorder on the open document so the next interactions are recorded as a tutorial."
+                },
+                "reuse": {
+                  "de": "Öffnet den Tutorial-Rekorder für das geöffnete Dokument, damit die nächsten Interaktionen als Tutorial aufgezeichnet werden.",
+                  "en": "Opens the tutorial recorder on the open document so the next interactions are recorded as a tutorial."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -14103,6 +15061,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Filtert den Verlaufsbereich auf alle Einträge, nur Dokumentoperationen oder alles außer Dokumentoperationen; das Dokument wird nicht verändert.",
+                  "en": "Filters the history panel to all entries, only document operations, or everything except document operations; the document is not changed."
+                },
+                "reuse": {
+                  "de": "Filtert den Verlaufsbereich auf alle Einträge, nur Dokumentoperationen oder alles außer Dokumentoperationen; das Dokument wird nicht verändert.",
+                  "en": "Filters the history panel to all entries, only document operations, or everything except document operations; the document is not changed."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -14201,6 +15169,16 @@
             },
             "semantics": {
               "audience": "chrome",
+              "description": {
+                "native": {
+                  "de": "Vermerkt eine bereits erfolgte Shell-Wirkung (Navigation, Export, Start) im Sitzungsprotokoll; das Dokument wird nicht verändert.",
+                  "en": "Records a shell effect that already happened (navigation, export, spawn) in the session command log; the document is not changed."
+                },
+                "reuse": {
+                  "de": "Vermerkt eine bereits erfolgte Shell-Wirkung (Navigation, Export, Start) im Sitzungsprotokoll; das Dokument wird nicht verändert.",
+                  "en": "Records a shell effect that already happened (navigation, export, spawn) in the session command log; the document is not changed."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -14273,7 +15251,7 @@
             "class": "data",
             "form": "value"
           },
-          "artifactSchema": "",
+          "artifactSchema": "trinity.rewrite.rule",
           "exportFormats": [],
           "importFormats": [],
           "ports": []
@@ -14375,7 +15353,53 @@
         "utilities": [],
         "windowKinds": [
           {
-            "actions": [],
+            "actions": [
+              {
+                "args": [],
+                "iconId": "square",
+                "id": "cancelTypedOperation",
+                "inPalette": false,
+                "kind": "view",
+                "label": {
+                  "native": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  },
+                  "reuse": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  }
+                },
+                "semantics": {
+                  "effects": {
+                    "destructive": false,
+                    "external": false,
+                    "reads": [
+                      "config:{self}"
+                    ],
+                    "reversible": false
+                  },
+                  "execution": {
+                    "cancellable": false,
+                    "class": "interactive",
+                    "expectedRevision": false,
+                    "idempotency": "none",
+                    "interactiveJob": "migrated",
+                    "preview": "none",
+                    "undo": {
+                      "kind": "none"
+                    }
+                  },
+                  "policy": {
+                    "approval": "never",
+                    "scopes": [
+                      "artifacts.read",
+                      "shell.observe"
+                    ]
+                  }
+                }
+              }
+            ],
             "bodyKey": "framework.window.text",
             "capabilities": [],
             "iconId": "type",
@@ -14418,7 +15442,7 @@
     "commands": [],
     "examples": [
       {
-        "artifactJson": "semio trinity.jack.dsl v1\nschema=7472696e6974792e6772617068\nname=4e616b6167696e2043617073756c6520546f776572\nmanifestId=6e616b6167696e\ncamera=7b2278223a302e302c2279223a302e302c227a6f6f6d223a312e307d\nnodes=5b7b226964223a2237646335623733372d336236622d343036382d623331352d623762616363393163326531222c226b696e64223a225069656365222c226e616d65223a2262222c2278223a302e302c2279223a302e302c227769647468223a39362e302c22686569676874223a34382e302c2270726f70657274696573223a7b226c6162656c223a22746f7765722d636f7265222c22706f736974696f6e223a7b2278223a302e302c2279223a302e302c227a223a302e307d2c2274696572223a302e307d2c22706f727473223a5b7b226964223a2263353436353232302d313962612d343434332d386631642d363137633833326464313363222c226b696e64223a22436f6e6e6563746f72222c22646972656374696f6e223a226f7574222c2270726f70657274696573223a7b7d7d2c7b226964223a2264323561393165642d623132342d346535622d386537652d616638333235343163393533222c226b696e64223a22436f6e6e6563746f72222c22646972656374696f6e223a226f7574222c2270726f70657274696573223a7b7d7d5d7d2c7b226964223a2235663032363662632d383536622d346566322d396562302d313665663565316662393532222c226b696e64223a225069656365222c226e616d65223a22745f66305f625f6330222c2278223a2d3134302e302c2279223a38302e302c227769647468223a38382e302c22686569676874223a34302e302c2270726f70657274696573223a7b226c6162656c223a22666c6f6f72302d6c656674222c22706f736974696f6e223a7b2278223a2d312e322c2279223a312e322c227a223a302e307d2c2274696572223a302e307d2c22706f727473223a5b7b226964223a2237626536636664612d646231622d343765342d626365612d636430313165353136653265222c226b696e64223a22436f6e6e6563746f72222c22646972656374696f6e223a22696e222c2270726f70657274696573223a7b7d7d2c7b226964223a2265306662356434392d393238362d346136642d383862302d303433663338396336383938222c226b696e64223a22436f6e6e6563746f72222c22646972656374696f6e223a226f7574222c2270726f70657274696573223a7b7d7d5d7d2c7b226964223a2231376435646563382d383762322d343461392d383466662d393362376537343139626464222c226b696e64223a225069656365222c226e616d65223a22745f66305f625f6331222c2278223a3134302e302c2279223a38302e302c227769647468223a38382e302c22686569676874223a34302e302c2270726f70657274696573223a7b226c6162656c223a22666c6f6f72302d7269676874222c22706f736974696f6e223a7b2278223a312e322c2279223a312e322c227a223a302e307d2c2274696572223a302e307d2c22706f727473223a5b7b226964223a2237626536636664612d646231622d343765342d626365612d636430313165353136653265222c226b696e64223a22436f6e6e6563746f72222c22646972656374696f6e223a22696e222c2270726f70657274696573223a7b7d7d2c7b226964223a2266316132623363342d643565362d373839302d616263642d656631323334353637383930222c226b696e64223a22436f6e6e6563746f72222c22646972656374696f6e223a226f7574222c2270726f70657274696573223a7b7d7d5d7d2c7b226964223a2235393666336636302d623633342d343637622d386163632d376435623634396165306431222c226b696e64223a225069656365222c226e616d65223a22745f66315f625f6330222c2278223a2d3134302e302c2279223a3138302e302c227769647468223a38382e302c22686569676874223a34302e302c2270726f70657274696573223a7b226c6162656c223a22666c6f6f72312d7368616674222c22706f736974696f6e223a7b2278223a2d312e322c2279223a322e342c227a223a302e307d2c2274696572223a312e307d2c22706f727473223a5b7b226964223a2237626536636664612d646231622d343765342d626365612d636430313165353136653265222c226b696e64223a22436f6e6e6563746f72222c22646972656374696f6e223a22696e222c2270726f70657274696573223a7b7d7d2c7b226964223a2265306662356434392d393238362d346136642d383862302d303433663338396336383938222c226b696e64223a22436f6e6e6563746f72222c22646972656374696f6e223a226f7574222c2270726f70657274696573223a7b7d7d5d7d2c7b226964223a2266326564656135632d393630652d343662642d393332642d616165356563616437326438222c226b696e64223a225069656365222c226e616d65223a22745f66385f625f6330222c2278223a2d3134302e302c2279223a3238302e302c227769647468223a38382e302c22686569676874223a34302e302c2270726f70657274696573223a7b226c6162656c223a22666c6f6f72382d7368616674222c22706f736974696f6e223a7b2278223a2d312e322c2279223a392e362c227a223a302e307d2c2274696572223a382e307d2c22706f727473223a5b7b226964223a2265306662356434392d393238362d346136642d383862302d303433663338396336383938222c226b696e64223a22436f6e6e6563746f72222c22646972656374696f6e223a22696e222c2270726f70657274696573223a7b7d7d2c7b226964223a2263353436353232302d313962612d343434332d386631642d363137633833326464313363222c226b696e64223a22436f6e6e6563746f72222c22646972656374696f6e223a226f7574222c2270726f70657274696573223a7b7d7d5d7d2c7b226964223a2236393437613431622d386336642d343239312d626464382d393663643533356337386663222c226b696e64223a225069656365222c226e616d65223a2263695f745f66385f625f6330222c2278223a2d3134302e302c2279223a3338302e302c227769647468223a39362e302c22686569676874223a34342e302c2270726f70657274696573223a7b226c6162656c223a2263617073756c652d696e7374616e6365222c22706f736974696f6e223a7b2278223a2d312e322c2279223a31312e322c227a223a302e307d2c2274696572223a382e307d2c22706f727473223a5b7b226964223a2234626135316138382d326137662d346237382d623131392d306630326561636462373032222c226b696e64223a22436f6e6e6563746f72222c22646972656374696f6e223a22696e222c2270726f70657274696573223a7b7d7d5d7d2c7b226964223a2261386633653264312d346235632d366437652d386639302d613162326333643465356636222c226b696e64223a225069656365222c226e616d65223a226a61636b5f6f727068616e222c2278223a3330302e302c2279223a3230302e302c227769647468223a38382e302c22686569676874223a34302e302c2270726f70657274696573223a7b226c6162656c223a226a61636b2d6f727068616e222c2274696572223a302e307d2c22706f727473223a5b7b226964223a2264346535663661372d623863392d303132332d646566342d353637383930616263646566222c226b696e64223a22436f6e6e6563746f72222c22646972656374696f6e223a22696e222c2270726f70657274696573223a7b7d7d5d7d2c7b226964223a2262396634653364322d356336642d376538662d393061312d623263336434653566366137222c226b696e64223a225069656365222c226e616d65223a226a61636b5f7072756e65222c2278223a3330302e302c2279223a38302e302c227769647468223a38382e302c22686569676874223a34302e302c2270726f70657274696573223a7b226c6162656c223a226a61636b2d7072756e65222c2274696572223a302e307d2c22706f727473223a5b7b226964223a2265356636613762382d633964302d313233342d656635362d373839306162636465663031222c226b696e64223a22436f6e6e6563746f72222c22646972656374696f6e223a22696e222c2270726f70657274696573223a7b7d7d5d7d2c7b226964223a2263616635653464332d366437652d386639302d613162322d633364346535663661376238222c226b696e64223a225069656365222c226e616d65223a226a61636b5f7370617265222c2278223a3330302e302c2279223a3330302e302c227769647468223a38382e302c22686569676874223a34302e302c2270726f70657274696573223a7b226c6162656c223a226a61636b2d7370617265222c2274696572223a302e307d2c22706f727473223a5b7b226964223a2266366137623863392d643065312d323334352d663637382d393061626364656630313233222c226b696e64223a22436f6e6e6563746f72222c22646972656374696f6e223a226f7574222c2270726f70657274696573223a7b7d7d5d7d5d\nedges=5b7b226964223a2263633064313466352d313162322d343235382d616335322d323837643064343662323362222c226b696e64223a22436f6e6e656374696f6e222c22736f75726365223a2237646335623733372d336236622d343036382d623331352d6237626163633931633265314063353436353232302d313962612d343434332d386631642d363137633833326464313363222c22746172676574223a2235663032363662632d383536622d346566322d396562302d3136656635653166623935324037626536636664612d646231622d343765342d626365612d636430313165353136653265222c2270726f70657274696573223a7b22676170223a302e302c2272697365223a302e302c22726f746174696f6e223a3237302e302c227368696674223a302e302c2274696c74223a302e302c227475726e223a302e302c2275223a2d312e322c2276223a312e327d7d2c7b226964223a2238363834623531632d393466352d346135302d626531362d353236616338653038393261222c226b696e64223a22436f6e6e656374696f6e222c22736f75726365223a2237646335623733372d336236622d343036382d623331352d6237626163633931633265314064323561393165642d623132342d346535622d386537652d616638333235343163393533222c22746172676574223a2231376435646563382d383762322d343461392d383466662d3933623765373431396264644037626536636664612d646231622d343765342d626365612d636430313165353136653265222c2270726f70657274696573223a7b22676170223a302e302c2272697365223a302e302c22726f746174696f6e223a39302e302c227368696674223a302e302c2274696c74223a302e302c227475726e223a302e302c2275223a312e322c2276223a312e327d7d2c7b226964223a22652d73686166742d31222c226b696e64223a22436f6e6e656374696f6e222c22736f75726365223a2235663032363662632d383536622d346566322d396562302d3136656635653166623935324065306662356434392d393238362d346136642d383862302d303433663338396336383938222c22746172676574223a2235393666336636302d623633342d343637622d386163632d3764356236343961653064314037626536636664612d646231622d343765342d626365612d636430313165353136653265222c2270726f70657274696573223a7b22676170223a302e302c2272697365223a302e302c22726f746174696f6e223a302e302c227368696674223a302e302c2274696c74223a302e302c227475726e223a302e302c2275223a302e302c2276223a312e327d7d2c7b226964223a22652d73686166742d38222c226b696e64223a22436f6e6e656374696f6e222c22736f75726365223a2235393666336636302d623633342d343637622d386163632d3764356236343961653064314065306662356434392d393238362d346136642d383862302d303433663338396336383938222c22746172676574223a2266326564656135632d393630652d343662642d393332642d6161653565636164373264384065306662356434392d393238362d346136642d383862302d303433663338396336383938222c2270726f70657274696573223a7b22676170223a302e302c2272697365223a302e302c22726f746174696f6e223a302e302c227368696674223a302e302c2274696c74223a302e302c227475726e223a302e302c2275223a302e302c2276223a372e327d7d2c7b226964223a2266646165396636342d333938662d343561642d383439362d343533653732633331353132222c226b696e64223a22436f6e6e656374696f6e222c22736f75726365223a2266326564656135632d393630652d343662642d393332642d6161653565636164373264384063353436353232302d313962612d343434332d386631642d363137633833326464313363222c22746172676574223a2236393437613431622d386336642d343239312d626464382d3936636435333563373866634034626135316138382d326137662d346237382d623131392d306630326561636462373032222c2270726f70657274696573223a7b22676170223a302e302c2272697365223a302e302c22726f746174696f6e223a39302e302c227368696674223a302e302c2274696c74223a302e302c227475726e223a302e302c2275223a302e302c2276223a312e367d7d2c7b226964223a22652d6a61636b2d7072756e65222c226b696e64223a22436f6e6e656374696f6e222c22736f75726365223a2231376435646563382d383762322d343461392d383466662d3933623765373431396264644066316132623363342d643565362d373839302d616263642d656631323334353637383930222c22746172676574223a2262396634653364322d356336642d376538662d393061312d6232633364346535663661374065356636613762382d633964302d313233342d656635362d373839306162636465663031222c2270726f70657274696573223a7b22676170223a302e302c2272697365223a302e302c22726f746174696f6e223a302e302c227368696674223a302e302c2274696c74223a302e302c227475726e223a302e302c2275223a312e322c2276223a302e307d7d5d\nrootNodeId=37646335623733372d336236622d343036382d623331352d623762616363393163326531\n",
+        "artifactJson": "semio trinity.jack.dsl v1\nschema=trinity.graph name=\"Nakagin Capsule Tower\" manifest-id=nakagin root-node-id=\"7dc5b737-3b6b-4068-b315-b7bacc91c2e1\" camera={\n  x=0.0 y=0.0 zoom=1.0\n}\nnodes=[ {\n  height=48.0 id=\"7dc5b737-3b6b-4068-b315-b7bacc91c2e1\" kind=\"Piece\" name=\"b\" ports=[ {\n    direction=\"out\" id=\"c5465220-19ba-4443-8f1d-617c832dd13c\" kind=\"Connector\" properties={\n    }\n  }\n {\n    direction=\"out\" id=\"d25a91ed-b124-4e5b-8e7e-af832541c953\" kind=\"Connector\" properties={\n    }\n  }\n  ] properties={\n    label=\"tower-core\" position={\n      x=0.0 y=0.0 z=0.0\n    }\n    tier=0.0\n  }\n  width=96.0 x=0.0 y=0.0\n}\n {\n  height=40.0 id=\"5f0266bc-856b-4ef2-9eb0-16ef5e1fb952\" kind=\"Piece\" name=\"t_f0_b_c0\" ports=[ {\n    direction=\"in\" id=\"7be6cfda-db1b-47e4-bcea-cd011e516e2e\" kind=\"Connector\" properties={\n    }\n  }\n {\n    direction=\"out\" id=\"e0fb5d49-9286-4a6d-88b0-043f389c6898\" kind=\"Connector\" properties={\n    }\n  }\n  ] properties={\n    label=\"floor0-left\" position={\n      x=-1.2 y=1.2 z=0.0\n    }\n    tier=0.0\n  }\n  width=88.0 x=-140.0 y=80.0\n}\n {\n  height=40.0 id=\"17d5dec8-87b2-44a9-84ff-93b7e7419bdd\" kind=\"Piece\" name=\"t_f0_b_c1\" ports=[ {\n    direction=\"in\" id=\"7be6cfda-db1b-47e4-bcea-cd011e516e2e\" kind=\"Connector\" properties={\n    }\n  }\n {\n    direction=\"out\" id=\"f1a2b3c4-d5e6-7890-abcd-ef1234567890\" kind=\"Connector\" properties={\n    }\n  }\n  ] properties={\n    label=\"floor0-right\" position={\n      x=1.2 y=1.2 z=0.0\n    }\n    tier=0.0\n  }\n  width=88.0 x=140.0 y=80.0\n}\n {\n  height=40.0 id=\"596f3f60-b634-467b-8acc-7d5b649ae0d1\" kind=\"Piece\" name=\"t_f1_b_c0\" ports=[ {\n    direction=\"in\" id=\"7be6cfda-db1b-47e4-bcea-cd011e516e2e\" kind=\"Connector\" properties={\n    }\n  }\n {\n    direction=\"out\" id=\"e0fb5d49-9286-4a6d-88b0-043f389c6898\" kind=\"Connector\" properties={\n    }\n  }\n  ] properties={\n    label=\"floor1-shaft\" position={\n      x=-1.2 y=2.4 z=0.0\n    }\n    tier=1.0\n  }\n  width=88.0 x=-140.0 y=180.0\n}\n {\n  height=40.0 id=\"f2edea5c-960e-46bd-932d-aae5ecad72d8\" kind=\"Piece\" name=\"t_f8_b_c0\" ports=[ {\n    direction=\"in\" id=\"e0fb5d49-9286-4a6d-88b0-043f389c6898\" kind=\"Connector\" properties={\n    }\n  }\n {\n    direction=\"out\" id=\"c5465220-19ba-4443-8f1d-617c832dd13c\" kind=\"Connector\" properties={\n    }\n  }\n  ] properties={\n    label=\"floor8-shaft\" position={\n      x=-1.2 y=9.6 z=0.0\n    }\n    tier=8.0\n  }\n  width=88.0 x=-140.0 y=280.0\n}\n {\n  height=44.0 id=\"6947a41b-8c6d-4291-bdd8-96cd535c78fc\" kind=\"Piece\" name=\"ci_t_f8_b_c0\" ports=[ {\n    direction=\"in\" id=\"4ba51a88-2a7f-4b78-b119-0f02eacdb702\" kind=\"Connector\" properties={\n    }\n  }\n  ] properties={\n    label=\"capsule-instance\" position={\n      x=-1.2 y=11.2 z=0.0\n    }\n    tier=8.0\n  }\n  width=96.0 x=-140.0 y=380.0\n}\n {\n  height=40.0 id=\"a8f3e2d1-4b5c-6d7e-8f90-a1b2c3d4e5f6\" kind=\"Piece\" name=\"jack_orphan\" ports=[ {\n    direction=\"in\" id=\"d4e5f6a7-b8c9-0123-def4-567890abcdef\" kind=\"Connector\" properties={\n    }\n  }\n  ] properties={\n    label=\"jack-orphan\" tier=0.0\n  }\n  width=88.0 x=300.0 y=200.0\n}\n {\n  height=40.0 id=\"b9f4e3d2-5c6d-7e8f-90a1-b2c3d4e5f6a7\" kind=\"Piece\" name=\"jack_prune\" ports=[ {\n    direction=\"in\" id=\"e5f6a7b8-c9d0-1234-ef56-7890abcdef01\" kind=\"Connector\" properties={\n    }\n  }\n  ] properties={\n    label=\"jack-prune\" tier=0.0\n  }\n  width=88.0 x=300.0 y=80.0\n}\n {\n  height=40.0 id=\"caf5e4d3-6d7e-8f90-a1b2-c3d4e5f6a7b8\" kind=\"Piece\" name=\"jack_spare\" ports=[ {\n    direction=\"out\" id=\"f6a7b8c9-d0e1-2345-f678-90abcdef0123\" kind=\"Connector\" properties={\n    }\n  }\n  ] properties={\n    label=\"jack-spare\" tier=0.0\n  }\n  width=88.0 x=300.0 y=300.0\n}\n] edges=[ {\n  id=\"cc0d14f5-11b2-4258-ac52-287d0d46b23b\" kind=\"Connection\" properties={\n    gap=0.0 rise=0.0 rotation=270.0 shift=0.0 tilt=0.0 turn=0.0 u=-1.2 v=1.2\n  }\n  source=\"7dc5b737-3b6b-4068-b315-b7bacc91c2e1@c5465220-19ba-4443-8f1d-617c832dd13c\" target=\"5f0266bc-856b-4ef2-9eb0-16ef5e1fb952@7be6cfda-db1b-47e4-bcea-cd011e516e2e\"\n}\n {\n  id=\"8684b51c-94f5-4a50-be16-526ac8e0892a\" kind=\"Connection\" properties={\n    gap=0.0 rise=0.0 rotation=90.0 shift=0.0 tilt=0.0 turn=0.0 u=1.2 v=1.2\n  }\n  source=\"7dc5b737-3b6b-4068-b315-b7bacc91c2e1@d25a91ed-b124-4e5b-8e7e-af832541c953\" target=\"17d5dec8-87b2-44a9-84ff-93b7e7419bdd@7be6cfda-db1b-47e4-bcea-cd011e516e2e\"\n}\n {\n  id=\"e-shaft-1\" kind=\"Connection\" properties={\n    gap=0.0 rise=0.0 rotation=0.0 shift=0.0 tilt=0.0 turn=0.0 u=0.0 v=1.2\n  }\n  source=\"5f0266bc-856b-4ef2-9eb0-16ef5e1fb952@e0fb5d49-9286-4a6d-88b0-043f389c6898\" target=\"596f3f60-b634-467b-8acc-7d5b649ae0d1@7be6cfda-db1b-47e4-bcea-cd011e516e2e\"\n}\n {\n  id=\"e-shaft-8\" kind=\"Connection\" properties={\n    gap=0.0 rise=0.0 rotation=0.0 shift=0.0 tilt=0.0 turn=0.0 u=0.0 v=7.2\n  }\n  source=\"596f3f60-b634-467b-8acc-7d5b649ae0d1@e0fb5d49-9286-4a6d-88b0-043f389c6898\" target=\"f2edea5c-960e-46bd-932d-aae5ecad72d8@e0fb5d49-9286-4a6d-88b0-043f389c6898\"\n}\n {\n  id=\"fdae9f64-398f-45ad-8496-453e72c31512\" kind=\"Connection\" properties={\n    gap=0.0 rise=0.0 rotation=90.0 shift=0.0 tilt=0.0 turn=0.0 u=0.0 v=1.6\n  }\n  source=\"f2edea5c-960e-46bd-932d-aae5ecad72d8@c5465220-19ba-4443-8f1d-617c832dd13c\" target=\"6947a41b-8c6d-4291-bdd8-96cd535c78fc@4ba51a88-2a7f-4b78-b119-0f02eacdb702\"\n}\n {\n  id=\"e-jack-prune\" kind=\"Connection\" properties={\n    gap=0.0 rise=0.0 rotation=0.0 shift=0.0 tilt=0.0 turn=0.0 u=1.2 v=0.0\n  }\n  source=\"17d5dec8-87b2-44a9-84ff-93b7e7419bdd@f1a2b3c4-d5e6-7890-abcd-ef1234567890\" target=\"b9f4e3d2-5c6d-7e8f-90a1-b2c3d4e5f6a7@e5f6a7b8-c9d0-1234-ef56-7890abcdef01\"\n}\n]\n",
         "dialect": {
           "artifactKind": "s.trinity.jack",
           "standard": "1",

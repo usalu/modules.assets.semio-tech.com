@@ -29,11 +29,6 @@
             "subset": "*"
           },
           {
-            "artifactKind": "s.stdio.md",
-            "standard": "commonmark",
-            "subset": "*"
-          },
-          {
             "artifactKind": "s.stdio.txt",
             "standard": "utf-8",
             "subset": "*"
@@ -64,19 +59,6 @@
         "counterpart": {
           "artifactKind": "s.stdio.json",
           "standard": "rfc8259",
-          "subset": "*"
-        },
-        "direction": "import",
-        "owner": {
-          "artifactKind": "s.flow.flow",
-          "standard": "1",
-          "subset": "*"
-        }
-      },
-      {
-        "counterpart": {
-          "artifactKind": "s.stdio.md",
-          "standard": "commonmark",
           "subset": "*"
         },
         "direction": "import",
@@ -201,12 +183,12 @@
   "descriptorVersion": 1,
   "execution": "isolated",
   "executionProtocol": {
-    "appChannelVersion": 17
+    "appChannelVersion": 19
   },
   "hashes": {
-    "coreWasmSha256": "22576f27edba253c4a13d50d32a4a0cdcb867438046773ddde65708f7dfe2889",
-    "descriptorSha256": "34b88d16f6baddef520fa1ada52072d927baca1fea735f7ddf4b26df5177250e",
-    "wasmSha256": "3358e9876927544496c35b39136ea8161b8bdfc80b374bbe33c223ff1cf6015a"
+    "coreWasmSha256": "a4f4b15832c324795a292367203a8aed52925b287aa90706af3b2dce72fdeee4",
+    "descriptorSha256": "45683d192409081fae2a98d552f29ec05a54231f5df09ba8c429cd037dadd852",
+    "wasmSha256": "1401e2e55a8600901dfa00eb6ddae27f9fa1e8c3786945b258818c1c4e5f3a4c"
   },
   "manifest": {
     "apps": [
@@ -276,6 +258,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Fügt der Flow-Fläche an x, y ein neues Widget der angegebenen Art hinzu (eine Eingabe wie Schieberegler oder Notiz oder einen Operator, optional eine bestimmte Neuronart).",
+                  "en": "Adds a new widget of the given kind (an input such as a slider or note, or an operator, optionally a specific neuron kind) to the flow canvas at x, y."
+                },
+                "reuse": {
+                  "de": "Fügt der Flow-Fläche an x, y ein neues Widget der angegebenen Art hinzu (eine Eingabe wie Schieberegler oder Notiz oder einen Operator, optional eine bestimmte Neuronart).",
+                  "en": "Adds a new widget of the given kind (an input such as a slider or note, or an operator, optionally a specific neuron kind) to the flow canvas at x, y."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -304,7 +296,25 @@
             }
           },
           {
-            "args": [],
+            "args": [
+              {
+                "id": "widgetId",
+                "label": {
+                  "native": {
+                    "de": "Widget-ID",
+                    "en": "Widget Id"
+                  },
+                  "reuse": {
+                    "de": "Widget-ID",
+                    "en": "Widget Id"
+                  }
+                },
+                "required": false,
+                "schema": {
+                  "kind": "string"
+                }
+              }
+            ],
             "iconId": "sparkles",
             "id": "removeWidget",
             "inPalette": true,
@@ -320,6 +330,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Entfernt ein Widget anhand seiner Id samt aller angeschlossenen Synapsen aus dem Flow-Graphen.",
+                  "en": "Removes one widget by id from the flow graph together with every synapse attached to it."
+                },
+                "reuse": {
+                  "de": "Entfernt ein Widget anhand seiner Id samt aller angeschlossenen Synapsen aus dem Flow-Graphen.",
+                  "en": "Removes one widget by id from the flow graph together with every synapse attached to it."
+                }
+              },
               "effects": {
                 "destructive": true,
                 "external": false,
@@ -348,7 +368,25 @@
             }
           },
           {
-            "args": [],
+            "args": [
+              {
+                "id": "widgetId",
+                "label": {
+                  "native": {
+                    "de": "Widget-ID",
+                    "en": "Widget Id"
+                  },
+                  "reuse": {
+                    "de": "Widget-ID",
+                    "en": "Widget Id"
+                  }
+                },
+                "required": false,
+                "schema": {
+                  "kind": "string"
+                }
+              }
+            ],
             "iconId": "sparkles",
             "id": "duplicateWidget",
             "inPalette": true,
@@ -364,6 +402,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Kopiert ein Widget anhand seiner Id in ein neues, vom Original aus verbundenes Widget daneben, als eine rückgängig machbare Änderung; eine unbekannte Id wird abgelehnt.",
+                  "en": "Copies one widget by id into a new widget next to it, connected from the original, as one undoable edit; an unknown id is refused."
+                },
+                "reuse": {
+                  "de": "Kopiert ein Widget anhand seiner Id in ein neues, vom Original aus verbundenes Widget daneben, als eine rückgängig machbare Änderung; eine unbekannte Id wird abgelehnt.",
+                  "en": "Copies one widget by id into a new widget next to it, connected from the original, as one undoable edit; an unknown id is refused."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -409,6 +457,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Löscht alle ausgewählten Widgets und Synapsen aus dem Flow-Graphen.",
+                  "en": "Deletes every selected widget and synapse from the flow graph."
+                },
+                "reuse": {
+                  "de": "Löscht alle ausgewählten Widgets und Synapsen aus dem Flow-Graphen.",
+                  "en": "Deletes every selected widget and synapse from the flow graph."
+                }
+              },
               "effects": {
                 "destructive": true,
                 "external": false,
@@ -437,7 +495,25 @@
             }
           },
           {
-            "args": [],
+            "args": [
+              {
+                "id": "synapseId",
+                "label": {
+                  "native": {
+                    "de": "Synapsen-ID",
+                    "en": "Synapse Id"
+                  },
+                  "reuse": {
+                    "de": "Synapsen-ID",
+                    "en": "Synapse Id"
+                  }
+                },
+                "required": false,
+                "schema": {
+                  "kind": "string"
+                }
+              }
+            ],
             "iconId": "sparkles",
             "id": "disconnect",
             "inPalette": true,
@@ -453,6 +529,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Entfernt eine Synapse (eine Verbindung zwischen zwei Ports) anhand ihrer Id aus dem Flow-Graphen.",
+                  "en": "Removes one synapse (a connection between two ports) by id from the flow graph."
+                },
+                "reuse": {
+                  "de": "Entfernt eine Synapse (eine Verbindung zwischen zwei Ports) anhand ihrer Id aus dem Flow-Graphen.",
+                  "en": "Removes one synapse (a connection between two ports) by id from the flow graph."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -481,7 +567,76 @@
             }
           },
           {
-            "args": [],
+            "args": [
+              {
+                "id": "sourceNodeId",
+                "label": {
+                  "native": {
+                    "de": "Quell-Widget-ID",
+                    "en": "Source Widget Id"
+                  },
+                  "reuse": {
+                    "de": "Quell-Widget-ID",
+                    "en": "Source Widget Id"
+                  }
+                },
+                "required": false,
+                "schema": {
+                  "kind": "string"
+                }
+              },
+              {
+                "id": "sourcePortId",
+                "label": {
+                  "native": {
+                    "de": "Quellanschluss",
+                    "en": "Source Port"
+                  },
+                  "reuse": {
+                    "de": "Quellanschluss",
+                    "en": "Source Port"
+                  }
+                },
+                "required": false,
+                "schema": {
+                  "kind": "string"
+                }
+              },
+              {
+                "id": "targetNodeId",
+                "label": {
+                  "native": {
+                    "de": "Ziel-Widget-ID",
+                    "en": "Target Widget Id"
+                  },
+                  "reuse": {
+                    "de": "Ziel-Widget-ID",
+                    "en": "Target Widget Id"
+                  }
+                },
+                "required": false,
+                "schema": {
+                  "kind": "string"
+                }
+              },
+              {
+                "id": "targetPortId",
+                "label": {
+                  "native": {
+                    "de": "Zielanschluss",
+                    "en": "Target Port"
+                  },
+                  "reuse": {
+                    "de": "Zielanschluss",
+                    "en": "Target Port"
+                  }
+                },
+                "required": false,
+                "schema": {
+                  "kind": "string"
+                }
+              }
+            ],
             "iconId": "sparkles",
             "id": "connectMediaPorts",
             "inPalette": true,
@@ -497,6 +652,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Verbindet einen Ausgangsport eines Widgets mit einem Eingangsport eines anderen durch eine neue Synapse; ein unbekanntes Widget oder eine unverträgliche Verbindung wird abgelehnt.",
+                  "en": "Connects an output port of one widget to an input port of another with a new synapse; an unknown widget or an incompatible connection is refused."
+                },
+                "reuse": {
+                  "de": "Verbindet einen Ausgangsport eines Widgets mit einem Eingangsport eines anderen durch eine neue Synapse; ein unbekanntes Widget oder eine unverträgliche Verbindung wird abgelehnt.",
+                  "en": "Connects an output port of one widget to an input port of another with a new synapse; an unknown widget or an incompatible connection is refused."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -525,7 +690,61 @@
             }
           },
           {
-            "args": [],
+            "args": [
+              {
+                "id": "nodeId",
+                "label": {
+                  "native": {
+                    "de": "Widget-ID",
+                    "en": "Widget Id"
+                  },
+                  "reuse": {
+                    "de": "Widget-ID",
+                    "en": "Widget Id"
+                  }
+                },
+                "required": false,
+                "schema": {
+                  "kind": "string"
+                }
+              },
+              {
+                "id": "x",
+                "label": {
+                  "native": {
+                    "de": "X",
+                    "en": "X"
+                  },
+                  "reuse": {
+                    "de": "X",
+                    "en": "X"
+                  }
+                },
+                "required": false,
+                "schema": {
+                  "integer": false,
+                  "kind": "number"
+                }
+              },
+              {
+                "id": "y",
+                "label": {
+                  "native": {
+                    "de": "Y",
+                    "en": "Y"
+                  },
+                  "reuse": {
+                    "de": "Y",
+                    "en": "Y"
+                  }
+                },
+                "required": false,
+                "schema": {
+                  "integer": false,
+                  "kind": "number"
+                }
+              }
+            ],
             "iconId": "sparkles",
             "id": "moveMediaNode",
             "inPalette": true,
@@ -541,6 +760,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Verschiebt ein Widget an die Position x, y der Fläche; aufeinanderfolgende Verschiebungen desselben Widgets werden zu einer Änderung zusammengefasst.",
+                  "en": "Moves one widget to the canvas position x, y; consecutive moves of the same widget merge into one edit."
+                },
+                "reuse": {
+                  "de": "Verschiebt ein Widget an die Position x, y der Fläche; aufeinanderfolgende Verschiebungen desselben Widgets werden zu einer Änderung zusammengefasst.",
+                  "en": "Moves one widget to the canvas position x, y; consecutive moves of the same widget merge into one edit."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -586,8 +815,18 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Ordnet alle Widgets des Flow-Graphen automatisch von links nach rechts an und überschreibt ihre manuellen Positionen.",
+                  "en": "Lays out every widget of the flow graph automatically from left to right, overwriting their manual positions."
+                },
+                "reuse": {
+                  "de": "Ordnet alle Widgets des Flow-Graphen automatisch von links nach rechts an und überschreibt ihre manuellen Positionen.",
+                  "en": "Lays out every widget of the flow graph automatically from left to right, overwriting their manual positions."
+                }
+              },
               "effects": {
-                "destructive": false,
+                "destructive": true,
                 "external": false,
                 "reversible": true,
                 "writes": [
@@ -614,7 +853,90 @@
             }
           },
           {
-            "args": [],
+            "args": [
+              {
+                "id": "widgetIds",
+                "label": {
+                  "native": {
+                    "de": "Widget-IDs",
+                    "en": "Widget Ids"
+                  },
+                  "reuse": {
+                    "de": "Widget-IDs",
+                    "en": "Widget Ids"
+                  }
+                },
+                "required": false,
+                "schema": {
+                  "items": {
+                    "kind": "string"
+                  },
+                  "kind": "array"
+                }
+              },
+              {
+                "id": "field",
+                "label": {
+                  "native": {
+                    "de": "Feld",
+                    "en": "Field"
+                  },
+                  "reuse": {
+                    "de": "Feld",
+                    "en": "Field"
+                  }
+                },
+                "required": false,
+                "schema": {
+                  "kind": "string",
+                  "options": [
+                    {
+                      "label": {
+                        "native": {
+                          "de": "Reglerwert",
+                          "en": "Slider Value"
+                        },
+                        "reuse": {
+                          "de": "Reglerwert",
+                          "en": "Slider Value"
+                        }
+                      },
+                      "value": "value"
+                    },
+                    {
+                      "label": {
+                        "native": {
+                          "de": "Notiztext",
+                          "en": "Note Text"
+                        },
+                        "reuse": {
+                          "de": "Notiztext",
+                          "en": "Note Text"
+                        }
+                      },
+                      "value": "text"
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "value",
+                "label": {
+                  "native": {
+                    "de": "Wert",
+                    "en": "Value"
+                  },
+                  "reuse": {
+                    "de": "Wert",
+                    "en": "Value"
+                  }
+                },
+                "required": false,
+                "schema": {
+                  "kind": "string"
+                }
+              }
+            ],
             "iconId": "sparkles",
             "id": "patchFlowWidgets",
             "inPalette": true,
@@ -630,6 +952,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Setzt ein Feld auf mehreren Widgets zugleich: den Wert eines Schiebereglers oder den Text einer Notiz.",
+                  "en": "Sets one field on several widgets at once: a slider's value or a note's text."
+                },
+                "reuse": {
+                  "de": "Setzt ein Feld auf mehreren Widgets zugleich: den Wert eines Schiebereglers oder den Text einer Notiz.",
+                  "en": "Sets one field on several widgets at once: a slider's value or a note's text."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -658,7 +990,42 @@
             }
           },
           {
-            "args": [],
+            "args": [
+              {
+                "id": "oldId",
+                "label": {
+                  "native": {
+                    "de": "Widget-ID",
+                    "en": "Widget Id"
+                  },
+                  "reuse": {
+                    "de": "Widget-ID",
+                    "en": "Widget Id"
+                  }
+                },
+                "required": false,
+                "schema": {
+                  "kind": "string"
+                }
+              },
+              {
+                "id": "value",
+                "label": {
+                  "native": {
+                    "de": "Neue ID",
+                    "en": "New Id"
+                  },
+                  "reuse": {
+                    "de": "Neue ID",
+                    "en": "New Id"
+                  }
+                },
+                "required": false,
+                "schema": {
+                  "kind": "string"
+                }
+              }
+            ],
             "iconId": "sparkles",
             "id": "renameFlowWidget",
             "inPalette": true,
@@ -674,6 +1041,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Benennt die Id eines Widgets von der alten in eine neue um und aktualisiert alle Synapsen, die darauf verweisen; eine vergebene oder leere Id ändert nichts.",
+                  "en": "Renames a widget's id from the old id to a new one and updates every synapse that referenced it; a taken or empty id changes nothing."
+                },
+                "reuse": {
+                  "de": "Benennt die Id eines Widgets von der alten in eine neue um und aktualisiert alle Synapsen, die darauf verweisen; eine vergebene oder leere Id ändert nichts.",
+                  "en": "Renames a widget's id from the old id to a new one and updates every synapse that referenced it; a taken or empty id changes nothing."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -705,7 +1082,7 @@
             "args": [],
             "iconId": "sparkles",
             "id": "nodeGraphEdit",
-            "inPalette": true,
+            "inPalette": false,
             "kind": "mutation",
             "label": {
               "native": {
@@ -718,6 +1095,7 @@
               }
             },
             "semantics": {
+              "audience": "input",
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -749,7 +1127,7 @@
             "args": [],
             "iconId": "sparkles",
             "id": "spotlightCommit",
-            "inPalette": true,
+            "inPalette": false,
             "kind": "mutation",
             "label": {
               "native": {
@@ -762,6 +1140,7 @@
               }
             },
             "semantics": {
+              "audience": "input",
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -806,6 +1185,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Führt eine Automatisierung einer installierten Flow-Erweiterung aus, etwa automatisches Anordnen (Neu anordnen) oder automatisches Auswerten (Auswerten), sofern sie aktiviert ist.",
+                  "en": "Runs one automation of an installed flow extension, such as auto-layout (Reorganize) or auto-evaluate (Evaluate), when that automation is enabled."
+                },
+                "reuse": {
+                  "de": "Führt eine Automatisierung einer installierten Flow-Erweiterung aus, etwa automatisches Anordnen (Neu anordnen) oder automatisches Auswerten (Auswerten), sofern sie aktiviert ist.",
+                  "en": "Runs one automation of an installed flow extension, such as auto-layout (Reorganize) or auto-evaluate (Evaluate), when that automation is enabled."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -834,7 +1223,40 @@
             }
           },
           {
-            "args": [],
+            "args": [
+              {
+                "id": "exampleId",
+                "label": {
+                  "native": {
+                    "de": "Beispiel",
+                    "en": "Example"
+                  },
+                  "reuse": {
+                    "de": "Beispiel",
+                    "en": "Example"
+                  }
+                },
+                "required": false,
+                "schema": {
+                  "kind": "string",
+                  "options": [
+                    {
+                      "label": {
+                        "native": {
+                          "de": "Demo",
+                          "en": "Demo"
+                        },
+                        "reuse": {
+                          "de": "Demo",
+                          "en": "Demo"
+                        }
+                      },
+                      "value": "demo"
+                    }
+                  ]
+                }
+              }
+            ],
             "iconId": "sparkles",
             "id": "setActiveExample",
             "inPalette": true,
@@ -850,8 +1272,18 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Ersetzt den gesamten Flow-Graphen durch den mitgelieferten Demo-Graphen, bei leerer Id durch einen leeren Graphen; andere Ids ändern nichts.",
+                  "en": "Replaces the whole flow graph with the bundled demo graph, or with an empty graph for an empty id; other ids change nothing."
+                },
+                "reuse": {
+                  "de": "Ersetzt den gesamten Flow-Graphen durch den mitgelieferten Demo-Graphen, bei leerer Id durch einen leeren Graphen; andere Ids ändern nichts.",
+                  "en": "Replaces the whole flow graph with the bundled demo graph, or with an empty graph for an empty id; other ids change nothing."
+                }
+              },
               "effects": {
-                "destructive": false,
+                "destructive": true,
                 "external": false,
                 "reversible": true,
                 "writes": [
@@ -894,6 +1326,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Wertet alle Widgets aus, deren Ergebnis noch nicht berechnet ist, und zeigt die Ergebnisse auf der Fläche; der Graph selbst ändert sich nicht.",
+                  "en": "Evaluates every widget whose result is not computed yet and shows the results on the canvas; the graph itself is not changed."
+                },
+                "reuse": {
+                  "de": "Wertet alle Widgets aus, deren Ergebnis noch nicht berechnet ist, und zeigt die Ergebnisse auf der Fläche; der Graph selbst ändert sich nicht.",
+                  "en": "Evaluates every widget whose result is not computed yet and shows the results on the canvas; the graph itself is not changed."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -940,6 +1382,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Zoomt das Hauptfenster auf die ausgewählten Widgets; nur die Ansicht ändert sich.",
+                  "en": "Zooms the main window onto the selected widgets; only the view changes."
+                },
+                "reuse": {
+                  "de": "Zoomt das Hauptfenster auf die ausgewählten Widgets; nur die Ansicht ändert sich.",
+                  "en": "Zooms the main window onto the selected widgets; only the view changes."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -2214,6 +2666,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Öffnet den Tutorial-Rekorder für das geöffnete Dokument, damit die nächsten Interaktionen als Tutorial aufgezeichnet werden.",
+                  "en": "Opens the tutorial recorder on the open document so the next interactions are recorded as a tutorial."
+                },
+                "reuse": {
+                  "de": "Öffnet den Tutorial-Rekorder für das geöffnete Dokument, damit die nächsten Interaktionen als Tutorial aufgezeichnet werden.",
+                  "en": "Opens the tutorial recorder on the open document so the next interactions are recorded as a tutorial."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -2319,6 +2781,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Filtert den Verlaufsbereich auf alle Einträge, nur Dokumentoperationen oder alles außer Dokumentoperationen; das Dokument wird nicht verändert.",
+                  "en": "Filters the history panel to all entries, only document operations, or everything except document operations; the document is not changed."
+                },
+                "reuse": {
+                  "de": "Filtert den Verlaufsbereich auf alle Einträge, nur Dokumentoperationen oder alles außer Dokumentoperationen; das Dokument wird nicht verändert.",
+                  "en": "Filters the history panel to all entries, only document operations, or everything except document operations; the document is not changed."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -2417,6 +2889,16 @@
             },
             "semantics": {
               "audience": "chrome",
+              "description": {
+                "native": {
+                  "de": "Vermerkt eine bereits erfolgte Shell-Wirkung (Navigation, Export, Start) im Sitzungsprotokoll; das Dokument wird nicht verändert.",
+                  "en": "Records a shell effect that already happened (navigation, export, spawn) in the session command log; the document is not changed."
+                },
+                "reuse": {
+                  "de": "Vermerkt eine bereits erfolgte Shell-Wirkung (Navigation, Export, Start) im Sitzungsprotokoll; das Dokument wird nicht verändert.",
+                  "en": "Records a shell effect that already happened (navigation, export, spawn) in the session command log; the document is not changed."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -2819,6 +3301,16 @@
                   }
                 },
                 "semantics": {
+                  "description": {
+                    "native": {
+                      "de": "Fügt der Liste des Generieren-Modus eine neue Parametergeneration hinzu, einen benannten Satz von Eingabewerten; Generationen liegen im Fenster, nicht im Dokument.",
+                      "en": "Adds a new parameter generation, a named set of input values, to the generate mode's list; generations live in the window, not in the document."
+                    },
+                    "reuse": {
+                      "de": "Fügt der Liste des Generieren-Modus eine neue Parametergeneration hinzu, einen benannten Satz von Eingabewerten; Generationen liegen im Fenster, nicht im Dokument.",
+                      "en": "Adds a new parameter generation, a named set of input values, to the generate mode's list; generations live in the window, not in the document."
+                    }
+                  },
                   "effects": {
                     "destructive": false,
                     "external": false,
@@ -2865,6 +3357,16 @@
                   }
                 },
                 "semantics": {
+                  "description": {
+                    "native": {
+                      "de": "Entfernt eine Parametergeneration anhand ihrer Id aus der Liste des Generieren-Modus; der Flow-Graph ändert sich nicht.",
+                      "en": "Removes one parameter generation by id from the generate mode's list; the flow graph is not changed."
+                    },
+                    "reuse": {
+                      "de": "Entfernt eine Parametergeneration anhand ihrer Id aus der Liste des Generieren-Modus; der Flow-Graph ändert sich nicht.",
+                      "en": "Removes one parameter generation by id from the generate mode's list; the flow graph is not changed."
+                    }
+                  },
                   "effects": {
                     "destructive": true,
                     "external": false,
@@ -2958,6 +3460,16 @@
                   }
                 },
                 "semantics": {
+                  "description": {
+                    "native": {
+                      "de": "Benennt eine Parametergeneration in der Liste des Generieren-Modus um.",
+                      "en": "Renames one parameter generation of the generate mode's list."
+                    },
+                    "reuse": {
+                      "de": "Benennt eine Parametergeneration in der Liste des Generieren-Modus um.",
+                      "en": "Renames one parameter generation of the generate mode's list."
+                    }
+                  },
                   "effects": {
                     "destructive": false,
                     "external": false,
@@ -3004,6 +3516,16 @@
                   }
                 },
                 "semantics": {
+                  "description": {
+                    "native": {
+                      "de": "Setzt den Wert, den eine Eingabefrage in einer Parametergeneration annimmt (ohne Id in der ausgewählten), und wertet ihre Vorschau neu aus.",
+                      "en": "Sets the value one input question takes in a parameter generation (the selected one when no id is given) and re-evaluates its preview."
+                    },
+                    "reuse": {
+                      "de": "Setzt den Wert, den eine Eingabefrage in einer Parametergeneration annimmt (ohne Id in der ausgewählten), und wertet ihre Vorschau neu aus.",
+                      "en": "Sets the value one input question takes in a parameter generation (the selected one when no id is given) and re-evaluates its preview."
+                    }
+                  },
                   "effects": {
                     "destructive": false,
                     "external": false,
@@ -3464,11 +3986,11 @@
                 "kind": "interaction",
                 "label": {
                   "native": {
-                    "de": "Hover",
+                    "de": "Darüberfahren",
                     "en": "Hover"
                   },
                   "reuse": {
-                    "de": "Hover",
+                    "de": "Darüberfahren",
                     "en": "Hover"
                   }
                 },
@@ -3750,6 +4272,51 @@
                   "reuse": {
                     "de": "Granularität festlegen",
                     "en": "Set Granularity"
+                  }
+                },
+                "semantics": {
+                  "effects": {
+                    "destructive": false,
+                    "external": false,
+                    "reads": [
+                      "config:{self}"
+                    ],
+                    "reversible": false
+                  },
+                  "execution": {
+                    "cancellable": false,
+                    "class": "interactive",
+                    "expectedRevision": false,
+                    "idempotency": "none",
+                    "interactiveJob": "migrated",
+                    "preview": "none",
+                    "undo": {
+                      "kind": "none"
+                    }
+                  },
+                  "policy": {
+                    "approval": "never",
+                    "scopes": [
+                      "artifacts.read",
+                      "shell.observe"
+                    ]
+                  }
+                }
+              },
+              {
+                "args": [],
+                "iconId": "square",
+                "id": "cancelTypedOperation",
+                "inPalette": false,
+                "kind": "view",
+                "label": {
+                  "native": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  },
+                  "reuse": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
                   }
                 },
                 "semantics": {
@@ -4091,11 +4658,11 @@
                 "kind": "interaction",
                 "label": {
                   "native": {
-                    "de": "Hover",
+                    "de": "Darüberfahren",
                     "en": "Hover"
                   },
                   "reuse": {
-                    "de": "Hover",
+                    "de": "Darüberfahren",
                     "en": "Hover"
                   }
                 },
@@ -4377,6 +4944,51 @@
                   "reuse": {
                     "de": "Granularität festlegen",
                     "en": "Set Granularity"
+                  }
+                },
+                "semantics": {
+                  "effects": {
+                    "destructive": false,
+                    "external": false,
+                    "reads": [
+                      "config:{self}"
+                    ],
+                    "reversible": false
+                  },
+                  "execution": {
+                    "cancellable": false,
+                    "class": "interactive",
+                    "expectedRevision": false,
+                    "idempotency": "none",
+                    "interactiveJob": "migrated",
+                    "preview": "none",
+                    "undo": {
+                      "kind": "none"
+                    }
+                  },
+                  "policy": {
+                    "approval": "never",
+                    "scopes": [
+                      "artifacts.read",
+                      "shell.observe"
+                    ]
+                  }
+                }
+              },
+              {
+                "args": [],
+                "iconId": "square",
+                "id": "cancelTypedOperation",
+                "inPalette": false,
+                "kind": "view",
+                "label": {
+                  "native": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  },
+                  "reuse": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
                   }
                 },
                 "semantics": {
@@ -4716,11 +5328,11 @@
                 "kind": "interaction",
                 "label": {
                   "native": {
-                    "de": "Hover",
+                    "de": "Darüberfahren",
                     "en": "Hover"
                   },
                   "reuse": {
-                    "de": "Hover",
+                    "de": "Darüberfahren",
                     "en": "Hover"
                   }
                 },
@@ -5002,6 +5614,51 @@
                   "reuse": {
                     "de": "Granularität festlegen",
                     "en": "Set Granularity"
+                  }
+                },
+                "semantics": {
+                  "effects": {
+                    "destructive": false,
+                    "external": false,
+                    "reads": [
+                      "config:{self}"
+                    ],
+                    "reversible": false
+                  },
+                  "execution": {
+                    "cancellable": false,
+                    "class": "interactive",
+                    "expectedRevision": false,
+                    "idempotency": "none",
+                    "interactiveJob": "migrated",
+                    "preview": "none",
+                    "undo": {
+                      "kind": "none"
+                    }
+                  },
+                  "policy": {
+                    "approval": "never",
+                    "scopes": [
+                      "artifacts.read",
+                      "shell.observe"
+                    ]
+                  }
+                }
+              },
+              {
+                "args": [],
+                "iconId": "square",
+                "id": "cancelTypedOperation",
+                "inPalette": false,
+                "kind": "view",
+                "label": {
+                  "native": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  },
+                  "reuse": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
                   }
                 },
                 "semantics": {
@@ -5341,11 +5998,11 @@
                 "kind": "interaction",
                 "label": {
                   "native": {
-                    "de": "Hover",
+                    "de": "Darüberfahren",
                     "en": "Hover"
                   },
                   "reuse": {
-                    "de": "Hover",
+                    "de": "Darüberfahren",
                     "en": "Hover"
                   }
                 },
@@ -5627,6 +6284,51 @@
                   "reuse": {
                     "de": "Granularität festlegen",
                     "en": "Set Granularity"
+                  }
+                },
+                "semantics": {
+                  "effects": {
+                    "destructive": false,
+                    "external": false,
+                    "reads": [
+                      "config:{self}"
+                    ],
+                    "reversible": false
+                  },
+                  "execution": {
+                    "cancellable": false,
+                    "class": "interactive",
+                    "expectedRevision": false,
+                    "idempotency": "none",
+                    "interactiveJob": "migrated",
+                    "preview": "none",
+                    "undo": {
+                      "kind": "none"
+                    }
+                  },
+                  "policy": {
+                    "approval": "never",
+                    "scopes": [
+                      "artifacts.read",
+                      "shell.observe"
+                    ]
+                  }
+                }
+              },
+              {
+                "args": [],
+                "iconId": "square",
+                "id": "cancelTypedOperation",
+                "inPalette": false,
+                "kind": "view",
+                "label": {
+                  "native": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  },
+                  "reuse": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
                   }
                 },
                 "semantics": {
@@ -5966,11 +6668,11 @@
                 "kind": "interaction",
                 "label": {
                   "native": {
-                    "de": "Hover",
+                    "de": "Darüberfahren",
                     "en": "Hover"
                   },
                   "reuse": {
-                    "de": "Hover",
+                    "de": "Darüberfahren",
                     "en": "Hover"
                   }
                 },
@@ -6252,6 +6954,51 @@
                   "reuse": {
                     "de": "Granularität festlegen",
                     "en": "Set Granularity"
+                  }
+                },
+                "semantics": {
+                  "effects": {
+                    "destructive": false,
+                    "external": false,
+                    "reads": [
+                      "config:{self}"
+                    ],
+                    "reversible": false
+                  },
+                  "execution": {
+                    "cancellable": false,
+                    "class": "interactive",
+                    "expectedRevision": false,
+                    "idempotency": "none",
+                    "interactiveJob": "migrated",
+                    "preview": "none",
+                    "undo": {
+                      "kind": "none"
+                    }
+                  },
+                  "policy": {
+                    "approval": "never",
+                    "scopes": [
+                      "artifacts.read",
+                      "shell.observe"
+                    ]
+                  }
+                }
+              },
+              {
+                "args": [],
+                "iconId": "square",
+                "id": "cancelTypedOperation",
+                "inPalette": false,
+                "kind": "view",
+                "label": {
+                  "native": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  },
+                  "reuse": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
                   }
                 },
                 "semantics": {
@@ -7014,6 +7761,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Öffnet den Tutorial-Rekorder für das geöffnete Dokument, damit die nächsten Interaktionen als Tutorial aufgezeichnet werden.",
+                  "en": "Opens the tutorial recorder on the open document so the next interactions are recorded as a tutorial."
+                },
+                "reuse": {
+                  "de": "Öffnet den Tutorial-Rekorder für das geöffnete Dokument, damit die nächsten Interaktionen als Tutorial aufgezeichnet werden.",
+                  "en": "Opens the tutorial recorder on the open document so the next interactions are recorded as a tutorial."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -7119,6 +7876,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Filtert den Verlaufsbereich auf alle Einträge, nur Dokumentoperationen oder alles außer Dokumentoperationen; das Dokument wird nicht verändert.",
+                  "en": "Filters the history panel to all entries, only document operations, or everything except document operations; the document is not changed."
+                },
+                "reuse": {
+                  "de": "Filtert den Verlaufsbereich auf alle Einträge, nur Dokumentoperationen oder alles außer Dokumentoperationen; das Dokument wird nicht verändert.",
+                  "en": "Filters the history panel to all entries, only document operations, or everything except document operations; the document is not changed."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -7217,6 +7984,16 @@
             },
             "semantics": {
               "audience": "chrome",
+              "description": {
+                "native": {
+                  "de": "Vermerkt eine bereits erfolgte Shell-Wirkung (Navigation, Export, Start) im Sitzungsprotokoll; das Dokument wird nicht verändert.",
+                  "en": "Records a shell effect that already happened (navigation, export, spawn) in the session command log; the document is not changed."
+                },
+                "reuse": {
+                  "de": "Vermerkt eine bereits erfolgte Shell-Wirkung (Navigation, Export, Start) im Sitzungsprotokoll; das Dokument wird nicht verändert.",
+                  "en": "Records a shell effect that already happened (navigation, export, spawn) in the session command log; the document is not changed."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -7390,7 +8167,53 @@
         "utilities": [],
         "windowKinds": [
           {
-            "actions": [],
+            "actions": [
+              {
+                "args": [],
+                "iconId": "square",
+                "id": "cancelTypedOperation",
+                "inPalette": false,
+                "kind": "view",
+                "label": {
+                  "native": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  },
+                  "reuse": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  }
+                },
+                "semantics": {
+                  "effects": {
+                    "destructive": false,
+                    "external": false,
+                    "reads": [
+                      "config:{self}"
+                    ],
+                    "reversible": false
+                  },
+                  "execution": {
+                    "cancellable": false,
+                    "class": "interactive",
+                    "expectedRevision": false,
+                    "idempotency": "none",
+                    "interactiveJob": "migrated",
+                    "preview": "none",
+                    "undo": {
+                      "kind": "none"
+                    }
+                  },
+                  "policy": {
+                    "approval": "never",
+                    "scopes": [
+                      "artifacts.read",
+                      "shell.observe"
+                    ]
+                  }
+                }
+              }
+            ],
             "bodyKey": "flow.view.main",
             "capabilities": [],
             "iconId": "flow-graph",

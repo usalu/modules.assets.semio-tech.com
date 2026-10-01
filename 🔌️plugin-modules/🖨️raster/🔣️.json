@@ -49,11 +49,6 @@
             "subset": "*"
           },
           {
-            "artifactKind": "s.stdio.pdf",
-            "standard": "1.4",
-            "subset": "*"
-          },
-          {
             "artifactKind": "s.stdio.png",
             "standard": "1.2",
             "subset": "*"
@@ -146,19 +141,6 @@
         "counterpart": {
           "artifactKind": "s.stdio.json",
           "standard": "rfc8259",
-          "subset": "*"
-        },
-        "direction": "import",
-        "owner": {
-          "artifactKind": "s.raster.raster",
-          "standard": "1",
-          "subset": "*"
-        }
-      },
-      {
-        "counterpart": {
-          "artifactKind": "s.stdio.pdf",
-          "standard": "1.4",
           "subset": "*"
         },
         "direction": "import",
@@ -328,17 +310,68 @@
   "descriptorVersion": 1,
   "execution": "isolated",
   "executionProtocol": {
-    "appChannelVersion": 17
+    "appChannelVersion": 19
   },
   "hashes": {
-    "coreWasmSha256": "1a8945aa3cc9da91ea03d03a0c5d7c2bc500ba148e6427656f11394026f9e9e2",
-    "descriptorSha256": "4748ebe995f2b74a7cdb1ffda7eb17afa512847a15e13326b7e1827d987a8904",
-    "wasmSha256": "bff771e93c5eb9d3bd2ab21a5467be6ef9949e420327883219816386c28f9b33"
+    "coreWasmSha256": "8c597c185dbaea3e108cfa609e3654805b3658f5848e592f928b318f0a3fb411",
+    "descriptorSha256": "91723b5289159e5fb7c988a030a70fc2e7135062baad681ba3015d7b06a5bcfa",
+    "wasmSha256": "ee7f52bb5e3fe387c33bb498daf9e7fc02b53e5f0e851a8a8999b87bba2f85fb"
   },
   "manifest": {
     "apps": [
       {
         "actions": [
+          {
+            "args": [],
+            "iconId": "code",
+            "id": "exportPng",
+            "inPalette": true,
+            "kind": "shell",
+            "label": {
+              "native": {
+                "de": "PNG exportieren",
+                "en": "Export PNG"
+              },
+              "reuse": {
+                "de": "PNG exportieren",
+                "en": "Export PNG"
+              }
+            },
+            "semantics": {
+              "description": {
+                "native": {
+                  "de": "Lädt das sichtbare Bild als PNG mit Transparenz herunter. Die Ebenen bleiben bearbeitbar.",
+                  "en": "Downloads the visible image as PNG with transparency. Layers remain editable."
+                },
+                "reuse": {
+                  "de": "Lädt das sichtbare Bild als PNG mit Transparenz herunter. Die Ebenen bleiben bearbeitbar.",
+                  "en": "Downloads the visible image as PNG with transparency. Layers remain editable."
+                }
+              },
+              "effects": {
+                "destructive": false,
+                "external": false,
+                "reversible": false
+              },
+              "execution": {
+                "cancellable": false,
+                "class": "interactive",
+                "expectedRevision": false,
+                "idempotency": "none",
+                "interactiveJob": "migrated",
+                "preview": "none",
+                "undo": {
+                  "kind": "none"
+                }
+              },
+              "policy": {
+                "approval": "never",
+                "scopes": [
+                  "shell.navigate"
+                ]
+              }
+            }
+          },
           {
             "args": [
               {
@@ -456,6 +489,276 @@
                 "add an adjustment layer",
                 "new layer in the image"
               ]
+            }
+          },
+          {
+            "args": [],
+            "iconId": "sparkles",
+            "id": "editPixels",
+            "inPalette": false,
+            "kind": "mutation",
+            "label": {
+              "native": {
+                "de": "Pixel bearbeiten",
+                "en": "Edit Pixels"
+              },
+              "reuse": {
+                "de": "Pixel bearbeiten",
+                "en": "Edit Pixels"
+              }
+            },
+            "semantics": {
+              "description": {
+                "native": {
+                  "de": "Wendet eine abbrechbare Pixeloperation auf die gewählte Ebene an und speichert das Ergebnis im gemeinsamen Verlauf.",
+                  "en": "Applies a cancellable pixel operation to the selected layer and records the result in shared history."
+                },
+                "reuse": {
+                  "de": "Wendet eine abbrechbare Pixeloperation auf die gewählte Ebene an und speichert das Ergebnis im gemeinsamen Verlauf.",
+                  "en": "Applies a cancellable pixel operation to the selected layer and records the result in shared history."
+                }
+              },
+              "effects": {
+                "destructive": false,
+                "external": false,
+                "reversible": true,
+                "writes": [
+                  "artifact:{self}"
+                ]
+              },
+              "execution": {
+                "cancellable": false,
+                "class": "interactive",
+                "expectedRevision": true,
+                "idempotency": "none",
+                "interactiveJob": "migrated",
+                "preview": "diff",
+                "undo": {
+                  "kind": "inverse"
+                }
+              },
+              "policy": {
+                "approval": "whenDestructive",
+                "scopes": [
+                  "artifacts.write"
+                ]
+              }
+            }
+          },
+          {
+            "args": [],
+            "iconId": "sparkles",
+            "id": "flattenLayers",
+            "inPalette": false,
+            "kind": "mutation",
+            "label": {
+              "native": {
+                "de": "Bild reduzieren",
+                "en": "Flatten Image"
+              },
+              "reuse": {
+                "de": "Bild reduzieren",
+                "en": "Flatten Image"
+              }
+            },
+            "semantics": {
+              "description": {
+                "native": {
+                  "de": "Ersetzt alle Ebenen durch das sichtbare Bild. Rückgängig stellt die ursprünglichen Ebenen wieder her.",
+                  "en": "Replaces all layers with the visible image. Undo restores the original layers."
+                },
+                "reuse": {
+                  "de": "Ersetzt alle Ebenen durch das sichtbare Bild. Rückgängig stellt die ursprünglichen Ebenen wieder her.",
+                  "en": "Replaces all layers with the visible image. Undo restores the original layers."
+                }
+              },
+              "effects": {
+                "destructive": false,
+                "external": false,
+                "reversible": true,
+                "writes": [
+                  "artifact:{self}"
+                ]
+              },
+              "execution": {
+                "cancellable": false,
+                "class": "interactive",
+                "expectedRevision": true,
+                "idempotency": "none",
+                "interactiveJob": "migrated",
+                "preview": "diff",
+                "undo": {
+                  "kind": "inverse"
+                }
+              },
+              "policy": {
+                "approval": "whenDestructive",
+                "scopes": [
+                  "artifacts.write"
+                ]
+              }
+            }
+          },
+          {
+            "args": [],
+            "iconId": "sparkles",
+            "id": "mergeDown",
+            "inPalette": false,
+            "kind": "mutation",
+            "label": {
+              "native": {
+                "de": "Nach unten vereinen",
+                "en": "Merge Down"
+              },
+              "reuse": {
+                "de": "Nach unten vereinen",
+                "en": "Merge Down"
+              }
+            },
+            "semantics": {
+              "description": {
+                "native": {
+                  "de": "Vereint die ausgewählte sichtbare Ebene mit der darunterliegenden Ebene im normalen Mischmodus. Rückgängig stellt beide Ebenen wieder her.",
+                  "en": "Merges the selected visible layer with its lower normal-blend sibling. Undo restores both layers."
+                },
+                "reuse": {
+                  "de": "Vereint die ausgewählte sichtbare Ebene mit der darunterliegenden Ebene im normalen Mischmodus. Rückgängig stellt beide Ebenen wieder her.",
+                  "en": "Merges the selected visible layer with its lower normal-blend sibling. Undo restores both layers."
+                }
+              },
+              "effects": {
+                "destructive": false,
+                "external": false,
+                "reversible": true,
+                "writes": [
+                  "artifact:{self}"
+                ]
+              },
+              "execution": {
+                "cancellable": false,
+                "class": "interactive",
+                "expectedRevision": true,
+                "idempotency": "none",
+                "interactiveJob": "migrated",
+                "preview": "diff",
+                "undo": {
+                  "kind": "inverse"
+                }
+              },
+              "policy": {
+                "approval": "whenDestructive",
+                "scopes": [
+                  "artifacts.write"
+                ]
+              }
+            }
+          },
+          {
+            "args": [],
+            "iconId": "sparkles",
+            "id": "editMask",
+            "inPalette": false,
+            "kind": "mutation",
+            "label": {
+              "native": {
+                "de": "Maske malen",
+                "en": "Paint Mask"
+              },
+              "reuse": {
+                "de": "Maske malen",
+                "en": "Paint Mask"
+              }
+            },
+            "semantics": {
+              "description": {
+                "native": {
+                  "de": "Malt Maskendeckung ohne die Quellpixel zu ändern.",
+                  "en": "Paints mask coverage without changing source pixels."
+                },
+                "reuse": {
+                  "de": "Malt Maskendeckung ohne die Quellpixel zu ändern.",
+                  "en": "Paints mask coverage without changing source pixels."
+                }
+              },
+              "effects": {
+                "destructive": false,
+                "external": false,
+                "reversible": true,
+                "writes": [
+                  "artifact:{self}"
+                ]
+              },
+              "execution": {
+                "cancellable": false,
+                "class": "interactive",
+                "expectedRevision": true,
+                "idempotency": "none",
+                "interactiveJob": "migrated",
+                "preview": "diff",
+                "undo": {
+                  "kind": "inverse"
+                }
+              },
+              "policy": {
+                "approval": "whenDestructive",
+                "scopes": [
+                  "artifacts.write"
+                ]
+              }
+            }
+          },
+          {
+            "args": [],
+            "iconId": "sparkles",
+            "id": "maskFromSelection",
+            "inPalette": false,
+            "kind": "mutation",
+            "label": {
+              "native": {
+                "de": "Maske aus Auswahl",
+                "en": "Mask From Selection"
+              },
+              "reuse": {
+                "de": "Maske aus Auswahl",
+                "en": "Mask From Selection"
+              }
+            },
+            "semantics": {
+              "description": {
+                "native": {
+                  "de": "Erstellt eine rückgängig machbare Ebenenmaske aus der aktuellen Pixelauswahl.",
+                  "en": "Creates an undoable layer mask from the current pixel selection."
+                },
+                "reuse": {
+                  "de": "Erstellt eine rückgängig machbare Ebenenmaske aus der aktuellen Pixelauswahl.",
+                  "en": "Creates an undoable layer mask from the current pixel selection."
+                }
+              },
+              "effects": {
+                "destructive": false,
+                "external": false,
+                "reversible": true,
+                "writes": [
+                  "artifact:{self}"
+                ]
+              },
+              "execution": {
+                "cancellable": false,
+                "class": "interactive",
+                "expectedRevision": true,
+                "idempotency": "none",
+                "interactiveJob": "migrated",
+                "preview": "diff",
+                "undo": {
+                  "kind": "inverse"
+                }
+              },
+              "policy": {
+                "approval": "whenDestructive",
+                "scopes": [
+                  "artifacts.write"
+                ]
+              }
             }
           },
           {
@@ -1032,6 +1335,231 @@
                   "en": "Sets the painting brush opacity for this session."
                 }
               },
+              "effects": {
+                "destructive": false,
+                "external": false,
+                "reads": [
+                  "config:{self}"
+                ],
+                "reversible": false
+              },
+              "execution": {
+                "cancellable": false,
+                "class": "interactive",
+                "expectedRevision": false,
+                "idempotency": "none",
+                "interactiveJob": "migrated",
+                "preview": "none",
+                "undo": {
+                  "kind": "none"
+                }
+              },
+              "policy": {
+                "approval": "never",
+                "scopes": [
+                  "artifacts.read",
+                  "shell.observe"
+                ]
+              }
+            }
+          },
+          {
+            "args": [],
+            "iconId": "eye",
+            "id": "setBrushColor",
+            "inPalette": false,
+            "kind": "view",
+            "label": {
+              "native": {
+                "de": "Vordergrundfarbe festlegen",
+                "en": "Set Foreground Color"
+              },
+              "reuse": {
+                "de": "Vordergrundfarbe festlegen",
+                "en": "Set Foreground Color"
+              }
+            },
+            "semantics": {
+              "effects": {
+                "destructive": false,
+                "external": false,
+                "reads": [
+                  "config:{self}"
+                ],
+                "reversible": false
+              },
+              "execution": {
+                "cancellable": false,
+                "class": "interactive",
+                "expectedRevision": false,
+                "idempotency": "none",
+                "interactiveJob": "migrated",
+                "preview": "none",
+                "undo": {
+                  "kind": "none"
+                }
+              },
+              "policy": {
+                "approval": "never",
+                "scopes": [
+                  "artifacts.read",
+                  "shell.observe"
+                ]
+              }
+            }
+          },
+          {
+            "args": [],
+            "iconId": "eye",
+            "id": "setBrushHardness",
+            "inPalette": false,
+            "kind": "view",
+            "label": {
+              "native": {
+                "de": "Pinselhärte festlegen",
+                "en": "Set Brush Hardness"
+              },
+              "reuse": {
+                "de": "Pinselhärte festlegen",
+                "en": "Set Brush Hardness"
+              }
+            },
+            "semantics": {
+              "effects": {
+                "destructive": false,
+                "external": false,
+                "reads": [
+                  "config:{self}"
+                ],
+                "reversible": false
+              },
+              "execution": {
+                "cancellable": false,
+                "class": "interactive",
+                "expectedRevision": false,
+                "idempotency": "none",
+                "interactiveJob": "migrated",
+                "preview": "none",
+                "undo": {
+                  "kind": "none"
+                }
+              },
+              "policy": {
+                "approval": "never",
+                "scopes": [
+                  "artifacts.read",
+                  "shell.observe"
+                ]
+              }
+            }
+          },
+          {
+            "args": [],
+            "iconId": "eye",
+            "id": "setPaintTarget",
+            "inPalette": false,
+            "kind": "view",
+            "label": {
+              "native": {
+                "de": "Bearbeitungsziel festlegen",
+                "en": "Set Paint Target"
+              },
+              "reuse": {
+                "de": "Bearbeitungsziel festlegen",
+                "en": "Set Paint Target"
+              }
+            },
+            "semantics": {
+              "effects": {
+                "destructive": false,
+                "external": false,
+                "reads": [
+                  "config:{self}"
+                ],
+                "reversible": false
+              },
+              "execution": {
+                "cancellable": false,
+                "class": "interactive",
+                "expectedRevision": false,
+                "idempotency": "none",
+                "interactiveJob": "migrated",
+                "preview": "none",
+                "undo": {
+                  "kind": "none"
+                }
+              },
+              "policy": {
+                "approval": "never",
+                "scopes": [
+                  "artifacts.read",
+                  "shell.observe"
+                ]
+              }
+            }
+          },
+          {
+            "args": [],
+            "iconId": "eye",
+            "id": "setPixelSelection",
+            "inPalette": false,
+            "kind": "view",
+            "label": {
+              "native": {
+                "de": "Pixelauswahl festlegen",
+                "en": "Set Pixel Selection"
+              },
+              "reuse": {
+                "de": "Pixelauswahl festlegen",
+                "en": "Set Pixel Selection"
+              }
+            },
+            "semantics": {
+              "effects": {
+                "destructive": false,
+                "external": false,
+                "reads": [
+                  "config:{self}"
+                ],
+                "reversible": false
+              },
+              "execution": {
+                "cancellable": false,
+                "class": "interactive",
+                "expectedRevision": false,
+                "idempotency": "none",
+                "interactiveJob": "migrated",
+                "preview": "none",
+                "undo": {
+                  "kind": "none"
+                }
+              },
+              "policy": {
+                "approval": "never",
+                "scopes": [
+                  "artifacts.read",
+                  "shell.observe"
+                ]
+              }
+            }
+          },
+          {
+            "args": [],
+            "iconId": "eye",
+            "id": "setMaskValue",
+            "inPalette": false,
+            "kind": "view",
+            "label": {
+              "native": {
+                "de": "Maskenwert festlegen",
+                "en": "Set Mask Value"
+              },
+              "reuse": {
+                "de": "Maskenwert festlegen",
+                "en": "Set Mask Value"
+              }
+            },
+            "semantics": {
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -1978,6 +2506,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Öffnet den Tutorial-Rekorder für das geöffnete Dokument, damit die nächsten Interaktionen als Tutorial aufgezeichnet werden.",
+                  "en": "Opens the tutorial recorder on the open document so the next interactions are recorded as a tutorial."
+                },
+                "reuse": {
+                  "de": "Öffnet den Tutorial-Rekorder für das geöffnete Dokument, damit die nächsten Interaktionen als Tutorial aufgezeichnet werden.",
+                  "en": "Opens the tutorial recorder on the open document so the next interactions are recorded as a tutorial."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -2083,6 +2621,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Filtert den Verlaufsbereich auf alle Einträge, nur Dokumentoperationen oder alles außer Dokumentoperationen; das Dokument wird nicht verändert.",
+                  "en": "Filters the history panel to all entries, only document operations, or everything except document operations; the document is not changed."
+                },
+                "reuse": {
+                  "de": "Filtert den Verlaufsbereich auf alle Einträge, nur Dokumentoperationen oder alles außer Dokumentoperationen; das Dokument wird nicht verändert.",
+                  "en": "Filters the history panel to all entries, only document operations, or everything except document operations; the document is not changed."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -2181,6 +2729,16 @@
             },
             "semantics": {
               "audience": "chrome",
+              "description": {
+                "native": {
+                  "de": "Vermerkt eine bereits erfolgte Shell-Wirkung (Navigation, Export, Start) im Sitzungsprotokoll; das Dokument wird nicht verändert.",
+                  "en": "Records a shell effect that already happened (navigation, export, spawn) in the session command log; the document is not changed."
+                },
+                "reuse": {
+                  "de": "Vermerkt eine bereits erfolgte Shell-Wirkung (Navigation, Export, Start) im Sitzungsprotokoll; das Dokument wird nicht verändert.",
+                  "en": "Records a shell effect that already happened (navigation, export, spawn) in the session command log; the document is not changed."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -2332,7 +2890,7 @@
               }
             ],
             "hierarchy": {
-              "kind": "flat"
+              "kind": "topology"
             },
             "hover": {
               "broadcast": true,
@@ -2910,11 +3468,11 @@
                 "kind": "interaction",
                 "label": {
                   "native": {
-                    "de": "Hover",
+                    "de": "Darüberfahren",
                     "en": "Hover"
                   },
                   "reuse": {
-                    "de": "Hover",
+                    "de": "Darüberfahren",
                     "en": "Hover"
                   }
                 },
@@ -3196,6 +3754,51 @@
                   "reuse": {
                     "de": "Granularität festlegen",
                     "en": "Set Granularity"
+                  }
+                },
+                "semantics": {
+                  "effects": {
+                    "destructive": false,
+                    "external": false,
+                    "reads": [
+                      "config:{self}"
+                    ],
+                    "reversible": false
+                  },
+                  "execution": {
+                    "cancellable": false,
+                    "class": "interactive",
+                    "expectedRevision": false,
+                    "idempotency": "none",
+                    "interactiveJob": "migrated",
+                    "preview": "none",
+                    "undo": {
+                      "kind": "none"
+                    }
+                  },
+                  "policy": {
+                    "approval": "never",
+                    "scopes": [
+                      "artifacts.read",
+                      "shell.observe"
+                    ]
+                  }
+                }
+              },
+              {
+                "args": [],
+                "iconId": "square",
+                "id": "cancelTypedOperation",
+                "inPalette": false,
+                "kind": "view",
+                "label": {
+                  "native": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  },
+                  "reuse": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
                   }
                 },
                 "semantics": {
@@ -3541,11 +4144,11 @@
                 "kind": "interaction",
                 "label": {
                   "native": {
-                    "de": "Hover",
+                    "de": "Darüberfahren",
                     "en": "Hover"
                   },
                   "reuse": {
-                    "de": "Hover",
+                    "de": "Darüberfahren",
                     "en": "Hover"
                   }
                 },
@@ -3827,6 +4430,51 @@
                   "reuse": {
                     "de": "Granularität festlegen",
                     "en": "Set Granularity"
+                  }
+                },
+                "semantics": {
+                  "effects": {
+                    "destructive": false,
+                    "external": false,
+                    "reads": [
+                      "config:{self}"
+                    ],
+                    "reversible": false
+                  },
+                  "execution": {
+                    "cancellable": false,
+                    "class": "interactive",
+                    "expectedRevision": false,
+                    "idempotency": "none",
+                    "interactiveJob": "migrated",
+                    "preview": "none",
+                    "undo": {
+                      "kind": "none"
+                    }
+                  },
+                  "policy": {
+                    "approval": "never",
+                    "scopes": [
+                      "artifacts.read",
+                      "shell.observe"
+                    ]
+                  }
+                }
+              },
+              {
+                "args": [],
+                "iconId": "square",
+                "id": "cancelTypedOperation",
+                "inPalette": false,
+                "kind": "view",
+                "label": {
+                  "native": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  },
+                  "reuse": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
                   }
                 },
                 "semantics": {
@@ -4589,6 +5237,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Öffnet den Tutorial-Rekorder für das geöffnete Dokument, damit die nächsten Interaktionen als Tutorial aufgezeichnet werden.",
+                  "en": "Opens the tutorial recorder on the open document so the next interactions are recorded as a tutorial."
+                },
+                "reuse": {
+                  "de": "Öffnet den Tutorial-Rekorder für das geöffnete Dokument, damit die nächsten Interaktionen als Tutorial aufgezeichnet werden.",
+                  "en": "Opens the tutorial recorder on the open document so the next interactions are recorded as a tutorial."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -4694,6 +5352,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Filtert den Verlaufsbereich auf alle Einträge, nur Dokumentoperationen oder alles außer Dokumentoperationen; das Dokument wird nicht verändert.",
+                  "en": "Filters the history panel to all entries, only document operations, or everything except document operations; the document is not changed."
+                },
+                "reuse": {
+                  "de": "Filtert den Verlaufsbereich auf alle Einträge, nur Dokumentoperationen oder alles außer Dokumentoperationen; das Dokument wird nicht verändert.",
+                  "en": "Filters the history panel to all entries, only document operations, or everything except document operations; the document is not changed."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -4792,6 +5460,16 @@
             },
             "semantics": {
               "audience": "chrome",
+              "description": {
+                "native": {
+                  "de": "Vermerkt eine bereits erfolgte Shell-Wirkung (Navigation, Export, Start) im Sitzungsprotokoll; das Dokument wird nicht verändert.",
+                  "en": "Records a shell effect that already happened (navigation, export, spawn) in the session command log; the document is not changed."
+                },
+                "reuse": {
+                  "de": "Vermerkt eine bereits erfolgte Shell-Wirkung (Navigation, Export, Start) im Sitzungsprotokoll; das Dokument wird nicht verändert.",
+                  "en": "Records a shell effect that already happened (navigation, export, spawn) in the session command log; the document is not changed."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -4982,7 +5660,53 @@
         "utilities": [],
         "windowKinds": [
           {
-            "actions": [],
+            "actions": [
+              {
+                "args": [],
+                "iconId": "square",
+                "id": "cancelTypedOperation",
+                "inPalette": false,
+                "kind": "view",
+                "label": {
+                  "native": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  },
+                  "reuse": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  }
+                },
+                "semantics": {
+                  "effects": {
+                    "destructive": false,
+                    "external": false,
+                    "reads": [
+                      "config:{self}"
+                    ],
+                    "reversible": false
+                  },
+                  "execution": {
+                    "cancellable": false,
+                    "class": "interactive",
+                    "expectedRevision": false,
+                    "idempotency": "none",
+                    "interactiveJob": "migrated",
+                    "preview": "none",
+                    "undo": {
+                      "kind": "none"
+                    }
+                  },
+                  "policy": {
+                    "approval": "never",
+                    "scopes": [
+                      "artifacts.read",
+                      "shell.observe"
+                    ]
+                  }
+                }
+              }
+            ],
             "bodyKey": "framework.window.image",
             "capabilities": [],
             "iconId": "image",
@@ -5007,7 +5731,53 @@
             "utilities": []
           },
           {
-            "actions": [],
+            "actions": [
+              {
+                "args": [],
+                "iconId": "square",
+                "id": "cancelTypedOperation",
+                "inPalette": false,
+                "kind": "view",
+                "label": {
+                  "native": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  },
+                  "reuse": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  }
+                },
+                "semantics": {
+                  "effects": {
+                    "destructive": false,
+                    "external": false,
+                    "reads": [
+                      "config:{self}"
+                    ],
+                    "reversible": false
+                  },
+                  "execution": {
+                    "cancellable": false,
+                    "class": "interactive",
+                    "expectedRevision": false,
+                    "idempotency": "none",
+                    "interactiveJob": "migrated",
+                    "preview": "none",
+                    "undo": {
+                      "kind": "none"
+                    }
+                  },
+                  "policy": {
+                    "approval": "never",
+                    "scopes": [
+                      "artifacts.read",
+                      "shell.observe"
+                    ]
+                  }
+                }
+              }
+            ],
             "bodyKey": "raster.view.navigator",
             "capabilities": [],
             "iconId": "focus",
@@ -5050,7 +5820,7 @@
     "commands": [],
     "examples": [
       {
-        "artifactJson": "semio raster.raster.dsl v1\nschema=7261737465722e646f63756d656e74\nid=73656d696f2d64656d6f\ntitle=[1,53656d696f205261737465722044656d6f]\nlayers=[p[6261636b64726f70,4261636b64726f70,true,1,6e6f726d616c,[0,0,1,1,0],[0],[1,512],[1,512],[1,73656d696f2d656d626c656d]],a[627269676874656e,427269676874656e,true,1,6e6f726d616c,[0,0,1,1,0],6272696768746e657373436f6e7472617374,[]]]\nassets=[[73656d696f2d656d626c656d,[7261737465722d61737365742d38316531353634653831396432303963,73656d696f2d656d626c656d2d696d61676521732e737464696f2e73656d696f4076312f696d616765]]]",
+        "artifactJson": "semio raster.raster.dsl v1\nschema=raster.document id=semio-demo title=\"Semio Raster Demo\" layers=[ \"{\\\"kind\\\":\\\"pixel\\\",\\\"id\\\":\\\"backdrop\\\",\\\"name\\\":\\\"Backdrop\\\",\\\"visible\\\":true,\\\"locked\\\":false,\\\"opacity\\\":1.0,\\\"blendMode\\\":\\\"normal\\\",\\\"transform\\\":{\\\"x\\\":0.0,\\\"y\\\":0.0,\\\"a\\\":1.0,\\\"b\\\":0.0,\\\"c\\\":0.0,\\\"d\\\":1.0},\\\"mask\\\":null,\\\"width\\\":512,\\\"height\\\":512,\\\"imageKey\\\":\\\"semio-emblem\\\"}\" \"{\\\"kind\\\":\\\"adjustment\\\",\\\"id\\\":\\\"brighten\\\",\\\"name\\\":\\\"Brighten\\\",\\\"visible\\\":true,\\\"locked\\\":false,\\\"opacity\\\":1.0,\\\"blendMode\\\":\\\"normal\\\",\\\"transform\\\":{\\\"x\\\":0.0,\\\"y\\\":0.0,\\\"a\\\":1.0,\\\"b\\\":0.0,\\\"c\\\":0.0,\\\"d\\\":1.0},\\\"adjustmentKind\\\":\\\"brightnessContrast\\\",\\\"params\\\":{}}\" ] assets=[ key=semio-emblem content=\"\" child=child_id=raster-asset-81e1564e819d209c target=\"semio-emblem-image!s.stdio.semio@v1/image\" ]\n",
         "dialect": {
           "artifactKind": "s.raster.raster",
           "standard": "1",

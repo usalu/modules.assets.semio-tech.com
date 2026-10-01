@@ -259,12 +259,12 @@
   "descriptorVersion": 1,
   "execution": "isolated",
   "executionProtocol": {
-    "appChannelVersion": 17
+    "appChannelVersion": 19
   },
   "hashes": {
-    "coreWasmSha256": "e3badb2f0a92d2718f9a19b5215b3ff2136275293f8f5c3eac48604dcafc238a",
-    "descriptorSha256": "5661bfed41e1b5196b856ec98683f6a931ce7ad4bce1a36faf57563dba23f3bc",
-    "wasmSha256": "0d1a9bcd1fba48f1e6da53e73017419919c813feb3052c03bef6432ecdb3f9f9"
+    "coreWasmSha256": "e19e04f8aa2e37eb29f6400ce6d77b15109c50cf2988fe01f385a832dce890a7",
+    "descriptorSha256": "9b89eb0cac902f6177ba0c64ca0463a0284bc718cae9ce5fe0ac64c7dd718423",
+    "wasmSha256": "f094ec310c36ca3df517177af6e6a18aec78ff892ad6df61d9ea423ac517225f"
   },
   "manifest": {
     "apps": [
@@ -287,6 +287,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Setzt ein Feld der Knotenart des 2D-Blocks: Name, Bezeichnung, Variante, Beschreibung oder Symbol.",
+                  "en": "Sets one field of the 2D block's node kind: its name, label, variant, description or icon."
+                },
+                "reuse": {
+                  "de": "Setzt ein Feld der Knotenart des 2D-Blocks: Name, Bezeichnung, Variante, Beschreibung oder Symbol.",
+                  "en": "Sets one field of the 2D block's node kind: its name, label, variant, description or icon."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -331,6 +341,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Fügt dem 2D-Block eine neue Griffart hinzu (einen benannten, farbigen Verbindertyp mit Standard-Leitungsart).",
+                  "en": "Adds a new handle kind (a named, coloured connector type with a default wire kind) to the 2D block."
+                },
+                "reuse": {
+                  "de": "Fügt dem 2D-Block eine neue Griffart hinzu (einen benannten, farbigen Verbindertyp mit Standard-Leitungsart).",
+                  "en": "Adds a new handle kind (a named, coloured connector type with a default wire kind) to the 2D block."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -375,6 +395,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Entfernt eine Griffart anhand ihrer Id aus dem 2D-Block.",
+                  "en": "Removes one handle kind by id from the 2D block."
+                },
+                "reuse": {
+                  "de": "Entfernt eine Griffart anhand ihrer Id aus dem 2D-Block.",
+                  "en": "Removes one handle kind by id from the 2D block."
+                }
+              },
               "effects": {
                 "destructive": true,
                 "external": false,
@@ -419,6 +449,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Fügt dem 2D-Block einen neuen Griff der ersten Griffart mit Standardwinkel und -radius hinzu; ohne Griffart geschieht nichts.",
+                  "en": "Adds a new handle of the first handle kind to the 2D block at a default angle and radius; without any handle kind nothing happens."
+                },
+                "reuse": {
+                  "de": "Fügt dem 2D-Block einen neuen Griff der ersten Griffart mit Standardwinkel und -radius hinzu; ohne Griffart geschieht nichts.",
+                  "en": "Adds a new handle of the first handle kind to the 2D block at a default angle and radius; without any handle kind nothing happens."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -463,6 +503,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Entfernt einen Griff anhand seiner Id aus dem 2D-Block.",
+                  "en": "Removes one handle by id from the 2D block."
+                },
+                "reuse": {
+                  "de": "Entfernt einen Griff anhand seiner Id aus dem 2D-Block.",
+                  "en": "Removes one handle by id from the 2D block."
+                }
+              },
               "effects": {
                 "destructive": true,
                 "external": false,
@@ -507,6 +557,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Fügt eine beidseitige Kompatibilitätsregel hinzu, welche Griffarten (Quelle und Ziel) miteinander verbunden werden dürfen.",
+                  "en": "Adds a two-way compatibility rule saying which handle kinds (source and target) may connect to each other."
+                },
+                "reuse": {
+                  "de": "Fügt eine beidseitige Kompatibilitätsregel hinzu, welche Griffarten (Quelle und Ziel) miteinander verbunden werden dürfen.",
+                  "en": "Adds a two-way compatibility rule saying which handle kinds (source and target) may connect to each other."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -551,6 +611,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Entfernt eine Kompatibilitätsregel anhand ihrer Id, sodass ihre zwei Griffarten nicht mehr verbunden werden dürfen.",
+                  "en": "Removes one compatibility rule by id, so its two handle kinds may no longer connect."
+                },
+                "reuse": {
+                  "de": "Entfernt eine Kompatibilitätsregel anhand ihrer Id, sodass ihre zwei Griffarten nicht mehr verbunden werden dürfen.",
+                  "en": "Removes one compatibility rule by id, so its two handle kinds may no longer connect."
+                }
+              },
               "effects": {
                 "destructive": true,
                 "external": false,
@@ -595,6 +665,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Lädt eines der mitgelieferten 2D-Block-Beispiele in das Dokument und ersetzt Abweichendes, anhand der Beispiel-Id.",
+                  "en": "Loads one of the plugin's bundled 2D block examples into the document, replacing what differs, by example id."
+                },
+                "reuse": {
+                  "de": "Lädt eines der mitgelieferten 2D-Block-Beispiele in das Dokument und ersetzt Abweichendes, anhand der Beispiel-Id.",
+                  "en": "Loads one of the plugin's bundled 2D block examples into the document, replacing what differs, by example id."
+                }
+              },
               "effects": {
                 "destructive": true,
                 "external": false,
@@ -639,8 +719,18 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Ersetzt das gesamte 2D-Block-Dokument durch eines aus dem angegebenen JSON-Text; ungültiges oder identisches JSON ändert nichts.",
+                  "en": "Replaces the whole 2D block document with one parsed from the given JSON text; invalid or identical JSON changes nothing."
+                },
+                "reuse": {
+                  "de": "Ersetzt das gesamte 2D-Block-Dokument durch eines aus dem angegebenen JSON-Text; ungültiges oder identisches JSON ändert nichts.",
+                  "en": "Replaces the whole 2D block document with one parsed from the given JSON text; invalid or identical JSON changes nothing."
+                }
+              },
               "effects": {
-                "destructive": false,
+                "destructive": true,
                 "external": false,
                 "reversible": true,
                 "writes": [
@@ -1369,6 +1459,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Öffnet den Tutorial-Rekorder für das geöffnete Dokument, damit die nächsten Interaktionen als Tutorial aufgezeichnet werden.",
+                  "en": "Opens the tutorial recorder on the open document so the next interactions are recorded as a tutorial."
+                },
+                "reuse": {
+                  "de": "Öffnet den Tutorial-Rekorder für das geöffnete Dokument, damit die nächsten Interaktionen als Tutorial aufgezeichnet werden.",
+                  "en": "Opens the tutorial recorder on the open document so the next interactions are recorded as a tutorial."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -1474,6 +1574,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Filtert den Verlaufsbereich auf alle Einträge, nur Dokumentoperationen oder alles außer Dokumentoperationen; das Dokument wird nicht verändert.",
+                  "en": "Filters the history panel to all entries, only document operations, or everything except document operations; the document is not changed."
+                },
+                "reuse": {
+                  "de": "Filtert den Verlaufsbereich auf alle Einträge, nur Dokumentoperationen oder alles außer Dokumentoperationen; das Dokument wird nicht verändert.",
+                  "en": "Filters the history panel to all entries, only document operations, or everything except document operations; the document is not changed."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -1572,6 +1682,16 @@
             },
             "semantics": {
               "audience": "chrome",
+              "description": {
+                "native": {
+                  "de": "Vermerkt eine bereits erfolgte Shell-Wirkung (Navigation, Export, Start) im Sitzungsprotokoll; das Dokument wird nicht verändert.",
+                  "en": "Records a shell effect that already happened (navigation, export, spawn) in the session command log; the document is not changed."
+                },
+                "reuse": {
+                  "de": "Vermerkt eine bereits erfolgte Shell-Wirkung (Navigation, Export, Start) im Sitzungsprotokoll; das Dokument wird nicht verändert.",
+                  "en": "Records a shell effect that already happened (navigation, export, spawn) in the session command log; the document is not changed."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -2529,6 +2649,51 @@
                     ]
                   }
                 }
+              },
+              {
+                "args": [],
+                "iconId": "square",
+                "id": "cancelTypedOperation",
+                "inPalette": false,
+                "kind": "view",
+                "label": {
+                  "native": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  },
+                  "reuse": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  }
+                },
+                "semantics": {
+                  "effects": {
+                    "destructive": false,
+                    "external": false,
+                    "reads": [
+                      "config:{self}"
+                    ],
+                    "reversible": false
+                  },
+                  "execution": {
+                    "cancellable": false,
+                    "class": "interactive",
+                    "expectedRevision": false,
+                    "idempotency": "none",
+                    "interactiveJob": "migrated",
+                    "preview": "none",
+                    "undo": {
+                      "kind": "none"
+                    }
+                  },
+                  "policy": {
+                    "approval": "never",
+                    "scopes": [
+                      "artifacts.read",
+                      "shell.observe"
+                    ]
+                  }
+                }
               }
             ],
             "bodyKey": "block2d.play.board",
@@ -3263,6 +3428,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Öffnet den Tutorial-Rekorder für das geöffnete Dokument, damit die nächsten Interaktionen als Tutorial aufgezeichnet werden.",
+                  "en": "Opens the tutorial recorder on the open document so the next interactions are recorded as a tutorial."
+                },
+                "reuse": {
+                  "de": "Öffnet den Tutorial-Rekorder für das geöffnete Dokument, damit die nächsten Interaktionen als Tutorial aufgezeichnet werden.",
+                  "en": "Opens the tutorial recorder on the open document so the next interactions are recorded as a tutorial."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -3368,6 +3543,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Filtert den Verlaufsbereich auf alle Einträge, nur Dokumentoperationen oder alles außer Dokumentoperationen; das Dokument wird nicht verändert.",
+                  "en": "Filters the history panel to all entries, only document operations, or everything except document operations; the document is not changed."
+                },
+                "reuse": {
+                  "de": "Filtert den Verlaufsbereich auf alle Einträge, nur Dokumentoperationen oder alles außer Dokumentoperationen; das Dokument wird nicht verändert.",
+                  "en": "Filters the history panel to all entries, only document operations, or everything except document operations; the document is not changed."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -3466,6 +3651,16 @@
             },
             "semantics": {
               "audience": "chrome",
+              "description": {
+                "native": {
+                  "de": "Vermerkt eine bereits erfolgte Shell-Wirkung (Navigation, Export, Start) im Sitzungsprotokoll; das Dokument wird nicht verändert.",
+                  "en": "Records a shell effect that already happened (navigation, export, spawn) in the session command log; the document is not changed."
+                },
+                "reuse": {
+                  "de": "Vermerkt eine bereits erfolgte Shell-Wirkung (Navigation, Export, Start) im Sitzungsprotokoll; das Dokument wird nicht verändert.",
+                  "en": "Records a shell effect that already happened (navigation, export, spawn) in the session command log; the document is not changed."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -3544,7 +3739,7 @@
             "class": "data",
             "form": "value"
           },
-          "artifactSchema": "",
+          "artifactSchema": "block.2d",
           "exportFormats": [],
           "importFormats": [],
           "ports": []
@@ -3646,7 +3841,53 @@
         "utilities": [],
         "windowKinds": [
           {
-            "actions": [],
+            "actions": [
+              {
+                "args": [],
+                "iconId": "square",
+                "id": "cancelTypedOperation",
+                "inPalette": false,
+                "kind": "view",
+                "label": {
+                  "native": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  },
+                  "reuse": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  }
+                },
+                "semantics": {
+                  "effects": {
+                    "destructive": false,
+                    "external": false,
+                    "reads": [
+                      "config:{self}"
+                    ],
+                    "reversible": false
+                  },
+                  "execution": {
+                    "cancellable": false,
+                    "class": "interactive",
+                    "expectedRevision": false,
+                    "idempotency": "none",
+                    "interactiveJob": "migrated",
+                    "preview": "none",
+                    "undo": {
+                      "kind": "none"
+                    }
+                  },
+                  "policy": {
+                    "approval": "never",
+                    "scopes": [
+                      "artifacts.read",
+                      "shell.observe"
+                    ]
+                  }
+                }
+              }
+            ],
             "bodyKey": "block2d.view.board",
             "capabilities": [],
             "iconId": "layout-grid",
@@ -3691,6 +3932,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Setzt ein Feld der Objektart des 3D-Blocks: Name, Bezeichnung, Variante, Beschreibung oder Symbol.",
+                  "en": "Sets one field of the 3D block's object kind: its name, label, variant, description or icon."
+                },
+                "reuse": {
+                  "de": "Setzt ein Feld der Objektart des 3D-Blocks: Name, Bezeichnung, Variante, Beschreibung oder Symbol.",
+                  "en": "Sets one field of the 3D block's object kind: its name, label, variant, description or icon."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -3735,6 +3986,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Fügt dem 3D-Block eine neue, leere Darstellung hinzu (eine benannte Netzansicht des Objekts mit Tags und Detailstufe).",
+                  "en": "Adds a new, empty representation (a named mesh view of the object with tags and level of detail) to the 3D block."
+                },
+                "reuse": {
+                  "de": "Fügt dem 3D-Block eine neue, leere Darstellung hinzu (eine benannte Netzansicht des Objekts mit Tags und Detailstufe).",
+                  "en": "Adds a new, empty representation (a named mesh view of the object with tags and level of detail) to the 3D block."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -3779,6 +4040,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Entfernt eine Darstellung anhand ihrer Id aus dem 3D-Block.",
+                  "en": "Removes one representation by id from the 3D block."
+                },
+                "reuse": {
+                  "de": "Entfernt eine Darstellung anhand ihrer Id aus dem 3D-Block.",
+                  "en": "Removes one representation by id from the 3D block."
+                }
+              },
               "effects": {
                 "destructive": true,
                 "external": false,
@@ -3823,6 +4094,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Fügt dem 3D-Block eine neue Wirbelart hinzu (einen benannten, farbigen Anschlusspunkttyp mit Standard-Kabelart).",
+                  "en": "Adds a new vortex kind (a named, coloured connection-point type with a default cable kind) to the 3D block."
+                },
+                "reuse": {
+                  "de": "Fügt dem 3D-Block eine neue Wirbelart hinzu (einen benannten, farbigen Anschlusspunkttyp mit Standard-Kabelart).",
+                  "en": "Adds a new vortex kind (a named, coloured connection-point type with a default cable kind) to the 3D block."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -3867,6 +4148,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Entfernt eine Wirbelart anhand ihrer Id aus dem 3D-Block.",
+                  "en": "Removes one vortex kind by id from the 3D block."
+                },
+                "reuse": {
+                  "de": "Entfernt eine Wirbelart anhand ihrer Id aus dem 3D-Block.",
+                  "en": "Removes one vortex kind by id from the 3D block."
+                }
+              },
               "effects": {
                 "destructive": true,
                 "external": false,
@@ -3911,6 +4202,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Fügt einen neuen Wirbel (Anschlusspunkt) der ersten Wirbelart im Ursprung, nach oben gerichtet, hinzu; ohne Wirbelart geschieht nichts.",
+                  "en": "Adds a new vortex (connection point) of the first vortex kind at the origin, facing up; without any vortex kind nothing happens."
+                },
+                "reuse": {
+                  "de": "Fügt einen neuen Wirbel (Anschlusspunkt) der ersten Wirbelart im Ursprung, nach oben gerichtet, hinzu; ohne Wirbelart geschieht nichts.",
+                  "en": "Adds a new vortex (connection point) of the first vortex kind at the origin, facing up; without any vortex kind nothing happens."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -3955,6 +4256,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Entfernt einen Wirbel (Anschlusspunkt) anhand seiner Id aus dem 3D-Block.",
+                  "en": "Removes one vortex (connection point) by id from the 3D block."
+                },
+                "reuse": {
+                  "de": "Entfernt einen Wirbel (Anschlusspunkt) anhand seiner Id aus dem 3D-Block.",
+                  "en": "Removes one vortex (connection point) by id from the 3D block."
+                }
+              },
               "effects": {
                 "destructive": true,
                 "external": false,
@@ -3999,6 +4310,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Lädt eines der mitgelieferten 3D-Block-Beispiele (etwa die Nakagin-Kapsel oder ein sechseckiges Betonwald-Teil) und ersetzt Abweichendes, anhand der Beispiel-Id.",
+                  "en": "Loads one of the plugin's bundled 3D block examples (such as the Nakagin capsule or a hexagonal cut-concrete forest piece), replacing what differs, by example id."
+                },
+                "reuse": {
+                  "de": "Lädt eines der mitgelieferten 3D-Block-Beispiele (etwa die Nakagin-Kapsel oder ein sechseckiges Betonwald-Teil) und ersetzt Abweichendes, anhand der Beispiel-Id.",
+                  "en": "Loads one of the plugin's bundled 3D block examples (such as the Nakagin capsule or a hexagonal cut-concrete forest piece), replacing what differs, by example id."
+                }
+              },
               "effects": {
                 "destructive": true,
                 "external": false,
@@ -4043,8 +4364,18 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Ersetzt das gesamte 3D-Block-Dokument durch eines aus dem angegebenen JSON-Text; ungültiges oder identisches JSON ändert nichts.",
+                  "en": "Replaces the whole 3D block document with one parsed from the given JSON text; invalid or identical JSON changes nothing."
+                },
+                "reuse": {
+                  "de": "Ersetzt das gesamte 3D-Block-Dokument durch eines aus dem angegebenen JSON-Text; ungültiges oder identisches JSON ändert nichts.",
+                  "en": "Replaces the whole 3D block document with one parsed from the given JSON text; invalid or identical JSON changes nothing."
+                }
+              },
               "effects": {
-                "destructive": false,
+                "destructive": true,
                 "external": false,
                 "reversible": true,
                 "writes": [
@@ -4087,6 +4418,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Wählt, welche Darstellung des 3D-Blocks der Editor zeigt und bearbeitet, oder keine; das Dokument ändert sich nicht.",
+                  "en": "Chooses which representation of the 3D block the editor shows and edits, or none; the document is not changed."
+                },
+                "reuse": {
+                  "de": "Wählt, welche Darstellung des 3D-Blocks der Editor zeigt und bearbeitet, oder keine; das Dokument ändert sich nicht.",
+                  "en": "Chooses which representation of the 3D block the editor shows and edits, or none; the document is not changed."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -4132,6 +4473,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Legt fest, welche Darstellungen ein 3D-Fenster zeigt, anhand der Fenster-Id; nur die Ansicht dieses Fensters ändert sich.",
+                  "en": "Sets which representations one 3D window shows, by window id; only that window's view changes."
+                },
+                "reuse": {
+                  "de": "Legt fest, welche Darstellungen ein 3D-Fenster zeigt, anhand der Fenster-Id; nur die Ansicht dieses Fensters ändert sich.",
+                  "en": "Sets which representations one 3D window shows, by window id; only that window's view changes."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -4177,6 +4528,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Blendet eine Darstellung in einem 3D-Fenster ein oder aus; nur die Ansicht dieses Fensters ändert sich.",
+                  "en": "Shows or hides one representation in one 3D window; only that window's view changes."
+                },
+                "reuse": {
+                  "de": "Blendet eine Darstellung in einem 3D-Fenster ein oder aus; nur die Ansicht dieses Fensters ändert sich.",
+                  "en": "Shows or hides one representation in one 3D window; only that window's view changes."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -4222,6 +4583,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Legt fest, wie ein 3D-Fenster seine Darstellungen anordnet, in einer Reihe oder gestapelt; nur die Ansicht ändert sich.",
+                  "en": "Sets how one 3D window arranges the representations it shows, in a row or stacked; only the view changes."
+                },
+                "reuse": {
+                  "de": "Legt fest, wie ein 3D-Fenster seine Darstellungen anordnet, in einer Reihe oder gestapelt; nur die Ansicht ändert sich.",
+                  "en": "Sets how one 3D window arranges the representations it shows, in a row or stacked; only the view changes."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -4267,6 +4638,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Legt den Abstand zwischen nebeneinander angeordneten Darstellungen in einem 3D-Fenster fest; nur die Ansicht ändert sich.",
+                  "en": "Sets the spacing between representations laid out side by side in one 3D window; only the view changes."
+                },
+                "reuse": {
+                  "de": "Legt den Abstand zwischen nebeneinander angeordneten Darstellungen in einem 3D-Fenster fest; nur die Ansicht ändert sich.",
+                  "en": "Sets the spacing between representations laid out side by side in one 3D window; only the view changes."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -4312,6 +4693,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Wählt die Wirbelart, die der Platzierungspinsel auf Flächen setzt; nur die Pinseleinstellung des Editors ändert sich.",
+                  "en": "Chooses the vortex kind the placement brush puts onto surfaces; only the editor's brush setting changes."
+                },
+                "reuse": {
+                  "de": "Wählt die Wirbelart, die der Platzierungspinsel auf Flächen setzt; nur die Pinseleinstellung des Editors ändert sich.",
+                  "en": "Chooses the vortex kind the placement brush puts onto surfaces; only the editor's brush setting changes."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -4357,6 +4748,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Legt den Radius des Wirbel-Platzierungspinsels fest; nur die Pinseleinstellung des Editors ändert sich.",
+                  "en": "Sets the radius of the vortex placement brush; only the editor's brush setting changes."
+                },
+                "reuse": {
+                  "de": "Legt den Radius des Wirbel-Platzierungspinsels fest; nur die Pinseleinstellung des Editors ändert sich.",
+                  "en": "Sets the radius of the vortex placement brush; only the editor's brush setting changes."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -4402,6 +4803,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Legt fest, ob der Platzierungspinsel die Richtung gesetzter Wirbel umkehrt; nur die Pinseleinstellung ändert sich.",
+                  "en": "Sets whether the placement brush flips the direction of vortices it places; only the brush setting changes."
+                },
+                "reuse": {
+                  "de": "Legt fest, ob der Platzierungspinsel die Richtung gesetzter Wirbel umkehrt; nur die Pinseleinstellung ändert sich.",
+                  "en": "Sets whether the placement brush flips the direction of vortices it places; only the brush setting changes."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -4480,7 +4891,7 @@
             "args": [],
             "iconId": "eye",
             "id": "worldSurfaceLeave",
-            "inPalette": true,
+            "inPalette": false,
             "kind": "view",
             "label": {
               "native": {
@@ -4493,6 +4904,7 @@
               }
             },
             "semantics": {
+              "audience": "input",
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -4525,7 +4937,7 @@
             "args": [],
             "iconId": "sparkles",
             "id": "worldSurfacePlace",
-            "inPalette": true,
+            "inPalette": false,
             "kind": "mutation",
             "label": {
               "native": {
@@ -4538,6 +4950,7 @@
               }
             },
             "semantics": {
+              "audience": "input",
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -4582,6 +4995,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Setzt ein Feld einer Darstellung anhand ihrer Id: Name, Netz-URL, Detailstufe oder Beschreibung.",
+                  "en": "Sets one field of one representation by id: its name, mesh URL, level of detail or description."
+                },
+                "reuse": {
+                  "de": "Setzt ein Feld einer Darstellung anhand ihrer Id: Name, Netz-URL, Detailstufe oder Beschreibung.",
+                  "en": "Sets one field of one representation by id: its name, mesh URL, level of detail or description."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -4613,7 +5036,7 @@
             "args": [],
             "iconId": "camera",
             "id": "setCamera",
-            "inPalette": true,
+            "inPalette": false,
             "kind": "view",
             "label": {
               "native": {
@@ -4626,6 +5049,7 @@
               }
             },
             "semantics": {
+              "audience": "chrome",
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -5437,6 +5861,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Öffnet den Tutorial-Rekorder für das geöffnete Dokument, damit die nächsten Interaktionen als Tutorial aufgezeichnet werden.",
+                  "en": "Opens the tutorial recorder on the open document so the next interactions are recorded as a tutorial."
+                },
+                "reuse": {
+                  "de": "Öffnet den Tutorial-Rekorder für das geöffnete Dokument, damit die nächsten Interaktionen als Tutorial aufgezeichnet werden.",
+                  "en": "Opens the tutorial recorder on the open document so the next interactions are recorded as a tutorial."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -5542,6 +5976,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Filtert den Verlaufsbereich auf alle Einträge, nur Dokumentoperationen oder alles außer Dokumentoperationen; das Dokument wird nicht verändert.",
+                  "en": "Filters the history panel to all entries, only document operations, or everything except document operations; the document is not changed."
+                },
+                "reuse": {
+                  "de": "Filtert den Verlaufsbereich auf alle Einträge, nur Dokumentoperationen oder alles außer Dokumentoperationen; das Dokument wird nicht verändert.",
+                  "en": "Filters the history panel to all entries, only document operations, or everything except document operations; the document is not changed."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -5640,6 +6084,16 @@
             },
             "semantics": {
               "audience": "chrome",
+              "description": {
+                "native": {
+                  "de": "Vermerkt eine bereits erfolgte Shell-Wirkung (Navigation, Export, Start) im Sitzungsprotokoll; das Dokument wird nicht verändert.",
+                  "en": "Records a shell effect that already happened (navigation, export, spawn) in the session command log; the document is not changed."
+                },
+                "reuse": {
+                  "de": "Vermerkt eine bereits erfolgte Shell-Wirkung (Navigation, Export, Start) im Sitzungsprotokoll; das Dokument wird nicht verändert.",
+                  "en": "Records a shell effect that already happened (navigation, export, spawn) in the session command log; the document is not changed."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -6628,6 +7082,51 @@
                     ]
                   }
                 }
+              },
+              {
+                "args": [],
+                "iconId": "square",
+                "id": "cancelTypedOperation",
+                "inPalette": false,
+                "kind": "view",
+                "label": {
+                  "native": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  },
+                  "reuse": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  }
+                },
+                "semantics": {
+                  "effects": {
+                    "destructive": false,
+                    "external": false,
+                    "reads": [
+                      "config:{self}"
+                    ],
+                    "reversible": false
+                  },
+                  "execution": {
+                    "cancellable": false,
+                    "class": "interactive",
+                    "expectedRevision": false,
+                    "idempotency": "none",
+                    "interactiveJob": "migrated",
+                    "preview": "none",
+                    "undo": {
+                      "kind": "none"
+                    }
+                  },
+                  "policy": {
+                    "approval": "never",
+                    "scopes": [
+                      "artifacts.read",
+                      "shell.observe"
+                    ]
+                  }
+                }
               }
             ],
             "bodyKey": "block3d.play.world",
@@ -7365,6 +7864,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Öffnet den Tutorial-Rekorder für das geöffnete Dokument, damit die nächsten Interaktionen als Tutorial aufgezeichnet werden.",
+                  "en": "Opens the tutorial recorder on the open document so the next interactions are recorded as a tutorial."
+                },
+                "reuse": {
+                  "de": "Öffnet den Tutorial-Rekorder für das geöffnete Dokument, damit die nächsten Interaktionen als Tutorial aufgezeichnet werden.",
+                  "en": "Opens the tutorial recorder on the open document so the next interactions are recorded as a tutorial."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -7470,6 +7979,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Filtert den Verlaufsbereich auf alle Einträge, nur Dokumentoperationen oder alles außer Dokumentoperationen; das Dokument wird nicht verändert.",
+                  "en": "Filters the history panel to all entries, only document operations, or everything except document operations; the document is not changed."
+                },
+                "reuse": {
+                  "de": "Filtert den Verlaufsbereich auf alle Einträge, nur Dokumentoperationen oder alles außer Dokumentoperationen; das Dokument wird nicht verändert.",
+                  "en": "Filters the history panel to all entries, only document operations, or everything except document operations; the document is not changed."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -7568,6 +8087,16 @@
             },
             "semantics": {
               "audience": "chrome",
+              "description": {
+                "native": {
+                  "de": "Vermerkt eine bereits erfolgte Shell-Wirkung (Navigation, Export, Start) im Sitzungsprotokoll; das Dokument wird nicht verändert.",
+                  "en": "Records a shell effect that already happened (navigation, export, spawn) in the session command log; the document is not changed."
+                },
+                "reuse": {
+                  "de": "Vermerkt eine bereits erfolgte Shell-Wirkung (Navigation, Export, Start) im Sitzungsprotokoll; das Dokument wird nicht verändert.",
+                  "en": "Records a shell effect that already happened (navigation, export, spawn) in the session command log; the document is not changed."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -7640,7 +8169,7 @@
             "class": "data",
             "form": "value"
           },
-          "artifactSchema": "",
+          "artifactSchema": "block.3d",
           "exportFormats": [],
           "importFormats": [],
           "ports": []
@@ -7742,7 +8271,53 @@
         "utilities": [],
         "windowKinds": [
           {
-            "actions": [],
+            "actions": [
+              {
+                "args": [],
+                "iconId": "square",
+                "id": "cancelTypedOperation",
+                "inPalette": false,
+                "kind": "view",
+                "label": {
+                  "native": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  },
+                  "reuse": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  }
+                },
+                "semantics": {
+                  "effects": {
+                    "destructive": false,
+                    "external": false,
+                    "reads": [
+                      "config:{self}"
+                    ],
+                    "reversible": false
+                  },
+                  "execution": {
+                    "cancellable": false,
+                    "class": "interactive",
+                    "expectedRevision": false,
+                    "idempotency": "none",
+                    "interactiveJob": "migrated",
+                    "preview": "none",
+                    "undo": {
+                      "kind": "none"
+                    }
+                  },
+                  "policy": {
+                    "approval": "never",
+                    "scopes": [
+                      "artifacts.read",
+                      "shell.observe"
+                    ]
+                  }
+                }
+              }
+            ],
             "bodyKey": "framework.window.mesh",
             "capabilities": [],
             "iconId": "box",
@@ -7787,6 +8362,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Setzt ein Feld der Teilart des 5D-Blocks: Name, Bezeichnung, Variante, Beschreibung oder Symbol.",
+                  "en": "Sets one field of the 5D block's part kind: its name, label, variant, description or icon."
+                },
+                "reuse": {
+                  "de": "Setzt ein Feld der Teilart des 5D-Blocks: Name, Bezeichnung, Variante, Beschreibung oder Symbol.",
+                  "en": "Sets one field of the 5D block's part kind: its name, label, variant, description or icon."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -7831,6 +8416,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Fügt dem 5D-Block eine neue Griffart hinzu (einen benannten, farbigen Verbindertyp mit Standard-Seilart).",
+                  "en": "Adds a new grip kind (a named, coloured connector type with a default rope kind) to the 5D block."
+                },
+                "reuse": {
+                  "de": "Fügt dem 5D-Block eine neue Griffart hinzu (einen benannten, farbigen Verbindertyp mit Standard-Seilart).",
+                  "en": "Adds a new grip kind (a named, coloured connector type with a default rope kind) to the 5D block."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -7875,6 +8470,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Entfernt eine Griffart anhand ihrer Id aus dem 5D-Block.",
+                  "en": "Removes one grip kind by id from the 5D block."
+                },
+                "reuse": {
+                  "de": "Entfernt eine Griffart anhand ihrer Id aus dem 5D-Block.",
+                  "en": "Removes one grip kind by id from the 5D block."
+                }
+              },
               "effects": {
                 "destructive": true,
                 "external": false,
@@ -7919,6 +8524,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Fügt einen neuen Griff der ersten Griffart mit Standard-2D- und -3D-Platzierung hinzu; ohne Griffart geschieht nichts.",
+                  "en": "Adds a new grip of the first grip kind with default 2D and 3D placement; without any grip kind nothing happens."
+                },
+                "reuse": {
+                  "de": "Fügt einen neuen Griff der ersten Griffart mit Standard-2D- und -3D-Platzierung hinzu; ohne Griffart geschieht nichts.",
+                  "en": "Adds a new grip of the first grip kind with default 2D and 3D placement; without any grip kind nothing happens."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -7963,6 +8578,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Entfernt einen Griff anhand seiner Id aus dem 5D-Block.",
+                  "en": "Removes one grip by id from the 5D block."
+                },
+                "reuse": {
+                  "de": "Entfernt einen Griff anhand seiner Id aus dem 5D-Block.",
+                  "en": "Removes one grip by id from the 5D block."
+                }
+              },
               "effects": {
                 "destructive": true,
                 "external": false,
@@ -8007,6 +8632,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Lädt eines der mitgelieferten 5D-Block-Beispiele in das Dokument und ersetzt Abweichendes, anhand der Beispiel-Id.",
+                  "en": "Loads one of the plugin's bundled 5D block examples into the document, replacing what differs, by example id."
+                },
+                "reuse": {
+                  "de": "Lädt eines der mitgelieferten 5D-Block-Beispiele in das Dokument und ersetzt Abweichendes, anhand der Beispiel-Id.",
+                  "en": "Loads one of the plugin's bundled 5D block examples into the document, replacing what differs, by example id."
+                }
+              },
               "effects": {
                 "destructive": true,
                 "external": false,
@@ -8051,8 +8686,18 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Ersetzt das gesamte 5D-Block-Dokument durch eines aus dem angegebenen JSON-Text; ungültiges oder identisches JSON ändert nichts.",
+                  "en": "Replaces the whole 5D block document with one parsed from the given JSON text; invalid or identical JSON changes nothing."
+                },
+                "reuse": {
+                  "de": "Ersetzt das gesamte 5D-Block-Dokument durch eines aus dem angegebenen JSON-Text; ungültiges oder identisches JSON ändert nichts.",
+                  "en": "Replaces the whole 5D block document with one parsed from the given JSON text; invalid or identical JSON changes nothing."
+                }
+              },
               "effects": {
-                "destructive": false,
+                "destructive": true,
                 "external": false,
                 "reversible": true,
                 "writes": [
@@ -8781,6 +9426,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Öffnet den Tutorial-Rekorder für das geöffnete Dokument, damit die nächsten Interaktionen als Tutorial aufgezeichnet werden.",
+                  "en": "Opens the tutorial recorder on the open document so the next interactions are recorded as a tutorial."
+                },
+                "reuse": {
+                  "de": "Öffnet den Tutorial-Rekorder für das geöffnete Dokument, damit die nächsten Interaktionen als Tutorial aufgezeichnet werden.",
+                  "en": "Opens the tutorial recorder on the open document so the next interactions are recorded as a tutorial."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -8886,6 +9541,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Filtert den Verlaufsbereich auf alle Einträge, nur Dokumentoperationen oder alles außer Dokumentoperationen; das Dokument wird nicht verändert.",
+                  "en": "Filters the history panel to all entries, only document operations, or everything except document operations; the document is not changed."
+                },
+                "reuse": {
+                  "de": "Filtert den Verlaufsbereich auf alle Einträge, nur Dokumentoperationen oder alles außer Dokumentoperationen; das Dokument wird nicht verändert.",
+                  "en": "Filters the history panel to all entries, only document operations, or everything except document operations; the document is not changed."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -8984,6 +9649,16 @@
             },
             "semantics": {
               "audience": "chrome",
+              "description": {
+                "native": {
+                  "de": "Vermerkt eine bereits erfolgte Shell-Wirkung (Navigation, Export, Start) im Sitzungsprotokoll; das Dokument wird nicht verändert.",
+                  "en": "Records a shell effect that already happened (navigation, export, spawn) in the session command log; the document is not changed."
+                },
+                "reuse": {
+                  "de": "Vermerkt eine bereits erfolgte Shell-Wirkung (Navigation, Export, Start) im Sitzungsprotokoll; das Dokument wird nicht verändert.",
+                  "en": "Records a shell effect that already happened (navigation, export, spawn) in the session command log; the document is not changed."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -9952,6 +10627,51 @@
                     ]
                   }
                 }
+              },
+              {
+                "args": [],
+                "iconId": "square",
+                "id": "cancelTypedOperation",
+                "inPalette": false,
+                "kind": "view",
+                "label": {
+                  "native": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  },
+                  "reuse": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  }
+                },
+                "semantics": {
+                  "effects": {
+                    "destructive": false,
+                    "external": false,
+                    "reads": [
+                      "config:{self}"
+                    ],
+                    "reversible": false
+                  },
+                  "execution": {
+                    "cancellable": false,
+                    "class": "interactive",
+                    "expectedRevision": false,
+                    "idempotency": "none",
+                    "interactiveJob": "migrated",
+                    "preview": "none",
+                    "undo": {
+                      "kind": "none"
+                    }
+                  },
+                  "policy": {
+                    "approval": "never",
+                    "scopes": [
+                      "artifacts.read",
+                      "shell.observe"
+                    ]
+                  }
+                }
               }
             ],
             "bodyKey": "block5d.play.board",
@@ -10549,6 +11269,51 @@
                   "reuse": {
                     "de": "Granularität festlegen",
                     "en": "Set Granularity"
+                  }
+                },
+                "semantics": {
+                  "effects": {
+                    "destructive": false,
+                    "external": false,
+                    "reads": [
+                      "config:{self}"
+                    ],
+                    "reversible": false
+                  },
+                  "execution": {
+                    "cancellable": false,
+                    "class": "interactive",
+                    "expectedRevision": false,
+                    "idempotency": "none",
+                    "interactiveJob": "migrated",
+                    "preview": "none",
+                    "undo": {
+                      "kind": "none"
+                    }
+                  },
+                  "policy": {
+                    "approval": "never",
+                    "scopes": [
+                      "artifacts.read",
+                      "shell.observe"
+                    ]
+                  }
+                }
+              },
+              {
+                "args": [],
+                "iconId": "square",
+                "id": "cancelTypedOperation",
+                "inPalette": false,
+                "kind": "view",
+                "label": {
+                  "native": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  },
+                  "reuse": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
                   }
                 },
                 "semantics": {
@@ -11313,6 +12078,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Öffnet den Tutorial-Rekorder für das geöffnete Dokument, damit die nächsten Interaktionen als Tutorial aufgezeichnet werden.",
+                  "en": "Opens the tutorial recorder on the open document so the next interactions are recorded as a tutorial."
+                },
+                "reuse": {
+                  "de": "Öffnet den Tutorial-Rekorder für das geöffnete Dokument, damit die nächsten Interaktionen als Tutorial aufgezeichnet werden.",
+                  "en": "Opens the tutorial recorder on the open document so the next interactions are recorded as a tutorial."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -11418,6 +12193,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Filtert den Verlaufsbereich auf alle Einträge, nur Dokumentoperationen oder alles außer Dokumentoperationen; das Dokument wird nicht verändert.",
+                  "en": "Filters the history panel to all entries, only document operations, or everything except document operations; the document is not changed."
+                },
+                "reuse": {
+                  "de": "Filtert den Verlaufsbereich auf alle Einträge, nur Dokumentoperationen oder alles außer Dokumentoperationen; das Dokument wird nicht verändert.",
+                  "en": "Filters the history panel to all entries, only document operations, or everything except document operations; the document is not changed."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -11516,6 +12301,16 @@
             },
             "semantics": {
               "audience": "chrome",
+              "description": {
+                "native": {
+                  "de": "Vermerkt eine bereits erfolgte Shell-Wirkung (Navigation, Export, Start) im Sitzungsprotokoll; das Dokument wird nicht verändert.",
+                  "en": "Records a shell effect that already happened (navigation, export, spawn) in the session command log; the document is not changed."
+                },
+                "reuse": {
+                  "de": "Vermerkt eine bereits erfolgte Shell-Wirkung (Navigation, Export, Start) im Sitzungsprotokoll; das Dokument wird nicht verändert.",
+                  "en": "Records a shell effect that already happened (navigation, export, spawn) in the session command log; the document is not changed."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -11588,7 +12383,7 @@
             "class": "data",
             "form": "value"
           },
-          "artifactSchema": "",
+          "artifactSchema": "block.5d",
           "exportFormats": [],
           "importFormats": [],
           "ports": []
@@ -11690,7 +12485,53 @@
         "utilities": [],
         "windowKinds": [
           {
-            "actions": [],
+            "actions": [
+              {
+                "args": [],
+                "iconId": "square",
+                "id": "cancelTypedOperation",
+                "inPalette": false,
+                "kind": "view",
+                "label": {
+                  "native": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  },
+                  "reuse": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  }
+                },
+                "semantics": {
+                  "effects": {
+                    "destructive": false,
+                    "external": false,
+                    "reads": [
+                      "config:{self}"
+                    ],
+                    "reversible": false
+                  },
+                  "execution": {
+                    "cancellable": false,
+                    "class": "interactive",
+                    "expectedRevision": false,
+                    "idempotency": "none",
+                    "interactiveJob": "migrated",
+                    "preview": "none",
+                    "undo": {
+                      "kind": "none"
+                    }
+                  },
+                  "policy": {
+                    "approval": "never",
+                    "scopes": [
+                      "artifacts.read",
+                      "shell.observe"
+                    ]
+                  }
+                }
+              }
+            ],
             "bodyKey": "framework.window.mesh",
             "capabilities": [],
             "iconId": "box",

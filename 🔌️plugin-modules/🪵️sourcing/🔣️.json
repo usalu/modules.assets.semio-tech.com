@@ -59,12 +59,12 @@
   "descriptorVersion": 1,
   "execution": "isolated",
   "executionProtocol": {
-    "appChannelVersion": 17
+    "appChannelVersion": 19
   },
   "hashes": {
-    "coreWasmSha256": "67ec7fe4abb0a8883f4732f54cafbfbc1188c17e1e7c90dd5de9c99ec641438b",
-    "descriptorSha256": "f5b6908d860ece60a5a01c7a5c29e10d35b05196db75362375bafaa807450354",
-    "wasmSha256": "7ef61c590df87247370d204c1ed6ca16b3d6ea1d0987a2a5af3bc8238156392b"
+    "coreWasmSha256": "a1ebb76c1f4329f4600c9ac0f937ac5becc06a782b33b7e658224d343638935a",
+    "descriptorSha256": "bf8e1973567282ea280990433d83e2d8b7de886156af52fff8597b6756500170",
+    "wasmSha256": "f2d8feaff35ac63391cba3c16ad17e6ef25eb4428c28b4009b884d5db4f642e6"
   },
   "manifest": {
     "apps": [
@@ -121,6 +121,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Ersetzt die gesamte Kuratierung durch einen der mitgelieferten Beispielbestände oder die leere Kuratierung, anhand der Beispiel-Id.",
+                  "en": "Replaces the whole curation with one of the bundled example stocks or the empty curation, by example id."
+                },
+                "reuse": {
+                  "de": "Ersetzt die gesamte Kuratierung durch einen der mitgelieferten Beispielbestände oder die leere Kuratierung, anhand der Beispiel-Id.",
+                  "en": "Replaces the whole curation with one of the bundled example stocks or the empty curation, by example id."
+                }
+              },
               "effects": {
                 "destructive": true,
                 "external": false,
@@ -165,6 +175,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Fügt dem Bestand alle Objektarten hinzu, die die installierten Beschaffungsmodule (etwa Träger, Decken und Fenster) anbieten; vorhandener Bestand und kuratierte Anzahlen bleiben erhalten.",
+                  "en": "Adds every object kind the installed sourcing modules (such as beams, slabs and windows) offer to the stock, keeping the existing stock and curated counts."
+                },
+                "reuse": {
+                  "de": "Fügt dem Bestand alle Objektarten hinzu, die die installierten Beschaffungsmodule (etwa Träger, Decken und Fenster) anbieten; vorhandener Bestand und kuratierte Anzahlen bleiben erhalten.",
+                  "en": "Adds every object kind the installed sourcing modules (such as beams, slabs and windows) offer to the stock, keeping the existing stock and curated counts."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -209,6 +229,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Ersetzt die gesamte Kuratierung durch eine aus dem angegebenen JSON-Dokument; zu großes oder schemafremdes JSON wird abgelehnt.",
+                  "en": "Replaces the whole curation with one decoded from the given JSON document; oversized or schema-mismatched JSON is refused."
+                },
+                "reuse": {
+                  "de": "Ersetzt die gesamte Kuratierung durch eine aus dem angegebenen JSON-Dokument; zu großes oder schemafremdes JSON wird abgelehnt.",
+                  "en": "Replaces the whole curation with one decoded from the given JSON document; oversized or schema-mismatched JSON is refused."
+                }
+              },
               "effects": {
                 "destructive": true,
                 "external": false,
@@ -253,6 +283,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Nimmt ein weiteres Exemplar des angegebenen Bestandsobjekts in die Kuratierung auf, höchstens bis zur verfügbaren Menge.",
+                  "en": "Adds one more of the given stock object to the curated selection, at most up to its available quantity."
+                },
+                "reuse": {
+                  "de": "Nimmt ein weiteres Exemplar des angegebenen Bestandsobjekts in die Kuratierung auf, höchstens bis zur verfügbaren Menge.",
+                  "en": "Adds one more of the given stock object to the curated selection, at most up to its available quantity."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -313,7 +353,8 @@
                 },
                 "required": false,
                 "schema": {
-                  "kind": "string"
+                  "integer": false,
+                  "kind": "number"
                 }
               },
               {
@@ -330,7 +371,8 @@
                 },
                 "required": false,
                 "schema": {
-                  "kind": "string"
+                  "integer": false,
+                  "kind": "number"
                 }
               }
             ],
@@ -349,6 +391,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Legt fest, wie viele Exemplare eines Bestandsobjekts kuratiert sind, per relativer Änderung oder absolutem Wert bis zur Verfügbarkeit; null entfernt es aus der Kuratierung.",
+                  "en": "Sets how many of one stock object are curated, by a relative delta or an absolute value clamped to its availability; zero removes it from the curation."
+                },
+                "reuse": {
+                  "de": "Legt fest, wie viele Exemplare eines Bestandsobjekts kuratiert sind, per relativer Änderung oder absolutem Wert bis zur Verfügbarkeit; null entfernt es aus der Kuratierung.",
+                  "en": "Sets how many of one stock object are curated, by a relative delta or an absolute value clamped to its availability; zero removes it from the curation."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -393,6 +445,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Entfernt ein Bestandsobjekt vollständig aus der Kuratierung; der Bestand selbst bleibt unverändert.",
+                  "en": "Removes one stock object from the curated selection entirely; the stock itself is unchanged."
+                },
+                "reuse": {
+                  "de": "Entfernt ein Bestandsobjekt vollständig aus der Kuratierung; der Bestand selbst bleibt unverändert.",
+                  "en": "Removes one stock object from the curated selection entirely; the stock itself is unchanged."
+                }
+              },
               "effects": {
                 "destructive": true,
                 "external": false,
@@ -811,6 +873,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Wählt, wie Objektinstanzen im Kuratierungs-Rasterfenster dargestellt werden; nur die Ansicht dieses Fensters ändert sich.",
+                  "en": "Chooses how object instances are shown in the curation grid window; only that window's view changes."
+                },
+                "reuse": {
+                  "de": "Wählt, wie Objektinstanzen im Kuratierungs-Rasterfenster dargestellt werden; nur die Ansicht dieses Fensters ändert sich.",
+                  "en": "Chooses how object instances are shown in the curation grid window; only that window's view changes."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -1542,6 +1614,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Öffnet den Tutorial-Rekorder für das geöffnete Dokument, damit die nächsten Interaktionen als Tutorial aufgezeichnet werden.",
+                  "en": "Opens the tutorial recorder on the open document so the next interactions are recorded as a tutorial."
+                },
+                "reuse": {
+                  "de": "Öffnet den Tutorial-Rekorder für das geöffnete Dokument, damit die nächsten Interaktionen als Tutorial aufgezeichnet werden.",
+                  "en": "Opens the tutorial recorder on the open document so the next interactions are recorded as a tutorial."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -1647,6 +1729,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Filtert den Verlaufsbereich auf alle Einträge, nur Dokumentoperationen oder alles außer Dokumentoperationen; das Dokument wird nicht verändert.",
+                  "en": "Filters the history panel to all entries, only document operations, or everything except document operations; the document is not changed."
+                },
+                "reuse": {
+                  "de": "Filtert den Verlaufsbereich auf alle Einträge, nur Dokumentoperationen oder alles außer Dokumentoperationen; das Dokument wird nicht verändert.",
+                  "en": "Filters the history panel to all entries, only document operations, or everything except document operations; the document is not changed."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -1745,6 +1837,16 @@
             },
             "semantics": {
               "audience": "chrome",
+              "description": {
+                "native": {
+                  "de": "Vermerkt eine bereits erfolgte Shell-Wirkung (Navigation, Export, Start) im Sitzungsprotokoll; das Dokument wird nicht verändert.",
+                  "en": "Records a shell effect that already happened (navigation, export, spawn) in the session command log; the document is not changed."
+                },
+                "reuse": {
+                  "de": "Vermerkt eine bereits erfolgte Shell-Wirkung (Navigation, Export, Start) im Sitzungsprotokoll; das Dokument wird nicht verändert.",
+                  "en": "Records a shell effect that already happened (navigation, export, spawn) in the session command log; the document is not changed."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -1777,18 +1879,12 @@
             "exportFormats": [],
             "exportStdioKinds": [
               "stdio.json",
-              "stdio.obj",
-              "stdio.png",
-              "stdio.stl",
               "stdio.zip"
             ],
             "id": "catalogue.sourcing",
             "importFormats": [],
             "importStdioKinds": [
               "stdio.json",
-              "stdio.obj",
-              "stdio.png",
-              "stdio.stl",
               "stdio.zip"
             ],
             "mediaCapability": "meshOnly",
@@ -2475,11 +2571,11 @@
                 "kind": "interaction",
                 "label": {
                   "native": {
-                    "de": "Hover",
+                    "de": "Darüberfahren",
                     "en": "Hover"
                   },
                   "reuse": {
-                    "de": "Hover",
+                    "de": "Darüberfahren",
                     "en": "Hover"
                   }
                 },
@@ -2761,6 +2857,51 @@
                   "reuse": {
                     "de": "Granularität festlegen",
                     "en": "Set Granularity"
+                  }
+                },
+                "semantics": {
+                  "effects": {
+                    "destructive": false,
+                    "external": false,
+                    "reads": [
+                      "config:{self}"
+                    ],
+                    "reversible": false
+                  },
+                  "execution": {
+                    "cancellable": false,
+                    "class": "interactive",
+                    "expectedRevision": false,
+                    "idempotency": "none",
+                    "interactiveJob": "migrated",
+                    "preview": "none",
+                    "undo": {
+                      "kind": "none"
+                    }
+                  },
+                  "policy": {
+                    "approval": "never",
+                    "scopes": [
+                      "artifacts.read",
+                      "shell.observe"
+                    ]
+                  }
+                }
+              },
+              {
+                "args": [],
+                "iconId": "square",
+                "id": "cancelTypedOperation",
+                "inPalette": false,
+                "kind": "view",
+                "label": {
+                  "native": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  },
+                  "reuse": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
                   }
                 },
                 "semantics": {
@@ -3102,11 +3243,11 @@
                 "kind": "interaction",
                 "label": {
                   "native": {
-                    "de": "Hover",
+                    "de": "Darüberfahren",
                     "en": "Hover"
                   },
                   "reuse": {
-                    "de": "Hover",
+                    "de": "Darüberfahren",
                     "en": "Hover"
                   }
                 },
@@ -3388,6 +3529,51 @@
                   "reuse": {
                     "de": "Granularität festlegen",
                     "en": "Set Granularity"
+                  }
+                },
+                "semantics": {
+                  "effects": {
+                    "destructive": false,
+                    "external": false,
+                    "reads": [
+                      "config:{self}"
+                    ],
+                    "reversible": false
+                  },
+                  "execution": {
+                    "cancellable": false,
+                    "class": "interactive",
+                    "expectedRevision": false,
+                    "idempotency": "none",
+                    "interactiveJob": "migrated",
+                    "preview": "none",
+                    "undo": {
+                      "kind": "none"
+                    }
+                  },
+                  "policy": {
+                    "approval": "never",
+                    "scopes": [
+                      "artifacts.read",
+                      "shell.observe"
+                    ]
+                  }
+                }
+              },
+              {
+                "args": [],
+                "iconId": "square",
+                "id": "cancelTypedOperation",
+                "inPalette": false,
+                "kind": "view",
+                "label": {
+                  "native": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  },
+                  "reuse": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
                   }
                 },
                 "semantics": {
@@ -3729,11 +3915,11 @@
                 "kind": "interaction",
                 "label": {
                   "native": {
-                    "de": "Hover",
+                    "de": "Darüberfahren",
                     "en": "Hover"
                   },
                   "reuse": {
-                    "de": "Hover",
+                    "de": "Darüberfahren",
                     "en": "Hover"
                   }
                 },
@@ -4015,6 +4201,51 @@
                   "reuse": {
                     "de": "Granularität festlegen",
                     "en": "Set Granularity"
+                  }
+                },
+                "semantics": {
+                  "effects": {
+                    "destructive": false,
+                    "external": false,
+                    "reads": [
+                      "config:{self}"
+                    ],
+                    "reversible": false
+                  },
+                  "execution": {
+                    "cancellable": false,
+                    "class": "interactive",
+                    "expectedRevision": false,
+                    "idempotency": "none",
+                    "interactiveJob": "migrated",
+                    "preview": "none",
+                    "undo": {
+                      "kind": "none"
+                    }
+                  },
+                  "policy": {
+                    "approval": "never",
+                    "scopes": [
+                      "artifacts.read",
+                      "shell.observe"
+                    ]
+                  }
+                }
+              },
+              {
+                "args": [],
+                "iconId": "square",
+                "id": "cancelTypedOperation",
+                "inPalette": false,
+                "kind": "view",
+                "label": {
+                  "native": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  },
+                  "reuse": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
                   }
                 },
                 "semantics": {
@@ -4354,11 +4585,11 @@
                 "kind": "interaction",
                 "label": {
                   "native": {
-                    "de": "Hover",
+                    "de": "Darüberfahren",
                     "en": "Hover"
                   },
                   "reuse": {
-                    "de": "Hover",
+                    "de": "Darüberfahren",
                     "en": "Hover"
                   }
                 },
@@ -4640,6 +4871,51 @@
                   "reuse": {
                     "de": "Granularität festlegen",
                     "en": "Set Granularity"
+                  }
+                },
+                "semantics": {
+                  "effects": {
+                    "destructive": false,
+                    "external": false,
+                    "reads": [
+                      "config:{self}"
+                    ],
+                    "reversible": false
+                  },
+                  "execution": {
+                    "cancellable": false,
+                    "class": "interactive",
+                    "expectedRevision": false,
+                    "idempotency": "none",
+                    "interactiveJob": "migrated",
+                    "preview": "none",
+                    "undo": {
+                      "kind": "none"
+                    }
+                  },
+                  "policy": {
+                    "approval": "never",
+                    "scopes": [
+                      "artifacts.read",
+                      "shell.observe"
+                    ]
+                  }
+                }
+              },
+              {
+                "args": [],
+                "iconId": "square",
+                "id": "cancelTypedOperation",
+                "inPalette": false,
+                "kind": "view",
+                "label": {
+                  "native": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  },
+                  "reuse": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
                   }
                 },
                 "semantics": {
@@ -5404,6 +5680,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Öffnet den Tutorial-Rekorder für das geöffnete Dokument, damit die nächsten Interaktionen als Tutorial aufgezeichnet werden.",
+                  "en": "Opens the tutorial recorder on the open document so the next interactions are recorded as a tutorial."
+                },
+                "reuse": {
+                  "de": "Öffnet den Tutorial-Rekorder für das geöffnete Dokument, damit die nächsten Interaktionen als Tutorial aufgezeichnet werden.",
+                  "en": "Opens the tutorial recorder on the open document so the next interactions are recorded as a tutorial."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -5509,6 +5795,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Filtert den Verlaufsbereich auf alle Einträge, nur Dokumentoperationen oder alles außer Dokumentoperationen; das Dokument wird nicht verändert.",
+                  "en": "Filters the history panel to all entries, only document operations, or everything except document operations; the document is not changed."
+                },
+                "reuse": {
+                  "de": "Filtert den Verlaufsbereich auf alle Einträge, nur Dokumentoperationen oder alles außer Dokumentoperationen; das Dokument wird nicht verändert.",
+                  "en": "Filters the history panel to all entries, only document operations, or everything except document operations; the document is not changed."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -5607,6 +5903,16 @@
             },
             "semantics": {
               "audience": "chrome",
+              "description": {
+                "native": {
+                  "de": "Vermerkt eine bereits erfolgte Shell-Wirkung (Navigation, Export, Start) im Sitzungsprotokoll; das Dokument wird nicht verändert.",
+                  "en": "Records a shell effect that already happened (navigation, export, spawn) in the session command log; the document is not changed."
+                },
+                "reuse": {
+                  "de": "Vermerkt eine bereits erfolgte Shell-Wirkung (Navigation, Export, Start) im Sitzungsprotokoll; das Dokument wird nicht verändert.",
+                  "en": "Records a shell effect that already happened (navigation, export, spawn) in the session command log; the document is not changed."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -5684,7 +5990,7 @@
             "class": "data",
             "form": "value"
           },
-          "artifactSchema": "",
+          "artifactSchema": "sourcing.curation/v1",
           "exportFormats": [],
           "importFormats": [],
           "ports": []
@@ -5786,7 +6092,53 @@
         "utilities": [],
         "windowKinds": [
           {
-            "actions": [],
+            "actions": [
+              {
+                "args": [],
+                "iconId": "square",
+                "id": "cancelTypedOperation",
+                "inPalette": false,
+                "kind": "view",
+                "label": {
+                  "native": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  },
+                  "reuse": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  }
+                },
+                "semantics": {
+                  "effects": {
+                    "destructive": false,
+                    "external": false,
+                    "reads": [
+                      "config:{self}"
+                    ],
+                    "reversible": false
+                  },
+                  "execution": {
+                    "cancellable": false,
+                    "class": "interactive",
+                    "expectedRevision": false,
+                    "idempotency": "none",
+                    "interactiveJob": "migrated",
+                    "preview": "none",
+                    "undo": {
+                      "kind": "none"
+                    }
+                  },
+                  "policy": {
+                    "approval": "never",
+                    "scopes": [
+                      "artifacts.read",
+                      "shell.observe"
+                    ]
+                  }
+                }
+              }
+            ],
             "bodyKey": "framework.window.table",
             "capabilities": [],
             "iconId": "table-2",

@@ -116,12 +116,12 @@
   "descriptorVersion": 1,
   "execution": "isolated",
   "executionProtocol": {
-    "appChannelVersion": 17
+    "appChannelVersion": 19
   },
   "hashes": {
-    "coreWasmSha256": "dd79d0d51cb30b25f3d298f7469ca58fbbecfcf7989f43c5e62dde33b80df4f8",
-    "descriptorSha256": "46cfed23892172466f85d079be7447ea326ab03516f5f4c645691d6ccb6029c5",
-    "wasmSha256": "0ad310488d98e8076ad3d3da6891b650dd4e8a5471c1c96ff1ffd938b19117ac"
+    "coreWasmSha256": "f1dc5074e3f194ce96a02c7e64a73e0d768b50e4b7c393c8ec4f8863bc6e83b1",
+    "descriptorSha256": "8c45a0c461908702a6885496e0f8e94f39b0aaa626b9aebe7ece62c90f62c5f4",
+    "wasmSha256": "cb88f137967ae374bbd42d9cd3bc32245b59667dd6f013ea52fd3cf9e3ca9b56"
   },
   "manifest": {
     "apps": [
@@ -183,8 +183,18 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Ersetzt alle Kacheln des Decks durch ein neues Raster mit den angegebenen Zeilen und Spalten aus dem Quellbild; die bisherigen Kacheln werden verworfen.",
+                  "en": "Replaces every tile of the deck with a fresh grid of the given rows and columns cut from the source image; the previous tiles are discarded."
+                },
+                "reuse": {
+                  "de": "Ersetzt alle Kacheln des Decks durch ein neues Raster mit den angegebenen Zeilen und Spalten aus dem Quellbild; die bisherigen Kacheln werden verworfen.",
+                  "en": "Replaces every tile of the deck with a fresh grid of the given rows and columns cut from the source image; the previous tiles are discarded."
+                }
+              },
               "effects": {
-                "destructive": false,
+                "destructive": true,
                 "external": false,
                 "reversible": true,
                 "writes": [
@@ -227,6 +237,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Fügt eine neue Kachel hinzu, die den angegebenen Bereich des Quellbilds ausschneidet (ohne Angabe ein kleines Quadrat oben links), und wählt sie aus.",
+                  "en": "Adds one new tile cropping the given region of the source image (a small square near the top left when none is given) and selects it."
+                },
+                "reuse": {
+                  "de": "Fügt eine neue Kachel hinzu, die den angegebenen Bereich des Quellbilds ausschneidet (ohne Angabe ein kleines Quadrat oben links), und wählt sie aus.",
+                  "en": "Adds one new tile cropping the given region of the source image (a small square near the top left when none is given) and selects it."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -271,6 +291,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Löscht eine Kachel anhand ihrer Id aus dem Deck; Zuschnitt und Name sind fort, sofern die Änderung nicht rückgängig gemacht wird.",
+                  "en": "Deletes one tile by id from the deck; its crop and name are gone unless the edit is undone."
+                },
+                "reuse": {
+                  "de": "Löscht eine Kachel anhand ihrer Id aus dem Deck; Zuschnitt und Name sind fort, sofern die Änderung nicht rückgängig gemacht wird.",
+                  "en": "Deletes one tile by id from the deck; its crop and name are gone unless the edit is undone."
+                }
+              },
               "effects": {
                 "destructive": true,
                 "external": false,
@@ -315,6 +345,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Löscht alle aktuell ausgewählten Kacheln aus dem Deck.",
+                  "en": "Deletes every currently selected tile from the deck."
+                },
+                "reuse": {
+                  "de": "Löscht alle aktuell ausgewählten Kacheln aus dem Deck.",
+                  "en": "Deletes every currently selected tile from the deck."
+                }
+              },
               "effects": {
                 "destructive": true,
                 "external": false,
@@ -359,6 +399,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Gibt allen Kacheln mit den angegebenen Ids denselben neuen Namen; ein leerer Name ändert nichts.",
+                  "en": "Gives every tile with the given ids the same new name; an empty name changes nothing."
+                },
+                "reuse": {
+                  "de": "Gibt allen Kacheln mit den angegebenen Ids denselben neuen Namen; ein leerer Name ändert nichts.",
+                  "en": "Gives every tile with the given ids the same new name; an empty name changes nothing."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -403,6 +453,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Setzt eine Zuschnittkoordinate (x, y, Breite oder Höhe, als Anteil des Quellbilds) auf allen Kacheln mit den angegebenen Ids.",
+                  "en": "Sets one crop coordinate (x, y, width or height, as a fraction of the source image) on every tile with the given ids."
+                },
+                "reuse": {
+                  "de": "Setzt eine Zuschnittkoordinate (x, y, Breite oder Höhe, als Anteil des Quellbilds) auf allen Kacheln mit den angegebenen Ids.",
+                  "en": "Sets one crop coordinate (x, y, width or height, as a fraction of the source image) on every tile with the given ids."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -597,8 +657,18 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Legt das Quellbild fest, aus dem die Kacheln geschnitten werden; ein anderes Bild verwirft alle vorhandenen Kacheln.",
+                  "en": "Sets the source image the tiles are cut from; choosing a different image discards every existing tile."
+                },
+                "reuse": {
+                  "de": "Legt das Quellbild fest, aus dem die Kacheln geschnitten werden; ein anderes Bild verwirft alle vorhandenen Kacheln.",
+                  "en": "Sets the source image the tiles are cut from; choosing a different image discards every existing tile."
+                }
+              },
               "effects": {
-                "destructive": false,
+                "destructive": true,
                 "external": false,
                 "reversible": true,
                 "writes": [
@@ -737,6 +807,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Verschiebt und skaliert den Rahmen, in dem das Quellbild in der Präsentation erscheint (x, y, Breite, Höhe).",
+                  "en": "Moves and resizes the frame the source image is shown in within the presentation (x, y, width, height)."
+                },
+                "reuse": {
+                  "de": "Verschiebt und skaliert den Rahmen, in dem das Quellbild in der Präsentation erscheint (x, y, Breite, Höhe).",
+                  "en": "Moves and resizes the frame the source image is shown in within the presentation (x, y, width, height)."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -815,6 +895,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Ersetzt die gesamte Präsentation durch das mitgelieferte Demo-Deck; jede andere Beispiel-Id ändert nichts.",
+                  "en": "Replaces the whole presentation with the bundled demo deck; any other example id changes nothing."
+                },
+                "reuse": {
+                  "de": "Ersetzt die gesamte Präsentation durch das mitgelieferte Demo-Deck; jede andere Beispiel-Id ändert nichts.",
+                  "en": "Replaces the whole presentation with the bundled demo deck; any other example id changes nothing."
+                }
+              },
               "effects": {
                 "destructive": true,
                 "external": false,
@@ -859,6 +949,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Entfernt alle Kacheln aus dem Deck und behält nur das Quellbild.",
+                  "en": "Removes every tile from the deck and keeps only the source image."
+                },
+                "reuse": {
+                  "de": "Entfernt alle Kacheln aus dem Deck und behält nur das Quellbild.",
+                  "en": "Removes every tile from the deck and keeps only the source image."
+                }
+              },
               "effects": {
                 "destructive": true,
                 "external": false,
@@ -948,8 +1048,18 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Schreibt einen Tile-Morph-Prompt, der das Quellbild und jede Kachel beschreibt, in eine heruntergeladene Datei tile-morph-prompt.md auf dem Rechner des Nutzers.",
+                  "en": "Writes a tile-morph prompt describing the source image and every tile to a downloaded tile-morph-prompt.md file on the user's machine."
+                },
+                "reuse": {
+                  "de": "Schreibt einen Tile-Morph-Prompt, der das Quellbild und jede Kachel beschreibt, in eine heruntergeladene Datei tile-morph-prompt.md auf dem Rechner des Nutzers.",
+                  "en": "Writes a tile-morph prompt describing the source image and every tile to a downloaded tile-morph-prompt.md file on the user's machine."
+                }
+              },
               "effects": {
-                "destructive": false,
+                "destructive": true,
                 "external": false,
                 "reversible": false
               },
@@ -965,7 +1075,7 @@
                 }
               },
               "policy": {
-                "approval": "never",
+                "approval": "whenDestructive",
                 "scopes": [
                   "shell.navigate"
                 ]
@@ -989,8 +1099,18 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Rendert eine Präsentationsszene (JSON) als Videodateien in das angegebene Ausgabeverzeichnis und lädt deren Liste als animate-video-export.ops herunter.",
+                  "en": "Renders a presentation scene (JSON) to video assets in the given output directory and downloads their list as animate-video-export.ops."
+                },
+                "reuse": {
+                  "de": "Rendert eine Präsentationsszene (JSON) als Videodateien in das angegebene Ausgabeverzeichnis und lädt deren Liste als animate-video-export.ops herunter.",
+                  "en": "Renders a presentation scene (JSON) to video assets in the given output directory and downloads their list as animate-video-export.ops."
+                }
+              },
               "effects": {
-                "destructive": false,
+                "destructive": true,
                 "external": false,
                 "reversible": false
               },
@@ -1006,7 +1126,7 @@
                 }
               },
               "policy": {
-                "approval": "never",
+                "approval": "whenDestructive",
                 "scopes": [
                   "shell.navigate"
                 ]
@@ -1109,7 +1229,7 @@
             "args": [],
             "iconId": "eye",
             "id": "noMutation",
-            "inPalette": true,
+            "inPalette": false,
             "kind": "view",
             "label": {
               "native": {
@@ -1122,6 +1242,7 @@
               }
             },
             "semantics": {
+              "audience": "chrome",
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -1853,6 +1974,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Öffnet den Tutorial-Rekorder für das geöffnete Dokument, damit die nächsten Interaktionen als Tutorial aufgezeichnet werden.",
+                  "en": "Opens the tutorial recorder on the open document so the next interactions are recorded as a tutorial."
+                },
+                "reuse": {
+                  "de": "Öffnet den Tutorial-Rekorder für das geöffnete Dokument, damit die nächsten Interaktionen als Tutorial aufgezeichnet werden.",
+                  "en": "Opens the tutorial recorder on the open document so the next interactions are recorded as a tutorial."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -1958,6 +2089,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Filtert den Verlaufsbereich auf alle Einträge, nur Dokumentoperationen oder alles außer Dokumentoperationen; das Dokument wird nicht verändert.",
+                  "en": "Filters the history panel to all entries, only document operations, or everything except document operations; the document is not changed."
+                },
+                "reuse": {
+                  "de": "Filtert den Verlaufsbereich auf alle Einträge, nur Dokumentoperationen oder alles außer Dokumentoperationen; das Dokument wird nicht verändert.",
+                  "en": "Filters the history panel to all entries, only document operations, or everything except document operations; the document is not changed."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -2056,6 +2197,16 @@
             },
             "semantics": {
               "audience": "chrome",
+              "description": {
+                "native": {
+                  "de": "Vermerkt eine bereits erfolgte Shell-Wirkung (Navigation, Export, Start) im Sitzungsprotokoll; das Dokument wird nicht verändert.",
+                  "en": "Records a shell effect that already happened (navigation, export, spawn) in the session command log; the document is not changed."
+                },
+                "reuse": {
+                  "de": "Vermerkt eine bereits erfolgte Shell-Wirkung (Navigation, Export, Start) im Sitzungsprotokoll; das Dokument wird nicht verändert.",
+                  "en": "Records a shell effect that already happened (navigation, export, spawn) in the session command log; the document is not changed."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -2088,21 +2239,13 @@
             "exportFormats": [],
             "exportStdioKinds": [
               "stdio.json",
-              "stdio.md",
-              "stdio.pdf",
-              "stdio.png",
-              "stdio.pptx",
-              "stdio.svg"
+              "stdio.pdf"
             ],
             "id": "animate.presentation",
             "importFormats": [],
             "importStdioKinds": [
               "stdio.json",
-              "stdio.md",
-              "stdio.pdf",
-              "stdio.png",
-              "stdio.pptx",
-              "stdio.svg"
+              "stdio.pdf"
             ],
             "mediaCapability": "meshOnly",
             "mediaType": {
@@ -2141,8 +2284,18 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Ersetzt alle Kacheln des Decks durch das Standardraster von 3 mal 5 aus dem Quellbild; die bisherigen Kacheln werden verworfen.",
+                  "en": "Replaces every tile of the deck with the default 3 by 5 grid cut from the source image; the previous tiles are discarded."
+                },
+                "reuse": {
+                  "de": "Ersetzt alle Kacheln des Decks durch das Standardraster von 3 mal 5 aus dem Quellbild; die bisherigen Kacheln werden verworfen.",
+                  "en": "Replaces every tile of the deck with the default 3 by 5 grid cut from the source image; the previous tiles are discarded."
+                }
+              },
               "effects": {
-                "destructive": false,
+                "destructive": true,
                 "external": false,
                 "reversible": true,
                 "writes": [
@@ -2733,11 +2886,11 @@
                 "kind": "interaction",
                 "label": {
                   "native": {
-                    "de": "Hover",
+                    "de": "Darüberfahren",
                     "en": "Hover"
                   },
                   "reuse": {
-                    "de": "Hover",
+                    "de": "Darüberfahren",
                     "en": "Hover"
                   }
                 },
@@ -3019,6 +3172,51 @@
                   "reuse": {
                     "de": "Granularität festlegen",
                     "en": "Set Granularity"
+                  }
+                },
+                "semantics": {
+                  "effects": {
+                    "destructive": false,
+                    "external": false,
+                    "reads": [
+                      "config:{self}"
+                    ],
+                    "reversible": false
+                  },
+                  "execution": {
+                    "cancellable": false,
+                    "class": "interactive",
+                    "expectedRevision": false,
+                    "idempotency": "none",
+                    "interactiveJob": "migrated",
+                    "preview": "none",
+                    "undo": {
+                      "kind": "none"
+                    }
+                  },
+                  "policy": {
+                    "approval": "never",
+                    "scopes": [
+                      "artifacts.read",
+                      "shell.observe"
+                    ]
+                  }
+                }
+              },
+              {
+                "args": [],
+                "iconId": "square",
+                "id": "cancelTypedOperation",
+                "inPalette": false,
+                "kind": "view",
+                "label": {
+                  "native": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  },
+                  "reuse": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
                   }
                 },
                 "semantics": {
@@ -3783,6 +3981,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Öffnet den Tutorial-Rekorder für das geöffnete Dokument, damit die nächsten Interaktionen als Tutorial aufgezeichnet werden.",
+                  "en": "Opens the tutorial recorder on the open document so the next interactions are recorded as a tutorial."
+                },
+                "reuse": {
+                  "de": "Öffnet den Tutorial-Rekorder für das geöffnete Dokument, damit die nächsten Interaktionen als Tutorial aufgezeichnet werden.",
+                  "en": "Opens the tutorial recorder on the open document so the next interactions are recorded as a tutorial."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -3888,6 +4096,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Filtert den Verlaufsbereich auf alle Einträge, nur Dokumentoperationen oder alles außer Dokumentoperationen; das Dokument wird nicht verändert.",
+                  "en": "Filters the history panel to all entries, only document operations, or everything except document operations; the document is not changed."
+                },
+                "reuse": {
+                  "de": "Filtert den Verlaufsbereich auf alle Einträge, nur Dokumentoperationen oder alles außer Dokumentoperationen; das Dokument wird nicht verändert.",
+                  "en": "Filters the history panel to all entries, only document operations, or everything except document operations; the document is not changed."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -3986,6 +4204,16 @@
             },
             "semantics": {
               "audience": "chrome",
+              "description": {
+                "native": {
+                  "de": "Vermerkt eine bereits erfolgte Shell-Wirkung (Navigation, Export, Start) im Sitzungsprotokoll; das Dokument wird nicht verändert.",
+                  "en": "Records a shell effect that already happened (navigation, export, spawn) in the session command log; the document is not changed."
+                },
+                "reuse": {
+                  "de": "Vermerkt eine bereits erfolgte Shell-Wirkung (Navigation, Export, Start) im Sitzungsprotokoll; das Dokument wird nicht verändert.",
+                  "en": "Records a shell effect that already happened (navigation, export, spawn) in the session command log; the document is not changed."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -4057,7 +4285,7 @@
             "class": "data",
             "form": "value"
           },
-          "artifactSchema": "",
+          "artifactSchema": "animate.presentation",
           "exportFormats": [],
           "importFormats": [],
           "ports": []
@@ -4159,7 +4387,53 @@
         "utilities": [],
         "windowKinds": [
           {
-            "actions": [],
+            "actions": [
+              {
+                "args": [],
+                "iconId": "square",
+                "id": "cancelTypedOperation",
+                "inPalette": false,
+                "kind": "view",
+                "label": {
+                  "native": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  },
+                  "reuse": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  }
+                },
+                "semantics": {
+                  "effects": {
+                    "destructive": false,
+                    "external": false,
+                    "reads": [
+                      "config:{self}"
+                    ],
+                    "reversible": false
+                  },
+                  "execution": {
+                    "cancellable": false,
+                    "class": "interactive",
+                    "expectedRevision": false,
+                    "idempotency": "none",
+                    "interactiveJob": "migrated",
+                    "preview": "none",
+                    "undo": {
+                      "kind": "none"
+                    }
+                  },
+                  "policy": {
+                    "approval": "never",
+                    "scopes": [
+                      "artifacts.read",
+                      "shell.observe"
+                    ]
+                  }
+                }
+              }
+            ],
             "bodyKey": "animate.view.tile-editor",
             "capabilities": [],
             "iconId": "grid-3x3",
@@ -4202,7 +4476,7 @@
     "commands": [],
     "examples": [
       {
-        "artifactJson": "semio animate.presentation.dsl v1\nschema=616e696d6174652e70726573656e746174696f6e\nsource=7b22737263223a222ff09f96bcefb88f6173736574732ff09f96bcefb88f696d616765732ff09f8f99efb88f6172636869746563747572652ff09f8f98efb88f686162697461742d36372e706e67222c226b696e64223a22666967757265222c226672616d65223a7b2278223a302e3132372c2279223a302e312c227769647468223a302e3734362c22686569676874223a302e37357d2c22736f75726365417370656374223a312e343939373037303838343539323835347d\ntiles=5b7b226964223a2274696c652d72302d6330222c226e616d65223a2274696c652d72302d6330222c2263726f70223a7b2278223a302e3132372c2279223a302e312c227769647468223a302e313439322c22686569676874223a302e32357d7d2c7b226964223a2274696c652d72302d6331222c226e616d65223a2274696c652d72302d6331222c2263726f70223a7b2278223a302e323736322c2279223a302e312c227769647468223a302e313439322c22686569676874223a302e32357d7d2c7b226964223a2274696c652d72302d6332222c226e616d65223a2274696c652d72302d6332222c2263726f70223a7b2278223a302e343235342c2279223a302e312c227769647468223a302e313439322c22686569676874223a302e32357d7d2c7b226964223a2274696c652d72302d6333222c226e616d65223a2274696c652d72302d6333222c2263726f70223a7b2278223a302e353734362c2279223a302e312c227769647468223a302e313439322c22686569676874223a302e32357d7d2c7b226964223a2274696c652d72302d6334222c226e616d65223a2274696c652d72302d6334222c2263726f70223a7b2278223a302e373233382c2279223a302e312c227769647468223a302e313439322c22686569676874223a302e32357d7d2c7b226964223a2274696c652d72312d6330222c226e616d65223a2274696c652d72312d6330222c2263726f70223a7b2278223a302e3132372c2279223a302e33352c227769647468223a302e313439322c22686569676874223a302e32357d7d2c7b226964223a2274696c652d72312d6331222c226e616d65223a2274696c652d72312d6331222c2263726f70223a7b2278223a302e323736322c2279223a302e33352c227769647468223a302e313439322c22686569676874223a302e32357d7d2c7b226964223a2274696c652d72312d6332222c226e616d65223a2274696c652d72312d6332222c2263726f70223a7b2278223a302e343235342c2279223a302e33352c227769647468223a302e313439322c22686569676874223a302e32357d7d2c7b226964223a2274696c652d72312d6333222c226e616d65223a2274696c652d72312d6333222c2263726f70223a7b2278223a302e353734362c2279223a302e33352c227769647468223a302e313439322c22686569676874223a302e32357d7d2c7b226964223a2274696c652d72312d6334222c226e616d65223a2274696c652d72312d6334222c2263726f70223a7b2278223a302e373233382c2279223a302e33352c227769647468223a302e313439322c22686569676874223a302e32357d7d2c7b226964223a2274696c652d72322d6330222c226e616d65223a2274696c652d72322d6330222c2263726f70223a7b2278223a302e3132372c2279223a302e362c227769647468223a302e313439322c22686569676874223a302e32357d7d2c7b226964223a2274696c652d72322d6331222c226e616d65223a2274696c652d72322d6331222c2263726f70223a7b2278223a302e323736322c2279223a302e362c227769647468223a302e313439322c22686569676874223a302e32357d7d2c7b226964223a2274696c652d72322d6332222c226e616d65223a2274696c652d72322d6332222c2263726f70223a7b2278223a302e343235342c2279223a302e362c227769647468223a302e313439322c22686569676874223a302e32357d7d2c7b226964223a2274696c652d72322d6333222c226e616d65223a2274696c652d72322d6333222c2263726f70223a7b2278223a302e353734362c2279223a302e362c227769647468223a302e313439322c22686569676874223a302e32357d7d2c7b226964223a2274696c652d72322d6334222c226e616d65223a2274696c652d72322d6334222c2263726f70223a7b2278223a302e373233382c2279223a302e362c227769647468223a302e313439322c22686569676874223a302e32357d7d5d\npresentation=[70726573656e746174696f6e2d33396135386663663038636631303630,70726573656e746174696f6e2d3339613538666366303863663130363021732e737464696f2e73656d696f4076312f70726573656e746174696f6e]\nanimation=[616e696d6174696f6e2d30303763306532643534643334663837,616e696d6174696f6e2d3030376330653264353464333466383721732e737464696f2e73656d696f4076312f616e696d6174696f6e]",
+        "artifactJson": "semio animate.presentation.dsl v1\nschema=animate.presentation source=src=\"/🖼️assets/🖼️images/🏙️architecture/🏘️habitat-67.png\" kind=figure source-aspect=1.4997070884592854\nframe {\n  x=0.127 y=0.1 width=0.746 height=0.75\n}\ntiles=[ id=tile-r0-c0 name=tile-r0-c0\ncrop {\n  x=0.127 y=0.1 width=0.1492 height=0.25\n}\nid=tile-r0-c1 name=tile-r0-c1\ncrop {\n  x=0.2762 y=0.1 width=0.1492 height=0.25\n}\nid=tile-r0-c2 name=tile-r0-c2\ncrop {\n  x=0.4254 y=0.1 width=0.1492 height=0.25\n}\nid=tile-r0-c3 name=tile-r0-c3\ncrop {\n  x=0.5746 y=0.1 width=0.1492 height=0.25\n}\nid=tile-r0-c4 name=tile-r0-c4\ncrop {\n  x=0.7238 y=0.1 width=0.1492 height=0.25\n}\nid=tile-r1-c0 name=tile-r1-c0\ncrop {\n  x=0.127 y=0.35 width=0.1492 height=0.25\n}\nid=tile-r1-c1 name=tile-r1-c1\ncrop {\n  x=0.2762 y=0.35 width=0.1492 height=0.25\n}\nid=tile-r1-c2 name=tile-r1-c2\ncrop {\n  x=0.4254 y=0.35 width=0.1492 height=0.25\n}\nid=tile-r1-c3 name=tile-r1-c3\ncrop {\n  x=0.5746 y=0.35 width=0.1492 height=0.25\n}\nid=tile-r1-c4 name=tile-r1-c4\ncrop {\n  x=0.7238 y=0.35 width=0.1492 height=0.25\n}\nid=tile-r2-c0 name=tile-r2-c0\ncrop {\n  x=0.127 y=0.6 width=0.1492 height=0.25\n}\nid=tile-r2-c1 name=tile-r2-c1\ncrop {\n  x=0.2762 y=0.6 width=0.1492 height=0.25\n}\nid=tile-r2-c2 name=tile-r2-c2\ncrop {\n  x=0.4254 y=0.6 width=0.1492 height=0.25\n}\nid=tile-r2-c3 name=tile-r2-c3\ncrop {\n  x=0.5746 y=0.6 width=0.1492 height=0.25\n}\nid=tile-r2-c4 name=tile-r2-c4\ncrop {\n  x=0.7238 y=0.6 width=0.1492 height=0.25\n}\n] presentation=child_id=presentation-39a58fcf08cf1060 target=\"presentation-39a58fcf08cf1060!s.stdio.semio@v1/presentation\" animation=child_id=animation-007c0e2d54d34f87 target=\"animation-007c0e2d54d34f87!s.stdio.semio@v1/animation\"\n",
         "dialect": {
           "artifactKind": "s.animate.presentation",
           "standard": "1",

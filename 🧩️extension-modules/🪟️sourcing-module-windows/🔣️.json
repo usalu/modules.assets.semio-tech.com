@@ -17,12 +17,12 @@
   "descriptorVersion": 1,
   "execution": "declarative",
   "executionProtocol": {
-    "appChannelVersion": 17
+    "appChannelVersion": 19
   },
   "hashes": {
-    "coreWasmSha256": "9f30680a1921707966d3b15db161b3c983008feaeb890229fd3dd1de7fc1117a",
-    "descriptorSha256": "fee3ab582caa84be208ef0afbfd6f26876256be7cf11b75df4687ca59c078aba",
-    "wasmSha256": "9c70c223c4a67162fbf6f1be2d3ddb2b1cdd2e6f06af15f399cbeea5af20aa6b"
+    "coreWasmSha256": "f741884ea5738a6b79009a83f0cdf66efb5a8222c19668942bbd29ce699d689e",
+    "descriptorSha256": "bd7c702b873f17c76cb7ac9c05c90ecf885d01dcfdbe6997318860b51b32b198",
+    "wasmSha256": "19b562a0918d085d69a4e0756a57c03a195dcec8ceee4e74bdd70858fbbd764b"
   },
   "manifest": {
     "apps": [],
@@ -32,7 +32,7 @@
     "dependencies": [
       {
         "pluginId": "sourcing",
-        "version": "*"
+        "version": "=0.1.0"
       }
     ],
     "examples": [],

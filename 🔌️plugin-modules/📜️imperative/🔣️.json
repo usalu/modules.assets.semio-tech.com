@@ -24,18 +24,8 @@
             "subset": "*"
           },
           {
-            "artifactKind": "s.stdio.csv",
-            "standard": "rfc4180",
-            "subset": "*"
-          },
-          {
             "artifactKind": "s.stdio.json",
             "standard": "rfc8259",
-            "subset": "*"
-          },
-          {
-            "artifactKind": "s.stdio.md",
-            "standard": "commonmark",
             "subset": "*"
           },
           {
@@ -67,34 +57,8 @@
       },
       {
         "counterpart": {
-          "artifactKind": "s.stdio.csv",
-          "standard": "rfc4180",
-          "subset": "*"
-        },
-        "direction": "import",
-        "owner": {
-          "artifactKind": "s.imperative.procedure",
-          "standard": "1",
-          "subset": "*"
-        }
-      },
-      {
-        "counterpart": {
           "artifactKind": "s.stdio.json",
           "standard": "rfc8259",
-          "subset": "*"
-        },
-        "direction": "import",
-        "owner": {
-          "artifactKind": "s.imperative.procedure",
-          "standard": "1",
-          "subset": "*"
-        }
-      },
-      {
-        "counterpart": {
-          "artifactKind": "s.stdio.md",
-          "standard": "commonmark",
           "subset": "*"
         },
         "direction": "import",
@@ -219,12 +183,12 @@
   "descriptorVersion": 1,
   "execution": "isolated",
   "executionProtocol": {
-    "appChannelVersion": 17
+    "appChannelVersion": 19
   },
   "hashes": {
-    "coreWasmSha256": "61bddb349e1372aaf5c7e76198ad255ff84e9e52aad91812fbe125298f6135e9",
-    "descriptorSha256": "8711949c7987c5d4206bd7287ac083482e8852c139297a565ea4bdb5aea19324",
-    "wasmSha256": "6305cf1e02ad05f2d225babdb9a8efc4f2be5f454671cfefc1e1d4257c360a26"
+    "coreWasmSha256": "ad478fea3322f93f9672a5fd8e93fa115613eae443cd0ef3930c0e7a1c0ffc9b",
+    "descriptorSha256": "a9f99316c1d37c62b0b6bef8fd435075ee70027be9363264576e6849bbf7c88f",
+    "wasmSha256": "b49e2494384859be1abf182f4f6ed902e8603c033d4189f0eb94a77e687e1eb9"
   },
   "manifest": {
     "apps": [
@@ -333,6 +297,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Hängt einen neuen Schritt der angegebenen Art (etwa einen Steuerungs-, Mathe-, Text- oder Effektschritt) an das Ende der Prozedur an.",
+                  "en": "Appends a new step of the given kind (for example a control, math, text or effect step) to the end of the procedure."
+                },
+                "reuse": {
+                  "de": "Hängt einen neuen Schritt der angegebenen Art (etwa einen Steuerungs-, Mathe-, Text- oder Effektschritt) an das Ende der Prozedur an.",
+                  "en": "Appends a new step of the given kind (for example a control, math, text or effect step) to the end of the procedure."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -377,6 +351,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Hängt einen neuen Schritt der angegebenen Art in einen Slot eines Steuerungsschritts (etwa den Dann- oder Sonst-Zweig eines Wenn) an, ohne Besitzer und Slot an das Ende der Prozedur.",
+                  "en": "Appends a new step of the given kind inside a slot of a control step (such as the then or else branch of an if), or to the procedure's end without owner and slot."
+                },
+                "reuse": {
+                  "de": "Hängt einen neuen Schritt der angegebenen Art in einen Slot eines Steuerungsschritts (etwa den Dann- oder Sonst-Zweig eines Wenn) an, ohne Besitzer und Slot an das Ende der Prozedur.",
+                  "en": "Appends a new step of the given kind inside a slot of a control step (such as the then or else branch of an if), or to the procedure's end without owner and slot."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -421,6 +405,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Entfernt einen Schritt anhand seiner Id aus der obersten Ebene der Prozedur, samt aller darin verschachtelten Schritte.",
+                  "en": "Removes one step by id from the top level of the procedure, including every step nested inside it."
+                },
+                "reuse": {
+                  "de": "Entfernt einen Schritt anhand seiner Id aus der obersten Ebene der Prozedur, samt aller darin verschachtelten Schritte.",
+                  "en": "Removes one step by id from the top level of the procedure, including every step nested inside it."
+                }
+              },
               "effects": {
                 "destructive": true,
                 "external": false,
@@ -465,6 +459,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Entfernt einen Schritt anhand seiner Id aus dem Slot eines Steuerungsschritts oder der obersten Ebene, samt aller darin verschachtelten Schritte.",
+                  "en": "Removes one step by id from a control step's slot, or from the top level, including every step nested inside it."
+                },
+                "reuse": {
+                  "de": "Entfernt einen Schritt anhand seiner Id aus dem Slot eines Steuerungsschritts oder der obersten Ebene, samt aller darin verschachtelten Schritte.",
+                  "en": "Removes one step by id from a control step's slot, or from the top level, including every step nested inside it."
+                }
+              },
               "effects": {
                 "destructive": true,
                 "external": false,
@@ -509,6 +513,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Verschiebt einen Schritt der obersten Ebene an eine neue Position (Index) in der Prozedur.",
+                  "en": "Moves one top-level step to a new position (index) in the procedure."
+                },
+                "reuse": {
+                  "de": "Verschiebt einen Schritt der obersten Ebene an eine neue Position (Index) in der Prozedur.",
+                  "en": "Moves one top-level step to a new position (index) in the procedure."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -553,6 +567,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Verschiebt einen Schritt an eine neue Position (Index) innerhalb des Slots seines Steuerungsschritts oder der obersten Ebene.",
+                  "en": "Moves one step to a new position (index) within its control step's slot or the top level."
+                },
+                "reuse": {
+                  "de": "Verschiebt einen Schritt an eine neue Position (Index) innerhalb des Slots seines Steuerungsschritts oder der obersten Ebene.",
+                  "en": "Moves one step to a new position (index) within its control step's slot or the top level."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -597,6 +621,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Ersetzt die Parameter eines Schritts der obersten Ebene durch die angegebene Zuordnung von Namen zu Werten.",
+                  "en": "Replaces the parameters of one top-level step with the given name-to-value map."
+                },
+                "reuse": {
+                  "de": "Ersetzt die Parameter eines Schritts der obersten Ebene durch die angegebene Zuordnung von Namen zu Werten.",
+                  "en": "Replaces the parameters of one top-level step with the given name-to-value map."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -641,6 +675,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Ersetzt die Parameter eines Schritts im Slot eines Steuerungsschritts oder der obersten Ebene durch die angegebene Zuordnung von Namen zu Werten.",
+                  "en": "Replaces the parameters of one step inside a control step's slot, or at the top level, with the given name-to-value map."
+                },
+                "reuse": {
+                  "de": "Ersetzt die Parameter eines Schritts im Slot eines Steuerungsschritts oder der obersten Ebene durch die angegebene Zuordnung von Namen zu Werten.",
+                  "en": "Replaces the parameters of one step inside a control step's slot, or at the top level, with the given name-to-value map."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -685,6 +729,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Führt die Prozedur ab dem ersten Schritt aus und zeigt den entstandenen Variablenbereich in der Ausgabeansicht; die Prozedur selbst ändert sich nicht.",
+                  "en": "Runs the procedure from its first step and shows the resulting variable scope in the output view; the procedure itself is not changed."
+                },
+                "reuse": {
+                  "de": "Führt die Prozedur ab dem ersten Schritt aus und zeigt den entstandenen Variablenbereich in der Ausgabeansicht; die Prozedur selbst ändert sich nicht.",
+                  "en": "Runs the procedure from its first step and shows the resulting variable scope in the output view; the procedure itself is not changed."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -749,8 +803,18 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Ersetzt die gesamte Prozedur durch das mitgelieferte Demoprogramm, bei jeder anderen Beispiel-Id durch eine leere Prozedur.",
+                  "en": "Replaces the whole procedure with the bundled demo program, or with an empty procedure for any other example id."
+                },
+                "reuse": {
+                  "de": "Ersetzt die gesamte Prozedur durch das mitgelieferte Demoprogramm, bei jeder anderen Beispiel-Id durch eine leere Prozedur.",
+                  "en": "Replaces the whole procedure with the bundled demo program, or with an empty procedure for any other example id."
+                }
+              },
               "effects": {
-                "destructive": false,
+                "destructive": true,
                 "external": false,
                 "reads": [
                   "config:{self}"
@@ -769,7 +833,7 @@
                 }
               },
               "policy": {
-                "approval": "never",
+                "approval": "whenDestructive",
                 "scopes": [
                   "artifacts.read",
                   "shell.observe"
@@ -1480,6 +1544,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Öffnet den Tutorial-Rekorder für das geöffnete Dokument, damit die nächsten Interaktionen als Tutorial aufgezeichnet werden.",
+                  "en": "Opens the tutorial recorder on the open document so the next interactions are recorded as a tutorial."
+                },
+                "reuse": {
+                  "de": "Öffnet den Tutorial-Rekorder für das geöffnete Dokument, damit die nächsten Interaktionen als Tutorial aufgezeichnet werden.",
+                  "en": "Opens the tutorial recorder on the open document so the next interactions are recorded as a tutorial."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -1585,6 +1659,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Filtert den Verlaufsbereich auf alle Einträge, nur Dokumentoperationen oder alles außer Dokumentoperationen; das Dokument wird nicht verändert.",
+                  "en": "Filters the history panel to all entries, only document operations, or everything except document operations; the document is not changed."
+                },
+                "reuse": {
+                  "de": "Filtert den Verlaufsbereich auf alle Einträge, nur Dokumentoperationen oder alles außer Dokumentoperationen; das Dokument wird nicht verändert.",
+                  "en": "Filters the history panel to all entries, only document operations, or everything except document operations; the document is not changed."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -1683,6 +1767,16 @@
             },
             "semantics": {
               "audience": "chrome",
+              "description": {
+                "native": {
+                  "de": "Vermerkt eine bereits erfolgte Shell-Wirkung (Navigation, Export, Start) im Sitzungsprotokoll; das Dokument wird nicht verändert.",
+                  "en": "Records a shell effect that already happened (navigation, export, spawn) in the session command log; the document is not changed."
+                },
+                "reuse": {
+                  "de": "Vermerkt eine bereits erfolgte Shell-Wirkung (Navigation, Export, Start) im Sitzungsprotokoll; das Dokument wird nicht verändert.",
+                  "en": "Records a shell effect that already happened (navigation, export, spawn) in the session command log; the document is not changed."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -1714,16 +1808,12 @@
             "dimension": "graph",
             "exportFormats": [],
             "exportStdioKinds": [
-              "stdio.csv",
-              "stdio.json",
-              "stdio.md"
+              "stdio.json"
             ],
             "id": "computation.procedure",
             "importFormats": [],
             "importStdioKinds": [
-              "stdio.csv",
-              "stdio.json",
-              "stdio.md"
+              "stdio.json"
             ],
             "mediaCapability": "meshOnly",
             "mediaType": {
@@ -2379,11 +2469,11 @@
                 "kind": "interaction",
                 "label": {
                   "native": {
-                    "de": "Hover",
+                    "de": "Darüberfahren",
                     "en": "Hover"
                   },
                   "reuse": {
-                    "de": "Hover",
+                    "de": "Darüberfahren",
                     "en": "Hover"
                   }
                 },
@@ -2665,6 +2755,51 @@
                   "reuse": {
                     "de": "Granularität festlegen",
                     "en": "Set Granularity"
+                  }
+                },
+                "semantics": {
+                  "effects": {
+                    "destructive": false,
+                    "external": false,
+                    "reads": [
+                      "config:{self}"
+                    ],
+                    "reversible": false
+                  },
+                  "execution": {
+                    "cancellable": false,
+                    "class": "interactive",
+                    "expectedRevision": false,
+                    "idempotency": "none",
+                    "interactiveJob": "migrated",
+                    "preview": "none",
+                    "undo": {
+                      "kind": "none"
+                    }
+                  },
+                  "policy": {
+                    "approval": "never",
+                    "scopes": [
+                      "artifacts.read",
+                      "shell.observe"
+                    ]
+                  }
+                }
+              },
+              {
+                "args": [],
+                "iconId": "square",
+                "id": "cancelTypedOperation",
+                "inPalette": false,
+                "kind": "view",
+                "label": {
+                  "native": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  },
+                  "reuse": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
                   }
                 },
                 "semantics": {
@@ -3006,11 +3141,11 @@
                 "kind": "interaction",
                 "label": {
                   "native": {
-                    "de": "Hover",
+                    "de": "Darüberfahren",
                     "en": "Hover"
                   },
                   "reuse": {
-                    "de": "Hover",
+                    "de": "Darüberfahren",
                     "en": "Hover"
                   }
                 },
@@ -3292,6 +3427,51 @@
                   "reuse": {
                     "de": "Granularität festlegen",
                     "en": "Set Granularity"
+                  }
+                },
+                "semantics": {
+                  "effects": {
+                    "destructive": false,
+                    "external": false,
+                    "reads": [
+                      "config:{self}"
+                    ],
+                    "reversible": false
+                  },
+                  "execution": {
+                    "cancellable": false,
+                    "class": "interactive",
+                    "expectedRevision": false,
+                    "idempotency": "none",
+                    "interactiveJob": "migrated",
+                    "preview": "none",
+                    "undo": {
+                      "kind": "none"
+                    }
+                  },
+                  "policy": {
+                    "approval": "never",
+                    "scopes": [
+                      "artifacts.read",
+                      "shell.observe"
+                    ]
+                  }
+                }
+              },
+              {
+                "args": [],
+                "iconId": "square",
+                "id": "cancelTypedOperation",
+                "inPalette": false,
+                "kind": "view",
+                "label": {
+                  "native": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  },
+                  "reuse": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
                   }
                 },
                 "semantics": {
@@ -4054,6 +4234,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Öffnet den Tutorial-Rekorder für das geöffnete Dokument, damit die nächsten Interaktionen als Tutorial aufgezeichnet werden.",
+                  "en": "Opens the tutorial recorder on the open document so the next interactions are recorded as a tutorial."
+                },
+                "reuse": {
+                  "de": "Öffnet den Tutorial-Rekorder für das geöffnete Dokument, damit die nächsten Interaktionen als Tutorial aufgezeichnet werden.",
+                  "en": "Opens the tutorial recorder on the open document so the next interactions are recorded as a tutorial."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -4159,6 +4349,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Filtert den Verlaufsbereich auf alle Einträge, nur Dokumentoperationen oder alles außer Dokumentoperationen; das Dokument wird nicht verändert.",
+                  "en": "Filters the history panel to all entries, only document operations, or everything except document operations; the document is not changed."
+                },
+                "reuse": {
+                  "de": "Filtert den Verlaufsbereich auf alle Einträge, nur Dokumentoperationen oder alles außer Dokumentoperationen; das Dokument wird nicht verändert.",
+                  "en": "Filters the history panel to all entries, only document operations, or everything except document operations; the document is not changed."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -4257,6 +4457,16 @@
             },
             "semantics": {
               "audience": "chrome",
+              "description": {
+                "native": {
+                  "de": "Vermerkt eine bereits erfolgte Shell-Wirkung (Navigation, Export, Start) im Sitzungsprotokoll; das Dokument wird nicht verändert.",
+                  "en": "Records a shell effect that already happened (navigation, export, spawn) in the session command log; the document is not changed."
+                },
+                "reuse": {
+                  "de": "Vermerkt eine bereits erfolgte Shell-Wirkung (Navigation, Export, Start) im Sitzungsprotokoll; das Dokument wird nicht verändert.",
+                  "en": "Records a shell effect that already happened (navigation, export, spawn) in the session command log; the document is not changed."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -4435,7 +4645,53 @@
         "utilities": [],
         "windowKinds": [
           {
-            "actions": [],
+            "actions": [
+              {
+                "args": [],
+                "iconId": "square",
+                "id": "cancelTypedOperation",
+                "inPalette": false,
+                "kind": "view",
+                "label": {
+                  "native": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  },
+                  "reuse": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  }
+                },
+                "semantics": {
+                  "effects": {
+                    "destructive": false,
+                    "external": false,
+                    "reads": [
+                      "config:{self}"
+                    ],
+                    "reversible": false
+                  },
+                  "execution": {
+                    "cancellable": false,
+                    "class": "interactive",
+                    "expectedRevision": false,
+                    "idempotency": "none",
+                    "interactiveJob": "migrated",
+                    "preview": "none",
+                    "undo": {
+                      "kind": "none"
+                    }
+                  },
+                  "policy": {
+                    "approval": "never",
+                    "scopes": [
+                      "artifacts.read",
+                      "shell.observe"
+                    ]
+                  }
+                }
+              }
+            ],
             "bodyKey": "framework.window.table",
             "capabilities": [],
             "iconId": "list",
@@ -4460,7 +4716,53 @@
             "utilities": []
           },
           {
-            "actions": [],
+            "actions": [
+              {
+                "args": [],
+                "iconId": "square",
+                "id": "cancelTypedOperation",
+                "inPalette": false,
+                "kind": "view",
+                "label": {
+                  "native": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  },
+                  "reuse": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  }
+                },
+                "semantics": {
+                  "effects": {
+                    "destructive": false,
+                    "external": false,
+                    "reads": [
+                      "config:{self}"
+                    ],
+                    "reversible": false
+                  },
+                  "execution": {
+                    "cancellable": false,
+                    "class": "interactive",
+                    "expectedRevision": false,
+                    "idempotency": "none",
+                    "interactiveJob": "migrated",
+                    "preview": "none",
+                    "undo": {
+                      "kind": "none"
+                    }
+                  },
+                  "policy": {
+                    "approval": "never",
+                    "scopes": [
+                      "artifacts.read",
+                      "shell.observe"
+                    ]
+                  }
+                }
+              }
+            ],
             "bodyKey": "framework.window.text",
             "capabilities": [],
             "iconId": "file-code",
@@ -4503,7 +4805,7 @@
     "commands": [],
     "examples": [
       {
-        "artifactJson": "semio imperative.imperative.dsl v1\nschema=70726f6365647572652e646f63756d656e74\nflow=[696d70657261746976652d666c6f772d33666166396333626536643936393136,696d70657261746976652d666c6f772d3366616639633362653664393639313621732e737464696f2e73656d696f4076312f666c6f77]\ntext=[696d70657261746976652d746578742d63336535383332363137653131643861,696d70657261746976652d746578742d6333653538333236313765313164386121732e737464696f2e73656d696f4076312f74657874]\npath=7b227374657073223a5b7b226964223a22737465702d31222c226b696e64223a2273746174652e736574222c22706172616d73223a7b226b6579223a22636f756e746572222c2276616c7565223a317d2c22626f64696573223a7b7d7d2c7b226964223a22737465702d32222c226b696e64223a226c6f672e7072696e74222c22706172616d73223a7b226d657373616765223a2268656c6c6f227d2c22626f64696573223a7b7d7d5d7d\nseed=7b7d",
+        "artifactJson": "semio imperative.imperative.dsl v1\nschema=procedure.document flow=child_id=imperative-flow-3faf9c3be6d96916 target=\"imperative-flow-3faf9c3be6d96916!s.stdio.semio@v1/flow\" text=child_id=imperative-text-c3e5832617e11d8a target=\"imperative-text-c3e5832617e11d8a!s.stdio.semio@v1/text\" path={\n  steps=[ {\n    bodies={\n    }\n    id=\"step-1\" kind=\"state.set\" params={\n      key=\"counter\" value=1\n    }\n  }\n {\n    bodies={\n    }\n    id=\"step-2\" kind=\"log.print\" params={\n      message=\"hello\"\n    }\n  }\n  ]\n}\nseed={\n}\n",
         "dialect": {
           "artifactKind": "s.imperative.procedure",
           "standard": "1",

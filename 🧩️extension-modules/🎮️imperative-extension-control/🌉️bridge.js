@@ -60,6 +60,24 @@ const validateActorUiPatchPairing = function validateActorUiPatchPairing(patchCo
     encodeActorUiPatchReceipt(receipt);
 };
 const commandIngressKinds = new Map([[0, "idle"], [1, "page-accepted"], [2, "backpressure"], [3, "command-pending"], [4, "command-complete"], [5, "fault"]]);
+const codecAnswer = async function actorCodecAnswer(codec, request) {
+  if (!codec)
+    throw Error("actor-codec.unexported");
+  try {
+    if (request.operation === "pack-schema-hash")
+      return { ok: await codec.packSchemaHash(request.artifactKind) };
+    if (request.operation === "genesis")
+      return { ok: await codec.genesis(request.artifactKind, request.documentId) };
+    if (request.operation === "print-mirror")
+      return { ok: await codec.printMirror(request.artifactKind, request.pair) };
+  } catch (error) {
+    const payload = error !== null && typeof error === "object" && "payload" in error ? error.payload : void 0;
+    if (payload?.tag === "fault" && payload.val instanceof Uint8Array)
+      return { fault: payload.val };
+    throw error;
+  }
+  throw Error(`actor-codec.operation:${String(request.operation)}`);
+};
 
 /** 🎁️ jco lifts `option<t>` as a tagged `{ tag: "none" | "some" }` variant; every host-side reader
  * below wants the bare value (or nothing), so unwrap exactly that shape and pass anything else through. */
@@ -142,7 +160,7 @@ export async function createActorApi(actorId, activationGeneration) {
   const hostUrl = new URL("./🟨️.js", import.meta.url);
   hostUrl.search = componentUrl.search;
   const hostShim = await import(hostUrl.href);
-  const { reactor, jobs, checkpoint, describe } = await import(componentUrl.href);
+  const { reactor, jobs, checkpoint, describe, codec } = await import(componentUrl.href);
   return {
     poll: async (events, commandPage, coldPairPage, budget) => {
       if (commandPage) await reactor.stageCommandPage(commandPage.cursor, commandPage.bytes);
@@ -163,6 +181,7 @@ export async function createActorApi(actorId, activationGeneration) {
     checkpoint: async () => checkpoint.checkpoint(),
     restore: async (state) => checkpoint.restore(state),
     describe: async () => describe.describe(),
+    codec: (request) => codecAnswer(codec, request),
     resolveEffect: (requestId, value) => hostShim.__resolveEffect(requestId, value),
     rejectEffect: (requestId, message) => hostShim.__rejectEffect(requestId, message),
   };

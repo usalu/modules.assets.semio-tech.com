@@ -33,18 +33,39 @@
           "previewBodyKey": "preview"
         },
         "topic": "playbook.blockKind"
+      },
+      {
+        "payload": {
+          "appId": "s.playbook.procedural@1/*#editor",
+          "defaultValueJson": "{\"height\":6,\"radius\":0.5,\"sides\":6}",
+          "iconId": "building",
+          "label": {
+            "native": {
+              "de": "Bauteil",
+              "en": "Building Component"
+            },
+            "reuse": {
+              "de": "Bauteil",
+              "en": "Building Component"
+            }
+          },
+          "paramsBodyKey": "params",
+          "previewBodyKey": "preview",
+          "questionKind": "buildingComponent"
+        },
+        "topic": "forms.questionKind"
       }
     ]
   },
   "descriptorVersion": 1,
   "execution": "isolated",
   "executionProtocol": {
-    "appChannelVersion": 17
+    "appChannelVersion": 19
   },
   "hashes": {
-    "coreWasmSha256": "841e46bf2fc5e0a7c3a1418f7c789ecf14511059dfe41d69f2c66da571f0afbe",
-    "descriptorSha256": "3fa7c9dbdcd5dd35fc49b879f4232b37d7ccccf100984ac345023a5fda1d432d",
-    "wasmSha256": "75db6a6e7dfe43af6a8c1f46352183f7f9bd11a492635b135a8a1ba4dcba0abc"
+    "coreWasmSha256": "744cb4724233007087c533aa024643e58fbd0e55de786ad16b2eebd23f383f92",
+    "descriptorSha256": "96ccc9f5acd887b76699a1f07cceb7f631677ded866022b737234e057d0a49a2",
+    "wasmSha256": "3f8faa2fed330a4a8a56d1f11235d7a88a74188ff945d2f8c0f4144a556d0c64"
   },
   "manifest": {
     "apps": [
@@ -140,6 +161,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Exportiert die Vorschaugeometrie des Bausteins als STEP, OBJ, STL oder GLB und legt das Ergebnis in den Parametern des Bausteins ab, damit die Shell es ausliest; auf die Festplatte wird nichts geschrieben.",
+                  "en": "Exports the block's preview geometry as STEP, OBJ, STL or GLB and stores the result in the block's parameters for the shell to read back; nothing is written to disk."
+                },
+                "reuse": {
+                  "de": "Exportiert die Vorschaugeometrie des Bausteins als STEP, OBJ, STL oder GLB und legt das Ergebnis in den Parametern des Bausteins ab, damit die Shell es ausliest; auf die Festplatte wird nichts geschrieben.",
+                  "en": "Exports the block's preview geometry as STEP, OBJ, STL or GLB and stores the result in the block's parameters for the shell to read back; nothing is written to disk."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -257,6 +288,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Importiert Volumengeometrie im angegebenen Format (STEP- oder OBJ-Text, STL oder GLB als Base64) in den Baustein und legt die entstandenen Geometrie-Handles in seinen Parametern ab.",
+                  "en": "Imports solid geometry in the given format (STEP or OBJ text, STL or GLB as base64) into the block and stores the resulting geometry handles in its parameters."
+                },
+                "reuse": {
+                  "de": "Importiert Volumengeometrie im angegebenen Format (STEP- oder OBJ-Text, STL oder GLB als Base64) in den Baustein und legt die entstandenen Geometrie-Handles in seinen Parametern ab.",
+                  "en": "Imports solid geometry in the given format (STEP or OBJ text, STL or GLB as base64) into the block and stores the resulting geometry handles in its parameters."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -987,6 +1028,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Öffnet den Tutorial-Rekorder für das geöffnete Dokument, damit die nächsten Interaktionen als Tutorial aufgezeichnet werden.",
+                  "en": "Opens the tutorial recorder on the open document so the next interactions are recorded as a tutorial."
+                },
+                "reuse": {
+                  "de": "Öffnet den Tutorial-Rekorder für das geöffnete Dokument, damit die nächsten Interaktionen als Tutorial aufgezeichnet werden.",
+                  "en": "Opens the tutorial recorder on the open document so the next interactions are recorded as a tutorial."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -1092,6 +1143,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Filtert den Verlaufsbereich auf alle Einträge, nur Dokumentoperationen oder alles außer Dokumentoperationen; das Dokument wird nicht verändert.",
+                  "en": "Filters the history panel to all entries, only document operations, or everything except document operations; the document is not changed."
+                },
+                "reuse": {
+                  "de": "Filtert den Verlaufsbereich auf alle Einträge, nur Dokumentoperationen oder alles außer Dokumentoperationen; das Dokument wird nicht verändert.",
+                  "en": "Filters the history panel to all entries, only document operations, or everything except document operations; the document is not changed."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -1190,6 +1251,16 @@
             },
             "semantics": {
               "audience": "chrome",
+              "description": {
+                "native": {
+                  "de": "Vermerkt eine bereits erfolgte Shell-Wirkung (Navigation, Export, Start) im Sitzungsprotokoll; das Dokument wird nicht verändert.",
+                  "en": "Records a shell effect that already happened (navigation, export, spawn) in the session command log; the document is not changed."
+                },
+                "reuse": {
+                  "de": "Vermerkt eine bereits erfolgte Shell-Wirkung (Navigation, Export, Start) im Sitzungsprotokoll; das Dokument wird nicht verändert.",
+                  "en": "Records a shell effect that already happened (navigation, export, spawn) in the session command log; the document is not changed."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -1379,7 +1450,53 @@
         "utilities": [],
         "windowKinds": [
           {
-            "actions": [],
+            "actions": [
+              {
+                "args": [],
+                "iconId": "square",
+                "id": "cancelTypedOperation",
+                "inPalette": false,
+                "kind": "view",
+                "label": {
+                  "native": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  },
+                  "reuse": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  }
+                },
+                "semantics": {
+                  "effects": {
+                    "destructive": false,
+                    "external": false,
+                    "reads": [
+                      "config:{self}"
+                    ],
+                    "reversible": false
+                  },
+                  "execution": {
+                    "cancellable": false,
+                    "class": "interactive",
+                    "expectedRevision": false,
+                    "idempotency": "none",
+                    "interactiveJob": "migrated",
+                    "preview": "none",
+                    "undo": {
+                      "kind": "none"
+                    }
+                  },
+                  "policy": {
+                    "approval": "never",
+                    "scopes": [
+                      "artifacts.read",
+                      "shell.observe"
+                    ]
+                  }
+                }
+              }
+            ],
             "bodyKey": "params",
             "capabilities": [],
             "iconId": "clipboard-list",
@@ -1404,7 +1521,53 @@
             "utilities": []
           },
           {
-            "actions": [],
+            "actions": [
+              {
+                "args": [],
+                "iconId": "square",
+                "id": "cancelTypedOperation",
+                "inPalette": false,
+                "kind": "view",
+                "label": {
+                  "native": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  },
+                  "reuse": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  }
+                },
+                "semantics": {
+                  "effects": {
+                    "destructive": false,
+                    "external": false,
+                    "reads": [
+                      "config:{self}"
+                    ],
+                    "reversible": false
+                  },
+                  "execution": {
+                    "cancellable": false,
+                    "class": "interactive",
+                    "expectedRevision": false,
+                    "idempotency": "none",
+                    "interactiveJob": "migrated",
+                    "preview": "none",
+                    "undo": {
+                      "kind": "none"
+                    }
+                  },
+                  "policy": {
+                    "approval": "never",
+                    "scopes": [
+                      "artifacts.read",
+                      "shell.observe"
+                    ]
+                  }
+                }
+              }
+            ],
             "bodyKey": "preview",
             "capabilities": [],
             "iconId": "preview",
@@ -1437,7 +1600,7 @@
     "dependencies": [
       {
         "pluginId": "playbook",
-        "version": "^0.1.0"
+        "version": "=0.1.0"
       }
     ],
     "examples": [],
@@ -1455,6 +1618,27 @@
           "previewBodyKey": "preview"
         },
         "topic": "playbook.blockKind"
+      },
+      {
+        "payload": {
+          "appId": "s.playbook.procedural@1/*#editor",
+          "defaultValueJson": "{\"height\":6,\"radius\":0.5,\"sides\":6}",
+          "iconId": "building",
+          "label": {
+            "native": {
+              "de": "Bauteil",
+              "en": "Building Component"
+            },
+            "reuse": {
+              "de": "Bauteil",
+              "en": "Building Component"
+            }
+          },
+          "paramsBodyKey": "params",
+          "previewBodyKey": "preview",
+          "questionKind": "buildingComponent"
+        },
+        "topic": "forms.questionKind"
       }
     ],
     "version": "0.1.0"

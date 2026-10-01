@@ -116,12 +116,12 @@
   "descriptorVersion": 1,
   "execution": "isolated",
   "executionProtocol": {
-    "appChannelVersion": 17
+    "appChannelVersion": 19
   },
   "hashes": {
-    "coreWasmSha256": "68d8e5adede8520beb782d65c5a5e6f0f5e8f1da10a27da15b8a4e017f845047",
-    "descriptorSha256": "2d7592c812901bee0d5d5da2c83b2739c6e175240016a29bedd05f21aa368a4e",
-    "wasmSha256": "9746339554f6506ba6a1044353cd5db041145f4bd734770a915d24046532b5ed"
+    "coreWasmSha256": "37d6369a80c5486d537e002f27698326907f6e690423f54bc8fe187485fde17b",
+    "descriptorSha256": "2a5b95b18a69fb9e9829be952a5809c3a60e512bddd5f1b16a1dd1f7f6b97e26",
+    "wasmSha256": "1bbbf137c6426cd3cd6d845fd6ad4820a4b5828da9bb706ca991b2b4b9162a52"
   },
   "manifest": {
     "apps": [
@@ -378,7 +378,7 @@
               }
             ],
             "iconId": "sparkles",
-            "id": "addQuestion",
+            "id": "addBlock",
             "inPalette": true,
             "kind": "mutation",
             "label": {
@@ -437,7 +437,7 @@
           {
             "args": [],
             "iconId": "sparkles",
-            "id": "removeQuestion",
+            "id": "removeBlock",
             "inPalette": true,
             "kind": "mutation",
             "label": {
@@ -873,7 +873,7 @@
           {
             "args": [],
             "iconId": "sparkles",
-            "id": "moveQuestion",
+            "id": "moveBlock",
             "inPalette": true,
             "kind": "mutation",
             "label": {
@@ -1051,12 +1051,12 @@
             "semantics": {
               "description": {
                 "native": {
-                  "de": "Setzt eine benannte Eigenschaft eines Schritts — Titel, Beschreibung oder Sichtbarkeitsbedingung.",
-                  "en": "Sets one named property of one step — its title, description or visibility condition."
+                  "de": "Ändert den Titel oder die Beschreibung einer Seite.",
+                  "en": "Changes a page title or description."
                 },
                 "reuse": {
-                  "de": "Setzt eine benannte Eigenschaft eines Schritts — Titel, Beschreibung oder Sichtbarkeitsbedingung.",
-                  "en": "Sets one named property of one step — its title, description or visibility condition."
+                  "de": "Ändert den Titel oder die Beschreibung einer Seite.",
+                  "en": "Changes a page title or description."
                 }
               },
               "effects": {
@@ -1105,12 +1105,12 @@
             "semantics": {
               "description": {
                 "native": {
-                  "de": "Setzt die Eigenschaften des Formulars selbst — Titel, Beschreibung und Absendeeinstellungen.",
-                  "en": "Sets the form's own top-level properties — its title, description and submission settings."
+                  "de": "Ändert den Formulartitel.",
+                  "en": "Changes the form title."
                 },
                 "reuse": {
-                  "de": "Setzt die Eigenschaften des Formulars selbst — Titel, Beschreibung und Absendeeinstellungen.",
-                  "en": "Sets the form's own top-level properties — its title, description and submission settings."
+                  "de": "Ändert den Formulartitel.",
+                  "en": "Changes the form title."
                 }
               },
               "effects": {
@@ -1202,12 +1202,12 @@
                 "id": "exampleId",
                 "label": {
                   "native": {
-                    "de": "Beispiel",
-                    "en": "Example"
+                    "de": "Vorlage",
+                    "en": "Template"
                   },
                   "reuse": {
-                    "de": "Beispiel",
-                    "en": "Example"
+                    "de": "Vorlage",
+                    "en": "Template"
                   }
                 },
                 "required": false,
@@ -1217,12 +1217,25 @@
                     {
                       "label": {
                         "native": {
-                          "de": "Standard",
-                          "en": "Default"
+                          "de": "Leeres Formular",
+                          "en": "Blank Form"
                         },
                         "reuse": {
-                          "de": "Standard",
-                          "en": "Default"
+                          "de": "Leeres Formular",
+                          "en": "Blank Form"
+                        }
+                      },
+                      "value": ""
+                    },
+                    {
+                      "label": {
+                        "native": {
+                          "de": "Kontakt",
+                          "en": "Contact"
+                        },
+                        "reuse": {
+                          "de": "Kontakt",
+                          "en": "Contact"
                         }
                       },
                       "value": "default"
@@ -1263,23 +1276,23 @@
             "kind": "mutation",
             "label": {
               "native": {
-                "de": "Aktives Beispiel festlegen",
-                "en": "Set Active Example"
+                "de": "Formularvorlage verwenden",
+                "en": "Use Form Template"
               },
               "reuse": {
-                "de": "Aktives Beispiel festlegen",
-                "en": "Set Active Example"
+                "de": "Formularvorlage verwenden",
+                "en": "Use Form Template"
               }
             },
             "semantics": {
               "description": {
                 "native": {
-                  "de": "Ersetzt das gesamte Formular durch eines der deklarierten Beispiele des Plugins.",
-                  "en": "Replaces the whole form with one of the plugin's declared playground examples."
+                  "de": "Ersetzt den Formularentwurf durch eine Vorlage. Vorhandene Antworten bleiben in diesem Formular.",
+                  "en": "Replaces the form design with a template. Existing answers stay with this form."
                 },
                 "reuse": {
-                  "de": "Ersetzt das gesamte Formular durch eines der deklarierten Beispiele des Plugins.",
-                  "en": "Replaces the whole form with one of the plugin's declared playground examples."
+                  "de": "Ersetzt den Formularentwurf durch eine Vorlage. Vorhandene Antworten bleiben in diesem Formular.",
+                  "en": "Replaces the form design with a template. Existing answers stay with this form."
                 }
               },
               "effects": {
@@ -1331,27 +1344,27 @@
             ],
             "iconId": "sparkles",
             "id": "setSpecJson",
-            "inPalette": false,
+            "inPalette": true,
             "kind": "mutation",
             "label": {
               "native": {
-                "de": "Spezifikations-JSON festlegen",
-                "en": "Set Spec JSON"
+                "de": "Formularentwurf aus JSON importieren",
+                "en": "Import Form Design JSON"
               },
               "reuse": {
-                "de": "Spezifikations-JSON festlegen",
-                "en": "Set Spec JSON"
+                "de": "Formularentwurf aus JSON importieren",
+                "en": "Import Form Design JSON"
               }
             },
             "semantics": {
               "description": {
                 "native": {
-                  "de": "Lädt eine vollständige Formularspezifikation aus JSON-Text.",
-                  "en": "Loads a whole form specification from JSON text."
+                  "de": "Importiert Titel und Fragen aus einem gespeicherten Forms-JSON-Dokument. Vorhandene Antworten bleiben in diesem Formular.",
+                  "en": "Imports the title and questions from a saved Forms JSON document. Existing answers stay with this form."
                 },
                 "reuse": {
-                  "de": "Lädt eine vollständige Formularspezifikation aus JSON-Text.",
-                  "en": "Loads a whole form specification from JSON text."
+                  "de": "Importiert Titel und Fragen aus einem gespeicherten Forms-JSON-Dokument. Vorhandene Antworten bleiben in diesem Formular.",
+                  "en": "Imports the title and questions from a saved Forms JSON document. Existing answers stay with this form."
                 }
               },
               "effects": {
@@ -1523,7 +1536,7 @@
             "args": [],
             "iconId": "eye",
             "id": "resetTry",
-            "inPalette": true,
+            "inPalette": false,
             "kind": "view",
             "label": {
               "native": {
@@ -1536,6 +1549,7 @@
               }
             },
             "semantics": {
+              "audience": "chrome",
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -1568,7 +1582,7 @@
             "args": [],
             "iconId": "eye",
             "id": "previousStep",
-            "inPalette": true,
+            "inPalette": false,
             "kind": "view",
             "label": {
               "native": {
@@ -1581,6 +1595,7 @@
               }
             },
             "semantics": {
+              "audience": "chrome",
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -1613,7 +1628,7 @@
             "args": [],
             "iconId": "eye",
             "id": "nextStep",
-            "inPalette": true,
+            "inPalette": false,
             "kind": "view",
             "label": {
               "native": {
@@ -1626,6 +1641,7 @@
               }
             },
             "semantics": {
+              "audience": "chrome",
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -1656,10 +1672,10 @@
           },
           {
             "args": [],
-            "iconId": "eye",
+            "iconId": "sparkles",
             "id": "submit",
             "inPalette": true,
-            "kind": "view",
+            "kind": "mutation",
             "label": {
               "native": {
                 "de": "Absenden",
@@ -1684,27 +1700,26 @@
               "effects": {
                 "destructive": false,
                 "external": false,
-                "reads": [
-                  "config:{self}"
-                ],
-                "reversible": false
+                "reversible": true,
+                "writes": [
+                  "artifact:{self}"
+                ]
               },
               "execution": {
                 "cancellable": false,
                 "class": "interactive",
-                "expectedRevision": false,
+                "expectedRevision": true,
                 "idempotency": "none",
                 "interactiveJob": "migrated",
-                "preview": "none",
+                "preview": "diff",
                 "undo": {
-                  "kind": "none"
+                  "kind": "inverse"
                 }
               },
               "policy": {
-                "approval": "never",
+                "approval": "whenDestructive",
                 "scopes": [
-                  "artifacts.read",
-                  "shell.observe"
+                  "artifacts.write"
                 ]
               }
             }
@@ -1717,23 +1732,23 @@
             "kind": "shell",
             "label": {
               "native": {
-                "de": "Fixture exportieren",
-                "en": "Export Fixture"
+                "de": "Formular exportieren",
+                "en": "Export Form"
               },
               "reuse": {
-                "de": "Fixture exportieren",
-                "en": "Export Fixture"
+                "de": "Formular exportieren",
+                "en": "Export Form"
               }
             },
             "semantics": {
               "description": {
                 "native": {
-                  "de": "Übergibt die Formularspezifikation dem Host als herunterladbares JSON-Fixture.",
-                  "en": "Hands the form specification to the host as a downloadable JSON fixture."
+                  "de": "Lädt ein Forms-Dokument mit Entwurf und gespeicherten Antworten herunter.",
+                  "en": "Downloads a Forms document containing its design and saved answers."
                 },
                 "reuse": {
-                  "de": "Übergibt die Formularspezifikation dem Host als herunterladbares JSON-Fixture.",
-                  "en": "Hands the form specification to the host as a downloadable JSON fixture."
+                  "de": "Lädt ein Forms-Dokument mit Entwurf und gespeicherten Antworten herunter.",
+                  "en": "Downloads a Forms document containing its design and saved answers."
                 }
               },
               "effects": {
@@ -1756,6 +1771,158 @@
                 "approval": "never",
                 "scopes": [
                   "shell.navigate"
+                ]
+              }
+            }
+          },
+          {
+            "args": [
+              {
+                "default": "json",
+                "id": "format",
+                "label": {
+                  "native": {
+                    "de": "Format",
+                    "en": "Format"
+                  },
+                  "reuse": {
+                    "de": "Format",
+                    "en": "Format"
+                  }
+                },
+                "required": false,
+                "schema": {
+                  "kind": "string",
+                  "options": [
+                    {
+                      "label": {
+                        "native": {
+                          "de": "JSON",
+                          "en": "JSON"
+                        },
+                        "reuse": {
+                          "de": "JSON",
+                          "en": "JSON"
+                        }
+                      },
+                      "value": "json"
+                    },
+                    {
+                      "label": {
+                        "native": {
+                          "de": "CSV",
+                          "en": "CSV"
+                        },
+                        "reuse": {
+                          "de": "CSV",
+                          "en": "CSV"
+                        }
+                      },
+                      "value": "csv"
+                    }
+                  ]
+                }
+              }
+            ],
+            "iconId": "code",
+            "id": "exportResponses",
+            "inPalette": true,
+            "kind": "shell",
+            "label": {
+              "native": {
+                "de": "Antworten exportieren",
+                "en": "Export Responses"
+              },
+              "reuse": {
+                "de": "Antworten exportieren",
+                "en": "Export Responses"
+              }
+            },
+            "semantics": {
+              "description": {
+                "native": {
+                  "de": "Lädt gespeicherte Antworten mit ihren ursprünglichen Bezeichnungen und typisierten Werten herunter.",
+                  "en": "Downloads stored submissions with their original labels and typed answer values."
+                },
+                "reuse": {
+                  "de": "Lädt gespeicherte Antworten mit ihren ursprünglichen Bezeichnungen und typisierten Werten herunter.",
+                  "en": "Downloads stored submissions with their original labels and typed answer values."
+                }
+              },
+              "effects": {
+                "destructive": false,
+                "external": false,
+                "reversible": false
+              },
+              "execution": {
+                "cancellable": false,
+                "class": "interactive",
+                "expectedRevision": false,
+                "idempotency": "none",
+                "interactiveJob": "migrated",
+                "preview": "none",
+                "undo": {
+                  "kind": "none"
+                }
+              },
+              "policy": {
+                "approval": "never",
+                "scopes": [
+                  "shell.navigate"
+                ]
+              }
+            }
+          },
+          {
+            "args": [],
+            "iconId": "sparkles",
+            "id": "discardResponse",
+            "inPalette": true,
+            "kind": "mutation",
+            "label": {
+              "native": {
+                "de": "Antwort entfernen",
+                "en": "Remove Response"
+              },
+              "reuse": {
+                "de": "Antwort entfernen",
+                "en": "Remove Response"
+              }
+            },
+            "semantics": {
+              "description": {
+                "native": {
+                  "de": "Entfernt eine gespeicherte Antwort. Rückgängig stellt sie wieder her.",
+                  "en": "Removes one saved response. Undo restores it."
+                },
+                "reuse": {
+                  "de": "Entfernt eine gespeicherte Antwort. Rückgängig stellt sie wieder her.",
+                  "en": "Removes one saved response. Undo restores it."
+                }
+              },
+              "effects": {
+                "destructive": true,
+                "external": false,
+                "reversible": true,
+                "writes": [
+                  "artifact:{self}"
+                ]
+              },
+              "execution": {
+                "cancellable": false,
+                "class": "interactive",
+                "expectedRevision": true,
+                "idempotency": "none",
+                "interactiveJob": "migrated",
+                "preview": "diff",
+                "undo": {
+                  "kind": "inverse"
+                }
+              },
+              "policy": {
+                "approval": "whenDestructive",
+                "scopes": [
+                  "artifacts.write"
                 ]
               }
             }
@@ -2463,6 +2630,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Öffnet den Tutorial-Rekorder für das geöffnete Dokument, damit die nächsten Interaktionen als Tutorial aufgezeichnet werden.",
+                  "en": "Opens the tutorial recorder on the open document so the next interactions are recorded as a tutorial."
+                },
+                "reuse": {
+                  "de": "Öffnet den Tutorial-Rekorder für das geöffnete Dokument, damit die nächsten Interaktionen als Tutorial aufgezeichnet werden.",
+                  "en": "Opens the tutorial recorder on the open document so the next interactions are recorded as a tutorial."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -2568,6 +2745,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Filtert den Verlaufsbereich auf alle Einträge, nur Dokumentoperationen oder alles außer Dokumentoperationen; das Dokument wird nicht verändert.",
+                  "en": "Filters the history panel to all entries, only document operations, or everything except document operations; the document is not changed."
+                },
+                "reuse": {
+                  "de": "Filtert den Verlaufsbereich auf alle Einträge, nur Dokumentoperationen oder alles außer Dokumentoperationen; das Dokument wird nicht verändert.",
+                  "en": "Filters the history panel to all entries, only document operations, or everything except document operations; the document is not changed."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -2666,6 +2853,16 @@
             },
             "semantics": {
               "audience": "chrome",
+              "description": {
+                "native": {
+                  "de": "Vermerkt eine bereits erfolgte Shell-Wirkung (Navigation, Export, Start) im Sitzungsprotokoll; das Dokument wird nicht verändert.",
+                  "en": "Records a shell effect that already happened (navigation, export, spawn) in the session command log; the document is not changed."
+                },
+                "reuse": {
+                  "de": "Vermerkt eine bereits erfolgte Shell-Wirkung (Navigation, Export, Start) im Sitzungsprotokoll; das Dokument wird nicht verändert.",
+                  "en": "Records a shell effect that already happened (navigation, export, spawn) in the session command log; the document is not changed."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -2795,7 +2992,7 @@
                 "children": [
                   {
                     "kind": "window",
-                    "title": "Blueprint",
+                    "title": "forms-blueprint",
                     "windowKindId": "forms-blueprint"
                   }
                 ],
@@ -2806,7 +3003,7 @@
                 "children": [
                   {
                     "kind": "window",
-                    "title": "Try",
+                    "title": "forms-try",
                     "windowKindId": "forms-try"
                   }
                 ],
@@ -3000,17 +3197,98 @@
             "label": {
               "native": {
                 "de": "Entwurf",
-                "en": "Blueprint"
+                "en": "Design"
               },
               "reuse": {
                 "de": "Entwurf",
-                "en": "Blueprint"
+                "en": "Design"
               }
             },
             "tools": []
+          },
+          {
+            "commands": [],
+            "iconId": "play",
+            "id": "fill",
+            "label": {
+              "native": {
+                "de": "Formular ausfüllen",
+                "en": "Fill Form"
+              },
+              "reuse": {
+                "de": "Formular ausfüllen",
+                "en": "Fill Form"
+              }
+            },
+            "layoutId": "forms-fill",
+            "tools": []
+          },
+          {
+            "commands": [],
+            "iconId": "list-checks",
+            "id": "responses",
+            "label": {
+              "native": {
+                "de": "Antworten",
+                "en": "Responses"
+              },
+              "reuse": {
+                "de": "Antworten",
+                "en": "Responses"
+              }
+            },
+            "layoutId": "forms-responses",
+            "tools": []
           }
         ],
-        "namedLayouts": [],
+        "namedLayouts": [
+          {
+            "iconId": "play",
+            "id": "forms-fill",
+            "label": "Fill Form",
+            "layout": {
+              "root": {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "kind": "window",
+                        "title": "forms-try",
+                        "windowKindId": "forms-try"
+                      }
+                    ],
+                    "kind": "stack"
+                  }
+                ],
+                "kind": "row"
+              }
+            },
+            "origin": "builtin"
+          },
+          {
+            "iconId": "list-checks",
+            "id": "forms-responses",
+            "label": "Responses",
+            "layout": {
+              "root": {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "kind": "window",
+                        "title": "forms-responses",
+                        "windowKindId": "forms-responses"
+                      }
+                    ],
+                    "kind": "stack"
+                  }
+                ],
+                "kind": "row"
+              }
+            },
+            "origin": "builtin"
+          }
+        ],
         "panelTabs": [
           {
             "bodyKey": "forms.play.artifact",
@@ -3380,11 +3658,11 @@
                 "kind": "interaction",
                 "label": {
                   "native": {
-                    "de": "Hover",
+                    "de": "Darüberfahren",
                     "en": "Hover"
                   },
                   "reuse": {
-                    "de": "Hover",
+                    "de": "Darüberfahren",
                     "en": "Hover"
                   }
                 },
@@ -3696,6 +3974,51 @@
                     ]
                   }
                 }
+              },
+              {
+                "args": [],
+                "iconId": "square",
+                "id": "cancelTypedOperation",
+                "inPalette": false,
+                "kind": "view",
+                "label": {
+                  "native": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  },
+                  "reuse": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  }
+                },
+                "semantics": {
+                  "effects": {
+                    "destructive": false,
+                    "external": false,
+                    "reads": [
+                      "config:{self}"
+                    ],
+                    "reversible": false
+                  },
+                  "execution": {
+                    "cancellable": false,
+                    "class": "interactive",
+                    "expectedRevision": false,
+                    "idempotency": "none",
+                    "interactiveJob": "migrated",
+                    "preview": "none",
+                    "undo": {
+                      "kind": "none"
+                    }
+                  },
+                  "policy": {
+                    "approval": "never",
+                    "scopes": [
+                      "artifacts.read",
+                      "shell.observe"
+                    ]
+                  }
+                }
               }
             ],
             "bodyKey": "forms.play.blueprint",
@@ -3708,11 +4031,11 @@
             "label": {
               "native": {
                 "de": "Entwurf",
-                "en": "Blueprint"
+                "en": "Design"
               },
               "reuse": {
                 "de": "Entwurf",
-                "en": "Blueprint"
+                "en": "Design"
               }
             },
             "options": {
@@ -4007,11 +4330,11 @@
                 "kind": "interaction",
                 "label": {
                   "native": {
-                    "de": "Hover",
+                    "de": "Darüberfahren",
                     "en": "Hover"
                   },
                   "reuse": {
-                    "de": "Hover",
+                    "de": "Darüberfahren",
                     "en": "Hover"
                   }
                 },
@@ -4323,6 +4646,51 @@
                     ]
                   }
                 }
+              },
+              {
+                "args": [],
+                "iconId": "square",
+                "id": "cancelTypedOperation",
+                "inPalette": false,
+                "kind": "view",
+                "label": {
+                  "native": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  },
+                  "reuse": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  }
+                },
+                "semantics": {
+                  "effects": {
+                    "destructive": false,
+                    "external": false,
+                    "reads": [
+                      "config:{self}"
+                    ],
+                    "reversible": false
+                  },
+                  "execution": {
+                    "cancellable": false,
+                    "class": "interactive",
+                    "expectedRevision": false,
+                    "idempotency": "none",
+                    "interactiveJob": "migrated",
+                    "preview": "none",
+                    "undo": {
+                      "kind": "none"
+                    }
+                  },
+                  "policy": {
+                    "approval": "never",
+                    "scopes": [
+                      "artifacts.read",
+                      "shell.observe"
+                    ]
+                  }
+                }
               }
             ],
             "bodyKey": "forms.play.try",
@@ -4332,12 +4700,682 @@
             "interactions": [],
             "label": {
               "native": {
-                "de": "Testen",
-                "en": "Try"
+                "de": "Formular ausfüllen",
+                "en": "Fill Form"
               },
               "reuse": {
-                "de": "Testen",
-                "en": "Try"
+                "de": "Formular ausfüllen",
+                "en": "Fill Form"
+              }
+            },
+            "options": {
+              "engagement": {
+                "kind": "none"
+              }
+            },
+            "surfaceKind": "canvas-2d",
+            "utilities": []
+          },
+          {
+            "actions": [
+              {
+                "args": [
+                  {
+                    "id": "domainId",
+                    "label": {
+                      "native": {
+                        "de": "Domäne",
+                        "en": "Domain"
+                      },
+                      "reuse": {
+                        "de": "Domäne",
+                        "en": "Domain"
+                      }
+                    },
+                    "required": true,
+                    "schema": {
+                      "kind": "string"
+                    }
+                  },
+                  {
+                    "id": "targets",
+                    "label": {
+                      "native": {
+                        "de": "Ziele",
+                        "en": "Targets"
+                      },
+                      "reuse": {
+                        "de": "Ziele",
+                        "en": "Targets"
+                      }
+                    },
+                    "required": true,
+                    "schema": {
+                      "kind": "string"
+                    }
+                  },
+                  {
+                    "id": "merge",
+                    "label": {
+                      "native": {
+                        "de": "Zusammenführen",
+                        "en": "Merge"
+                      },
+                      "reuse": {
+                        "de": "Zusammenführen",
+                        "en": "Merge"
+                      }
+                    },
+                    "required": true,
+                    "schema": {
+                      "kind": "string",
+                      "options": [
+                        {
+                          "label": {
+                            "native": {
+                              "de": "Ersetzen",
+                              "en": "Replace"
+                            },
+                            "reuse": {
+                              "de": "Ersetzen",
+                              "en": "Replace"
+                            }
+                          },
+                          "value": "replace"
+                        },
+                        {
+                          "label": {
+                            "native": {
+                              "de": "Additiv",
+                              "en": "Additive"
+                            },
+                            "reuse": {
+                              "de": "Additiv",
+                              "en": "Additive"
+                            }
+                          },
+                          "value": "additive"
+                        },
+                        {
+                          "label": {
+                            "native": {
+                              "de": "Subtraktiv",
+                              "en": "Subtractive"
+                            },
+                            "reuse": {
+                              "de": "Subtraktiv",
+                              "en": "Subtractive"
+                            }
+                          },
+                          "value": "subtractive"
+                        },
+                        {
+                          "label": {
+                            "native": {
+                              "de": "Invertierend",
+                              "en": "Invertive"
+                            },
+                            "reuse": {
+                              "de": "Invertierend",
+                              "en": "Invertive"
+                            }
+                          },
+                          "value": "invertive"
+                        },
+                        {
+                          "label": {
+                            "native": {
+                              "de": "Bereich",
+                              "en": "Range"
+                            },
+                            "reuse": {
+                              "de": "Bereich",
+                              "en": "Range"
+                            }
+                          },
+                          "value": "range"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "id": "method",
+                    "label": {
+                      "native": {
+                        "de": "Methode",
+                        "en": "Method"
+                      },
+                      "reuse": {
+                        "de": "Methode",
+                        "en": "Method"
+                      }
+                    },
+                    "required": true,
+                    "schema": {
+                      "kind": "string",
+                      "options": [
+                        {
+                          "label": {
+                            "native": {
+                              "de": "Auswahl",
+                              "en": "Pick"
+                            },
+                            "reuse": {
+                              "de": "Auswahl",
+                              "en": "Pick"
+                            }
+                          },
+                          "value": "pick"
+                        },
+                        {
+                          "label": {
+                            "native": {
+                              "de": "Rechteck",
+                              "en": "Rectangle"
+                            },
+                            "reuse": {
+                              "de": "Rechteck",
+                              "en": "Rectangle"
+                            }
+                          },
+                          "value": "rectangle"
+                        },
+                        {
+                          "label": {
+                            "native": {
+                              "de": "Lasso",
+                              "en": "Lasso"
+                            },
+                            "reuse": {
+                              "de": "Lasso",
+                              "en": "Lasso"
+                            }
+                          },
+                          "value": "lasso"
+                        }
+                      ]
+                    }
+                  }
+                ],
+                "iconId": "mouse-pointer",
+                "id": "interactionSelect",
+                "inPalette": false,
+                "kind": "interaction",
+                "label": {
+                  "native": {
+                    "de": "Auswählen",
+                    "en": "Select"
+                  },
+                  "reuse": {
+                    "de": "Auswählen",
+                    "en": "Select"
+                  }
+                },
+                "semantics": {
+                  "effects": {
+                    "destructive": false,
+                    "external": false,
+                    "reads": [
+                      "config:{self}"
+                    ],
+                    "reversible": false
+                  },
+                  "execution": {
+                    "cancellable": false,
+                    "class": "interactive",
+                    "expectedRevision": false,
+                    "idempotency": "none",
+                    "interactiveJob": "migrated",
+                    "preview": "none",
+                    "undo": {
+                      "kind": "none"
+                    }
+                  },
+                  "policy": {
+                    "approval": "never",
+                    "scopes": [
+                      "artifacts.read",
+                      "shell.observe"
+                    ]
+                  }
+                }
+              },
+              {
+                "args": [
+                  {
+                    "id": "domainId",
+                    "label": {
+                      "native": {
+                        "de": "Domäne",
+                        "en": "Domain"
+                      },
+                      "reuse": {
+                        "de": "Domäne",
+                        "en": "Domain"
+                      }
+                    },
+                    "required": true,
+                    "schema": {
+                      "kind": "string"
+                    }
+                  },
+                  {
+                    "id": "channel",
+                    "label": {
+                      "native": {
+                        "de": "Kanal",
+                        "en": "Channel"
+                      },
+                      "reuse": {
+                        "de": "Kanal",
+                        "en": "Channel"
+                      }
+                    },
+                    "required": true,
+                    "schema": {
+                      "kind": "string"
+                    }
+                  },
+                  {
+                    "id": "targets",
+                    "label": {
+                      "native": {
+                        "de": "Ziele",
+                        "en": "Targets"
+                      },
+                      "reuse": {
+                        "de": "Ziele",
+                        "en": "Targets"
+                      }
+                    },
+                    "required": true,
+                    "schema": {
+                      "kind": "string"
+                    }
+                  }
+                ],
+                "iconId": "eye",
+                "id": "interactionHover",
+                "inPalette": false,
+                "kind": "interaction",
+                "label": {
+                  "native": {
+                    "de": "Darüberfahren",
+                    "en": "Hover"
+                  },
+                  "reuse": {
+                    "de": "Darüberfahren",
+                    "en": "Hover"
+                  }
+                },
+                "semantics": {
+                  "effects": {
+                    "destructive": false,
+                    "external": false,
+                    "reads": [
+                      "config:{self}"
+                    ],
+                    "reversible": false
+                  },
+                  "execution": {
+                    "cancellable": false,
+                    "class": "interactive",
+                    "expectedRevision": false,
+                    "idempotency": "none",
+                    "interactiveJob": "migrated",
+                    "preview": "none",
+                    "undo": {
+                      "kind": "none"
+                    }
+                  },
+                  "policy": {
+                    "approval": "never",
+                    "scopes": [
+                      "artifacts.read",
+                      "shell.observe"
+                    ]
+                  }
+                }
+              },
+              {
+                "args": [],
+                "iconId": "mouse-pointer-2",
+                "id": "clearSelection",
+                "inPalette": true,
+                "keys": "escape",
+                "kind": "interaction",
+                "label": {
+                  "native": {
+                    "de": "Auswahl aufheben",
+                    "en": "Clear Selection"
+                  },
+                  "reuse": {
+                    "de": "Auswahl aufheben",
+                    "en": "Clear Selection"
+                  }
+                },
+                "semantics": {
+                  "effects": {
+                    "destructive": false,
+                    "external": false,
+                    "reads": [
+                      "config:{self}"
+                    ],
+                    "reversible": false
+                  },
+                  "execution": {
+                    "cancellable": false,
+                    "class": "interactive",
+                    "expectedRevision": false,
+                    "idempotency": "none",
+                    "interactiveJob": "migrated",
+                    "preview": "none",
+                    "undo": {
+                      "kind": "none"
+                    }
+                  },
+                  "policy": {
+                    "approval": "never",
+                    "scopes": [
+                      "artifacts.read",
+                      "shell.observe"
+                    ]
+                  }
+                }
+              },
+              {
+                "args": [],
+                "iconId": "maximize-2",
+                "id": "selectAll",
+                "inPalette": true,
+                "keys": "mod+a",
+                "kind": "interaction",
+                "label": {
+                  "native": {
+                    "de": "Alles auswählen",
+                    "en": "Select All"
+                  },
+                  "reuse": {
+                    "de": "Alles auswählen",
+                    "en": "Select All"
+                  }
+                },
+                "semantics": {
+                  "effects": {
+                    "destructive": false,
+                    "external": false,
+                    "reads": [
+                      "config:{self}"
+                    ],
+                    "reversible": false
+                  },
+                  "execution": {
+                    "cancellable": false,
+                    "class": "interactive",
+                    "expectedRevision": false,
+                    "idempotency": "none",
+                    "interactiveJob": "migrated",
+                    "preview": "none",
+                    "undo": {
+                      "kind": "none"
+                    }
+                  },
+                  "policy": {
+                    "approval": "never",
+                    "scopes": [
+                      "artifacts.read",
+                      "shell.observe"
+                    ]
+                  }
+                }
+              },
+              {
+                "args": [
+                  {
+                    "id": "domainId",
+                    "label": {
+                      "native": {
+                        "de": "Domäne",
+                        "en": "Domain"
+                      },
+                      "reuse": {
+                        "de": "Domäne",
+                        "en": "Domain"
+                      }
+                    },
+                    "required": true,
+                    "schema": {
+                      "kind": "string"
+                    }
+                  },
+                  {
+                    "id": "mode",
+                    "label": {
+                      "native": {
+                        "de": "Modus",
+                        "en": "Mode"
+                      },
+                      "reuse": {
+                        "de": "Modus",
+                        "en": "Mode"
+                      }
+                    },
+                    "required": true,
+                    "schema": {
+                      "kind": "string",
+                      "options": [
+                        {
+                          "label": {
+                            "native": {
+                              "de": "Einzeln",
+                              "en": "Single"
+                            },
+                            "reuse": {
+                              "de": "Einzeln",
+                              "en": "Single"
+                            }
+                          },
+                          "value": "single"
+                        },
+                        {
+                          "label": {
+                            "native": {
+                              "de": "Mehrfach",
+                              "en": "Multiple"
+                            },
+                            "reuse": {
+                              "de": "Mehrfach",
+                              "en": "Multiple"
+                            }
+                          },
+                          "value": "multiple"
+                        }
+                      ]
+                    }
+                  }
+                ],
+                "iconId": "sliders-horizontal",
+                "id": "setSelectionMode",
+                "inPalette": true,
+                "kind": "interaction",
+                "label": {
+                  "native": {
+                    "de": "Auswahlmodus festlegen",
+                    "en": "Set Selection Mode"
+                  },
+                  "reuse": {
+                    "de": "Auswahlmodus festlegen",
+                    "en": "Set Selection Mode"
+                  }
+                },
+                "semantics": {
+                  "effects": {
+                    "destructive": false,
+                    "external": false,
+                    "reads": [
+                      "config:{self}"
+                    ],
+                    "reversible": false
+                  },
+                  "execution": {
+                    "cancellable": false,
+                    "class": "interactive",
+                    "expectedRevision": false,
+                    "idempotency": "none",
+                    "interactiveJob": "migrated",
+                    "preview": "none",
+                    "undo": {
+                      "kind": "none"
+                    }
+                  },
+                  "policy": {
+                    "approval": "never",
+                    "scopes": [
+                      "artifacts.read",
+                      "shell.observe"
+                    ]
+                  }
+                }
+              },
+              {
+                "args": [
+                  {
+                    "id": "domainId",
+                    "label": {
+                      "native": {
+                        "de": "Domäne",
+                        "en": "Domain"
+                      },
+                      "reuse": {
+                        "de": "Domäne",
+                        "en": "Domain"
+                      }
+                    },
+                    "required": true,
+                    "schema": {
+                      "kind": "string"
+                    }
+                  },
+                  {
+                    "id": "granularityId",
+                    "label": {
+                      "native": {
+                        "de": "Granularität",
+                        "en": "Granularity"
+                      },
+                      "reuse": {
+                        "de": "Granularität",
+                        "en": "Granularity"
+                      }
+                    },
+                    "required": true,
+                    "schema": {
+                      "kind": "string"
+                    }
+                  }
+                ],
+                "iconId": "layers",
+                "id": "setInteractionGranularity",
+                "inPalette": true,
+                "kind": "interaction",
+                "label": {
+                  "native": {
+                    "de": "Granularität festlegen",
+                    "en": "Set Granularity"
+                  },
+                  "reuse": {
+                    "de": "Granularität festlegen",
+                    "en": "Set Granularity"
+                  }
+                },
+                "semantics": {
+                  "effects": {
+                    "destructive": false,
+                    "external": false,
+                    "reads": [
+                      "config:{self}"
+                    ],
+                    "reversible": false
+                  },
+                  "execution": {
+                    "cancellable": false,
+                    "class": "interactive",
+                    "expectedRevision": false,
+                    "idempotency": "none",
+                    "interactiveJob": "migrated",
+                    "preview": "none",
+                    "undo": {
+                      "kind": "none"
+                    }
+                  },
+                  "policy": {
+                    "approval": "never",
+                    "scopes": [
+                      "artifacts.read",
+                      "shell.observe"
+                    ]
+                  }
+                }
+              },
+              {
+                "args": [],
+                "iconId": "square",
+                "id": "cancelTypedOperation",
+                "inPalette": false,
+                "kind": "view",
+                "label": {
+                  "native": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  },
+                  "reuse": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  }
+                },
+                "semantics": {
+                  "effects": {
+                    "destructive": false,
+                    "external": false,
+                    "reads": [
+                      "config:{self}"
+                    ],
+                    "reversible": false
+                  },
+                  "execution": {
+                    "cancellable": false,
+                    "class": "interactive",
+                    "expectedRevision": false,
+                    "idempotency": "none",
+                    "interactiveJob": "migrated",
+                    "preview": "none",
+                    "undo": {
+                      "kind": "none"
+                    }
+                  },
+                  "policy": {
+                    "approval": "never",
+                    "scopes": [
+                      "artifacts.read",
+                      "shell.observe"
+                    ]
+                  }
+                }
+              }
+            ],
+            "bodyKey": "forms.play.responses",
+            "capabilities": [],
+            "iconId": "list-checks",
+            "id": "forms-responses",
+            "interactions": [],
+            "label": {
+              "native": {
+                "de": "Antworten",
+                "en": "Responses"
+              },
+              "reuse": {
+                "de": "Antworten",
+                "en": "Responses"
               }
             },
             "options": {
@@ -5055,6 +6093,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Öffnet den Tutorial-Rekorder für das geöffnete Dokument, damit die nächsten Interaktionen als Tutorial aufgezeichnet werden.",
+                  "en": "Opens the tutorial recorder on the open document so the next interactions are recorded as a tutorial."
+                },
+                "reuse": {
+                  "de": "Öffnet den Tutorial-Rekorder für das geöffnete Dokument, damit die nächsten Interaktionen als Tutorial aufgezeichnet werden.",
+                  "en": "Opens the tutorial recorder on the open document so the next interactions are recorded as a tutorial."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -5160,6 +6208,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Filtert den Verlaufsbereich auf alle Einträge, nur Dokumentoperationen oder alles außer Dokumentoperationen; das Dokument wird nicht verändert.",
+                  "en": "Filters the history panel to all entries, only document operations, or everything except document operations; the document is not changed."
+                },
+                "reuse": {
+                  "de": "Filtert den Verlaufsbereich auf alle Einträge, nur Dokumentoperationen oder alles außer Dokumentoperationen; das Dokument wird nicht verändert.",
+                  "en": "Filters the history panel to all entries, only document operations, or everything except document operations; the document is not changed."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -5258,6 +6316,16 @@
             },
             "semantics": {
               "audience": "chrome",
+              "description": {
+                "native": {
+                  "de": "Vermerkt eine bereits erfolgte Shell-Wirkung (Navigation, Export, Start) im Sitzungsprotokoll; das Dokument wird nicht verändert.",
+                  "en": "Records a shell effect that already happened (navigation, export, spawn) in the session command log; the document is not changed."
+                },
+                "reuse": {
+                  "de": "Vermerkt eine bereits erfolgte Shell-Wirkung (Navigation, Export, Start) im Sitzungsprotokoll; das Dokument wird nicht verändert.",
+                  "en": "Records a shell effect that already happened (navigation, export, spawn) in the session command log; the document is not changed."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -5329,7 +6397,7 @@
             "class": "data",
             "form": "value"
           },
-          "artifactSchema": "",
+          "artifactSchema": "forms.form",
           "exportFormats": [],
           "importFormats": [],
           "ports": []
@@ -5431,7 +6499,53 @@
         "utilities": [],
         "windowKinds": [
           {
-            "actions": [],
+            "actions": [
+              {
+                "args": [],
+                "iconId": "square",
+                "id": "cancelTypedOperation",
+                "inPalette": false,
+                "kind": "view",
+                "label": {
+                  "native": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  },
+                  "reuse": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  }
+                },
+                "semantics": {
+                  "effects": {
+                    "destructive": false,
+                    "external": false,
+                    "reads": [
+                      "config:{self}"
+                    ],
+                    "reversible": false
+                  },
+                  "execution": {
+                    "cancellable": false,
+                    "class": "interactive",
+                    "expectedRevision": false,
+                    "idempotency": "none",
+                    "interactiveJob": "migrated",
+                    "preview": "none",
+                    "undo": {
+                      "kind": "none"
+                    }
+                  },
+                  "policy": {
+                    "approval": "never",
+                    "scopes": [
+                      "artifacts.read",
+                      "shell.observe"
+                    ]
+                  }
+                }
+              }
+            ],
             "bodyKey": "forms.view.try",
             "capabilities": [],
             "iconId": "play",
@@ -5474,7 +6588,7 @@
     "commands": [],
     "examples": [
       {
-        "artifactJson": "semio forms.form.dsl v1\nschema=forms.form id=building-component version=\"1\" title=\"Building Component\" steps=[ id=identity title=Identity description=\"Basic component metadata and material selection.\" blocks=[ id=name label=\"Component Name\" kind=text required=true placeholder=\"Column A\" default=\"Column A\"\ncondition {\n}\nid=description label=Description kind=longText placeholder=\"Describe the component role\" default=\"Primary structural column\"\ncondition {\n}\nid=material label=Material kind=single required=true default=\"concrete\" options=[ value=concrete label=Concrete value=steel label=Steel value=timber label=Timber ]\ncondition {\n}\nid=tags label=Tags kind=multi default=[ \"structural\" ] options=[ value=structural label=Structural value=facade label=Facade value=prefab label=Prefab ]\ncondition {\n}\nid=prefab label=Prefab kind=boolean default=true\ncondition {\n}\nid=install-date label=\"Install Date\" kind=date default=\"2026-06-30\"\ncondition {\n}\nid=accent-color label=\"Accent Color\" kind=color default=\"#336699\"\ncondition {\n}\n] id=geometry title=Geometry description=\"Parametric geometry and dimensional controls.\" blocks=[ id=info-note label=Note kind=note text=\"Adjust the procedural column parameters below. Values persist in the form spec and seed Try mode.\"\ncondition {\n}\nid=count label=\"Instance Count\" kind=number min=1 max=20 step=1 default=4\ncondition {\n}\nid=height-factor label=\"Height Factor\" kind=slider min=0 max=10 step=0.5 unit=m default=6\ncondition {\n}\nid=offset label=Offset kind=vector step=0.1 schema=vec3 fields=[ key=x label=X value=0 key=y label=Y value=0 key=z label=Z value=0 ]\ncondition {\n}\nid=geometry label=\"Hexagonal Column\" kind=buildingComponent description=\"Parametric column geometry from procedural flow.\" required=true fixture-slug=hexagonal-mushroom-column params={\n  height=6 radius=0.5 sides=6\n}\ncondition {\n}\nid=reference-image label=Reference kind=image src=\"\"\ncondition {\n}\nid=spec-file label=\"Spec Sheet\" kind=file accept=\".pdf,.dwg\"\ncondition {\n}\n] ]\n",
+        "artifactJson": "semio forms.form.dsl v1\nschema=forms.form id=building-component version=\"1\" title=\"Building Component\" definition=steps=[ id=identity title=Identity description=\"Basic component metadata and material selection.\" blocks=[ id=name label=\"Component Name\" kind=text required=true placeholder=\"Column A\" default=\"Column A\"\ncondition {\n}\nid=description label=Description kind=longText placeholder=\"Describe the component role\" default=\"Primary structural column\"\ncondition {\n}\nid=material label=Material kind=single required=true default=\"concrete\" options=[ value=concrete label=Concrete value=steel label=Steel value=timber label=Timber ]\ncondition {\n}\nid=tags label=Tags kind=multi default=[ \"structural\" ] options=[ value=structural label=Structural value=facade label=Facade value=prefab label=Prefab ]\ncondition {\n}\nid=prefab label=Prefab kind=boolean default=true\ncondition {\n}\nid=install-date label=\"Install Date\" kind=date\ncondition {\n}\nid=accent-color label=\"Accent Color\" kind=color default=\"#336699\"\ncondition {\n}\n] id=geometry title=Geometry description=\"Parametric geometry and dimensional controls.\" blocks=[ id=info-note label=Note kind=note text=\"Adjust the procedural column parameters below.\"\ncondition {\n}\nid=count label=\"Instance Count\" kind=number min=1 max=20 step=1 default=4\ncondition {\n}\nid=height-factor label=\"Height Factor\" kind=slider min=0 max=10 step=0.5 unit=m default=6\ncondition {\n}\nid=offset label=Offset kind=vector step=0.1 schema=vec3 fields=[ key=x label=X value=0 key=y label=Y value=0 key=z label=Z value=0 ]\ncondition {\n}\nid=geometry label=\"Hexagonal Column\" kind=buildingComponent description=\"Parametric column geometry from procedural flow.\" required=true fixture-slug=hexagonal-mushroom-column params={\n  height=6 radius=0.5 sides=6\n}\ncondition {\n}\nid=reference-image label=Reference kind=image src=\"\"\ncondition {\n}\nid=spec-file label=\"Spec Sheet\" kind=file accept=\".pdf,.dwg\"\ncondition {\n}\n] ]\nresponses=[]\nstructure=child_id=building-component-structure target=\"building-component-structure!s.stdio.semio@v1/value\"\nresults=child_id=building-component-results target=\"building-component-results!s.stdio.semio@v1/table\"\n",
         "dialect": {
           "artifactKind": "s.forms.forms",
           "standard": "1",

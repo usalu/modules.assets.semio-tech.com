@@ -238,12 +238,12 @@
   "descriptorVersion": 1,
   "execution": "isolated",
   "executionProtocol": {
-    "appChannelVersion": 17
+    "appChannelVersion": 19
   },
   "hashes": {
-    "coreWasmSha256": "7c650c9744db9e27828ad11368f185fc7c2e04243c5eca177449b671fc065add",
-    "descriptorSha256": "671bfaca56f5019eb6b220f8bf92701f4279d1def73bdfce45b9c2adf6119cb0",
-    "wasmSha256": "45cdead24cc61a3b8ace9517567974a2c62bf01602ce1dfdb4e98b870e10f396"
+    "coreWasmSha256": "30dfd577a9cb5aeb2c56e69750c4290204c59fd865f2b50f7982813bb409bd6f",
+    "descriptorSha256": "86e04d1d77e0c9c82b98e9f01051350620a204089946a334b20f8047afd5f8bc",
+    "wasmSha256": "ce4c9d697b4c1ed491c8fbd6308a2a3463cfb0845693ecd5dd1a5d3b9c3efee6"
   },
   "manifest": {
     "apps": [
@@ -277,7 +277,7 @@
                 }
               },
               "effects": {
-                "destructive": false,
+                "destructive": true,
                 "external": false,
                 "reversible": false
               },
@@ -293,7 +293,7 @@
                 }
               },
               "policy": {
-                "approval": "never",
+                "approval": "whenDestructive",
                 "scopes": [
                   "shell.navigate"
                 ]
@@ -328,7 +328,7 @@
                 }
               },
               "effects": {
-                "destructive": false,
+                "destructive": true,
                 "external": false,
                 "reversible": false
               },
@@ -344,7 +344,7 @@
                 }
               },
               "policy": {
-                "approval": "never",
+                "approval": "whenDestructive",
                 "scopes": [
                   "shell.navigate"
                 ]
@@ -379,7 +379,7 @@
                 }
               },
               "effects": {
-                "destructive": false,
+                "destructive": true,
                 "external": false,
                 "reversible": false
               },
@@ -395,7 +395,7 @@
                 }
               },
               "policy": {
-                "approval": "never",
+                "approval": "whenDestructive",
                 "scopes": [
                   "shell.navigate"
                 ]
@@ -434,7 +434,7 @@
                 }
               },
               "effects": {
-                "destructive": false,
+                "destructive": true,
                 "external": false,
                 "reversible": false
               },
@@ -450,7 +450,7 @@
                 }
               },
               "policy": {
-                "approval": "never",
+                "approval": "whenDestructive",
                 "scopes": [
                   "shell.navigate"
                 ]
@@ -1813,6 +1813,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Öffnet den Tutorial-Rekorder für das geöffnete Dokument, damit die nächsten Interaktionen als Tutorial aufgezeichnet werden.",
+                  "en": "Opens the tutorial recorder on the open document so the next interactions are recorded as a tutorial."
+                },
+                "reuse": {
+                  "de": "Öffnet den Tutorial-Rekorder für das geöffnete Dokument, damit die nächsten Interaktionen als Tutorial aufgezeichnet werden.",
+                  "en": "Opens the tutorial recorder on the open document so the next interactions are recorded as a tutorial."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -1918,6 +1928,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Filtert den Verlaufsbereich auf alle Einträge, nur Dokumentoperationen oder alles außer Dokumentoperationen; das Dokument wird nicht verändert.",
+                  "en": "Filters the history panel to all entries, only document operations, or everything except document operations; the document is not changed."
+                },
+                "reuse": {
+                  "de": "Filtert den Verlaufsbereich auf alle Einträge, nur Dokumentoperationen oder alles außer Dokumentoperationen; das Dokument wird nicht verändert.",
+                  "en": "Filters the history panel to all entries, only document operations, or everything except document operations; the document is not changed."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -2016,6 +2036,16 @@
             },
             "semantics": {
               "audience": "chrome",
+              "description": {
+                "native": {
+                  "de": "Vermerkt eine bereits erfolgte Shell-Wirkung (Navigation, Export, Start) im Sitzungsprotokoll; das Dokument wird nicht verändert.",
+                  "en": "Records a shell effect that already happened (navigation, export, spawn) in the session command log; the document is not changed."
+                },
+                "reuse": {
+                  "de": "Vermerkt eine bereits erfolgte Shell-Wirkung (Navigation, Export, Start) im Sitzungsprotokoll; das Dokument wird nicht verändert.",
+                  "en": "Records a shell effect that already happened (navigation, export, spawn) in the session command log; the document is not changed."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -2766,20 +2796,30 @@
               {
                 "args": [],
                 "iconId": "sparkles",
-                "id": "translateSelection",
+                "id": "patchDocument",
                 "inPalette": false,
                 "kind": "mutation",
                 "label": {
                   "native": {
-                    "de": "Auswahl verschieben",
-                    "en": "Translate Selection"
+                    "de": "Dokument aktualisieren",
+                    "en": "Patch Document"
                   },
                   "reuse": {
-                    "de": "Auswahl verschieben",
-                    "en": "Translate Selection"
+                    "de": "Dokument aktualisieren",
+                    "en": "Patch Document"
                   }
                 },
                 "semantics": {
+                  "description": {
+                    "native": {
+                      "de": "Setzt eine benannte Eigenschaft des Layoutdokuments — Name, Druckziel oder Datenfelder.",
+                      "en": "Sets one named property of the layout document — its name, print target, or data fields."
+                    },
+                    "reuse": {
+                      "de": "Setzt eine benannte Eigenschaft des Layoutdokuments — Name, Druckziel oder Datenfelder.",
+                      "en": "Sets one named property of the layout document — its name, print target, or data fields."
+                    }
+                  },
                   "effects": {
                     "destructive": false,
                     "external": false,
@@ -2804,7 +2844,69 @@
                     "scopes": [
                       "artifacts.write"
                     ]
+                  },
+                  "useWhen": [
+                    "rename the layout",
+                    "set the print target"
+                  ]
+                }
+              },
+              {
+                "args": [],
+                "iconId": "sparkles",
+                "id": "translateSelection",
+                "inPalette": false,
+                "kind": "mutation",
+                "label": {
+                  "native": {
+                    "de": "Auswahl verschieben",
+                    "en": "Translate Selection"
+                  },
+                  "reuse": {
+                    "de": "Auswahl verschieben",
+                    "en": "Translate Selection"
                   }
+                },
+                "semantics": {
+                  "description": {
+                    "native": {
+                      "de": "Verschiebt die ausgewählten Rahmen um einen Versatz in Seiteneinheiten.",
+                      "en": "Moves the selected frames by a delta in page units."
+                    },
+                    "reuse": {
+                      "de": "Verschiebt die ausgewählten Rahmen um einen Versatz in Seiteneinheiten.",
+                      "en": "Moves the selected frames by a delta in page units."
+                    }
+                  },
+                  "effects": {
+                    "destructive": false,
+                    "external": false,
+                    "reversible": true,
+                    "writes": [
+                      "artifact:{self}"
+                    ]
+                  },
+                  "execution": {
+                    "cancellable": false,
+                    "class": "interactive",
+                    "expectedRevision": true,
+                    "idempotency": "none",
+                    "interactiveJob": "migrated",
+                    "preview": "diff",
+                    "undo": {
+                      "kind": "inverse"
+                    }
+                  },
+                  "policy": {
+                    "approval": "whenDestructive",
+                    "scopes": [
+                      "artifacts.write"
+                    ]
+                  },
+                  "useWhen": [
+                    "move the selected frames",
+                    "shift this frame to the right"
+                  ]
                 }
               },
               {
@@ -2824,6 +2926,16 @@
                   }
                 },
                 "semantics": {
+                  "description": {
+                    "native": {
+                      "de": "Dreht die ausgewählten Rahmen um einen Winkel in Grad.",
+                      "en": "Rotates the selected frames by an angle in degrees."
+                    },
+                    "reuse": {
+                      "de": "Dreht die ausgewählten Rahmen um einen Winkel in Grad.",
+                      "en": "Rotates the selected frames by an angle in degrees."
+                    }
+                  },
                   "effects": {
                     "destructive": false,
                     "external": false,
@@ -2868,6 +2980,16 @@
                   }
                 },
                 "semantics": {
+                  "description": {
+                    "native": {
+                      "de": "Skaliert die ausgewählten Rahmen um einen Faktor je Achse.",
+                      "en": "Scales the selected frames by a factor per axis."
+                    },
+                    "reuse": {
+                      "de": "Skaliert die ausgewählten Rahmen um einen Faktor je Achse.",
+                      "en": "Scales the selected frames by a factor per axis."
+                    }
+                  },
                   "effects": {
                     "destructive": false,
                     "external": false,
@@ -3177,11 +3299,11 @@
                 "kind": "interaction",
                 "label": {
                   "native": {
-                    "de": "Hover",
+                    "de": "Darüberfahren",
                     "en": "Hover"
                   },
                   "reuse": {
-                    "de": "Hover",
+                    "de": "Darüberfahren",
                     "en": "Hover"
                   }
                 },
@@ -3463,6 +3585,51 @@
                   "reuse": {
                     "de": "Granularität festlegen",
                     "en": "Set Granularity"
+                  }
+                },
+                "semantics": {
+                  "effects": {
+                    "destructive": false,
+                    "external": false,
+                    "reads": [
+                      "config:{self}"
+                    ],
+                    "reversible": false
+                  },
+                  "execution": {
+                    "cancellable": false,
+                    "class": "interactive",
+                    "expectedRevision": false,
+                    "idempotency": "none",
+                    "interactiveJob": "migrated",
+                    "preview": "none",
+                    "undo": {
+                      "kind": "none"
+                    }
+                  },
+                  "policy": {
+                    "approval": "never",
+                    "scopes": [
+                      "artifacts.read",
+                      "shell.observe"
+                    ]
+                  }
+                }
+              },
+              {
+                "args": [],
+                "iconId": "square",
+                "id": "cancelTypedOperation",
+                "inPalette": false,
+                "kind": "view",
+                "label": {
+                  "native": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  },
+                  "reuse": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
                   }
                 },
                 "semantics": {
@@ -3807,11 +3974,11 @@
                 "kind": "interaction",
                 "label": {
                   "native": {
-                    "de": "Hover",
+                    "de": "Darüberfahren",
                     "en": "Hover"
                   },
                   "reuse": {
-                    "de": "Hover",
+                    "de": "Darüberfahren",
                     "en": "Hover"
                   }
                 },
@@ -4093,6 +4260,51 @@
                   "reuse": {
                     "de": "Granularität festlegen",
                     "en": "Set Granularity"
+                  }
+                },
+                "semantics": {
+                  "effects": {
+                    "destructive": false,
+                    "external": false,
+                    "reads": [
+                      "config:{self}"
+                    ],
+                    "reversible": false
+                  },
+                  "execution": {
+                    "cancellable": false,
+                    "class": "interactive",
+                    "expectedRevision": false,
+                    "idempotency": "none",
+                    "interactiveJob": "migrated",
+                    "preview": "none",
+                    "undo": {
+                      "kind": "none"
+                    }
+                  },
+                  "policy": {
+                    "approval": "never",
+                    "scopes": [
+                      "artifacts.read",
+                      "shell.observe"
+                    ]
+                  }
+                }
+              },
+              {
+                "args": [],
+                "iconId": "square",
+                "id": "cancelTypedOperation",
+                "inPalette": false,
+                "kind": "view",
+                "label": {
+                  "native": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  },
+                  "reuse": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
                   }
                 },
                 "semantics": {
@@ -4855,6 +5067,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Öffnet den Tutorial-Rekorder für das geöffnete Dokument, damit die nächsten Interaktionen als Tutorial aufgezeichnet werden.",
+                  "en": "Opens the tutorial recorder on the open document so the next interactions are recorded as a tutorial."
+                },
+                "reuse": {
+                  "de": "Öffnet den Tutorial-Rekorder für das geöffnete Dokument, damit die nächsten Interaktionen als Tutorial aufgezeichnet werden.",
+                  "en": "Opens the tutorial recorder on the open document so the next interactions are recorded as a tutorial."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -4960,6 +5182,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Filtert den Verlaufsbereich auf alle Einträge, nur Dokumentoperationen oder alles außer Dokumentoperationen; das Dokument wird nicht verändert.",
+                  "en": "Filters the history panel to all entries, only document operations, or everything except document operations; the document is not changed."
+                },
+                "reuse": {
+                  "de": "Filtert den Verlaufsbereich auf alle Einträge, nur Dokumentoperationen oder alles außer Dokumentoperationen; das Dokument wird nicht verändert.",
+                  "en": "Filters the history panel to all entries, only document operations, or everything except document operations; the document is not changed."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -5058,6 +5290,16 @@
             },
             "semantics": {
               "audience": "chrome",
+              "description": {
+                "native": {
+                  "de": "Vermerkt eine bereits erfolgte Shell-Wirkung (Navigation, Export, Start) im Sitzungsprotokoll; das Dokument wird nicht verändert.",
+                  "en": "Records a shell effect that already happened (navigation, export, spawn) in the session command log; the document is not changed."
+                },
+                "reuse": {
+                  "de": "Vermerkt eine bereits erfolgte Shell-Wirkung (Navigation, Export, Start) im Sitzungsprotokoll; das Dokument wird nicht verändert.",
+                  "en": "Records a shell effect that already happened (navigation, export, spawn) in the session command log; the document is not changed."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -5231,7 +5473,53 @@
         "utilities": [],
         "windowKinds": [
           {
-            "actions": [],
+            "actions": [
+              {
+                "args": [],
+                "iconId": "square",
+                "id": "cancelTypedOperation",
+                "inPalette": false,
+                "kind": "view",
+                "label": {
+                  "native": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  },
+                  "reuse": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  }
+                },
+                "semantics": {
+                  "effects": {
+                    "destructive": false,
+                    "external": false,
+                    "reads": [
+                      "config:{self}"
+                    ],
+                    "reversible": false
+                  },
+                  "execution": {
+                    "cancellable": false,
+                    "class": "interactive",
+                    "expectedRevision": false,
+                    "idempotency": "none",
+                    "interactiveJob": "migrated",
+                    "preview": "none",
+                    "undo": {
+                      "kind": "none"
+                    }
+                  },
+                  "policy": {
+                    "approval": "never",
+                    "scopes": [
+                      "artifacts.read",
+                      "shell.observe"
+                    ]
+                  }
+                }
+              }
+            ],
             "bodyKey": "layout.view.preview",
             "capabilities": [],
             "iconId": "preview",
@@ -5274,7 +5562,7 @@
     "commands": [],
     "examples": [
       {
-        "artifactJson": "semio layout.layout.dsl v1\nschema=6c61796f75742e6c61796f7574\nname=44656d6f\ngrid=7b22626173656c696e6547726964223a31322e302c22626173656c696e654f6666736574223a302e302c22736e6170546f426173656c696e65223a747275657d\nparagraphStyles=5b7b226964223a227061726167726170682e626f6479222c226e616d65223a22426f6479222c22666f6e7446616d696c79223a224c61796f75742053616e73222c22666f6e7453697a65223a31322e302c22666f6e74576569676874223a3430302c226c656164696e67223a31342e342c22747261636b696e67223a302e302c22616c69676e6d656e74223a226c656674227d5d\ncharacterStyles=5b5d\nstories=5b7b226964223a2273746f72792d31222c22636f6e74656e74223a2248656c6c6f206c61796f7574222c227374796c6552756e73223a5b5d7d5d\nlinks=5b7b226964223a226c696e6b2d6d697373696e67222c2270617468223a226173736574732f6d697373696e672e706e67222c2268617368223a227368613235363a6d697373696e67222c227769647468223a3130302c22686569676874223a3130302c22647069223a3330302c22636f6c6f7250726f66696c65223a6e756c6c2c227374617465223a226d697373696e67222c2270726f78794461746155726c223a6e756c6c7d5d\nparentPages=5b7b226964223a22706172656e742d31222c226e616d65223a224d6173746572222c227769647468223a3430302e302c22686569676874223a3530302e302c226c61796572496473223a5b226c617965722d706172656e74225d2c226c6179657273223a5b7b226964223a226c617965722d706172656e74222c226e616d65223a224d6173746572222c2276697369626c65223a747275652c226c6f636b6564223a66616c73652c226f626a656374496473223a5b226672616d652d696e68657269746564225d7d5d2c226672616d6573223a5b7b226b696e64223a2272656374222c226964223a226672616d652d696e68657269746564222c226c617965724964223a226c617965722d706172656e74222c22626f756e6473223a7b2278223a35302e302c2279223a35302e302c2277223a3130302e302c2268223a38302e302c22726f746174696f6e223a302e307d2c226c6f636b6564223a6e756c6c2c2276697369626c65223a6e756c6c2c2266696c6c223a6e756c6c2c227374726f6b65223a5b302e342c302e352c302e372c302e385d7d5d7d5d\nspreads=5b7b226964223a227370726561642d31222c226e616d65223a225370726561642031222c2270616765496473223a5b22706167652d31222c22706167652d32225d7d5d\npages=5b7b226964223a22706167652d31222c226e616d65223a22506167652031222c227370726561644964223a227370726561642d31222c22706172656e74506167654964223a22706172656e742d31222c227769647468223a3430302e302c22686569676874223a3530302e302c226d617267696e73223a7b22746f70223a302e302c227269676874223a302e302c22626f74746f6d223a302e302c226c656674223a302e307d2c22636f6c756d6e73223a7b22636f756e74223a312c22677574746572223a302e307d2c22677569646573223a5b5d2c226c61796572496473223a5b226c617965722d31225d2c226c6179657273223a5b7b226964223a226c617965722d31222c226e616d65223a22436f6e74656e74222c2276697369626c65223a747275652c226c6f636b6564223a66616c73652c226f626a656374496473223a5b226672616d652d746578742d31222c226672616d652d696d6167652d31222c226672616d652d31225d7d5d2c226672616d6573223a5b7b226b696e64223a2274657874222c226964223a226672616d652d746578742d31222c226c617965724964223a226c617965722d31222c22626f756e6473223a7b2278223a3135362e302c2279223a3232302e302c2277223a38302e302c2268223a34302e302c22726f746174696f6e223a302e307d2c226c6f636b6564223a6e756c6c2c2276697369626c65223a6e756c6c2c2273746f72794964223a2273746f72792d31222c227468726561644e657874223a6e756c6c2c22636f6c756d6e73223a312c22696e736574223a7b2278223a302e302c2279223a302e302c2277223a38302e302c2268223a34302e307d2c22777261704d6f6465223a22626f78227d2c7b226b696e64223a22696d616765222c226964223a226672616d652d696d6167652d31222c226c617965724964223a226c617965722d31222c22626f756e6473223a7b2278223a3133362e302c2279223a3433352e302c2277223a36302e302c2268223a34302e302c22726f746174696f6e223a302e307d2c226c6f636b6564223a6e756c6c2c2276697369626c65223a6e756c6c2c226c696e6b4964223a226c696e6b2d6d697373696e67227d2c7b226b696e64223a2272656374222c226964223a226672616d652d31222c226c617965724964223a226c617965722d31222c22626f756e6473223a7b2278223a31302e302c2279223a31302e302c2277223a34302e302c2268223a34302e302c22726f746174696f6e223a302e307d2c226c6f636b6564223a6e756c6c2c2276697369626c65223a6e756c6c2c2266696c6c223a5b312e302c312e302c312e302c312e305d2c227374726f6b65223a6e756c6c7d5d2c226f7665727269646573223a5b5d7d2c7b226964223a22706167652d32222c226e616d65223a22506167652032222c227370726561644964223a227370726561642d31222c22706172656e74506167654964223a6e756c6c2c227769647468223a3430302e302c22686569676874223a3530302e302c226d617267696e73223a7b22746f70223a302e302c227269676874223a302e302c22626f74746f6d223a302e302c226c656674223a302e307d2c22636f6c756d6e73223a7b22636f756e74223a312c22677574746572223a302e307d2c22677569646573223a5b5d2c226c61796572496473223a5b5d2c226c6179657273223a5b5d2c226672616d6573223a5b5d2c226f7665727269646573223a5b5d7d5d\nprintTarget=6e756c6c\ndataFieldsJson=6e756c6c\nbackgroundDrawing=6e756c6c\nreferencedModel=6e756c6c\n",
+        "artifactJson": "semio layout.layout.dsl v1\nschema=layout.layout name=Demo grid=baseline-grid=12 baseline-offset=0 snap-to-baseline=true paragraph-styles=[ id=paragraph.body name=Body font-family=\"Layout Sans\" font-size=12 font-weight=400 leading=14.4 tracking=0 alignment=left ] character-styles=[ ] stories=[ id=story-1 content=\"Hello layout\"\nstyle-runs [start:UINT end:UINT paragraph-style-id:REF character-style-id:REF] {\n}\n] links=[ id=link-missing path=assets/missing.png hash=\"sha256:missing\" width=100 height=100 dpi=300 state=missing artifact-kind=\"\" artifact-ref=\"\" ] parent-pages=[ id=parent-1 name=Master width=400 height=500 layer-ids=[ layer-parent ]\nframes {\n  rect id=frame-inherited layer-id=layer-parent stroke=0.4000000059604645,0.5,0.699999988079071,0.800000011920929\n  bounds {\n    x=50 y=50 width=100 height=80 rotation=0\n  }\n}\nlayers [id:TEXT name:TEXT visible:BOOL locked:BOOL object-ids:LIST] {\n  layer-parent Master true false [ frame-inherited ]\n}\n] spreads=[ id=spread-1 name=\"Spread 1\" page-ids=[ page-1 page-2 ] ] pages=[ id=page-1 name=\"Page 1\" spread-id=spread-1 parent-page-id=parent-1 width=400 height=500\nmargins {\n  top=0 right=0 bottom=0 left=0\n}\ncolumns {\n  count=1 gutter=0\n}\nlayer-ids=[ layer-1 ]\nframes {\n  text id=frame-text-1 layer-id=layer-1 story-id=story-1 columns=1 wrap-mode=box\n  bounds {\n    x=156 y=220 width=80 height=40 rotation=0\n  }\n  inset {\n    x=0 y=0 width=80 height=40\n  }\n  image id=frame-image-1 layer-id=layer-1 link-id=link-missing\n  bounds {\n    x=136 y=435 width=60 height=40 rotation=0\n  }\n  rect id=frame-1 layer-id=layer-1 fill=1,1,1,1\n  bounds {\n    x=10 y=10 width=40 height=40 rotation=0\n  }\n}\nguides [x:NUM y:NUM width:NUM height:NUM] {\n}\nlayers [id:TEXT name:TEXT visible:BOOL locked:BOOL object-ids:LIST] {\n  layer-1 Content true false [ frame-text-1 frame-image-1 frame-1 ]\n}\noverrides [object-id:REF bounds:BLOCK visible:BOOL locked:BOOL] {\n}\nid=page-2 name=\"Page 2\" spread-id=spread-1 width=400 height=500\nmargins {\n  top=0 right=0 bottom=0 left=0\n}\ncolumns {\n  count=1 gutter=0\n}\nlayer-ids=[ ]\nframes {\n}\nguides [x:NUM y:NUM width:NUM height:NUM] {\n}\nlayers [id:TEXT name:TEXT visible:BOOL locked:BOOL object-ids:LIST] {\n}\noverrides [object-id:REF bounds:BLOCK visible:BOOL locked:BOOL] {\n}\n]\n",
         "dialect": {
           "artifactKind": "s.layout.layout",
           "standard": "1",

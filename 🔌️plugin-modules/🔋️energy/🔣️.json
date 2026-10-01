@@ -24,11 +24,6 @@
             "subset": "*"
           },
           {
-            "artifactKind": "s.stdio.csv",
-            "standard": "rfc4180",
-            "subset": "*"
-          },
-          {
             "artifactKind": "s.stdio.json",
             "standard": "rfc8259",
             "subset": "*"
@@ -36,11 +31,6 @@
           {
             "artifactKind": "s.stdio.txt",
             "standard": "utf-8",
-            "subset": "*"
-          },
-          {
-            "artifactKind": "s.stdio.xlsx",
-            "standard": "ecma-376",
             "subset": "*"
           },
           {
@@ -72,19 +62,6 @@
       },
       {
         "counterpart": {
-          "artifactKind": "s.stdio.csv",
-          "standard": "rfc4180",
-          "subset": "*"
-        },
-        "direction": "import",
-        "owner": {
-          "artifactKind": "s.energy.model",
-          "standard": "1",
-          "subset": "*"
-        }
-      },
-      {
-        "counterpart": {
           "artifactKind": "s.stdio.json",
           "standard": "rfc8259",
           "subset": "*"
@@ -100,19 +77,6 @@
         "counterpart": {
           "artifactKind": "s.stdio.txt",
           "standard": "utf-8",
-          "subset": "*"
-        },
-        "direction": "import",
-        "owner": {
-          "artifactKind": "s.energy.model",
-          "standard": "1",
-          "subset": "*"
-        }
-      },
-      {
-        "counterpart": {
-          "artifactKind": "s.stdio.xlsx",
-          "standard": "ecma-376",
           "subset": "*"
         },
         "direction": "import",
@@ -237,12 +201,12 @@
   "descriptorVersion": 1,
   "execution": "isolated",
   "executionProtocol": {
-    "appChannelVersion": 17
+    "appChannelVersion": 19
   },
   "hashes": {
-    "coreWasmSha256": "cb4e6f4aa29660e742150da0d1b71bf70d1940e12424ac21ed0a348f007c2392",
-    "descriptorSha256": "05534cf2b8efc4da72df095254bbadefbcf15fd250fa8ef98f05ade92fb89e83",
-    "wasmSha256": "c71829286acba6c9952de6c4fa45c313d928eb1f59d067e77cbe6e023b0b4032"
+    "coreWasmSha256": "a066424666b9c67d6e0fcdafa27330553295ae4b45d67107122c21e5b81ea661",
+    "descriptorSha256": "6f2584758827c9d5a69688faa77a21d79925ab94958a7f234823fb6a4855a6bf",
+    "wasmSha256": "c143d6697604cbebc696ac510a2459a471ee8450a7a0150dbcf489a9892507c8"
   },
   "manifest": {
     "apps": [
@@ -480,6 +444,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Ersetzt das gesamte Energiemodell durch ein mitgeliefertes Beispiel, die Demo oder einen der ASHRAE-140-BESTEST-Fälle (600 bis 950), anhand der Beispiel-Id.",
+                  "en": "Replaces the whole energy model with a bundled example, the demo or one of the ASHRAE 140 BESTEST cases (600 to 950), by example id."
+                },
+                "reuse": {
+                  "de": "Ersetzt das gesamte Energiemodell durch ein mitgeliefertes Beispiel, die Demo oder einen der ASHRAE-140-BESTEST-Fälle (600 bis 950), anhand der Beispiel-Id.",
+                  "en": "Replaces the whole energy model with a bundled example, the demo or one of the ASHRAE 140 BESTEST cases (600 to 950), by example id."
+                }
+              },
               "effects": {
                 "destructive": true,
                 "external": false,
@@ -595,6 +569,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Setzt eine Eigenschaft einer Fläche: Name, Klasse, Konstruktion, äußere Randbedingung (Außenluft, Erdreich, Temperatur der Gegenseite, adiabat oder zonenübergreifend mit Partnerfläche), Sonnen- oder Windexposition oder Multiplikator.",
+                  "en": "Sets one property of one surface: name, class, construction, outside boundary (outdoor air, ground, other-side temperature, adiabatic, or interzone with its partner surface), sun or wind exposure, or multiplier."
+                },
+                "reuse": {
+                  "de": "Setzt eine Eigenschaft einer Fläche: Name, Klasse, Konstruktion, äußere Randbedingung (Außenluft, Erdreich, Temperatur der Gegenseite, adiabat oder zonenübergreifend mit Partnerfläche), Sonnen- oder Windexposition oder Multiplikator.",
+                  "en": "Sets one property of one surface: name, class, construction, outside boundary (outdoor air, ground, other-side temperature, adiabatic, or interzone with its partner surface), sun or wind exposure, or multiplier."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -692,6 +676,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Setzt eine Eigenschaft eines Fensters: Name, Verglasungskonstruktion, Gesamtenergiedurchlassgrad, Lichttransmission, Höhe, Brüstungshöhe, Rahmen- oder Sprossenleitwert oder Maße von Überstand und Seitenblende.",
+                  "en": "Sets one property of one window: name, glazing construction, solar heat gain coefficient, visible transmittance, height, sill height, frame or divider conductance, or overhang and fin dimensions."
+                },
+                "reuse": {
+                  "de": "Setzt eine Eigenschaft eines Fensters: Name, Verglasungskonstruktion, Gesamtenergiedurchlassgrad, Lichttransmission, Höhe, Brüstungshöhe, Rahmen- oder Sprossenleitwert oder Maße von Überstand und Seitenblende.",
+                  "en": "Sets one property of one window: name, glazing construction, solar heat gain coefficient, visible transmittance, height, sill height, frame or divider conductance, or overhang and fin dimensions."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -789,6 +783,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Setzt eine Eigenschaft einer thermischen Zone: Name, Multiplikator, ob sie konditioniert ist oder ob sie zur Gesamtnutzfläche zählt.",
+                  "en": "Sets one property of one thermal zone: its name, multiplier, whether it is conditioned, or whether it counts towards the total floor area."
+                },
+                "reuse": {
+                  "de": "Setzt eine Eigenschaft einer thermischen Zone: Name, Multiplikator, ob sie konditioniert ist oder ob sie zur Gesamtnutzfläche zählt.",
+                  "en": "Sets one property of one thermal zone: its name, multiplier, whether it is conditioned, or whether it counts towards the total floor area."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -886,6 +890,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Setzt eine Eigenschaft eines Verglasungsmaterials: Name, Dicke, Wärmeleitfähigkeit, solaren oder sichtbaren Transmissionsgrad oder vorderen oder hinteren Infrarot-Emissionsgrad.",
+                  "en": "Sets one property of one glazing material: name, thickness, conductivity, solar or visible transmittance, or front or back infrared emissivity."
+                },
+                "reuse": {
+                  "de": "Setzt eine Eigenschaft eines Verglasungsmaterials: Name, Dicke, Wärmeleitfähigkeit, solaren oder sichtbaren Transmissionsgrad oder vorderen oder hinteren Infrarot-Emissionsgrad.",
+                  "en": "Sets one property of one glazing material: name, thickness, conductivity, solar or visible transmittance, or front or back infrared emissivity."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -983,6 +997,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Setzt eine Eigenschaft eines Gaszwischenraums zwischen Verglasungsschichten: Name, Dicke oder Gas (Luft, Argon, Krypton oder Xenon).",
+                  "en": "Sets one property of one gas gap between glazing layers: its name, thickness, or gas (air, argon, krypton or xenon)."
+                },
+                "reuse": {
+                  "de": "Setzt eine Eigenschaft eines Gaszwischenraums zwischen Verglasungsschichten: Name, Dicke oder Gas (Luft, Argon, Krypton oder Xenon).",
+                  "en": "Sets one property of one gas gap between glazing layers: its name, thickness, or gas (air, argon, krypton or xenon)."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -1081,6 +1105,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Setzt eine Eigenschaft eines opaken Materials: Name, Rauigkeit, Dicke, Wärmeleitfähigkeit, spezifische Wärmekapazität oder thermischen, solaren oder sichtbaren Absorptionsgrad.",
+                  "en": "Sets one property of one opaque material: name, roughness, thickness, conductivity, specific heat, or thermal, solar or visible absorptance."
+                },
+                "reuse": {
+                  "de": "Setzt eine Eigenschaft eines opaken Materials: Name, Rauigkeit, Dicke, Wärmeleitfähigkeit, spezifische Wärmekapazität oder thermischen, solaren oder sichtbaren Absorptionsgrad.",
+                  "en": "Sets one property of one opaque material: name, roughness, thickness, conductivity, specific heat, or thermal, solar or visible absorptance."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -1216,6 +1250,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Legt die Heiz- und Kühlsollwert-Zeitpläne eines Thermostats fest, mit optionalen Regelbereichen in Kelvin.",
+                  "en": "Sets the heating and cooling setpoint schedules of one thermostat, with optional throttling ranges in kelvin."
+                },
+                "reuse": {
+                  "de": "Legt die Heiz- und Kühlsollwert-Zeitpläne eines Thermostats fest, mit optionalen Regelbereichen in Kelvin.",
+                  "en": "Sets the heating and cooling setpoint schedules of one thermostat, with optional throttling ranges in kelvin."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -1361,6 +1405,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Legt den Standort des Gebäudes fest: Breite, Länge, Höhe, Zeitzone und den Winkel der Nordachse des Gebäudes.",
+                  "en": "Sets the building site: latitude, longitude, elevation, time zone and the angle of the building's north axis."
+                },
+                "reuse": {
+                  "de": "Legt den Standort des Gebäudes fest: Breite, Länge, Höhe, Zeitzone und den Winkel der Nordachse des Gebäudes.",
+                  "en": "Sets the building site: latitude, longitude, elevation, time zone and the angle of the building's north axis."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -1424,6 +1478,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Löscht eine thermische Zone anhand ihrer Id; wird abgelehnt, solange noch eine Fläche, ein Raum, eine Last, ein HLK-Objekt oder ein Luftknoten auf sie verweist.",
+                  "en": "Deletes one thermal zone by id; refused while any surface, space, gain, HVAC object or airflow node still refers to it."
+                },
+                "reuse": {
+                  "de": "Löscht eine thermische Zone anhand ihrer Id; wird abgelehnt, solange noch eine Fläche, ein Raum, eine Last, ein HLK-Objekt oder ein Luftknoten auf sie verweist.",
+                  "en": "Deletes one thermal zone by id; refused while any surface, space, gain, HVAC object or airflow node still refers to it."
+                }
+              },
               "effects": {
                 "destructive": true,
                 "external": false,
@@ -1487,6 +1551,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Löscht eine Fläche anhand ihrer Id samt aller darin sitzenden Fenster und aller sie nennenden Nachbarschaften; wird abgelehnt, solange eine andere Fläche sie als Partnerfläche nutzt.",
+                  "en": "Deletes one surface by id together with every window hosted on it and every adjacency naming it; refused while another surface uses it as its interzone partner."
+                },
+                "reuse": {
+                  "de": "Löscht eine Fläche anhand ihrer Id samt aller darin sitzenden Fenster und aller sie nennenden Nachbarschaften; wird abgelehnt, solange eine andere Fläche sie als Partnerfläche nutzt.",
+                  "en": "Deletes one surface by id together with every window hosted on it and every adjacency naming it; refused while another surface uses it as its interzone partner."
+                }
+              },
               "effects": {
                 "destructive": true,
                 "external": false,
@@ -1584,6 +1658,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Benennt eine Konstruktion um oder bearbeitet ihren Schichtaufbau: fügt eine Materialschicht hinzu, entfernt sie oder verschiebt eine Schicht nach oben oder unten.",
+                  "en": "Renames one construction or edits its layer build-up: adds or removes a material layer, or moves a layer up or down."
+                },
+                "reuse": {
+                  "de": "Benennt eine Konstruktion um oder bearbeitet ihren Schichtaufbau: fügt eine Materialschicht hinzu, entfernt sie oder verschiebt eine Schicht nach oben oder unten.",
+                  "en": "Renames one construction or edits its layer build-up: adds or removes a material layer, or moves a layer up or down."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -1698,6 +1782,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Legt die Zonen- und Systemzeitschritte der Simulation in Minuten und die Zahl der Vorlauftage fest; eine laufende Simulation startet damit neu.",
+                  "en": "Sets the simulation's zone and system timesteps in minutes and the number of warm-up days; a running simulation restarts with them."
+                },
+                "reuse": {
+                  "de": "Legt die Zonen- und Systemzeitschritte der Simulation in Minuten und die Zahl der Vorlauftage fest; eine laufende Simulation startet damit neu.",
+                  "en": "Sets the simulation's zone and system timesteps in minutes and the number of warm-up days; a running simulation restarts with them."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -1815,6 +1909,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Wählt das simulierte Flächenergebnis (Transmissionsverlust oder -gewinn, transmittierte oder absorbierte Solarstrahlung), nach dem das 3D-Modellfenster eingefärbt wird; eine laufende Simulation startet nicht neu.",
+                  "en": "Chooses the simulated per-surface result (conduction loss or gain, transmitted or absorbed solar) the 3D model window is coloured by; a running simulation is not restarted."
+                },
+                "reuse": {
+                  "de": "Wählt das simulierte Flächenergebnis (Transmissionsverlust oder -gewinn, transmittierte oder absorbierte Solarstrahlung), nach dem das 3D-Modellfenster eingefärbt wird; eine laufende Simulation startet nicht neu.",
+                  "en": "Chooses the simulated per-surface result (conduction loss or gain, transmitted or absorbed solar) the 3D model window is coloured by; a running simulation is not restarted."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -1953,6 +2057,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Legt den simulierten Kalenderzeitraum von einem Startmonat und -tag bis zu einem Endmonat und -tag fest.",
+                  "en": "Sets the simulated calendar period from a start month and day to an end month and day."
+                },
+                "reuse": {
+                  "de": "Legt den simulierten Kalenderzeitraum von einem Startmonat und -tag bis zu einem Endmonat und -tag fest.",
+                  "en": "Sets the simulated calendar period from a start month and day to an end month and day."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -2068,6 +2182,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Fügt einer vorhandenen Zone eine neue Fläche mit dem angegebenen Namen und der Klasse hinzu, aufgebaut aus einer vorhandenen Konstruktion.",
+                  "en": "Adds a new surface with the given name and class to an existing zone, built from an existing construction."
+                },
+                "reuse": {
+                  "de": "Fügt einer vorhandenen Zone eine neue Fläche mit dem angegebenen Namen und der Klasse hinzu, aufgebaut aus einer vorhandenen Konstruktion.",
+                  "en": "Adds a new surface with the given name and class to an existing zone, built from an existing construction."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -2183,6 +2307,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Fügt eine neue thermische Zone mit dem angegebenen Namen, Volumen in Kubikmetern, Multiplikator und Konditionierung hinzu.",
+                  "en": "Adds a new thermal zone with the given name, volume in cubic metres, multiplier and conditioning."
+                },
+                "reuse": {
+                  "de": "Fügt eine neue thermische Zone mit dem angegebenen Namen, Volumen in Kubikmetern, Multiplikator und Konditionierung hinzu.",
+                  "en": "Adds a new thermal zone with the given name, volume in cubic metres, multiplier and conditioning."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -2263,6 +2397,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Benennt eine thermische Zone um; Zonennamen sind der Schlüssel aller Simulationsberichte, ein bereits vergebener Name wird abgelehnt.",
+                  "en": "Renames one thermal zone; zone names key every simulation report, so a name already in use is refused."
+                },
+                "reuse": {
+                  "de": "Benennt eine thermische Zone um; Zonennamen sind der Schlüssel aller Simulationsberichte, ein bereits vergebener Name wird abgelehnt.",
+                  "en": "Renames one thermal zone; zone names key every simulation report, so a name already in use is refused."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -3056,6 +3200,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Öffnet den Tutorial-Rekorder für das geöffnete Dokument, damit die nächsten Interaktionen als Tutorial aufgezeichnet werden.",
+                  "en": "Opens the tutorial recorder on the open document so the next interactions are recorded as a tutorial."
+                },
+                "reuse": {
+                  "de": "Öffnet den Tutorial-Rekorder für das geöffnete Dokument, damit die nächsten Interaktionen als Tutorial aufgezeichnet werden.",
+                  "en": "Opens the tutorial recorder on the open document so the next interactions are recorded as a tutorial."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -3161,6 +3315,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Filtert den Verlaufsbereich auf alle Einträge, nur Dokumentoperationen oder alles außer Dokumentoperationen; das Dokument wird nicht verändert.",
+                  "en": "Filters the history panel to all entries, only document operations, or everything except document operations; the document is not changed."
+                },
+                "reuse": {
+                  "de": "Filtert den Verlaufsbereich auf alle Einträge, nur Dokumentoperationen oder alles außer Dokumentoperationen; das Dokument wird nicht verändert.",
+                  "en": "Filters the history panel to all entries, only document operations, or everything except document operations; the document is not changed."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -3259,6 +3423,16 @@
             },
             "semantics": {
               "audience": "chrome",
+              "description": {
+                "native": {
+                  "de": "Vermerkt eine bereits erfolgte Shell-Wirkung (Navigation, Export, Start) im Sitzungsprotokoll; das Dokument wird nicht verändert.",
+                  "en": "Records a shell effect that already happened (navigation, export, spawn) in the session command log; the document is not changed."
+                },
+                "reuse": {
+                  "de": "Vermerkt eine bereits erfolgte Shell-Wirkung (Navigation, Export, Start) im Sitzungsprotokoll; das Dokument wird nicht verändert.",
+                  "en": "Records a shell effect that already happened (navigation, export, spawn) in the session command log; the document is not changed."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -3284,7 +3458,31 @@
             }
           }
         ],
-        "artifactKinds": [],
+        "artifactKinds": [
+          {
+            "componentKind": "energy",
+            "dimension": "data",
+            "exportFormats": [],
+            "exportStdioKinds": [
+              "stdio.json",
+              "stdio.zip"
+            ],
+            "id": "data.model",
+            "importFormats": [],
+            "importStdioKinds": [
+              "stdio.json",
+              "stdio.zip"
+            ],
+            "mediaCapability": "meshOnly",
+            "mediaType": {
+              "class": "data",
+              "form": "value"
+            },
+            "name": "Energy Model",
+            "schema": "energy.model",
+            "sourceFormat": "energy.model"
+          }
+        ],
         "breadcrumb": [
           "semio",
           "energy",
@@ -4161,6 +4359,23 @@
                     }
                   },
                   {
+                    "id": "revision",
+                    "label": {
+                      "native": {
+                        "de": "Revision",
+                        "en": "Revision"
+                      },
+                      "reuse": {
+                        "de": "Revision",
+                        "en": "Revision"
+                      }
+                    },
+                    "required": true,
+                    "schema": {
+                      "kind": "string"
+                    }
+                  },
+                  {
                     "id": "value",
                     "label": {
                       "native": {
@@ -4172,9 +4387,10 @@
                         "en": "Value"
                       }
                     },
-                    "required": false,
+                    "required": true,
                     "schema": {
-                      "kind": "string"
+                      "kind": "string",
+                      "minLen": 0
                     }
                   }
                 ],
@@ -4193,6 +4409,16 @@
                   }
                 },
                 "semantics": {
+                  "description": {
+                    "native": {
+                      "de": "Schreibt den angegebenen Wert in einen Knoten des Dokumentbaums, adressiert über die Knoten-Id, und ersetzt dessen bisherigen Wert.",
+                      "en": "Writes the given value into one node of the document tree, addressed by node id, replacing the node's previous value."
+                    },
+                    "reuse": {
+                      "de": "Schreibt den angegebenen Wert in einen Knoten des Dokumentbaums, adressiert über die Knoten-Id, und ersetzt dessen bisherigen Wert.",
+                      "en": "Writes the given value into one node of the document tree, addressed by node id, replacing the node's previous value."
+                    }
+                  },
                   "effects": {
                     "destructive": false,
                     "external": false,
@@ -4274,6 +4500,16 @@
                   }
                 },
                 "semantics": {
+                  "description": {
+                    "native": {
+                      "de": "Weist einer Fläche des Energiemodells anhand ihrer Id eine vorhandene Konstruktion (ihren Schichtaufbau) zu.",
+                      "en": "Assigns an existing construction (its layer build-up) to one surface of the energy model by id."
+                    },
+                    "reuse": {
+                      "de": "Weist einer Fläche des Energiemodells anhand ihrer Id eine vorhandene Konstruktion (ihren Schichtaufbau) zu.",
+                      "en": "Assigns an existing construction (its layer build-up) to one surface of the energy model by id."
+                    }
+                  },
                   "effects": {
                     "destructive": false,
                     "external": false,
@@ -4583,11 +4819,11 @@
                 "kind": "interaction",
                 "label": {
                   "native": {
-                    "de": "Hover",
+                    "de": "Darüberfahren",
                     "en": "Hover"
                   },
                   "reuse": {
-                    "de": "Hover",
+                    "de": "Darüberfahren",
                     "en": "Hover"
                   }
                 },
@@ -4959,6 +5195,16 @@
                   }
                 },
                 "semantics": {
+                  "description": {
+                    "native": {
+                      "de": "Startet einen Lauf des angegebenen Werkzeugs (etwa eines Lösers) in einem Fenster; der Lauf zeigt sein Ergebnis als vorläufige Vorschau und ändert nichts, bis er abgeschlossen wird.",
+                      "en": "Starts a run of the given tool (such as a solver) in a window; the run shows its result as a provisional preview and changes nothing until it is finalized."
+                    },
+                    "reuse": {
+                      "de": "Startet einen Lauf des angegebenen Werkzeugs (etwa eines Lösers) in einem Fenster; der Lauf zeigt sein Ergebnis als vorläufige Vorschau und ändert nichts, bis er abgeschlossen wird.",
+                      "en": "Starts a run of the given tool (such as a solver) in a window; the run shows its result as a provisional preview and changes nothing until it is finalized."
+                    }
+                  },
                   "effects": {
                     "destructive": false,
                     "external": false,
@@ -5048,6 +5294,16 @@
                   }
                 },
                 "semantics": {
+                  "description": {
+                    "native": {
+                      "de": "Hält einen laufenden Werkzeuglauf beim aktuellen Schritt an, damit sein Fortschritt geprüft, schrittweise fortgeführt oder fortgesetzt werden kann.",
+                      "en": "Pauses a running tool run at its current step so its progress can be inspected, stepped or resumed."
+                    },
+                    "reuse": {
+                      "de": "Hält einen laufenden Werkzeuglauf beim aktuellen Schritt an, damit sein Fortschritt geprüft, schrittweise fortgeführt oder fortgesetzt werden kann.",
+                      "en": "Pauses a running tool run at its current step so its progress can be inspected, stepped or resumed."
+                    }
+                  },
                   "effects": {
                     "destructive": false,
                     "external": false,
@@ -5137,6 +5393,16 @@
                   }
                 },
                 "semantics": {
+                  "description": {
+                    "native": {
+                      "de": "Setzt einen pausierten Werkzeuglauf an dem Schritt fort, an dem er angehalten wurde.",
+                      "en": "Continues a paused tool run from the step where it stopped."
+                    },
+                    "reuse": {
+                      "de": "Setzt einen pausierten Werkzeuglauf an dem Schritt fort, an dem er angehalten wurde.",
+                      "en": "Continues a paused tool run from the step where it stopped."
+                    }
+                  },
                   "effects": {
                     "destructive": false,
                     "external": false,
@@ -5226,6 +5492,16 @@
                   }
                 },
                 "semantics": {
+                  "description": {
+                    "native": {
+                      "de": "Führt einen pausierten Werkzeuglauf genau einen Schritt weiter und hält ihn wieder an.",
+                      "en": "Advances a paused tool run by exactly one step and pauses it again."
+                    },
+                    "reuse": {
+                      "de": "Führt einen pausierten Werkzeuglauf genau einen Schritt weiter und hält ihn wieder an.",
+                      "en": "Advances a paused tool run by exactly one step and pauses it again."
+                    }
+                  },
                   "effects": {
                     "destructive": false,
                     "external": false,
@@ -5315,6 +5591,16 @@
                   }
                 },
                 "semantics": {
+                  "description": {
+                    "native": {
+                      "de": "Bricht einen Werkzeuglauf ab und verwirft sein vorläufiges Ergebnis; das Dokument bleibt genau so, wie es vor dem Start war.",
+                      "en": "Stops a tool run and discards its provisional result; the document stays exactly as it was before the run started."
+                    },
+                    "reuse": {
+                      "de": "Bricht einen Werkzeuglauf ab und verwirft sein vorläufiges Ergebnis; das Dokument bleibt genau so, wie es vor dem Start war.",
+                      "en": "Stops a tool run and discards its provisional result; the document stays exactly as it was before the run started."
+                    }
+                  },
                   "effects": {
                     "destructive": false,
                     "external": false,
@@ -5404,6 +5690,16 @@
                   }
                 },
                 "semantics": {
+                  "description": {
+                    "native": {
+                      "de": "Übernimmt das vorläufige Ergebnis eines laufenden, pausierten oder fertigen Werkzeuglaufs als eine rückgängig machbare Änderung in das Dokument.",
+                      "en": "Commits the provisional result of a running, paused or complete tool run into the document as one undoable edit."
+                    },
+                    "reuse": {
+                      "de": "Übernimmt das vorläufige Ergebnis eines laufenden, pausierten oder fertigen Werkzeuglaufs als eine rückgängig machbare Änderung in das Dokument.",
+                      "en": "Commits the provisional result of a running, paused or complete tool run into the document as one undoable edit."
+                    }
+                  },
                   "effects": {
                     "destructive": false,
                     "external": false,
@@ -5469,6 +5765,16 @@
                   }
                 },
                 "semantics": {
+                  "description": {
+                    "native": {
+                      "de": "Schließt das Panel eines abgeschlossenen, abgebrochenen oder fehlgeschlagenen Werkzeuglaufs; das Dokument bleibt unberührt.",
+                      "en": "Closes the panel of a finalized, aborted or failed tool run; the document is not touched."
+                    },
+                    "reuse": {
+                      "de": "Schließt das Panel eines abgeschlossenen, abgebrochenen oder fehlgeschlagenen Werkzeuglaufs; das Dokument bleibt unberührt.",
+                      "en": "Closes the panel of a finalized, aborted or failed tool run; the document is not touched."
+                    }
+                  },
                   "effects": {
                     "destructive": false,
                     "external": false,
@@ -5489,6 +5795,51 @@
                     "approval": "never",
                     "scopes": [
                       "artifacts.write"
+                    ]
+                  }
+                }
+              },
+              {
+                "args": [],
+                "iconId": "square",
+                "id": "cancelTypedOperation",
+                "inPalette": false,
+                "kind": "view",
+                "label": {
+                  "native": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  },
+                  "reuse": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  }
+                },
+                "semantics": {
+                  "effects": {
+                    "destructive": false,
+                    "external": false,
+                    "reads": [
+                      "config:{self}"
+                    ],
+                    "reversible": false
+                  },
+                  "execution": {
+                    "cancellable": false,
+                    "class": "interactive",
+                    "expectedRevision": false,
+                    "idempotency": "none",
+                    "interactiveJob": "migrated",
+                    "preview": "none",
+                    "undo": {
+                      "kind": "none"
+                    }
+                  },
+                  "policy": {
+                    "approval": "never",
+                    "scopes": [
+                      "artifacts.read",
+                      "shell.observe"
                     ]
                   }
                 }
@@ -5535,8 +5886,11 @@
                     },
                     "required": true,
                     "schema": {
-                      "integer": false,
-                      "kind": "number"
+                      "integer": true,
+                      "kind": "number",
+                      "max": 4294967295,
+                      "min": 0,
+                      "step": 1
                     }
                   },
                   {
@@ -5551,9 +5905,13 @@
                         "en": "Column"
                       }
                     },
-                    "required": true,
+                    "required": false,
                     "schema": {
-                      "kind": "string"
+                      "integer": true,
+                      "kind": "number",
+                      "max": 4294967295,
+                      "min": 0,
+                      "step": 1
                     }
                   },
                   {
@@ -5568,9 +5926,10 @@
                         "en": "Value"
                       }
                     },
-                    "required": false,
+                    "required": true,
                     "schema": {
-                      "kind": "string"
+                      "kind": "string",
+                      "minLen": 0
                     }
                   }
                 ],
@@ -5589,6 +5948,16 @@
                   }
                 },
                 "semantics": {
+                  "description": {
+                    "native": {
+                      "de": "Schreibt den angegebenen Wert in eine Tabellenzelle, adressiert über Zeilenindex und Spalte, und ersetzt ihren bisherigen Inhalt.",
+                      "en": "Writes the given value into one table cell, addressed by row index and column, replacing what the cell held before."
+                    },
+                    "reuse": {
+                      "de": "Schreibt den angegebenen Wert in eine Tabellenzelle, adressiert über Zeilenindex und Spalte, und ersetzt ihren bisherigen Inhalt.",
+                      "en": "Writes the given value into one table cell, addressed by row index and column, replacing what the cell held before."
+                    }
+                  },
                   "effects": {
                     "destructive": false,
                     "external": false,
@@ -5898,11 +6267,11 @@
                 "kind": "interaction",
                 "label": {
                   "native": {
-                    "de": "Hover",
+                    "de": "Darüberfahren",
                     "en": "Hover"
                   },
                   "reuse": {
-                    "de": "Hover",
+                    "de": "Darüberfahren",
                     "en": "Hover"
                   }
                 },
@@ -6274,6 +6643,16 @@
                   }
                 },
                 "semantics": {
+                  "description": {
+                    "native": {
+                      "de": "Startet einen Lauf des angegebenen Werkzeugs (etwa eines Lösers) in einem Fenster; der Lauf zeigt sein Ergebnis als vorläufige Vorschau und ändert nichts, bis er abgeschlossen wird.",
+                      "en": "Starts a run of the given tool (such as a solver) in a window; the run shows its result as a provisional preview and changes nothing until it is finalized."
+                    },
+                    "reuse": {
+                      "de": "Startet einen Lauf des angegebenen Werkzeugs (etwa eines Lösers) in einem Fenster; der Lauf zeigt sein Ergebnis als vorläufige Vorschau und ändert nichts, bis er abgeschlossen wird.",
+                      "en": "Starts a run of the given tool (such as a solver) in a window; the run shows its result as a provisional preview and changes nothing until it is finalized."
+                    }
+                  },
                   "effects": {
                     "destructive": false,
                     "external": false,
@@ -6363,6 +6742,16 @@
                   }
                 },
                 "semantics": {
+                  "description": {
+                    "native": {
+                      "de": "Hält einen laufenden Werkzeuglauf beim aktuellen Schritt an, damit sein Fortschritt geprüft, schrittweise fortgeführt oder fortgesetzt werden kann.",
+                      "en": "Pauses a running tool run at its current step so its progress can be inspected, stepped or resumed."
+                    },
+                    "reuse": {
+                      "de": "Hält einen laufenden Werkzeuglauf beim aktuellen Schritt an, damit sein Fortschritt geprüft, schrittweise fortgeführt oder fortgesetzt werden kann.",
+                      "en": "Pauses a running tool run at its current step so its progress can be inspected, stepped or resumed."
+                    }
+                  },
                   "effects": {
                     "destructive": false,
                     "external": false,
@@ -6452,6 +6841,16 @@
                   }
                 },
                 "semantics": {
+                  "description": {
+                    "native": {
+                      "de": "Setzt einen pausierten Werkzeuglauf an dem Schritt fort, an dem er angehalten wurde.",
+                      "en": "Continues a paused tool run from the step where it stopped."
+                    },
+                    "reuse": {
+                      "de": "Setzt einen pausierten Werkzeuglauf an dem Schritt fort, an dem er angehalten wurde.",
+                      "en": "Continues a paused tool run from the step where it stopped."
+                    }
+                  },
                   "effects": {
                     "destructive": false,
                     "external": false,
@@ -6541,6 +6940,16 @@
                   }
                 },
                 "semantics": {
+                  "description": {
+                    "native": {
+                      "de": "Führt einen pausierten Werkzeuglauf genau einen Schritt weiter und hält ihn wieder an.",
+                      "en": "Advances a paused tool run by exactly one step and pauses it again."
+                    },
+                    "reuse": {
+                      "de": "Führt einen pausierten Werkzeuglauf genau einen Schritt weiter und hält ihn wieder an.",
+                      "en": "Advances a paused tool run by exactly one step and pauses it again."
+                    }
+                  },
                   "effects": {
                     "destructive": false,
                     "external": false,
@@ -6630,6 +7039,16 @@
                   }
                 },
                 "semantics": {
+                  "description": {
+                    "native": {
+                      "de": "Bricht einen Werkzeuglauf ab und verwirft sein vorläufiges Ergebnis; das Dokument bleibt genau so, wie es vor dem Start war.",
+                      "en": "Stops a tool run and discards its provisional result; the document stays exactly as it was before the run started."
+                    },
+                    "reuse": {
+                      "de": "Bricht einen Werkzeuglauf ab und verwirft sein vorläufiges Ergebnis; das Dokument bleibt genau so, wie es vor dem Start war.",
+                      "en": "Stops a tool run and discards its provisional result; the document stays exactly as it was before the run started."
+                    }
+                  },
                   "effects": {
                     "destructive": false,
                     "external": false,
@@ -6719,6 +7138,16 @@
                   }
                 },
                 "semantics": {
+                  "description": {
+                    "native": {
+                      "de": "Übernimmt das vorläufige Ergebnis eines laufenden, pausierten oder fertigen Werkzeuglaufs als eine rückgängig machbare Änderung in das Dokument.",
+                      "en": "Commits the provisional result of a running, paused or complete tool run into the document as one undoable edit."
+                    },
+                    "reuse": {
+                      "de": "Übernimmt das vorläufige Ergebnis eines laufenden, pausierten oder fertigen Werkzeuglaufs als eine rückgängig machbare Änderung in das Dokument.",
+                      "en": "Commits the provisional result of a running, paused or complete tool run into the document as one undoable edit."
+                    }
+                  },
                   "effects": {
                     "destructive": false,
                     "external": false,
@@ -6784,6 +7213,16 @@
                   }
                 },
                 "semantics": {
+                  "description": {
+                    "native": {
+                      "de": "Schließt das Panel eines abgeschlossenen, abgebrochenen oder fehlgeschlagenen Werkzeuglaufs; das Dokument bleibt unberührt.",
+                      "en": "Closes the panel of a finalized, aborted or failed tool run; the document is not touched."
+                    },
+                    "reuse": {
+                      "de": "Schließt das Panel eines abgeschlossenen, abgebrochenen oder fehlgeschlagenen Werkzeuglaufs; das Dokument bleibt unberührt.",
+                      "en": "Closes the panel of a finalized, aborted or failed tool run; the document is not touched."
+                    }
+                  },
                   "effects": {
                     "destructive": false,
                     "external": false,
@@ -6804,6 +7243,51 @@
                     "approval": "never",
                     "scopes": [
                       "artifacts.write"
+                    ]
+                  }
+                }
+              },
+              {
+                "args": [],
+                "iconId": "square",
+                "id": "cancelTypedOperation",
+                "inPalette": false,
+                "kind": "view",
+                "label": {
+                  "native": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  },
+                  "reuse": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  }
+                },
+                "semantics": {
+                  "effects": {
+                    "destructive": false,
+                    "external": false,
+                    "reads": [
+                      "config:{self}"
+                    ],
+                    "reversible": false
+                  },
+                  "execution": {
+                    "cancellable": false,
+                    "class": "interactive",
+                    "expectedRevision": false,
+                    "idempotency": "none",
+                    "interactiveJob": "migrated",
+                    "preview": "none",
+                    "undo": {
+                      "kind": "none"
+                    }
+                  },
+                  "policy": {
+                    "approval": "never",
+                    "scopes": [
+                      "artifacts.read",
+                      "shell.observe"
                     ]
                   }
                 }
@@ -7116,11 +7600,11 @@
                 "kind": "interaction",
                 "label": {
                   "native": {
-                    "de": "Hover",
+                    "de": "Darüberfahren",
                     "en": "Hover"
                   },
                   "reuse": {
-                    "de": "Hover",
+                    "de": "Darüberfahren",
                     "en": "Hover"
                   }
                 },
@@ -7492,6 +7976,16 @@
                   }
                 },
                 "semantics": {
+                  "description": {
+                    "native": {
+                      "de": "Startet einen Lauf des angegebenen Werkzeugs (etwa eines Lösers) in einem Fenster; der Lauf zeigt sein Ergebnis als vorläufige Vorschau und ändert nichts, bis er abgeschlossen wird.",
+                      "en": "Starts a run of the given tool (such as a solver) in a window; the run shows its result as a provisional preview and changes nothing until it is finalized."
+                    },
+                    "reuse": {
+                      "de": "Startet einen Lauf des angegebenen Werkzeugs (etwa eines Lösers) in einem Fenster; der Lauf zeigt sein Ergebnis als vorläufige Vorschau und ändert nichts, bis er abgeschlossen wird.",
+                      "en": "Starts a run of the given tool (such as a solver) in a window; the run shows its result as a provisional preview and changes nothing until it is finalized."
+                    }
+                  },
                   "effects": {
                     "destructive": false,
                     "external": false,
@@ -7581,6 +8075,16 @@
                   }
                 },
                 "semantics": {
+                  "description": {
+                    "native": {
+                      "de": "Hält einen laufenden Werkzeuglauf beim aktuellen Schritt an, damit sein Fortschritt geprüft, schrittweise fortgeführt oder fortgesetzt werden kann.",
+                      "en": "Pauses a running tool run at its current step so its progress can be inspected, stepped or resumed."
+                    },
+                    "reuse": {
+                      "de": "Hält einen laufenden Werkzeuglauf beim aktuellen Schritt an, damit sein Fortschritt geprüft, schrittweise fortgeführt oder fortgesetzt werden kann.",
+                      "en": "Pauses a running tool run at its current step so its progress can be inspected, stepped or resumed."
+                    }
+                  },
                   "effects": {
                     "destructive": false,
                     "external": false,
@@ -7670,6 +8174,16 @@
                   }
                 },
                 "semantics": {
+                  "description": {
+                    "native": {
+                      "de": "Setzt einen pausierten Werkzeuglauf an dem Schritt fort, an dem er angehalten wurde.",
+                      "en": "Continues a paused tool run from the step where it stopped."
+                    },
+                    "reuse": {
+                      "de": "Setzt einen pausierten Werkzeuglauf an dem Schritt fort, an dem er angehalten wurde.",
+                      "en": "Continues a paused tool run from the step where it stopped."
+                    }
+                  },
                   "effects": {
                     "destructive": false,
                     "external": false,
@@ -7759,6 +8273,16 @@
                   }
                 },
                 "semantics": {
+                  "description": {
+                    "native": {
+                      "de": "Führt einen pausierten Werkzeuglauf genau einen Schritt weiter und hält ihn wieder an.",
+                      "en": "Advances a paused tool run by exactly one step and pauses it again."
+                    },
+                    "reuse": {
+                      "de": "Führt einen pausierten Werkzeuglauf genau einen Schritt weiter und hält ihn wieder an.",
+                      "en": "Advances a paused tool run by exactly one step and pauses it again."
+                    }
+                  },
                   "effects": {
                     "destructive": false,
                     "external": false,
@@ -7848,6 +8372,16 @@
                   }
                 },
                 "semantics": {
+                  "description": {
+                    "native": {
+                      "de": "Bricht einen Werkzeuglauf ab und verwirft sein vorläufiges Ergebnis; das Dokument bleibt genau so, wie es vor dem Start war.",
+                      "en": "Stops a tool run and discards its provisional result; the document stays exactly as it was before the run started."
+                    },
+                    "reuse": {
+                      "de": "Bricht einen Werkzeuglauf ab und verwirft sein vorläufiges Ergebnis; das Dokument bleibt genau so, wie es vor dem Start war.",
+                      "en": "Stops a tool run and discards its provisional result; the document stays exactly as it was before the run started."
+                    }
+                  },
                   "effects": {
                     "destructive": false,
                     "external": false,
@@ -7937,6 +8471,16 @@
                   }
                 },
                 "semantics": {
+                  "description": {
+                    "native": {
+                      "de": "Übernimmt das vorläufige Ergebnis eines laufenden, pausierten oder fertigen Werkzeuglaufs als eine rückgängig machbare Änderung in das Dokument.",
+                      "en": "Commits the provisional result of a running, paused or complete tool run into the document as one undoable edit."
+                    },
+                    "reuse": {
+                      "de": "Übernimmt das vorläufige Ergebnis eines laufenden, pausierten oder fertigen Werkzeuglaufs als eine rückgängig machbare Änderung in das Dokument.",
+                      "en": "Commits the provisional result of a running, paused or complete tool run into the document as one undoable edit."
+                    }
+                  },
                   "effects": {
                     "destructive": false,
                     "external": false,
@@ -8002,6 +8546,16 @@
                   }
                 },
                 "semantics": {
+                  "description": {
+                    "native": {
+                      "de": "Schließt das Panel eines abgeschlossenen, abgebrochenen oder fehlgeschlagenen Werkzeuglaufs; das Dokument bleibt unberührt.",
+                      "en": "Closes the panel of a finalized, aborted or failed tool run; the document is not touched."
+                    },
+                    "reuse": {
+                      "de": "Schließt das Panel eines abgeschlossenen, abgebrochenen oder fehlgeschlagenen Werkzeuglaufs; das Dokument bleibt unberührt.",
+                      "en": "Closes the panel of a finalized, aborted or failed tool run; the document is not touched."
+                    }
+                  },
                   "effects": {
                     "destructive": false,
                     "external": false,
@@ -8022,6 +8576,51 @@
                     "approval": "never",
                     "scopes": [
                       "artifacts.write"
+                    ]
+                  }
+                }
+              },
+              {
+                "args": [],
+                "iconId": "square",
+                "id": "cancelTypedOperation",
+                "inPalette": false,
+                "kind": "view",
+                "label": {
+                  "native": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  },
+                  "reuse": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  }
+                },
+                "semantics": {
+                  "effects": {
+                    "destructive": false,
+                    "external": false,
+                    "reads": [
+                      "config:{self}"
+                    ],
+                    "reversible": false
+                  },
+                  "execution": {
+                    "cancellable": false,
+                    "class": "interactive",
+                    "expectedRevision": false,
+                    "idempotency": "none",
+                    "interactiveJob": "migrated",
+                    "preview": "none",
+                    "undo": {
+                      "kind": "none"
+                    }
+                  },
+                  "policy": {
+                    "approval": "never",
+                    "scopes": [
+                      "artifacts.read",
+                      "shell.observe"
                     ]
                   }
                 }
@@ -8077,7 +8676,7 @@
                 ],
                 "iconId": "eye",
                 "id": "setCamera",
-                "inPalette": true,
+                "inPalette": false,
                 "kind": "view",
                 "label": {
                   "native": {
@@ -8090,6 +8689,7 @@
                   }
                 },
                 "semantics": {
+                  "audience": "chrome",
                   "effects": {
                     "destructive": false,
                     "external": false,
@@ -8400,11 +9000,11 @@
                 "kind": "interaction",
                 "label": {
                   "native": {
-                    "de": "Hover",
+                    "de": "Darüberfahren",
                     "en": "Hover"
                   },
                   "reuse": {
-                    "de": "Hover",
+                    "de": "Darüberfahren",
                     "en": "Hover"
                   }
                 },
@@ -8776,6 +9376,16 @@
                   }
                 },
                 "semantics": {
+                  "description": {
+                    "native": {
+                      "de": "Startet einen Lauf des angegebenen Werkzeugs (etwa eines Lösers) in einem Fenster; der Lauf zeigt sein Ergebnis als vorläufige Vorschau und ändert nichts, bis er abgeschlossen wird.",
+                      "en": "Starts a run of the given tool (such as a solver) in a window; the run shows its result as a provisional preview and changes nothing until it is finalized."
+                    },
+                    "reuse": {
+                      "de": "Startet einen Lauf des angegebenen Werkzeugs (etwa eines Lösers) in einem Fenster; der Lauf zeigt sein Ergebnis als vorläufige Vorschau und ändert nichts, bis er abgeschlossen wird.",
+                      "en": "Starts a run of the given tool (such as a solver) in a window; the run shows its result as a provisional preview and changes nothing until it is finalized."
+                    }
+                  },
                   "effects": {
                     "destructive": false,
                     "external": false,
@@ -8865,6 +9475,16 @@
                   }
                 },
                 "semantics": {
+                  "description": {
+                    "native": {
+                      "de": "Hält einen laufenden Werkzeuglauf beim aktuellen Schritt an, damit sein Fortschritt geprüft, schrittweise fortgeführt oder fortgesetzt werden kann.",
+                      "en": "Pauses a running tool run at its current step so its progress can be inspected, stepped or resumed."
+                    },
+                    "reuse": {
+                      "de": "Hält einen laufenden Werkzeuglauf beim aktuellen Schritt an, damit sein Fortschritt geprüft, schrittweise fortgeführt oder fortgesetzt werden kann.",
+                      "en": "Pauses a running tool run at its current step so its progress can be inspected, stepped or resumed."
+                    }
+                  },
                   "effects": {
                     "destructive": false,
                     "external": false,
@@ -8954,6 +9574,16 @@
                   }
                 },
                 "semantics": {
+                  "description": {
+                    "native": {
+                      "de": "Setzt einen pausierten Werkzeuglauf an dem Schritt fort, an dem er angehalten wurde.",
+                      "en": "Continues a paused tool run from the step where it stopped."
+                    },
+                    "reuse": {
+                      "de": "Setzt einen pausierten Werkzeuglauf an dem Schritt fort, an dem er angehalten wurde.",
+                      "en": "Continues a paused tool run from the step where it stopped."
+                    }
+                  },
                   "effects": {
                     "destructive": false,
                     "external": false,
@@ -9043,6 +9673,16 @@
                   }
                 },
                 "semantics": {
+                  "description": {
+                    "native": {
+                      "de": "Führt einen pausierten Werkzeuglauf genau einen Schritt weiter und hält ihn wieder an.",
+                      "en": "Advances a paused tool run by exactly one step and pauses it again."
+                    },
+                    "reuse": {
+                      "de": "Führt einen pausierten Werkzeuglauf genau einen Schritt weiter und hält ihn wieder an.",
+                      "en": "Advances a paused tool run by exactly one step and pauses it again."
+                    }
+                  },
                   "effects": {
                     "destructive": false,
                     "external": false,
@@ -9132,6 +9772,16 @@
                   }
                 },
                 "semantics": {
+                  "description": {
+                    "native": {
+                      "de": "Bricht einen Werkzeuglauf ab und verwirft sein vorläufiges Ergebnis; das Dokument bleibt genau so, wie es vor dem Start war.",
+                      "en": "Stops a tool run and discards its provisional result; the document stays exactly as it was before the run started."
+                    },
+                    "reuse": {
+                      "de": "Bricht einen Werkzeuglauf ab und verwirft sein vorläufiges Ergebnis; das Dokument bleibt genau so, wie es vor dem Start war.",
+                      "en": "Stops a tool run and discards its provisional result; the document stays exactly as it was before the run started."
+                    }
+                  },
                   "effects": {
                     "destructive": false,
                     "external": false,
@@ -9221,6 +9871,16 @@
                   }
                 },
                 "semantics": {
+                  "description": {
+                    "native": {
+                      "de": "Übernimmt das vorläufige Ergebnis eines laufenden, pausierten oder fertigen Werkzeuglaufs als eine rückgängig machbare Änderung in das Dokument.",
+                      "en": "Commits the provisional result of a running, paused or complete tool run into the document as one undoable edit."
+                    },
+                    "reuse": {
+                      "de": "Übernimmt das vorläufige Ergebnis eines laufenden, pausierten oder fertigen Werkzeuglaufs als eine rückgängig machbare Änderung in das Dokument.",
+                      "en": "Commits the provisional result of a running, paused or complete tool run into the document as one undoable edit."
+                    }
+                  },
                   "effects": {
                     "destructive": false,
                     "external": false,
@@ -9286,6 +9946,16 @@
                   }
                 },
                 "semantics": {
+                  "description": {
+                    "native": {
+                      "de": "Schließt das Panel eines abgeschlossenen, abgebrochenen oder fehlgeschlagenen Werkzeuglaufs; das Dokument bleibt unberührt.",
+                      "en": "Closes the panel of a finalized, aborted or failed tool run; the document is not touched."
+                    },
+                    "reuse": {
+                      "de": "Schließt das Panel eines abgeschlossenen, abgebrochenen oder fehlgeschlagenen Werkzeuglaufs; das Dokument bleibt unberührt.",
+                      "en": "Closes the panel of a finalized, aborted or failed tool run; the document is not touched."
+                    }
+                  },
                   "effects": {
                     "destructive": false,
                     "external": false,
@@ -9306,6 +9976,51 @@
                     "approval": "never",
                     "scopes": [
                       "artifacts.write"
+                    ]
+                  }
+                }
+              },
+              {
+                "args": [],
+                "iconId": "square",
+                "id": "cancelTypedOperation",
+                "inPalette": false,
+                "kind": "view",
+                "label": {
+                  "native": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  },
+                  "reuse": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  }
+                },
+                "semantics": {
+                  "effects": {
+                    "destructive": false,
+                    "external": false,
+                    "reads": [
+                      "config:{self}"
+                    ],
+                    "reversible": false
+                  },
+                  "execution": {
+                    "cancellable": false,
+                    "class": "interactive",
+                    "expectedRevision": false,
+                    "idempotency": "none",
+                    "interactiveJob": "migrated",
+                    "preview": "none",
+                    "undo": {
+                      "kind": "none"
+                    }
+                  },
+                  "policy": {
+                    "approval": "never",
+                    "scopes": [
+                      "artifacts.read",
+                      "shell.observe"
                     ]
                   }
                 }
@@ -10044,6 +10759,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Öffnet den Tutorial-Rekorder für das geöffnete Dokument, damit die nächsten Interaktionen als Tutorial aufgezeichnet werden.",
+                  "en": "Opens the tutorial recorder on the open document so the next interactions are recorded as a tutorial."
+                },
+                "reuse": {
+                  "de": "Öffnet den Tutorial-Rekorder für das geöffnete Dokument, damit die nächsten Interaktionen als Tutorial aufgezeichnet werden.",
+                  "en": "Opens the tutorial recorder on the open document so the next interactions are recorded as a tutorial."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -10149,6 +10874,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Filtert den Verlaufsbereich auf alle Einträge, nur Dokumentoperationen oder alles außer Dokumentoperationen; das Dokument wird nicht verändert.",
+                  "en": "Filters the history panel to all entries, only document operations, or everything except document operations; the document is not changed."
+                },
+                "reuse": {
+                  "de": "Filtert den Verlaufsbereich auf alle Einträge, nur Dokumentoperationen oder alles außer Dokumentoperationen; das Dokument wird nicht verändert.",
+                  "en": "Filters the history panel to all entries, only document operations, or everything except document operations; the document is not changed."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -10247,6 +10982,16 @@
             },
             "semantics": {
               "audience": "chrome",
+              "description": {
+                "native": {
+                  "de": "Vermerkt eine bereits erfolgte Shell-Wirkung (Navigation, Export, Start) im Sitzungsprotokoll; das Dokument wird nicht verändert.",
+                  "en": "Records a shell effect that already happened (navigation, export, spawn) in the session command log; the document is not changed."
+                },
+                "reuse": {
+                  "de": "Vermerkt eine bereits erfolgte Shell-Wirkung (Navigation, Export, Start) im Sitzungsprotokoll; das Dokument wird nicht verändert.",
+                  "en": "Records a shell effect that already happened (navigation, export, spawn) in the session command log; the document is not changed."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -10466,7 +11211,53 @@
         "utilities": [],
         "windowKinds": [
           {
-            "actions": [],
+            "actions": [
+              {
+                "args": [],
+                "iconId": "square",
+                "id": "cancelTypedOperation",
+                "inPalette": false,
+                "kind": "view",
+                "label": {
+                  "native": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  },
+                  "reuse": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  }
+                },
+                "semantics": {
+                  "effects": {
+                    "destructive": false,
+                    "external": false,
+                    "reads": [
+                      "config:{self}"
+                    ],
+                    "reversible": false
+                  },
+                  "execution": {
+                    "cancellable": false,
+                    "class": "interactive",
+                    "expectedRevision": false,
+                    "idempotency": "none",
+                    "interactiveJob": "migrated",
+                    "preview": "none",
+                    "undo": {
+                      "kind": "none"
+                    }
+                  },
+                  "policy": {
+                    "approval": "never",
+                    "scopes": [
+                      "artifacts.read",
+                      "shell.observe"
+                    ]
+                  }
+                }
+              }
+            ],
             "bodyKey": "framework.window.tree",
             "capabilities": [],
             "iconId": "list-tree",
@@ -10491,7 +11282,53 @@
             "utilities": []
           },
           {
-            "actions": [],
+            "actions": [
+              {
+                "args": [],
+                "iconId": "square",
+                "id": "cancelTypedOperation",
+                "inPalette": false,
+                "kind": "view",
+                "label": {
+                  "native": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  },
+                  "reuse": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  }
+                },
+                "semantics": {
+                  "effects": {
+                    "destructive": false,
+                    "external": false,
+                    "reads": [
+                      "config:{self}"
+                    ],
+                    "reversible": false
+                  },
+                  "execution": {
+                    "cancellable": false,
+                    "class": "interactive",
+                    "expectedRevision": false,
+                    "idempotency": "none",
+                    "interactiveJob": "migrated",
+                    "preview": "none",
+                    "undo": {
+                      "kind": "none"
+                    }
+                  },
+                  "policy": {
+                    "approval": "never",
+                    "scopes": [
+                      "artifacts.read",
+                      "shell.observe"
+                    ]
+                  }
+                }
+              }
+            ],
             "bodyKey": "framework.window.table",
             "capabilities": [],
             "iconId": "table-2",
@@ -10516,7 +11353,53 @@
             "utilities": []
           },
           {
-            "actions": [],
+            "actions": [
+              {
+                "args": [],
+                "iconId": "square",
+                "id": "cancelTypedOperation",
+                "inPalette": false,
+                "kind": "view",
+                "label": {
+                  "native": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  },
+                  "reuse": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  }
+                },
+                "semantics": {
+                  "effects": {
+                    "destructive": false,
+                    "external": false,
+                    "reads": [
+                      "config:{self}"
+                    ],
+                    "reversible": false
+                  },
+                  "execution": {
+                    "cancellable": false,
+                    "class": "interactive",
+                    "expectedRevision": false,
+                    "idempotency": "none",
+                    "interactiveJob": "migrated",
+                    "preview": "none",
+                    "undo": {
+                      "kind": "none"
+                    }
+                  },
+                  "policy": {
+                    "approval": "never",
+                    "scopes": [
+                      "artifacts.read",
+                      "shell.observe"
+                    ]
+                  }
+                }
+              }
+            ],
             "artifactSnapshotSchema": "energy.model",
             "bodyKey": "energy.simulation.viewer",
             "capabilities": [],
@@ -10565,7 +11448,7 @@
                 ],
                 "iconId": "eye",
                 "id": "setCamera",
-                "inPalette": true,
+                "inPalette": false,
                 "kind": "view",
                 "label": {
                   "native": {
@@ -10575,6 +11458,52 @@
                   "reuse": {
                     "de": "Kamera setzen",
                     "en": "Set camera"
+                  }
+                },
+                "semantics": {
+                  "audience": "chrome",
+                  "effects": {
+                    "destructive": false,
+                    "external": false,
+                    "reads": [
+                      "config:{self}"
+                    ],
+                    "reversible": false
+                  },
+                  "execution": {
+                    "cancellable": false,
+                    "class": "interactive",
+                    "expectedRevision": false,
+                    "idempotency": "none",
+                    "interactiveJob": "migrated",
+                    "preview": "none",
+                    "undo": {
+                      "kind": "none"
+                    }
+                  },
+                  "policy": {
+                    "approval": "never",
+                    "scopes": [
+                      "artifacts.read",
+                      "shell.observe"
+                    ]
+                  }
+                }
+              },
+              {
+                "args": [],
+                "iconId": "square",
+                "id": "cancelTypedOperation",
+                "inPalette": false,
+                "kind": "view",
+                "label": {
+                  "native": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  },
+                  "reuse": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
                   }
                 },
                 "semantics": {

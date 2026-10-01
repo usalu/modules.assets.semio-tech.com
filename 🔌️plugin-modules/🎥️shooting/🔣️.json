@@ -24,48 +24,8 @@
             "subset": "*"
           },
           {
-            "artifactKind": "s.stdio.bmp",
-            "standard": "v3",
-            "subset": "*"
-          },
-          {
-            "artifactKind": "s.stdio.dwg",
-            "standard": "ac1018",
-            "subset": "*"
-          },
-          {
-            "artifactKind": "s.stdio.gif",
-            "standard": "87a",
-            "subset": "*"
-          },
-          {
-            "artifactKind": "s.stdio.jpg",
-            "standard": "jfif-1.01",
-            "subset": "*"
-          },
-          {
             "artifactKind": "s.stdio.json",
             "standard": "rfc8259",
-            "subset": "*"
-          },
-          {
-            "artifactKind": "s.stdio.pdf",
-            "standard": "1.4",
-            "subset": "*"
-          },
-          {
-            "artifactKind": "s.stdio.png",
-            "standard": "1.2",
-            "subset": "*"
-          },
-          {
-            "artifactKind": "s.stdio.svg",
-            "standard": "1.1",
-            "subset": "*"
-          },
-          {
-            "artifactKind": "s.stdio.tiff",
-            "standard": "6.0",
             "subset": "*"
           },
           {
@@ -97,112 +57,8 @@
       },
       {
         "counterpart": {
-          "artifactKind": "s.stdio.bmp",
-          "standard": "v3",
-          "subset": "*"
-        },
-        "direction": "import",
-        "owner": {
-          "artifactKind": "s.shooting.shooting",
-          "standard": "1",
-          "subset": "*"
-        }
-      },
-      {
-        "counterpart": {
-          "artifactKind": "s.stdio.dwg",
-          "standard": "ac1018",
-          "subset": "*"
-        },
-        "direction": "import",
-        "owner": {
-          "artifactKind": "s.shooting.shooting",
-          "standard": "1",
-          "subset": "*"
-        }
-      },
-      {
-        "counterpart": {
-          "artifactKind": "s.stdio.gif",
-          "standard": "87a",
-          "subset": "*"
-        },
-        "direction": "import",
-        "owner": {
-          "artifactKind": "s.shooting.shooting",
-          "standard": "1",
-          "subset": "*"
-        }
-      },
-      {
-        "counterpart": {
-          "artifactKind": "s.stdio.jpg",
-          "standard": "jfif-1.01",
-          "subset": "*"
-        },
-        "direction": "import",
-        "owner": {
-          "artifactKind": "s.shooting.shooting",
-          "standard": "1",
-          "subset": "*"
-        }
-      },
-      {
-        "counterpart": {
           "artifactKind": "s.stdio.json",
           "standard": "rfc8259",
-          "subset": "*"
-        },
-        "direction": "import",
-        "owner": {
-          "artifactKind": "s.shooting.shooting",
-          "standard": "1",
-          "subset": "*"
-        }
-      },
-      {
-        "counterpart": {
-          "artifactKind": "s.stdio.pdf",
-          "standard": "1.4",
-          "subset": "*"
-        },
-        "direction": "import",
-        "owner": {
-          "artifactKind": "s.shooting.shooting",
-          "standard": "1",
-          "subset": "*"
-        }
-      },
-      {
-        "counterpart": {
-          "artifactKind": "s.stdio.png",
-          "standard": "1.2",
-          "subset": "*"
-        },
-        "direction": "import",
-        "owner": {
-          "artifactKind": "s.shooting.shooting",
-          "standard": "1",
-          "subset": "*"
-        }
-      },
-      {
-        "counterpart": {
-          "artifactKind": "s.stdio.svg",
-          "standard": "1.1",
-          "subset": "*"
-        },
-        "direction": "import",
-        "owner": {
-          "artifactKind": "s.shooting.shooting",
-          "standard": "1",
-          "subset": "*"
-        }
-      },
-      {
-        "counterpart": {
-          "artifactKind": "s.stdio.tiff",
-          "standard": "6.0",
           "subset": "*"
         },
         "direction": "import",
@@ -327,12 +183,12 @@
   "descriptorVersion": 1,
   "execution": "isolated",
   "executionProtocol": {
-    "appChannelVersion": 17
+    "appChannelVersion": 19
   },
   "hashes": {
-    "coreWasmSha256": "7be5221eea0f0471cb8f019291cdfbee69f4ef66ac4d2ef8fb7dc882bbed03be",
-    "descriptorSha256": "3ebf7cd4f9fd7669ce8612f15aeb040a16681d3cd47f17be4ba65c5d1a70ab73",
-    "wasmSha256": "537e707651b53f8325dbb053b1d2eb202ada958586e311d3c68acc0dfe957d93"
+    "coreWasmSha256": "a108656ce3faf506373335769814bac9777688a6a2c5bf3fb25fc7068ba26934",
+    "descriptorSha256": "51da2bc8cadd7f47f42355742b0fea8a59f3076bb7e9f72508775cd5fd59b89b",
+    "wasmSha256": "485a031e999755ab76fc27cf6d788a32307c61bc7980548cc824f67bded21943"
   },
   "manifest": {
     "apps": [
@@ -355,8 +211,18 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Ersetzt das gesamte Shooting-Dokument (Aufnahmen, Objekte, Kameras und Szenenlicht) durch eines aus dem angegebenen JSON; ungültiges JSON ändert nichts.",
+                  "en": "Replaces the whole shooting document (shots, assets, cameras and scene lighting) with one parsed from the given JSON; invalid JSON changes nothing."
+                },
+                "reuse": {
+                  "de": "Ersetzt das gesamte Shooting-Dokument (Aufnahmen, Objekte, Kameras und Szenenlicht) durch eines aus dem angegebenen JSON; ungültiges JSON ändert nichts.",
+                  "en": "Replaces the whole shooting document (shots, assets, cameras and scene lighting) with one parsed from the given JSON; invalid JSON changes nothing."
+                }
+              },
               "effects": {
-                "destructive": false,
+                "destructive": true,
                 "external": false,
                 "reversible": true,
                 "writes": [
@@ -445,6 +311,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Ersetzt das gesamte Shooting-Dokument durch eines der mitgelieferten Beispiele, anhand der Beispiel-Id.",
+                  "en": "Replaces the whole shooting document with one of the plugin's bundled examples, by example id."
+                },
+                "reuse": {
+                  "de": "Ersetzt das gesamte Shooting-Dokument durch eines der mitgelieferten Beispiele, anhand der Beispiel-Id.",
+                  "en": "Replaces the whole shooting document with one of the plugin's bundled examples, by example id."
+                }
+              },
               "effects": {
                 "destructive": true,
                 "external": false,
@@ -489,6 +365,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Macht die Aufnahme mit der angegebenen Id zur aktiven, auf die Aufnahmeänderungen und Aktive Aufnahme exportieren wirken.",
+                  "en": "Makes the shot with the given id the active one that shot edits and Export Active Shot apply to."
+                },
+                "reuse": {
+                  "de": "Macht die Aufnahme mit der angegebenen Id zur aktiven, auf die Aufnahmeänderungen und Aktive Aufnahme exportieren wirken.",
+                  "en": "Makes the shot with the given id the active one that shot edits and Export Active Shot apply to."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -533,6 +419,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Macht das Objekt (3D-Modell) mit der angegebenen Id zum aktiven oder hebt das aktive Objekt auf.",
+                  "en": "Makes the asset (3D model) with the given id the active one, or clears the active asset."
+                },
+                "reuse": {
+                  "de": "Macht das Objekt (3D-Modell) mit der angegebenen Id zum aktiven oder hebt das aktive Objekt auf.",
+                  "en": "Makes the asset (3D model) with the given id the active one, or clears the active asset."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -564,7 +460,7 @@
             "args": [],
             "iconId": "camera",
             "id": "setCamera",
-            "inPalette": true,
+            "inPalette": false,
             "kind": "view",
             "label": {
               "native": {
@@ -577,6 +473,7 @@
               }
             },
             "semantics": {
+              "audience": "chrome",
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -622,6 +519,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Ersetzt die in einer Aufnahme gespeicherte Kamerapose, die bestimmt, wie diese Aufnahme die Szene beim Rendern zeigt.",
+                  "en": "Replaces the camera pose stored on one shot, which decides how that shot frames the scene when rendered."
+                },
+                "reuse": {
+                  "de": "Ersetzt die in einer Aufnahme gespeicherte Kamerapose, die bestimmt, wie diese Aufnahme die Szene beim Rendern zeigt.",
+                  "en": "Replaces the camera pose stored on one shot, which decides how that shot frames the scene when rendered."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -666,6 +573,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Speichert die aktuelle Ansichtskamera unter der entworfenen Bezeichnung im Katalog gespeicherter Kameras des Dokuments.",
+                  "en": "Saves the current viewport camera into the document's catalogue of saved cameras under the drafted label."
+                },
+                "reuse": {
+                  "de": "Speichert die aktuelle Ansichtskamera unter der entworfenen Bezeichnung im Katalog gespeicherter Kameras des Dokuments.",
+                  "en": "Saves the current viewport camera into the document's catalogue of saved cameras under the drafted label."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -710,6 +627,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Setzt die Ansichtskamera auf eine gespeicherte Kamera anhand ihrer Id; nur die Ansicht ändert sich, nicht das Dokument.",
+                  "en": "Moves the viewport camera to one saved camera by id; only the view changes, not the document."
+                },
+                "reuse": {
+                  "de": "Setzt die Ansichtskamera auf eine gespeicherte Kamera anhand ihrer Id; nur die Ansicht ändert sich, nicht das Dokument.",
+                  "en": "Moves the viewport camera to one saved camera by id; only the view changes, not the document."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -755,6 +682,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Legt die Himmelsrichtung (Azimut, in Grad) fest, aus der die Sonne der Szene scheint.",
+                  "en": "Sets the compass direction (azimuth, in degrees) the scene's sun shines from."
+                },
+                "reuse": {
+                  "de": "Legt die Himmelsrichtung (Azimut, in Grad) fest, aus der die Sonne der Szene scheint.",
+                  "en": "Sets the compass direction (azimuth, in degrees) the scene's sun shines from."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -799,6 +736,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Legt fest, wie hoch über dem Horizont (Höhe, in Grad) die Sonne der Szene steht.",
+                  "en": "Sets how high above the horizon (elevation, in degrees) the scene's sun stands."
+                },
+                "reuse": {
+                  "de": "Legt fest, wie hoch über dem Horizont (Höhe, in Grad) die Sonne der Szene steht.",
+                  "en": "Sets how high above the horizon (elevation, in degrees) the scene's sun stands."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -843,6 +790,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Legt die Helligkeit des Sonnenlichts der Szene fest.",
+                  "en": "Sets the brightness of the scene's sun light."
+                },
+                "reuse": {
+                  "de": "Legt die Helligkeit des Sonnenlichts der Szene fest.",
+                  "en": "Sets the brightness of the scene's sun light."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -887,6 +844,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Legt die Helligkeit des Umgebungslichts der Szene fest.",
+                  "en": "Sets the brightness of the scene's ambient light."
+                },
+                "reuse": {
+                  "de": "Legt die Helligkeit des Umgebungslichts der Szene fest.",
+                  "en": "Sets the brightness of the scene's ambient light."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -931,6 +898,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Legt die auf die Materialien der Szene angewandte Oberflächenrauheit fest, von glänzend bis matt.",
+                  "en": "Sets the surface roughness applied to the scene's materials, from glossy to matte."
+                },
+                "reuse": {
+                  "de": "Legt die auf die Materialien der Szene angewandte Oberflächenrauheit fest, von glänzend bis matt.",
+                  "en": "Sets the surface roughness applied to the scene's materials, from glossy to matte."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -975,6 +952,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Schaltet Schlagschatten in der Szene ein oder aus.",
+                  "en": "Turns cast shadows in the scene on or off."
+                },
+                "reuse": {
+                  "de": "Schaltet Schlagschatten in der Szene ein oder aus.",
+                  "en": "Turns cast shadows in the scene on or off."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -1019,6 +1006,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Schaltet das Sonnenlicht der Szene ein oder aus.",
+                  "en": "Switches the scene's sun light on or off."
+                },
+                "reuse": {
+                  "de": "Schaltet das Sonnenlicht der Szene ein oder aus.",
+                  "en": "Switches the scene's sun light on or off."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -1063,6 +1060,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Benennt die aktive Aufnahme in die angegebene Bezeichnung um.",
+                  "en": "Renames the active shot to the given label."
+                },
+                "reuse": {
+                  "de": "Benennt die aktive Aufnahme in die angegebene Bezeichnung um.",
+                  "en": "Renames the active shot to the given label."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -1107,6 +1114,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Legt das Ausgabeformat (PNG oder SVG) fest, in das die aktive Aufnahme gerendert wird.",
+                  "en": "Sets the output format (PNG or SVG) the active shot renders to."
+                },
+                "reuse": {
+                  "de": "Legt das Ausgabeformat (PNG oder SVG) fest, in das die aktive Aufnahme gerendert wird.",
+                  "en": "Sets the output format (PNG or SVG) the active shot renders to."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -1151,6 +1168,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Legt die Zuschnittform der aktiven Aufnahme fest, Rechteck oder Ellipse, auf die das gerenderte Icon zugeschnitten wird.",
+                  "en": "Sets the crop shape of the active shot, rectangle or ellipse, which the rendered icon is cut to."
+                },
+                "reuse": {
+                  "de": "Legt die Zuschnittform der aktiven Aufnahme fest, Rechteck oder Ellipse, auf die das gerenderte Icon zugeschnitten wird.",
+                  "en": "Sets the crop shape of the active shot, rectangle or ellipse, which the rendered icon is cut to."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -1195,6 +1222,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Setzt ein benanntes Feld (etwa Bezeichnung, Format oder Form) auf allen Aufnahmen mit den angegebenen Ids.",
+                  "en": "Sets one named field (such as label, format or shape) on every shot with the given ids."
+                },
+                "reuse": {
+                  "de": "Setzt ein benanntes Feld (etwa Bezeichnung, Format oder Form) auf allen Aufnahmen mit den angegebenen Ids.",
+                  "en": "Sets one named field (such as label, format or shape) on every shot with the given ids."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -1239,6 +1276,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Setzt ein benanntes Feld auf allen Objekten (3D-Modellen) mit den angegebenen Ids.",
+                  "en": "Sets one named field on every asset (3D model) with the given ids."
+                },
+                "reuse": {
+                  "de": "Setzt ein benanntes Feld auf allen Objekten (3D-Modellen) mit den angegebenen Ids.",
+                  "en": "Sets one named field on every asset (3D model) with the given ids."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -1376,6 +1423,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Fügt eine neue Aufnahme mit dem angegebenen Format und der Form hinzu, gerahmt von der aktuellen Ansichtskamera.",
+                  "en": "Adds a new shot with the given format and shape, framed by the current viewport camera."
+                },
+                "reuse": {
+                  "de": "Fügt eine neue Aufnahme mit dem angegebenen Format und der Form hinzu, gerahmt von der aktuellen Ansichtskamera.",
+                  "en": "Adds a new shot with the given format and shape, framed by the current viewport camera."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -1454,6 +1511,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Fügt der Szene ein neues Platzhalterobjekt des angegebenen Formats hinzu.",
+                  "en": "Adds a new placeholder asset of the given format to the scene."
+                },
+                "reuse": {
+                  "de": "Fügt der Szene ein neues Platzhalterobjekt des angegebenen Formats hinzu.",
+                  "en": "Adds a new placeholder asset of the given format to the scene."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -1498,6 +1565,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Importiert ein GLB-Modell (Data-URL-Inhalt, optionaler Name) als neues Objekt in die Szene.",
+                  "en": "Imports a GLB model (data-URL payload, optional name) as a new asset in the scene."
+                },
+                "reuse": {
+                  "de": "Importiert ein GLB-Modell (Data-URL-Inhalt, optionaler Name) als neues Objekt in die Szene.",
+                  "en": "Imports a GLB model (data-URL payload, optional name) as a new asset in the scene."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -1542,8 +1619,18 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Setzt das gesamte Shooting-Dokument auf die Standardszene zurück; alle Aufnahmen, Objekte und gespeicherten Kameras werden verworfen.",
+                  "en": "Resets the whole shooting document to the default scene; every shot, asset and saved camera is discarded."
+                },
+                "reuse": {
+                  "de": "Setzt das gesamte Shooting-Dokument auf die Standardszene zurück; alle Aufnahmen, Objekte und gespeicherten Kameras werden verworfen.",
+                  "en": "Resets the whole shooting document to the default scene; every shot, asset and saved camera is discarded."
+                }
+              },
               "effects": {
-                "destructive": false,
+                "destructive": true,
                 "external": false,
                 "reversible": true,
                 "writes": [
@@ -1586,6 +1673,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Verschiebt die angegebenen Objekte um dx, dy und dz; aufeinanderfolgende Züge werden zu einem Rückgängig-Schritt zusammengefasst.",
+                  "en": "Moves the given assets by dx, dy and dz; consecutive drags merge into one undo step."
+                },
+                "reuse": {
+                  "de": "Verschiebt die angegebenen Objekte um dx, dy und dz; aufeinanderfolgende Züge werden zu einem Rückgängig-Schritt zusammengefasst.",
+                  "en": "Moves the given assets by dx, dy and dz; consecutive drags merge into one undo step."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -1630,6 +1727,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Dreht die angegebenen Objekte um einen Winkel um die Achse ax, ay, az; aufeinanderfolgende Züge werden zu einem Rückgängig-Schritt zusammengefasst.",
+                  "en": "Rotates the given assets by an angle around the axis ax, ay, az; consecutive drags merge into one undo step."
+                },
+                "reuse": {
+                  "de": "Dreht die angegebenen Objekte um einen Winkel um die Achse ax, ay, az; aufeinanderfolgende Züge werden zu einem Rückgängig-Schritt zusammengefasst.",
+                  "en": "Rotates the given assets by an angle around the axis ax, ay, az; consecutive drags merge into one undo step."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -1674,6 +1781,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Skaliert die angegebenen Objekte um sx, sy und sz; aufeinanderfolgende Züge werden zu einem Rückgängig-Schritt zusammengefasst.",
+                  "en": "Scales the given assets by sx, sy and sz; consecutive drags merge into one undo step."
+                },
+                "reuse": {
+                  "de": "Skaliert die angegebenen Objekte um sx, sy und sz; aufeinanderfolgende Züge werden zu einem Rückgängig-Schritt zusammengefasst.",
+                  "en": "Scales the given assets by sx, sy and sz; consecutive drags merge into one undo step."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -1718,6 +1835,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Wählt die angegebenen Aufnahmen in Galerie und Dokumentbaum aus; nur der Ansichtszustand des Editors ändert sich.",
+                  "en": "Selects the given shots in the gallery and document tree; only the editor's view state changes."
+                },
+                "reuse": {
+                  "de": "Wählt die angegebenen Aufnahmen in Galerie und Dokumentbaum aus; nur der Ansichtszustand des Editors ändert sich.",
+                  "en": "Selects the given shots in the gallery and document tree; only the editor's view state changes."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -1763,6 +1890,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Legt die Bezeichnung fest, unter der das nächste Kamera speichern die Ansichtskamera ablegt; das Dokument ändert sich nicht.",
+                  "en": "Sets the label the next Save Camera stores the viewport camera under; the document is not changed."
+                },
+                "reuse": {
+                  "de": "Legt die Bezeichnung fest, unter der das nächste Kamera speichern die Ansichtskamera ablegt; das Dokument ändert sich nicht.",
+                  "en": "Sets the label the next Save Camera stores the viewport camera under; the document is not changed."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -1808,6 +1945,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Legt fest, ob die Ansicht das Modell zentriert hält; nur die Ansicht ändert sich.",
+                  "en": "Sets whether the viewport keeps the model centred; only the view changes."
+                },
+                "reuse": {
+                  "de": "Legt fest, ob die Ansicht das Modell zentriert hält; nur die Ansicht ändert sich.",
+                  "en": "Sets whether the viewport keeps the model centred; only the view changes."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -1945,8 +2092,18 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Schreibt das gesamte Shooting-Dokument als Text in eine heruntergeladene Datei shooting.shooting.ops auf dem Rechner des Nutzers.",
+                  "en": "Writes the whole shooting document as text to a downloaded shooting.shooting.ops file on the user's machine."
+                },
+                "reuse": {
+                  "de": "Schreibt das gesamte Shooting-Dokument als Text in eine heruntergeladene Datei shooting.shooting.ops auf dem Rechner des Nutzers.",
+                  "en": "Writes the whole shooting document as text to a downloaded shooting.shooting.ops file on the user's machine."
+                }
+              },
               "effects": {
-                "destructive": false,
+                "destructive": true,
                 "external": false,
                 "reversible": false
               },
@@ -1962,7 +2119,7 @@
                 }
               },
               "policy": {
-                "approval": "never",
+                "approval": "whenDestructive",
                 "scopes": [
                   "shell.navigate"
                 ]
@@ -1986,6 +2143,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Öffnet die Dateiauswahl des Hosts für ein gespeichertes Shooting-Dokument (.ops, .dsl oder .spk); die gewählte Datei ersetzt dann das aktuelle Dokument.",
+                  "en": "Opens the host's file picker for a saved shooting document (.ops, .dsl or .spk); the chosen file then replaces the current document."
+                },
+                "reuse": {
+                  "de": "Öffnet die Dateiauswahl des Hosts für ein gespeichertes Shooting-Dokument (.ops, .dsl oder .spk); die gewählte Datei ersetzt dann das aktuelle Dokument.",
+                  "en": "Opens the host's file picker for a saved shooting document (.ops, .dsl or .spk); the chosen file then replaces the current document."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -2027,6 +2194,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Öffnet die Dateiauswahl des Hosts für ein GLB-Modell; die gewählte Datei wird dann als neues Objekt importiert.",
+                  "en": "Opens the host's file picker for a GLB model; the chosen file is then imported as a new asset."
+                },
+                "reuse": {
+                  "de": "Öffnet die Dateiauswahl des Hosts für ein GLB-Modell; die gewählte Datei wird dann als neues Objekt importiert.",
+                  "en": "Opens the host's file picker for a GLB model; the chosen file is then imported as a new asset."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -2068,8 +2245,18 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Rendert die aktive Aufnahme und schreibt sie als PNG- oder SVG-Datei mit dem Namen der Aufnahme auf den Rechner des Nutzers.",
+                  "en": "Renders the active shot and writes it as a PNG or SVG file named after the shot to the user's machine."
+                },
+                "reuse": {
+                  "de": "Rendert die aktive Aufnahme und schreibt sie als PNG- oder SVG-Datei mit dem Namen der Aufnahme auf den Rechner des Nutzers.",
+                  "en": "Renders the active shot and writes it as a PNG or SVG file named after the shot to the user's machine."
+                }
+              },
               "effects": {
-                "destructive": false,
+                "destructive": true,
                 "external": false,
                 "reversible": false
               },
@@ -2085,7 +2272,7 @@
                 }
               },
               "policy": {
-                "approval": "never",
+                "approval": "whenDestructive",
                 "scopes": [
                   "shell.navigate"
                 ]
@@ -2109,8 +2296,18 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Rendert alle Aufnahmen und schreibt jede als PNG- oder SVG-Datei mit dem Namen ihrer Aufnahme auf den Rechner des Nutzers.",
+                  "en": "Renders every shot and writes each as a PNG or SVG file named after its shot to the user's machine."
+                },
+                "reuse": {
+                  "de": "Rendert alle Aufnahmen und schreibt jede als PNG- oder SVG-Datei mit dem Namen ihrer Aufnahme auf den Rechner des Nutzers.",
+                  "en": "Renders every shot and writes each as a PNG or SVG file named after its shot to the user's machine."
+                }
+              },
               "effects": {
-                "destructive": false,
+                "destructive": true,
                 "external": false,
                 "reversible": false
               },
@@ -2126,7 +2323,7 @@
                 }
               },
               "policy": {
-                "approval": "never",
+                "approval": "whenDestructive",
                 "scopes": [
                   "shell.navigate"
                 ]
@@ -2916,6 +3113,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Öffnet den Tutorial-Rekorder für das geöffnete Dokument, damit die nächsten Interaktionen als Tutorial aufgezeichnet werden.",
+                  "en": "Opens the tutorial recorder on the open document so the next interactions are recorded as a tutorial."
+                },
+                "reuse": {
+                  "de": "Öffnet den Tutorial-Rekorder für das geöffnete Dokument, damit die nächsten Interaktionen als Tutorial aufgezeichnet werden.",
+                  "en": "Opens the tutorial recorder on the open document so the next interactions are recorded as a tutorial."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -3021,6 +3228,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Filtert den Verlaufsbereich auf alle Einträge, nur Dokumentoperationen oder alles außer Dokumentoperationen; das Dokument wird nicht verändert.",
+                  "en": "Filters the history panel to all entries, only document operations, or everything except document operations; the document is not changed."
+                },
+                "reuse": {
+                  "de": "Filtert den Verlaufsbereich auf alle Einträge, nur Dokumentoperationen oder alles außer Dokumentoperationen; das Dokument wird nicht verändert.",
+                  "en": "Filters the history panel to all entries, only document operations, or everything except document operations; the document is not changed."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -3119,6 +3336,16 @@
             },
             "semantics": {
               "audience": "chrome",
+              "description": {
+                "native": {
+                  "de": "Vermerkt eine bereits erfolgte Shell-Wirkung (Navigation, Export, Start) im Sitzungsprotokoll; das Dokument wird nicht verändert.",
+                  "en": "Records a shell effect that already happened (navigation, export, spawn) in the session command log; the document is not changed."
+                },
+                "reuse": {
+                  "de": "Vermerkt eine bereits erfolgte Shell-Wirkung (Navigation, Export, Start) im Sitzungsprotokoll; das Dokument wird nicht verändert.",
+                  "en": "Records a shell effect that already happened (navigation, export, spawn) in the session command log; the document is not changed."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -3150,28 +3377,12 @@
             "dimension": "2d",
             "exportFormats": [],
             "exportStdioKinds": [
-              "stdio.bmp",
-              "stdio.dwg",
-              "stdio.gif",
-              "stdio.jpg",
-              "stdio.json",
-              "stdio.pdf",
-              "stdio.png",
-              "stdio.svg",
-              "stdio.tiff"
+              "stdio.json"
             ],
             "id": "2d.shooting",
             "importFormats": [],
             "importStdioKinds": [
-              "stdio.bmp",
-              "stdio.dwg",
-              "stdio.gif",
-              "stdio.jpg",
-              "stdio.json",
-              "stdio.pdf",
-              "stdio.png",
-              "stdio.svg",
-              "stdio.tiff"
+              "stdio.json"
             ],
             "mediaCapability": "meshOnly",
             "mediaType": {
@@ -3892,11 +4103,11 @@
                 "kind": "interaction",
                 "label": {
                   "native": {
-                    "de": "Hover",
+                    "de": "Darüberfahren",
                     "en": "Hover"
                   },
                   "reuse": {
-                    "de": "Hover",
+                    "de": "Darüberfahren",
                     "en": "Hover"
                   }
                 },
@@ -4178,6 +4389,51 @@
                   "reuse": {
                     "de": "Granularität festlegen",
                     "en": "Set Granularity"
+                  }
+                },
+                "semantics": {
+                  "effects": {
+                    "destructive": false,
+                    "external": false,
+                    "reads": [
+                      "config:{self}"
+                    ],
+                    "reversible": false
+                  },
+                  "execution": {
+                    "cancellable": false,
+                    "class": "interactive",
+                    "expectedRevision": false,
+                    "idempotency": "none",
+                    "interactiveJob": "migrated",
+                    "preview": "none",
+                    "undo": {
+                      "kind": "none"
+                    }
+                  },
+                  "policy": {
+                    "approval": "never",
+                    "scopes": [
+                      "artifacts.read",
+                      "shell.observe"
+                    ]
+                  }
+                }
+              },
+              {
+                "args": [],
+                "iconId": "square",
+                "id": "cancelTypedOperation",
+                "inPalette": false,
+                "kind": "view",
+                "label": {
+                  "native": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  },
+                  "reuse": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
                   }
                 },
                 "semantics": {
@@ -4523,11 +4779,11 @@
                 "kind": "interaction",
                 "label": {
                   "native": {
-                    "de": "Hover",
+                    "de": "Darüberfahren",
                     "en": "Hover"
                   },
                   "reuse": {
-                    "de": "Hover",
+                    "de": "Darüberfahren",
                     "en": "Hover"
                   }
                 },
@@ -4809,6 +5065,51 @@
                   "reuse": {
                     "de": "Granularität festlegen",
                     "en": "Set Granularity"
+                  }
+                },
+                "semantics": {
+                  "effects": {
+                    "destructive": false,
+                    "external": false,
+                    "reads": [
+                      "config:{self}"
+                    ],
+                    "reversible": false
+                  },
+                  "execution": {
+                    "cancellable": false,
+                    "class": "interactive",
+                    "expectedRevision": false,
+                    "idempotency": "none",
+                    "interactiveJob": "migrated",
+                    "preview": "none",
+                    "undo": {
+                      "kind": "none"
+                    }
+                  },
+                  "policy": {
+                    "approval": "never",
+                    "scopes": [
+                      "artifacts.read",
+                      "shell.observe"
+                    ]
+                  }
+                }
+              },
+              {
+                "args": [],
+                "iconId": "square",
+                "id": "cancelTypedOperation",
+                "inPalette": false,
+                "kind": "view",
+                "label": {
+                  "native": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  },
+                  "reuse": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
                   }
                 },
                 "semantics": {
@@ -5571,6 +5872,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Öffnet den Tutorial-Rekorder für das geöffnete Dokument, damit die nächsten Interaktionen als Tutorial aufgezeichnet werden.",
+                  "en": "Opens the tutorial recorder on the open document so the next interactions are recorded as a tutorial."
+                },
+                "reuse": {
+                  "de": "Öffnet den Tutorial-Rekorder für das geöffnete Dokument, damit die nächsten Interaktionen als Tutorial aufgezeichnet werden.",
+                  "en": "Opens the tutorial recorder on the open document so the next interactions are recorded as a tutorial."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -5676,6 +5987,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Filtert den Verlaufsbereich auf alle Einträge, nur Dokumentoperationen oder alles außer Dokumentoperationen; das Dokument wird nicht verändert.",
+                  "en": "Filters the history panel to all entries, only document operations, or everything except document operations; the document is not changed."
+                },
+                "reuse": {
+                  "de": "Filtert den Verlaufsbereich auf alle Einträge, nur Dokumentoperationen oder alles außer Dokumentoperationen; das Dokument wird nicht verändert.",
+                  "en": "Filters the history panel to all entries, only document operations, or everything except document operations; the document is not changed."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -5774,6 +6095,16 @@
             },
             "semantics": {
               "audience": "chrome",
+              "description": {
+                "native": {
+                  "de": "Vermerkt eine bereits erfolgte Shell-Wirkung (Navigation, Export, Start) im Sitzungsprotokoll; das Dokument wird nicht verändert.",
+                  "en": "Records a shell effect that already happened (navigation, export, spawn) in the session command log; the document is not changed."
+                },
+                "reuse": {
+                  "de": "Vermerkt eine bereits erfolgte Shell-Wirkung (Navigation, Export, Start) im Sitzungsprotokoll; das Dokument wird nicht verändert.",
+                  "en": "Records a shell effect that already happened (navigation, export, spawn) in the session command log; the document is not changed."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -5947,7 +6278,53 @@
         "utilities": [],
         "windowKinds": [
           {
-            "actions": [],
+            "actions": [
+              {
+                "args": [],
+                "iconId": "square",
+                "id": "cancelTypedOperation",
+                "inPalette": false,
+                "kind": "view",
+                "label": {
+                  "native": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  },
+                  "reuse": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  }
+                },
+                "semantics": {
+                  "effects": {
+                    "destructive": false,
+                    "external": false,
+                    "reads": [
+                      "config:{self}"
+                    ],
+                    "reversible": false
+                  },
+                  "execution": {
+                    "cancellable": false,
+                    "class": "interactive",
+                    "expectedRevision": false,
+                    "idempotency": "none",
+                    "interactiveJob": "migrated",
+                    "preview": "none",
+                    "undo": {
+                      "kind": "none"
+                    }
+                  },
+                  "policy": {
+                    "approval": "never",
+                    "scopes": [
+                      "artifacts.read",
+                      "shell.observe"
+                    ]
+                  }
+                }
+              }
+            ],
             "bodyKey": "shooting.view.scene",
             "capabilities": [],
             "iconId": "shooting-scene",

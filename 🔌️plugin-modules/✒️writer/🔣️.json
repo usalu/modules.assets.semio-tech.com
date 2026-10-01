@@ -154,12 +154,12 @@
   "descriptorVersion": 1,
   "execution": "isolated",
   "executionProtocol": {
-    "appChannelVersion": 17
+    "appChannelVersion": 19
   },
   "hashes": {
-    "coreWasmSha256": "69c5498da8b39c118101069711626ba94f7ccb7bc7b3d39328acd221f650309c",
-    "descriptorSha256": "81cb6f6f18152c3c33bdfd93ab116f7875157507c5585b71df4a57660fd422e5",
-    "wasmSha256": "290baac894e9063e22c40a7be9bb502a78b8e88a5857b926f984b4527bc95bd3"
+    "coreWasmSha256": "18ff660a31a97d3ea28ed57713cb1a0702ac668b4db4e1d3fd1875f8f9c9b462",
+    "descriptorSha256": "1d3e0d68e0b5b7f0259206e1aabe3eb44b6ee96e4932bcb2b1d803833225dc96",
+    "wasmSha256": "1eda87860379fc54dc0994546eb6efeea7f9d3fe0143857943447898f4210d5a"
   },
   "manifest": {
     "apps": [
@@ -183,6 +183,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Formatiert den gesamten Text mit dem Formatierer der Dokumentsprache neu; bereits formatierter Text schreibt nichts.",
+                  "en": "Reformats the whole text with the formatter of the document's language; text that is already formatted writes nothing."
+                },
+                "reuse": {
+                  "de": "Formatiert den gesamten Text mit dem Formatierer der Dokumentsprache neu; bereits formatierter Text schreibt nichts.",
+                  "en": "Reformats the whole text with the formatter of the document's language; text that is already formatted writes nothing."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -228,6 +238,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Prüft den Text mit dem Linter der Dokumentsprache und zeigt die Befunde im Editorfenster an; der Text ändert sich nicht.",
+                  "en": "Checks the text with the linter of the document's language and shows the diagnostics in the editor window; the text is not changed."
+                },
+                "reuse": {
+                  "de": "Prüft den Text mit dem Linter der Dokumentsprache und zeigt die Befunde im Editorfenster an; der Text ändert sich nicht.",
+                  "en": "Checks the text with the linter of the document's language and shows the diagnostics in the editor window; the text is not changed."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -320,6 +340,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Ersetzt das gesamte Dokument durch ein mitgeliefertes Beispiel (die Jack-Demo oder das DAG-Jack-Beispiel), bei jeder anderen Id durch ein leeres Dokument.",
+                  "en": "Replaces the whole document with a bundled example (the Jack demo or the DAG Jack example), or with an empty document for any other id."
+                },
+                "reuse": {
+                  "de": "Ersetzt das gesamte Dokument durch ein mitgeliefertes Beispiel (die Jack-Demo oder das DAG-Jack-Beispiel), bei jeder anderen Id durch ein leeres Dokument.",
+                  "en": "Replaces the whole document with a bundled example (the Jack demo or the DAG Jack example), or with an empty document for any other id."
+                }
+              },
               "effects": {
                 "destructive": true,
                 "external": false,
@@ -364,6 +394,7 @@
               }
             },
             "semantics": {
+              "audience": "input",
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -427,8 +458,18 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Ersetzt den gesamten Text des Dokuments durch den angegebenen Text; der bisherige Text ist fort, sofern die Änderung nicht rückgängig gemacht wird.",
+                  "en": "Replaces the document's entire text with the given text; the previous text is gone unless the edit is undone."
+                },
+                "reuse": {
+                  "de": "Ersetzt den gesamten Text des Dokuments durch den angegebenen Text; der bisherige Text ist fort, sofern die Änderung nicht rückgängig gemacht wird.",
+                  "en": "Replaces the document's entire text with the given text; the previous text is gone unless the edit is undone."
+                }
+              },
               "effects": {
-                "destructive": false,
+                "destructive": true,
                 "external": false,
                 "reversible": true,
                 "writes": [
@@ -517,6 +558,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Steht die Einfügemarke auf einer Jack-Variablen, werden alle ihre Vorkommen in den angegebenen Text umbenannt; sonst ersetzt der Text den ausgewählten Bereich des Editors.",
+                  "en": "With the caret on a Jack variable, renames every occurrence of it to the given text; otherwise replaces the editor's selected range with that text."
+                },
+                "reuse": {
+                  "de": "Steht die Einfügemarke auf einer Jack-Variablen, werden alle ihre Vorkommen in den angegebenen Text umbenannt; sonst ersetzt der Text den ausgewählten Bereich des Editors.",
+                  "en": "With the caret on a Jack variable, renames every occurrence of it to the given text; otherwise replaces the editor's selected range with that text."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -606,6 +657,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Ersetzt das gesamte Writer-Dokument mit Text, Sprache und Metadaten durch das übergebene; vom bisherigen Dokument bleibt nichts erhalten.",
+                  "en": "Replaces the whole writer document, its text, language and metadata, with the supplied document; nothing of the previous one is kept."
+                },
+                "reuse": {
+                  "de": "Ersetzt das gesamte Writer-Dokument mit Text, Sprache und Metadaten durch das übergebene; vom bisherigen Dokument bleibt nichts erhalten.",
+                  "en": "Replaces the whole writer document, its text, language and metadata, with the supplied document; nothing of the previous one is kept."
+                }
+              },
               "effects": {
                 "destructive": true,
                 "external": false,
@@ -650,8 +711,18 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Öffnet den angegebenen Text unter einer URI als Writer-Dokument und erkennt die Sprache aus Inhalt oder Dateiendung; das aktuelle Dokument wird ersetzt.",
+                  "en": "Opens the given text under a URI as the writer document, detecting its language from the content or extension; the current document is replaced."
+                },
+                "reuse": {
+                  "de": "Öffnet den angegebenen Text unter einer URI als Writer-Dokument und erkennt die Sprache aus Inhalt oder Dateiendung; das aktuelle Dokument wird ersetzt.",
+                  "en": "Opens the given text under a URI as the writer document, detecting its language from the content or extension; the current document is replaced."
+                }
+              },
               "effects": {
-                "destructive": false,
+                "destructive": true,
                 "external": false,
                 "reversible": true,
                 "writes": [
@@ -712,6 +783,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Ersetzt das gesamte Writer-Dokument durch eines, das aus dem angegebenen Dokument-JSON gelesen wird; ungültiges JSON ändert nichts.",
+                  "en": "Replaces the whole writer document with one parsed from the given document JSON; invalid JSON changes nothing."
+                },
+                "reuse": {
+                  "de": "Ersetzt das gesamte Writer-Dokument durch eines, das aus dem angegebenen Dokument-JSON gelesen wird; ungültiges JSON ändert nichts.",
+                  "en": "Replaces the whole writer document with one parsed from the given document JSON; invalid JSON changes nothing."
+                }
+              },
               "effects": {
                 "destructive": true,
                 "external": false,
@@ -774,6 +855,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Lädt eine als JSON übergebene Test-Fixture als gesamtes Writer-Dokument und ersetzt das aktuelle; ungültiges JSON ändert nichts.",
+                  "en": "Loads a test fixture given as JSON as the whole writer document, replacing the current one; invalid JSON changes nothing."
+                },
+                "reuse": {
+                  "de": "Lädt eine als JSON übergebene Test-Fixture als gesamtes Writer-Dokument und ersetzt das aktuelle; ungültiges JSON ändert nichts.",
+                  "en": "Loads a test fixture given as JSON as the whole writer document, replacing the current one; invalid JSON changes nothing."
+                }
+              },
               "effects": {
                 "destructive": true,
                 "external": false,
@@ -1730,6 +1821,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Öffnet den Tutorial-Rekorder für das geöffnete Dokument, damit die nächsten Interaktionen als Tutorial aufgezeichnet werden.",
+                  "en": "Opens the tutorial recorder on the open document so the next interactions are recorded as a tutorial."
+                },
+                "reuse": {
+                  "de": "Öffnet den Tutorial-Rekorder für das geöffnete Dokument, damit die nächsten Interaktionen als Tutorial aufgezeichnet werden.",
+                  "en": "Opens the tutorial recorder on the open document so the next interactions are recorded as a tutorial."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -1835,6 +1936,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Filtert den Verlaufsbereich auf alle Einträge, nur Dokumentoperationen oder alles außer Dokumentoperationen; das Dokument wird nicht verändert.",
+                  "en": "Filters the history panel to all entries, only document operations, or everything except document operations; the document is not changed."
+                },
+                "reuse": {
+                  "de": "Filtert den Verlaufsbereich auf alle Einträge, nur Dokumentoperationen oder alles außer Dokumentoperationen; das Dokument wird nicht verändert.",
+                  "en": "Filters the history panel to all entries, only document operations, or everything except document operations; the document is not changed."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -1933,6 +2044,16 @@
             },
             "semantics": {
               "audience": "chrome",
+              "description": {
+                "native": {
+                  "de": "Vermerkt eine bereits erfolgte Shell-Wirkung (Navigation, Export, Start) im Sitzungsprotokoll; das Dokument wird nicht verändert.",
+                  "en": "Records a shell effect that already happened (navigation, export, spawn) in the session command log; the document is not changed."
+                },
+                "reuse": {
+                  "de": "Vermerkt eine bereits erfolgte Shell-Wirkung (Navigation, Export, Start) im Sitzungsprotokoll; das Dokument wird nicht verändert.",
+                  "en": "Records a shell effect that already happened (navigation, export, spawn) in the session command log; the document is not changed."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -2590,11 +2711,11 @@
                 "kind": "interaction",
                 "label": {
                   "native": {
-                    "de": "Hover",
+                    "de": "Darüberfahren",
                     "en": "Hover"
                   },
                   "reuse": {
-                    "de": "Hover",
+                    "de": "Darüberfahren",
                     "en": "Hover"
                   }
                 },
@@ -2876,6 +2997,51 @@
                   "reuse": {
                     "de": "Granularität festlegen",
                     "en": "Set Granularity"
+                  }
+                },
+                "semantics": {
+                  "effects": {
+                    "destructive": false,
+                    "external": false,
+                    "reads": [
+                      "config:{self}"
+                    ],
+                    "reversible": false
+                  },
+                  "execution": {
+                    "cancellable": false,
+                    "class": "interactive",
+                    "expectedRevision": false,
+                    "idempotency": "none",
+                    "interactiveJob": "migrated",
+                    "preview": "none",
+                    "undo": {
+                      "kind": "none"
+                    }
+                  },
+                  "policy": {
+                    "approval": "never",
+                    "scopes": [
+                      "artifacts.read",
+                      "shell.observe"
+                    ]
+                  }
+                }
+              },
+              {
+                "args": [],
+                "iconId": "square",
+                "id": "cancelTypedOperation",
+                "inPalette": false,
+                "kind": "view",
+                "label": {
+                  "native": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  },
+                  "reuse": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
                   }
                 },
                 "semantics": {
@@ -3640,6 +3806,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Öffnet den Tutorial-Rekorder für das geöffnete Dokument, damit die nächsten Interaktionen als Tutorial aufgezeichnet werden.",
+                  "en": "Opens the tutorial recorder on the open document so the next interactions are recorded as a tutorial."
+                },
+                "reuse": {
+                  "de": "Öffnet den Tutorial-Rekorder für das geöffnete Dokument, damit die nächsten Interaktionen als Tutorial aufgezeichnet werden.",
+                  "en": "Opens the tutorial recorder on the open document so the next interactions are recorded as a tutorial."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -3745,6 +3921,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Filtert den Verlaufsbereich auf alle Einträge, nur Dokumentoperationen oder alles außer Dokumentoperationen; das Dokument wird nicht verändert.",
+                  "en": "Filters the history panel to all entries, only document operations, or everything except document operations; the document is not changed."
+                },
+                "reuse": {
+                  "de": "Filtert den Verlaufsbereich auf alle Einträge, nur Dokumentoperationen oder alles außer Dokumentoperationen; das Dokument wird nicht verändert.",
+                  "en": "Filters the history panel to all entries, only document operations, or everything except document operations; the document is not changed."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -3843,6 +4029,16 @@
             },
             "semantics": {
               "audience": "chrome",
+              "description": {
+                "native": {
+                  "de": "Vermerkt eine bereits erfolgte Shell-Wirkung (Navigation, Export, Start) im Sitzungsprotokoll; das Dokument wird nicht verändert.",
+                  "en": "Records a shell effect that already happened (navigation, export, spawn) in the session command log; the document is not changed."
+                },
+                "reuse": {
+                  "de": "Vermerkt eine bereits erfolgte Shell-Wirkung (Navigation, Export, Start) im Sitzungsprotokoll; das Dokument wird nicht verändert.",
+                  "en": "Records a shell effect that already happened (navigation, export, spawn) in the session command log; the document is not changed."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -3920,7 +4116,7 @@
             "class": "data",
             "form": "value"
           },
-          "artifactSchema": "",
+          "artifactSchema": "writer.document",
           "exportFormats": [],
           "importFormats": [],
           "ports": []
@@ -4022,7 +4218,53 @@
         "utilities": [],
         "windowKinds": [
           {
-            "actions": [],
+            "actions": [
+              {
+                "args": [],
+                "iconId": "square",
+                "id": "cancelTypedOperation",
+                "inPalette": false,
+                "kind": "view",
+                "label": {
+                  "native": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  },
+                  "reuse": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  }
+                },
+                "semantics": {
+                  "effects": {
+                    "destructive": false,
+                    "external": false,
+                    "reads": [
+                      "config:{self}"
+                    ],
+                    "reversible": false
+                  },
+                  "execution": {
+                    "cancellable": false,
+                    "class": "interactive",
+                    "expectedRevision": false,
+                    "idempotency": "none",
+                    "interactiveJob": "migrated",
+                    "preview": "none",
+                    "undo": {
+                      "kind": "none"
+                    }
+                  },
+                  "policy": {
+                    "approval": "never",
+                    "scopes": [
+                      "artifacts.read",
+                      "shell.observe"
+                    ]
+                  }
+                }
+              }
+            ],
             "bodyKey": "framework.window.text",
             "capabilities": [],
             "iconId": "type",
@@ -4065,7 +4307,7 @@
     "commands": [],
     "examples": [
       {
-        "artifactJson": "semio writer.writer.dsl v1\nschema=7772697465722e646f63756d656e74\nid=6a61636b\nlanguageId=6a61636b\nuri=7772697465723a2f2f6a61636b\ntext=4d415443482028613a5069656365292d5b723a436f6e6e656374696f6e5d2d3e28623a5069656365290a574845524520612e6e616d65203d2022636f7265220a52455455524e20612e6e616d652c20622e6e616d65\ndocument=[646f63756d656e742d39323661343936643333343530356336,646f63756d656e742d3932366134393664333334353035633621732e737464696f2e73656d696f4076312f646f63756d656e74]\n",
+        "artifactJson": "semio writer.writer.dsl v1\nschema=writer.document id=jack language-id=jack uri=\"writer://jack\" text=\"MATCH (a:Piece)-[r:Connection]->(b:Piece)\\nWHERE a.name = \\\"core\\\"\\nRETURN a.name, b.name\" document=child_id=document-926a496d334505c6 target=\"document-926a496d334505c6!s.stdio.semio@v1/document\"\n",
         "dialect": {
           "artifactKind": "s.writer.writer",
           "standard": "1",

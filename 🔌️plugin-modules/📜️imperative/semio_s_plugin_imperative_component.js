@@ -20,7 +20,7 @@ const { log, nowMs } = await import(__semioActivationHostUrl().href);
 import { environment, exit as exit$1, stderr, stdin, stdout, terminalInput, terminalOutput, terminalStderr, terminalStdin, terminalStdout } from '../🪞️vendor/🤝️bytecode-alliance/🪟️preview2-shim/cli.js';
 import { monotonicClock, wallClock } from '../🪞️vendor/🤝️bytecode-alliance/🪟️preview2-shim/clocks.js';
 import { error, poll as poll$2, streams } from '../🪞️vendor/🤝️bytecode-alliance/🪟️preview2-shim/io.js';
-import { insecureSeed as insecureSeed$1 } from '../🪞️vendor/🤝️bytecode-alliance/🪟️preview2-shim/random.js';
+import { insecureSeed as insecureSeed$1, random } from '../🪞️vendor/🤝️bytecode-alliance/🪟️preview2-shim/random.js';
 const { getEnvironment } = environment;
 
 if (getEnvironment=== undefined) {
@@ -169,6 +169,14 @@ const { insecureSeed } = insecureSeed$1;
 
 if (insecureSeed=== undefined) {
   const err = new Error("unexpectedly undefined local import 'insecureSeed', was 'insecureSeed' available at instantiation?");
+  console.error("ERROR:", err.toString());
+  throw err;
+}
+
+const { getRandomU64 } = random;
+
+if (getRandomU64=== undefined) {
+  const err = new Error("unexpectedly undefined local import 'getRandomU64', was 'getRandomU64' available at instantiation?");
   console.error("ERROR:", err.toString());
   throw err;
 }
@@ -5019,6 +5027,87 @@ function _suspendingImport(componentIdx, fn, syncOnly = false, switchesTask = fa
 let exports0;
 
 const _trampoline0 = function() {
+  _debugLog('[iface="wasi:random/random@0.2.9", function="get-random-u64"] [Instruction::CallInterface] (sync, @ enter)');
+  const hostProvided = true;
+  
+  let parentTask;
+  let task;
+  let subtask;
+  
+  const createTask = () => {
+    const results = createNewCurrentTask({
+      componentIdx: -1,
+      isAsync: false,
+      entryFnName: 'getRandomU64',
+      getCallbackFn: () => null,
+      callbackFnName: null,
+      errHandling: 'none',
+      callingWasmExport: false,
+    });
+    task = results[0];
+  };
+  
+  taskCreation: {
+    parentTask = getCurrentTask(
+    0,
+    _getGlobalCurrentTaskMeta(0)?.taskID,
+    )?.task;
+    
+    if (!parentTask) {
+      createTask();
+      break taskCreation;
+    }
+    
+    createTask();
+    
+    if (hostProvided) {
+      subtask = parentTask.getLatestSubtask();
+      if (!subtask) {
+        throw new Error(`Missing subtask (in parent task [${parentTask.id()}]) for host import, has the import been lowered? (ensure asyncImports are set properly)`);
+      }
+      task.setParentSubtask(subtask);
+    }
+  }
+  
+  const started = task.enterSync();
+  
+  let ret;
+  
+  try {
+    ret = _withGlobalCurrentTaskMeta({
+      componentIdx: task.componentIdx(),
+      taskID: task.id(),
+      fn: () => _trackHostOperation(() => getRandomU64()),
+    })
+    ;
+  } catch (err) {
+    
+    _debugLog('[Instruction::CallInterface] error during sync call', {
+      taskID: task.id(),
+      subtaskID: task.getParentSubtask()?.id(),
+      err,
+    });
+    getOrCreateAsyncState(0).markTrapped(err);
+    task.setErrored(err);
+    task.reject(err);
+    task.exit();
+    throw err;
+    
+  }
+  
+  _debugLog('[iface="wasi:random/random@0.2.9", function="get-random-u64"][Instruction::Return]', {
+    funcName: 'get-random-u64',
+    paramCount: 1,
+    async: false,
+    postReturn: false
+  });
+  task.resolve([toUint64(ret)]);
+  task.exit();
+  return toUint64(ret);
+}
+_trampoline0.fnName = 'wasi:random/random@0.2.9#getRandomU64';
+
+const _trampoline1 = function() {
   _debugLog('[iface="semio:framework/pure@1.0.0", function="now-ms"] [Instruction::CallInterface] (sync, @ enter)');
   const hostProvided = true;
   
@@ -5097,9 +5186,9 @@ const _trampoline0 = function() {
   task.exit();
   return toInt64(ret);
 }
-_trampoline0.fnName = 'semio:framework/pure@1.0.0#nowMs';
+_trampoline1.fnName = 'semio:framework/pure@1.0.0#nowMs';
 
-const _trampoline12 = function(arg0) {
+const _trampoline13 = function(arg0) {
   let variant0;
   switch (arg0) {
     case 0: {
@@ -5197,7 +5286,7 @@ const _trampoline12 = function(arg0) {
   task.resolve([ret]);
   task.exit();
 }
-_trampoline12.fnName = 'wasi:cli/exit@0.2.9#exit';
+_trampoline13.fnName = 'wasi:cli/exit@0.2.9#exit';
 
 const handleTable0 = [T_FLAG, 0];
 handleTable0._createdReps = new Set();
@@ -5209,7 +5298,7 @@ let captureCnt0= 0;
 
 HANDLE_TABLES[0] = handleTable0;
 
-const _trampoline13 = function(arg0) {
+const _trampoline14 = function(arg0) {
   var handle1 = arg0;
   
   var rep2 = handleTable0[(handle1 << 1) + 1] & ~T_FLAG;
@@ -5308,7 +5397,7 @@ const _trampoline13 = function(arg0) {
   task.resolve([ret]);
   task.exit();
 }
-_trampoline13.fnName = 'wasi:io/poll@0.2.9#block';
+_trampoline14.fnName = 'wasi:io/poll@0.2.9#block';
 
 const handleTable3 = [T_FLAG, 0];
 handleTable3._createdReps = new Set();
@@ -5320,7 +5409,7 @@ let captureCnt3= 0;
 
 HANDLE_TABLES[3] = handleTable3;
 
-const _trampoline14 = function(arg0) {
+const _trampoline15 = function(arg0) {
   var handle1 = arg0;
   
   var rep2 = handleTable3[(handle1 << 1) + 1] & ~T_FLAG;
@@ -5431,7 +5520,7 @@ const _trampoline14 = function(arg0) {
   task.exit();
   return handle3;
 }
-_trampoline14.fnName = 'wasi:io/streams@0.2.9#subscribe';
+_trampoline15.fnName = 'wasi:io/streams@0.2.9#subscribe';
 
 const handleTable2 = [T_FLAG, 0];
 handleTable2._createdReps = new Set();
@@ -5443,7 +5532,7 @@ let captureCnt2= 0;
 
 HANDLE_TABLES[2] = handleTable2;
 
-const _trampoline15 = function() {
+const _trampoline16 = function() {
   _debugLog('[iface="wasi:cli/stdin@0.2.9", function="get-stdin"] [Instruction::CallInterface] (sync, @ enter)');
   const hostProvided = true;
   
@@ -5533,9 +5622,9 @@ const _trampoline15 = function() {
   task.exit();
   return handle0;
 }
-_trampoline15.fnName = 'wasi:cli/stdin@0.2.9#getStdin';
+_trampoline16.fnName = 'wasi:cli/stdin@0.2.9#getStdin';
 
-const _trampoline16 = function() {
+const _trampoline17 = function() {
   _debugLog('[iface="wasi:cli/stdout@0.2.9", function="get-stdout"] [Instruction::CallInterface] (sync, @ enter)');
   const hostProvided = true;
   
@@ -5625,9 +5714,9 @@ const _trampoline16 = function() {
   task.exit();
   return handle0;
 }
-_trampoline16.fnName = 'wasi:cli/stdout@0.2.9#getStdout';
+_trampoline17.fnName = 'wasi:cli/stdout@0.2.9#getStdout';
 
-const _trampoline17 = function() {
+const _trampoline18 = function() {
   _debugLog('[iface="wasi:cli/stderr@0.2.9", function="get-stderr"] [Instruction::CallInterface] (sync, @ enter)');
   const hostProvided = true;
   
@@ -5717,9 +5806,9 @@ const _trampoline17 = function() {
   task.exit();
   return handle0;
 }
-_trampoline17.fnName = 'wasi:cli/stderr@0.2.9#getStderr';
+_trampoline18.fnName = 'wasi:cli/stderr@0.2.9#getStderr';
 
-const _trampoline18 = function() {
+const _trampoline19 = function() {
   _debugLog('[iface="wasi:clocks/monotonic-clock@0.2.9", function="now"] [Instruction::CallInterface] (sync, @ enter)');
   const hostProvided = true;
   
@@ -5798,9 +5887,9 @@ const _trampoline18 = function() {
   task.exit();
   return toUint64(ret);
 }
-_trampoline18.fnName = 'wasi:clocks/monotonic-clock@0.2.9#now';
+_trampoline19.fnName = 'wasi:clocks/monotonic-clock@0.2.9#now';
 
-const _trampoline19 = function(arg0) {
+const _trampoline20 = function(arg0) {
   _debugLog('[iface="wasi:clocks/monotonic-clock@0.2.9", function="subscribe-duration"] [Instruction::CallInterface] (sync, @ enter)');
   const hostProvided = true;
   
@@ -5890,13 +5979,13 @@ const _trampoline19 = function(arg0) {
   task.exit();
   return handle0;
 }
-_trampoline19.fnName = 'wasi:clocks/monotonic-clock@0.2.9#subscribeDuration';
+_trampoline20.fnName = 'wasi:clocks/monotonic-clock@0.2.9#subscribeDuration';
 let exports1;
 let memory0;
 let realloc0;
 let realloc0Async;
 
-const _trampoline20 = function(arg0) {
+const _trampoline21 = function(arg0) {
   _debugLog('[iface="wasi:random/insecure-seed@0.2.9", function="insecure-seed"] [Instruction::CallInterface] (sync, @ enter)');
   const hostProvided = true;
   
@@ -5977,9 +6066,9 @@ const _trampoline20 = function(arg0) {
   task.resolve([ret]);
   task.exit();
 }
-_trampoline20.fnName = 'wasi:random/insecure-seed@0.2.9#insecureSeed';
+_trampoline21.fnName = 'wasi:random/insecure-seed@0.2.9#insecureSeed';
 
-const _trampoline21 = function(arg0, arg1, arg2, arg3) {
+const _trampoline22 = function(arg0, arg1, arg2, arg3) {
   var ptr0 = arg0;
   var len0 = arg1;
   var result0 = TEXT_DECODER_UTF8.decode(new Uint8Array(memory0.buffer, ptr0, len0));
@@ -6063,9 +6152,9 @@ const _trampoline21 = function(arg0, arg1, arg2, arg3) {
   task.resolve([ret]);
   task.exit();
 }
-_trampoline21.fnName = 'semio:framework/pure@1.0.0#log';
+_trampoline22.fnName = 'semio:framework/pure@1.0.0#log';
 
-const _trampoline31 = function(arg0, arg1, arg2) {
+const _trampoline32 = function(arg0, arg1, arg2) {
   var len3 = arg1;
   var base3 = arg0;
   if (base3 % 4 !== 0) throw new TypeError(`list pointer [${base3}] is not aligned to 4`);
@@ -6196,7 +6285,7 @@ const _trampoline31 = function(arg0, arg1, arg2) {
   task.resolve([ret]);
   task.exit();
 }
-_trampoline31.fnName = 'wasi:io/poll@0.2.9#poll';
+_trampoline32.fnName = 'wasi:io/poll@0.2.9#poll';
 
 const handleTable1 = [T_FLAG, 0];
 handleTable1._createdReps = new Set();
@@ -6208,7 +6297,7 @@ let captureCnt1= 0;
 
 HANDLE_TABLES[1] = handleTable1;
 
-const _trampoline32 = function(arg0, arg1) {
+const _trampoline33 = function(arg0, arg1) {
   var handle1 = arg0;
   
   var rep2 = handleTable3[(handle1 << 1) + 1] & ~T_FLAG;
@@ -6346,9 +6435,9 @@ const _trampoline32 = function(arg0, arg1) {
   task.resolve([ret]);
   task.exit();
 }
-_trampoline32.fnName = 'wasi:io/streams@0.2.9#checkWrite';
+_trampoline33.fnName = 'wasi:io/streams@0.2.9#checkWrite';
 
-const _trampoline33 = function(arg0, arg1, arg2, arg3) {
+const _trampoline34 = function(arg0, arg1, arg2, arg3) {
   var handle1 = arg0;
   
   var rep2 = handleTable3[(handle1 << 1) + 1] & ~T_FLAG;
@@ -6489,9 +6578,9 @@ const _trampoline33 = function(arg0, arg1, arg2, arg3) {
   task.resolve([ret]);
   task.exit();
 }
-_trampoline33.fnName = 'wasi:io/streams@0.2.9#write';
+_trampoline34.fnName = 'wasi:io/streams@0.2.9#write';
 
-const _trampoline34 = function(arg0, arg1) {
+const _trampoline35 = function(arg0, arg1) {
   var handle1 = arg0;
   
   var rep2 = handleTable3[(handle1 << 1) + 1] & ~T_FLAG;
@@ -6628,9 +6717,9 @@ const _trampoline34 = function(arg0, arg1) {
   task.resolve([ret]);
   task.exit();
 }
-_trampoline34.fnName = 'wasi:io/streams@0.2.9#blockingFlush';
+_trampoline35.fnName = 'wasi:io/streams@0.2.9#blockingFlush';
 
-const _trampoline35 = function(arg0) {
+const _trampoline36 = function(arg0) {
   _debugLog('[iface="wasi:cli/environment@0.2.9", function="get-environment"] [Instruction::CallInterface] (sync, @ enter)');
   const hostProvided = true;
   
@@ -6731,7 +6820,7 @@ const _trampoline35 = function(arg0) {
   task.resolve([ret]);
   task.exit();
 }
-_trampoline35.fnName = 'wasi:cli/environment@0.2.9#getEnvironment';
+_trampoline36.fnName = 'wasi:cli/environment@0.2.9#getEnvironment';
 
 const handleTable4 = [T_FLAG, 0];
 handleTable4._createdReps = new Set();
@@ -6743,7 +6832,7 @@ let captureCnt4= 0;
 
 HANDLE_TABLES[4] = handleTable4;
 
-const _trampoline36 = function(arg0) {
+const _trampoline37 = function(arg0) {
   _debugLog('[iface="wasi:cli/terminal-stdin@0.2.9", function="get-terminal-stdin"] [Instruction::CallInterface] (sync, @ enter)');
   const hostProvided = true;
   
@@ -6840,7 +6929,7 @@ const _trampoline36 = function(arg0) {
   task.resolve([ret]);
   task.exit();
 }
-_trampoline36.fnName = 'wasi:cli/terminal-stdin@0.2.9#getTerminalStdin';
+_trampoline37.fnName = 'wasi:cli/terminal-stdin@0.2.9#getTerminalStdin';
 
 const handleTable5 = [T_FLAG, 0];
 handleTable5._createdReps = new Set();
@@ -6852,7 +6941,7 @@ let captureCnt5= 0;
 
 HANDLE_TABLES[5] = handleTable5;
 
-const _trampoline37 = function(arg0) {
+const _trampoline38 = function(arg0) {
   _debugLog('[iface="wasi:cli/terminal-stdout@0.2.9", function="get-terminal-stdout"] [Instruction::CallInterface] (sync, @ enter)');
   const hostProvided = true;
   
@@ -6949,9 +7038,9 @@ const _trampoline37 = function(arg0) {
   task.resolve([ret]);
   task.exit();
 }
-_trampoline37.fnName = 'wasi:cli/terminal-stdout@0.2.9#getTerminalStdout';
+_trampoline38.fnName = 'wasi:cli/terminal-stdout@0.2.9#getTerminalStdout';
 
-const _trampoline38 = function(arg0) {
+const _trampoline39 = function(arg0) {
   _debugLog('[iface="wasi:cli/terminal-stderr@0.2.9", function="get-terminal-stderr"] [Instruction::CallInterface] (sync, @ enter)');
   const hostProvided = true;
   
@@ -7048,9 +7137,9 @@ const _trampoline38 = function(arg0) {
   task.resolve([ret]);
   task.exit();
 }
-_trampoline38.fnName = 'wasi:cli/terminal-stderr@0.2.9#getTerminalStderr';
+_trampoline39.fnName = 'wasi:cli/terminal-stderr@0.2.9#getTerminalStderr';
 
-const _trampoline39 = function(arg0) {
+const _trampoline40 = function(arg0) {
   _debugLog('[iface="wasi:clocks/wall-clock@0.2.9", function="now"] [Instruction::CallInterface] (sync, @ enter)');
   const hostProvided = true;
   
@@ -7131,7 +7220,7 @@ const _trampoline39 = function(arg0) {
   task.resolve([ret]);
   task.exit();
 }
-_trampoline39.fnName = 'wasi:clocks/wall-clock@0.2.9#now$1';
+_trampoline40.fnName = 'wasi:clocks/wall-clock@0.2.9#now$1';
 let exports2;
 let callback_0;
 let reactor100StageCommandPage;
@@ -10557,6 +10646,226 @@ async function applyOps(arg0, arg1, arg2) {
   });
   
 }
+let codec100ReplayEnvelopes;
+
+async function replayEnvelopes(arg0, arg1, arg2) {
+  
+  const hostProvided = false;
+  getOrCreateAsyncState(0).throwIfTrapped();
+  
+  const [task, _wasm_call_currentTaskID] = createNewCurrentTask({
+    componentIdx: 0,
+    isAsync: true,
+    isManualAsync: false,
+    preserveFutureResult: false,
+    entryFnName: 'codec100ReplayEnvelopes',
+    getCallbackFn: () => callback_0,
+    callbackFnName: callback_0,
+    errHandling: 'throw-result-err',
+    callingWasmExport: true,
+  });
+  task.setCalleeIsAsync(true);
+  
+  
+  const started = await task.enter();
+  if (!started) {
+    _debugLog('[Instruction::AsyncTaskReturn] failed to enter task', {
+      taskID: task.id(),
+      subtaskID: task.currentSubtask()?.id(),
+    });
+    throw new Error("failed to enter task");
+  }
+  
+  CURRENT_TASK_MAY_BLOCK.value = task.mayBlock() ? 1 : 0;
+  
+  if (0!== null) {
+    task.setReturnMemoryIdx(0);
+    task.setReturnMemory((() => memory0)());
+  }
+  
+  
+  return await _withGlobalCurrentTaskMetaAsync({
+    taskID: task.id(),
+    componentIdx: task.componentIdx(),
+    fn: async () => {
+      try {
+        
+        
+        var encodeRes = await _utf8AllocateAndEncodeAsync(arg0, realloc0Async, memory0);
+        var ptr0= encodeRes.ptr;
+        var len0 = encodeRes.len;
+        
+        var {pack: v1_0, spr: v1_1 } = arg1;
+        var val2 = v1_0;
+        var len2 = Array.isArray(val2) ? val2.length : val2.byteLength;
+        var ptr2 = await realloc0Async(0, 0, 1, len2 * 1);
+        
+        let valData2;
+        const valLenBytes2 = len2 * 1;
+        if (Array.isArray(val2)) {
+          // Regular array likely containing numbers, write values to memory
+          let offset = 0;
+          const dv2 = new DataView(memory0.buffer);
+          for (const v of val2) {
+            _requireValidNumericPrimitive.bind(null, 'u8')(v);
+            dv2.setUint8(ptr2+ offset, v, true);
+            offset += 1;
+          }
+        } else {
+          // TypedArray / ArrayBuffer-like, direct copy
+          valData2 = new Uint8Array(val2.buffer || val2, val2.byteOffset, valLenBytes2);
+          const out2 = new Uint8Array(memory0.buffer, ptr2, valLenBytes2);
+          out2.set(valData2);
+        }
+        
+        var val3 = v1_1;
+        var len3 = Array.isArray(val3) ? val3.length : val3.byteLength;
+        var ptr3 = await realloc0Async(0, 0, 1, len3 * 1);
+        
+        let valData3;
+        const valLenBytes3 = len3 * 1;
+        if (Array.isArray(val3)) {
+          // Regular array likely containing numbers, write values to memory
+          let offset = 0;
+          const dv3 = new DataView(memory0.buffer);
+          for (const v of val3) {
+            _requireValidNumericPrimitive.bind(null, 'u8')(v);
+            dv3.setUint8(ptr3+ offset, v, true);
+            offset += 1;
+          }
+        } else {
+          // TypedArray / ArrayBuffer-like, direct copy
+          valData3 = new Uint8Array(val3.buffer || val3, val3.byteOffset, valLenBytes3);
+          const out3 = new Uint8Array(memory0.buffer, ptr3, valLenBytes3);
+          out3.set(valData3);
+        }
+        
+        var val4 = arg2;
+        var len4 = Array.isArray(val4) ? val4.length : val4.byteLength;
+        var ptr4 = await realloc0Async(0, 0, 1, len4 * 1);
+        
+        let valData4;
+        const valLenBytes4 = len4 * 1;
+        if (Array.isArray(val4)) {
+          // Regular array likely containing numbers, write values to memory
+          let offset = 0;
+          const dv4 = new DataView(memory0.buffer);
+          for (const v of val4) {
+            _requireValidNumericPrimitive.bind(null, 'u8')(v);
+            dv4.setUint8(ptr4+ offset, v, true);
+            offset += 1;
+          }
+        } else {
+          // TypedArray / ArrayBuffer-like, direct copy
+          valData4 = new Uint8Array(val4.buffer || val4, val4.byteOffset, valLenBytes4);
+          const out4 = new Uint8Array(memory0.buffer, ptr4, valLenBytes4);
+          out4.set(valData4);
+        }
+        
+        _debugLog('[iface="semio:framework/codec@1.0.0", function="replay-envelopes"][Instruction::CallWasm] enter', {
+          funcName: 'replay-envelopes',
+          paramCount: 8,
+          async: true,
+          postReturn: false,
+        });
+        
+        let ret;
+        
+        try {
+          ret =  await _withGlobalCurrentTaskMeta({
+            taskID: task.id(),
+            componentIdx: task.componentIdx(),
+            fn: () => codec100ReplayEnvelopes(ptr0, len0, ptr2, len2, ptr3, len3, ptr4, len4),
+          });
+        } catch (err) {
+          
+          _debugLog('[Instruction::CallWasm] error during async call', {
+            taskID: task.id(),
+            err,
+          });
+          getOrCreateAsyncState(0).markTrapped(err);
+          task.setErrored(err);
+          task.reject(err);
+          task.exit();
+          return task.completionPromise();
+          
+        }
+        
+        _debugLog('[iface="semio:framework/codec@1.0.0", function="replay-envelopes"][Instruction::AsyncTaskReturn]', {
+          funcName: 'replay-envelopes',
+          paramCount: 1,
+          componentIdx: 0,
+          postReturn: false,
+          hostProvided,
+        });
+        
+        if (hostProvided) {
+          _debugLog('[Instruction::AsyncTaskReturn] signaling host-provided async return completion', {
+            task: task.id(),
+            subtask: subtask?.id(),
+            result: ret,
+          })
+          task.resolve([ret]);
+          task.exit();
+          return ret;
+        }
+        
+        // An async lift without a callback completes when its core
+        // function returns; there is no callback protocol to drive.
+        if (!task.hasCallback()) {
+          
+          task.resolve([ret]);
+          task.exit();
+          return ret;
+        }
+        
+        const componentState = getOrCreateAsyncState(0);
+        if (!componentState) { throw new Error('failed to lookup current component state'); }
+        
+        queueMicrotask(async (resolve, reject) => {
+          try {
+            _debugLog("[Instruction::AsyncTaskReturn] starting driver loop", {
+              fnName: 'replay-envelopes',
+              componentInstanceIdx: 0,
+              taskID: task.id(),
+            });
+            await _driverLoop({
+              componentInstanceIdx: 0,
+              componentState,
+              task,
+              fnName: 'replay-envelopes',
+              isAsync: true,
+              callbackResult: ret,
+            });
+          } catch (err) {
+            _debugLog("[Instruction::AsyncTaskReturn] driver loop call failure", { err });
+          }
+        });
+        
+        let taskRes = await task.completionPromise();
+        if (task.getErrHandling() === 'throw-result-err') {
+          if (typeof taskRes !== 'object') {
+            return taskRes;
+          }
+          if (taskRes.tag === 'err') { throw new ComponentError(taskRes.val);}
+          if (taskRes.tag === 'ok') { taskRes = taskRes.val; }
+        }
+        
+        return taskRes;
+        
+        
+      } catch (err) {
+        if (!task.isResolvedState()) {
+          task.setErrored(err);
+          task.reject(err);
+        }
+        if (!task.isExited()) { task.exit({ skipExclusiveLockCheck: true }); }
+        throw err;
+      }
+    },
+  });
+  
+}
 let trampoline0 = _trampoline0.manuallyAsync ? new WebAssembly.Suspending(_suspendingImport(0, _lowerImportBackwardsCompat.bind(
 null,
 {
@@ -10565,7 +10874,7 @@ null,
   isAsync: false,
   isManualAsync: _trampoline0.manuallyAsync,
   paramLiftFns: [],
-  resultLowerFns: [_lowerFlatS64],
+  resultLowerFns: [_lowerFlatU64],
   hasResultPointer: false,
   funcTypeIsAsync: false,
   getCallbackFn: () => null,
@@ -10585,7 +10894,7 @@ null,
   isAsync: false,
   isManualAsync: _trampoline0.manuallyAsync,
   paramLiftFns: [],
-  resultLowerFns: [_lowerFlatS64],
+  resultLowerFns: [_lowerFlatU64],
   hasResultPointer: false,
   funcTypeIsAsync: false,
   getCallbackFn: () => null,
@@ -10598,9 +10907,50 @@ null,
   importFn: _trampoline0,
 },
 );
-const trampoline1 = taskCancel.bind(null, 0);
+let trampoline1 = _trampoline1.manuallyAsync ? new WebAssembly.Suspending(_suspendingImport(0, _lowerImportBackwardsCompat.bind(
+null,
+{
+  trampolineIdx: 1,
+  componentIdx: 0,
+  isAsync: false,
+  isManualAsync: _trampoline1.manuallyAsync,
+  paramLiftFns: [],
+  resultLowerFns: [_lowerFlatS64],
+  hasResultPointer: false,
+  funcTypeIsAsync: false,
+  getCallbackFn: () => null,
+  getPostReturnFn: () => null,
+  isCancellable: false,
+  memoryIdx: null,
+  stringEncoding: 'utf8',
+  getMemoryFn: () => null,
+  getReallocFn: undefined,
+  importFn: _trampoline1,
+},
+))) : _lowerImportBackwardsCompat.bind(
+null,
+{
+  trampolineIdx: 1,
+  componentIdx: 0,
+  isAsync: false,
+  isManualAsync: _trampoline1.manuallyAsync,
+  paramLiftFns: [],
+  resultLowerFns: [_lowerFlatS64],
+  hasResultPointer: false,
+  funcTypeIsAsync: false,
+  getCallbackFn: () => null,
+  getPostReturnFn: () => null,
+  isCancellable: false,
+  memoryIdx: null,
+  stringEncoding: 'utf8',
+  getMemoryFn: () => null,
+  getReallocFn: undefined,
+  importFn: _trampoline1,
+},
+);
+const trampoline2 = taskCancel.bind(null, 0);
 
-const trampoline2 = taskReturn.bind(
+const trampoline3 = taskReturn.bind(
 null,
 {
   componentIdx: 0,
@@ -10613,13 +10963,13 @@ null,
   stringEncoding: 'utf8',
 },
 );
-const trampoline3 = waitableJoin.bind(null, 0);
+const trampoline4 = waitableJoin.bind(null, 0);
 
-const trampoline4 = waitableSetNew.bind(null, 0);
+const trampoline5 = waitableSetNew.bind(null, 0);
 
-const trampoline5 = waitableSetDrop.bind(null, 0);
+const trampoline6 = waitableSetDrop.bind(null, 0);
 
-function trampoline6(handle) {
+function trampoline7(handle) {
   const handleEntry = rscTableRemove(handleTable1, handle);
   if (handleEntry.own) {
     
@@ -10632,7 +10982,7 @@ function trampoline6(handle) {
     }
   }
 }
-function trampoline7(handle) {
+function trampoline8(handle) {
   const handleEntry = rscTableRemove(handleTable0, handle);
   if (handleEntry.own) {
     
@@ -10645,7 +10995,7 @@ function trampoline7(handle) {
     }
   }
 }
-function trampoline8(handle) {
+function trampoline9(handle) {
   const handleEntry = rscTableRemove(handleTable2, handle);
   if (handleEntry.own) {
     
@@ -10658,7 +11008,7 @@ function trampoline8(handle) {
     }
   }
 }
-function trampoline9(handle) {
+function trampoline10(handle) {
   const handleEntry = rscTableRemove(handleTable3, handle);
   if (handleEntry.own) {
     
@@ -10671,7 +11021,7 @@ function trampoline9(handle) {
     }
   }
 }
-function trampoline10(handle) {
+function trampoline11(handle) {
   const handleEntry = rscTableRemove(handleTable4, handle);
   if (handleEntry.own) {
     
@@ -10684,7 +11034,7 @@ function trampoline10(handle) {
     }
   }
 }
-function trampoline11(handle) {
+function trampoline12(handle) {
   const handleEntry = rscTableRemove(handleTable5, handle);
   if (handleEntry.own) {
     
@@ -10697,65 +11047,6 @@ function trampoline11(handle) {
     }
   }
 }
-let trampoline12 = _trampoline12.manuallyAsync ? new WebAssembly.Suspending(_suspendingImport(0, _lowerImportBackwardsCompat.bind(
-null,
-{
-  trampolineIdx: 12,
-  componentIdx: 0,
-  isAsync: false,
-  isManualAsync: _trampoline12.manuallyAsync,
-  paramLiftFns: [
-  _liftFlatResult({
-    caseMetas: [['ok', null, 0, 0, 0, []],['err', null, 0, 0, 0, []],],
-    variantSize32: 1,
-    variantAlign32: 1,
-    variantPayloadOffset32: 1,
-    variantFlatCount: 1,
-    variantPayloadFlatTypes: [],
-  })
-  ],
-  resultLowerFns: [],
-  hasResultPointer: false,
-  funcTypeIsAsync: false,
-  getCallbackFn: () => null,
-  getPostReturnFn: () => null,
-  isCancellable: false,
-  memoryIdx: null,
-  stringEncoding: 'utf8',
-  getMemoryFn: () => null,
-  getReallocFn: undefined,
-  importFn: _trampoline12,
-},
-))) : _lowerImportBackwardsCompat.bind(
-null,
-{
-  trampolineIdx: 12,
-  componentIdx: 0,
-  isAsync: false,
-  isManualAsync: _trampoline12.manuallyAsync,
-  paramLiftFns: [
-  _liftFlatResult({
-    caseMetas: [['ok', null, 0, 0, 0, []],['err', null, 0, 0, 0, []],],
-    variantSize32: 1,
-    variantAlign32: 1,
-    variantPayloadOffset32: 1,
-    variantFlatCount: 1,
-    variantPayloadFlatTypes: [],
-  })
-  ],
-  resultLowerFns: [],
-  hasResultPointer: false,
-  funcTypeIsAsync: false,
-  getCallbackFn: () => null,
-  getPostReturnFn: () => null,
-  isCancellable: false,
-  memoryIdx: null,
-  stringEncoding: 'utf8',
-  getMemoryFn: () => null,
-  getReallocFn: undefined,
-  importFn: _trampoline12,
-},
-);
 let trampoline13 = _trampoline13.manuallyAsync ? new WebAssembly.Suspending(_suspendingImport(0, _lowerImportBackwardsCompat.bind(
 null,
 {
@@ -10763,7 +11054,16 @@ null,
   componentIdx: 0,
   isAsync: false,
   isManualAsync: _trampoline13.manuallyAsync,
-  paramLiftFns: [_liftFlatBorrow.bind(null, 0)],
+  paramLiftFns: [
+  _liftFlatResult({
+    caseMetas: [['ok', null, 0, 0, 0, []],['err', null, 0, 0, 0, []],],
+    variantSize32: 1,
+    variantAlign32: 1,
+    variantPayloadOffset32: 1,
+    variantFlatCount: 1,
+    variantPayloadFlatTypes: [],
+  })
+  ],
   resultLowerFns: [],
   hasResultPointer: false,
   funcTypeIsAsync: false,
@@ -10783,7 +11083,16 @@ null,
   componentIdx: 0,
   isAsync: false,
   isManualAsync: _trampoline13.manuallyAsync,
-  paramLiftFns: [_liftFlatBorrow.bind(null, 0)],
+  paramLiftFns: [
+  _liftFlatResult({
+    caseMetas: [['ok', null, 0, 0, 0, []],['err', null, 0, 0, 0, []],],
+    variantSize32: 1,
+    variantAlign32: 1,
+    variantPayloadOffset32: 1,
+    variantFlatCount: 1,
+    variantPayloadFlatTypes: [],
+  })
+  ],
   resultLowerFns: [],
   hasResultPointer: false,
   funcTypeIsAsync: false,
@@ -10804,25 +11113,8 @@ null,
   componentIdx: 0,
   isAsync: false,
   isManualAsync: _trampoline14.manuallyAsync,
-  paramLiftFns: [_liftFlatBorrow.bind(null, 3)],
-  resultLowerFns: [_lowerFlatOwn({
-    componentIdx: 0,
-    tableIdx: 0,
-    lowerFn: 
-    function lowerImportedOwnedHost_Pollable(obj) {
-      if (!(obj instanceof Pollable)) {
-        throw new TypeError('Resource error: Not a valid \"Pollable\" resource.');
-      }
-      let handle = obj[symbolRscHandle];
-      if (!handle) {
-        const rep = obj[symbolRscRep] || ++captureCnt0;
-        captureTable0.set(rep, obj);
-        handle = rscTableCreateOwn(handleTable0, rep);
-      }
-      return handle;
-    }
-    ,
-  })],
+  paramLiftFns: [_liftFlatBorrow.bind(null, 0)],
+  resultLowerFns: [],
   hasResultPointer: false,
   funcTypeIsAsync: false,
   getCallbackFn: () => null,
@@ -10841,25 +11133,8 @@ null,
   componentIdx: 0,
   isAsync: false,
   isManualAsync: _trampoline14.manuallyAsync,
-  paramLiftFns: [_liftFlatBorrow.bind(null, 3)],
-  resultLowerFns: [_lowerFlatOwn({
-    componentIdx: 0,
-    tableIdx: 0,
-    lowerFn: 
-    function lowerImportedOwnedHost_Pollable(obj) {
-      if (!(obj instanceof Pollable)) {
-        throw new TypeError('Resource error: Not a valid \"Pollable\" resource.');
-      }
-      let handle = obj[symbolRscHandle];
-      if (!handle) {
-        const rep = obj[symbolRscRep] || ++captureCnt0;
-        captureTable0.set(rep, obj);
-        handle = rscTableCreateOwn(handleTable0, rep);
-      }
-      return handle;
-    }
-    ,
-  })],
+  paramLiftFns: [_liftFlatBorrow.bind(null, 0)],
+  resultLowerFns: [],
   hasResultPointer: false,
   funcTypeIsAsync: false,
   getCallbackFn: () => null,
@@ -10879,20 +11154,20 @@ null,
   componentIdx: 0,
   isAsync: false,
   isManualAsync: _trampoline15.manuallyAsync,
-  paramLiftFns: [],
+  paramLiftFns: [_liftFlatBorrow.bind(null, 3)],
   resultLowerFns: [_lowerFlatOwn({
     componentIdx: 0,
-    tableIdx: 2,
+    tableIdx: 0,
     lowerFn: 
-    function lowerImportedOwnedHost_InputStream(obj) {
-      if (!(obj instanceof InputStream)) {
-        throw new TypeError('Resource error: Not a valid \"InputStream\" resource.');
+    function lowerImportedOwnedHost_Pollable(obj) {
+      if (!(obj instanceof Pollable)) {
+        throw new TypeError('Resource error: Not a valid \"Pollable\" resource.');
       }
       let handle = obj[symbolRscHandle];
       if (!handle) {
-        const rep = obj[symbolRscRep] || ++captureCnt2;
-        captureTable2.set(rep, obj);
-        handle = rscTableCreateOwn(handleTable2, rep);
+        const rep = obj[symbolRscRep] || ++captureCnt0;
+        captureTable0.set(rep, obj);
+        handle = rscTableCreateOwn(handleTable0, rep);
       }
       return handle;
     }
@@ -10916,20 +11191,20 @@ null,
   componentIdx: 0,
   isAsync: false,
   isManualAsync: _trampoline15.manuallyAsync,
-  paramLiftFns: [],
+  paramLiftFns: [_liftFlatBorrow.bind(null, 3)],
   resultLowerFns: [_lowerFlatOwn({
     componentIdx: 0,
-    tableIdx: 2,
+    tableIdx: 0,
     lowerFn: 
-    function lowerImportedOwnedHost_InputStream(obj) {
-      if (!(obj instanceof InputStream)) {
-        throw new TypeError('Resource error: Not a valid \"InputStream\" resource.');
+    function lowerImportedOwnedHost_Pollable(obj) {
+      if (!(obj instanceof Pollable)) {
+        throw new TypeError('Resource error: Not a valid \"Pollable\" resource.');
       }
       let handle = obj[symbolRscHandle];
       if (!handle) {
-        const rep = obj[symbolRscRep] || ++captureCnt2;
-        captureTable2.set(rep, obj);
-        handle = rscTableCreateOwn(handleTable2, rep);
+        const rep = obj[symbolRscRep] || ++captureCnt0;
+        captureTable0.set(rep, obj);
+        handle = rscTableCreateOwn(handleTable0, rep);
       }
       return handle;
     }
@@ -10957,17 +11232,17 @@ null,
   paramLiftFns: [],
   resultLowerFns: [_lowerFlatOwn({
     componentIdx: 0,
-    tableIdx: 3,
+    tableIdx: 2,
     lowerFn: 
-    function lowerImportedOwnedHost_OutputStream(obj) {
-      if (!(obj instanceof OutputStream)) {
-        throw new TypeError('Resource error: Not a valid \"OutputStream\" resource.');
+    function lowerImportedOwnedHost_InputStream(obj) {
+      if (!(obj instanceof InputStream)) {
+        throw new TypeError('Resource error: Not a valid \"InputStream\" resource.');
       }
       let handle = obj[symbolRscHandle];
       if (!handle) {
-        const rep = obj[symbolRscRep] || ++captureCnt3;
-        captureTable3.set(rep, obj);
-        handle = rscTableCreateOwn(handleTable3, rep);
+        const rep = obj[symbolRscRep] || ++captureCnt2;
+        captureTable2.set(rep, obj);
+        handle = rscTableCreateOwn(handleTable2, rep);
       }
       return handle;
     }
@@ -10994,17 +11269,17 @@ null,
   paramLiftFns: [],
   resultLowerFns: [_lowerFlatOwn({
     componentIdx: 0,
-    tableIdx: 3,
+    tableIdx: 2,
     lowerFn: 
-    function lowerImportedOwnedHost_OutputStream(obj) {
-      if (!(obj instanceof OutputStream)) {
-        throw new TypeError('Resource error: Not a valid \"OutputStream\" resource.');
+    function lowerImportedOwnedHost_InputStream(obj) {
+      if (!(obj instanceof InputStream)) {
+        throw new TypeError('Resource error: Not a valid \"InputStream\" resource.');
       }
       let handle = obj[symbolRscHandle];
       if (!handle) {
-        const rep = obj[symbolRscRep] || ++captureCnt3;
-        captureTable3.set(rep, obj);
-        handle = rscTableCreateOwn(handleTable3, rep);
+        const rep = obj[symbolRscRep] || ++captureCnt2;
+        captureTable2.set(rep, obj);
+        handle = rscTableCreateOwn(handleTable2, rep);
       }
       return handle;
     }
@@ -11105,7 +11380,24 @@ null,
   isAsync: false,
   isManualAsync: _trampoline18.manuallyAsync,
   paramLiftFns: [],
-  resultLowerFns: [_lowerFlatU64],
+  resultLowerFns: [_lowerFlatOwn({
+    componentIdx: 0,
+    tableIdx: 3,
+    lowerFn: 
+    function lowerImportedOwnedHost_OutputStream(obj) {
+      if (!(obj instanceof OutputStream)) {
+        throw new TypeError('Resource error: Not a valid \"OutputStream\" resource.');
+      }
+      let handle = obj[symbolRscHandle];
+      if (!handle) {
+        const rep = obj[symbolRscRep] || ++captureCnt3;
+        captureTable3.set(rep, obj);
+        handle = rscTableCreateOwn(handleTable3, rep);
+      }
+      return handle;
+    }
+    ,
+  })],
   hasResultPointer: false,
   funcTypeIsAsync: false,
   getCallbackFn: () => null,
@@ -11125,7 +11417,24 @@ null,
   isAsync: false,
   isManualAsync: _trampoline18.manuallyAsync,
   paramLiftFns: [],
-  resultLowerFns: [_lowerFlatU64],
+  resultLowerFns: [_lowerFlatOwn({
+    componentIdx: 0,
+    tableIdx: 3,
+    lowerFn: 
+    function lowerImportedOwnedHost_OutputStream(obj) {
+      if (!(obj instanceof OutputStream)) {
+        throw new TypeError('Resource error: Not a valid \"OutputStream\" resource.');
+      }
+      let handle = obj[symbolRscHandle];
+      if (!handle) {
+        const rep = obj[symbolRscRep] || ++captureCnt3;
+        captureTable3.set(rep, obj);
+        handle = rscTableCreateOwn(handleTable3, rep);
+      }
+      return handle;
+    }
+    ,
+  })],
   hasResultPointer: false,
   funcTypeIsAsync: false,
   getCallbackFn: () => null,
@@ -11145,25 +11454,8 @@ null,
   componentIdx: 0,
   isAsync: false,
   isManualAsync: _trampoline19.manuallyAsync,
-  paramLiftFns: [_liftFlatU64],
-  resultLowerFns: [_lowerFlatOwn({
-    componentIdx: 0,
-    tableIdx: 0,
-    lowerFn: 
-    function lowerImportedOwnedHost_Pollable(obj) {
-      if (!(obj instanceof Pollable)) {
-        throw new TypeError('Resource error: Not a valid \"Pollable\" resource.');
-      }
-      let handle = obj[symbolRscHandle];
-      if (!handle) {
-        const rep = obj[symbolRscRep] || ++captureCnt0;
-        captureTable0.set(rep, obj);
-        handle = rscTableCreateOwn(handleTable0, rep);
-      }
-      return handle;
-    }
-    ,
-  })],
+  paramLiftFns: [],
+  resultLowerFns: [_lowerFlatU64],
   hasResultPointer: false,
   funcTypeIsAsync: false,
   getCallbackFn: () => null,
@@ -11182,25 +11474,8 @@ null,
   componentIdx: 0,
   isAsync: false,
   isManualAsync: _trampoline19.manuallyAsync,
-  paramLiftFns: [_liftFlatU64],
-  resultLowerFns: [_lowerFlatOwn({
-    componentIdx: 0,
-    tableIdx: 0,
-    lowerFn: 
-    function lowerImportedOwnedHost_Pollable(obj) {
-      if (!(obj instanceof Pollable)) {
-        throw new TypeError('Resource error: Not a valid \"Pollable\" resource.');
-      }
-      let handle = obj[symbolRscHandle];
-      if (!handle) {
-        const rep = obj[symbolRscRep] || ++captureCnt0;
-        captureTable0.set(rep, obj);
-        handle = rscTableCreateOwn(handleTable0, rep);
-      }
-      return handle;
-    }
-    ,
-  })],
+  paramLiftFns: [],
+  resultLowerFns: [_lowerFlatU64],
   hasResultPointer: false,
   funcTypeIsAsync: false,
   getCallbackFn: () => null,
@@ -11220,16 +11495,33 @@ null,
   componentIdx: 0,
   isAsync: false,
   isManualAsync: _trampoline20.manuallyAsync,
-  paramLiftFns: [],
-  resultLowerFns: [_lowerFlatTuple({ elemLowerMetas: [[_lowerFlatU64, 8, 8],[_lowerFlatU64, 8, 8],], size32: 16, align32: 8 })],
-  hasResultPointer: true,
+  paramLiftFns: [_liftFlatU64],
+  resultLowerFns: [_lowerFlatOwn({
+    componentIdx: 0,
+    tableIdx: 0,
+    lowerFn: 
+    function lowerImportedOwnedHost_Pollable(obj) {
+      if (!(obj instanceof Pollable)) {
+        throw new TypeError('Resource error: Not a valid \"Pollable\" resource.');
+      }
+      let handle = obj[symbolRscHandle];
+      if (!handle) {
+        const rep = obj[symbolRscRep] || ++captureCnt0;
+        captureTable0.set(rep, obj);
+        handle = rscTableCreateOwn(handleTable0, rep);
+      }
+      return handle;
+    }
+    ,
+  })],
+  hasResultPointer: false,
   funcTypeIsAsync: false,
   getCallbackFn: () => null,
   getPostReturnFn: () => null,
   isCancellable: false,
-  memoryIdx: 0,
+  memoryIdx: null,
   stringEncoding: 'utf8',
-  getMemoryFn: () => memory0,
+  getMemoryFn: () => null,
   getReallocFn: undefined,
   importFn: _trampoline20,
 },
@@ -11240,16 +11532,33 @@ null,
   componentIdx: 0,
   isAsync: false,
   isManualAsync: _trampoline20.manuallyAsync,
-  paramLiftFns: [],
-  resultLowerFns: [_lowerFlatTuple({ elemLowerMetas: [[_lowerFlatU64, 8, 8],[_lowerFlatU64, 8, 8],], size32: 16, align32: 8 })],
-  hasResultPointer: true,
+  paramLiftFns: [_liftFlatU64],
+  resultLowerFns: [_lowerFlatOwn({
+    componentIdx: 0,
+    tableIdx: 0,
+    lowerFn: 
+    function lowerImportedOwnedHost_Pollable(obj) {
+      if (!(obj instanceof Pollable)) {
+        throw new TypeError('Resource error: Not a valid \"Pollable\" resource.');
+      }
+      let handle = obj[symbolRscHandle];
+      if (!handle) {
+        const rep = obj[symbolRscRep] || ++captureCnt0;
+        captureTable0.set(rep, obj);
+        handle = rscTableCreateOwn(handleTable0, rep);
+      }
+      return handle;
+    }
+    ,
+  })],
+  hasResultPointer: false,
   funcTypeIsAsync: false,
   getCallbackFn: () => null,
   getPostReturnFn: () => null,
   isCancellable: false,
-  memoryIdx: 0,
+  memoryIdx: null,
   stringEncoding: 'utf8',
-  getMemoryFn: () => memory0,
+  getMemoryFn: () => null,
   getReallocFn: undefined,
   importFn: _trampoline20,
 },
@@ -11261,9 +11570,9 @@ null,
   componentIdx: 0,
   isAsync: false,
   isManualAsync: _trampoline21.manuallyAsync,
-  paramLiftFns: [_liftFlatStringAny,_liftFlatStringAny],
-  resultLowerFns: [],
-  hasResultPointer: false,
+  paramLiftFns: [],
+  resultLowerFns: [_lowerFlatTuple({ elemLowerMetas: [[_lowerFlatU64, 8, 8],[_lowerFlatU64, 8, 8],], size32: 16, align32: 8 })],
+  hasResultPointer: true,
   funcTypeIsAsync: false,
   getCallbackFn: () => null,
   getPostReturnFn: () => null,
@@ -11281,9 +11590,9 @@ null,
   componentIdx: 0,
   isAsync: false,
   isManualAsync: _trampoline21.manuallyAsync,
-  paramLiftFns: [_liftFlatStringAny,_liftFlatStringAny],
-  resultLowerFns: [],
-  hasResultPointer: false,
+  paramLiftFns: [],
+  resultLowerFns: [_lowerFlatTuple({ elemLowerMetas: [[_lowerFlatU64, 8, 8],[_lowerFlatU64, 8, 8],], size32: 16, align32: 8 })],
+  hasResultPointer: true,
   funcTypeIsAsync: false,
   getCallbackFn: () => null,
   getPostReturnFn: () => null,
@@ -11295,8 +11604,49 @@ null,
   importFn: _trampoline21,
 },
 );
+let trampoline22 = _trampoline22.manuallyAsync ? new WebAssembly.Suspending(_suspendingImport(0, _lowerImportBackwardsCompat.bind(
+null,
+{
+  trampolineIdx: 22,
+  componentIdx: 0,
+  isAsync: false,
+  isManualAsync: _trampoline22.manuallyAsync,
+  paramLiftFns: [_liftFlatStringAny,_liftFlatStringAny],
+  resultLowerFns: [],
+  hasResultPointer: false,
+  funcTypeIsAsync: false,
+  getCallbackFn: () => null,
+  getPostReturnFn: () => null,
+  isCancellable: false,
+  memoryIdx: 0,
+  stringEncoding: 'utf8',
+  getMemoryFn: () => memory0,
+  getReallocFn: undefined,
+  importFn: _trampoline22,
+},
+))) : _lowerImportBackwardsCompat.bind(
+null,
+{
+  trampolineIdx: 22,
+  componentIdx: 0,
+  isAsync: false,
+  isManualAsync: _trampoline22.manuallyAsync,
+  paramLiftFns: [_liftFlatStringAny,_liftFlatStringAny],
+  resultLowerFns: [],
+  hasResultPointer: false,
+  funcTypeIsAsync: false,
+  getCallbackFn: () => null,
+  getPostReturnFn: () => null,
+  isCancellable: false,
+  memoryIdx: 0,
+  stringEncoding: 'utf8',
+  getMemoryFn: () => memory0,
+  getReallocFn: undefined,
+  importFn: _trampoline22,
+},
+);
 
-const trampoline22 = waitableSetPoll.bind(
+const trampoline23 = waitableSetPoll.bind(
 null,
 {
   componentIdx: 0,
@@ -11307,7 +11657,7 @@ null,
 }
 );
 
-const trampoline23 = taskReturn.bind(
+const trampoline24 = taskReturn.bind(
 null,
 {
   componentIdx: 0,
@@ -11362,7 +11712,7 @@ null,
   stringEncoding: 'utf8',
 },
 );
-const trampoline24 = taskReturn.bind(
+const trampoline25 = taskReturn.bind(
 null,
 {
   componentIdx: 0,
@@ -11426,7 +11776,7 @@ null,
   stringEncoding: 'utf8',
 },
 );
-const trampoline25 = taskReturn.bind(
+const trampoline26 = taskReturn.bind(
 null,
 {
   componentIdx: 0,
@@ -11546,7 +11896,7 @@ null,
   stringEncoding: 'utf8',
 },
 );
-const trampoline26 = taskReturn.bind(
+const trampoline27 = taskReturn.bind(
 null,
 {
   componentIdx: 0,
@@ -11635,7 +11985,7 @@ null,
   stringEncoding: 'utf8',
 },
 );
-const trampoline27 = taskReturn.bind(
+const trampoline28 = taskReturn.bind(
 null,
 {
   componentIdx: 0,
@@ -11708,7 +12058,7 @@ null,
   stringEncoding: 'utf8',
 },
 );
-const trampoline28 = taskReturn.bind(
+const trampoline29 = taskReturn.bind(
 null,
 {
   componentIdx: 0,
@@ -11763,7 +12113,7 @@ null,
   stringEncoding: 'utf8',
 },
 );
-const trampoline29 = taskReturn.bind(
+const trampoline30 = taskReturn.bind(
 null,
 {
   componentIdx: 0,
@@ -12748,7 +13098,7 @@ null,
   stringEncoding: 'utf8',
 },
 );
-const trampoline30 = taskReturn.bind(
+const trampoline31 = taskReturn.bind(
 null,
 {
   componentIdx: 0,
@@ -12770,65 +13120,6 @@ null,
   stringEncoding: 'utf8',
 },
 );
-let trampoline31 = _trampoline31.manuallyAsync ? new WebAssembly.Suspending(_suspendingImport(0, _lowerImportBackwardsCompat.bind(
-null,
-{
-  trampolineIdx: 31,
-  componentIdx: 0,
-  isAsync: false,
-  isManualAsync: _trampoline31.manuallyAsync,
-  paramLiftFns: [_liftFlatList({
-    elemLiftFn: _liftFlatBorrow.bind(null, 0),
-    elemAlign32: 4,
-    elemSize32: 4,
-    typedArray: undefined,
-  })],
-  resultLowerFns: [_lowerFlatList({
-    elemLowerFn: _lowerFlatU32,
-    elemSize32: 4,
-    elemAlign32: 4,
-  })],
-  hasResultPointer: true,
-  funcTypeIsAsync: false,
-  getCallbackFn: () => null,
-  getPostReturnFn: () => null,
-  isCancellable: false,
-  memoryIdx: 0,
-  stringEncoding: 'utf8',
-  getMemoryFn: () => memory0,
-  getReallocFn: () => realloc0,
-  importFn: _trampoline31,
-},
-))) : _lowerImportBackwardsCompat.bind(
-null,
-{
-  trampolineIdx: 31,
-  componentIdx: 0,
-  isAsync: false,
-  isManualAsync: _trampoline31.manuallyAsync,
-  paramLiftFns: [_liftFlatList({
-    elemLiftFn: _liftFlatBorrow.bind(null, 0),
-    elemAlign32: 4,
-    elemSize32: 4,
-    typedArray: undefined,
-  })],
-  resultLowerFns: [_lowerFlatList({
-    elemLowerFn: _lowerFlatU32,
-    elemSize32: 4,
-    elemAlign32: 4,
-  })],
-  hasResultPointer: true,
-  funcTypeIsAsync: false,
-  getCallbackFn: () => null,
-  getPostReturnFn: () => null,
-  isCancellable: false,
-  memoryIdx: 0,
-  stringEncoding: 'utf8',
-  getMemoryFn: () => memory0,
-  getReallocFn: () => realloc0,
-  importFn: _trampoline31,
-},
-);
 let trampoline32 = _trampoline32.manuallyAsync ? new WebAssembly.Suspending(_suspendingImport(0, _lowerImportBackwardsCompat.bind(
 null,
 {
@@ -12836,42 +13127,17 @@ null,
   componentIdx: 0,
   isAsync: false,
   isManualAsync: _trampoline32.manuallyAsync,
-  paramLiftFns: [_liftFlatBorrow.bind(null, 3)],
-  resultLowerFns: [
-  _lowerFlatResult({
-    caseMetas: [
-    [ 'ok', _lowerFlatU64, 16, 8, 8 ],
-    [ 'err', _lowerFlatVariant({
-      caseMetas: [[ 'last-operation-failed', _lowerFlatOwn({
-        componentIdx: 0,
-        tableIdx: 1,
-        lowerFn: 
-        function lowerImportedOwnedHost_Error$1(obj) {
-          if (!(obj instanceof Error$1)) {
-            throw new TypeError('Resource error: Not a valid \"Error$1\" resource.');
-          }
-          let handle = obj[symbolRscHandle];
-          if (!handle) {
-            const rep = obj[symbolRscRep] || ++captureCnt1;
-            captureTable1.set(rep, obj);
-            handle = rscTableCreateOwn(handleTable1, rep);
-          }
-          return handle;
-        }
-        ,
-      }), 4, 4, 1 ],[ 'closed', null, 0, 0, 0 ],],
-      variantSize32: 8,
-      variantAlign32: 4,
-      variantPayloadOffset32: 4,
-      variantFlatCount: 2,
-    } ), 16, 8, 8 ],
-    ],
-    variantSize32: 16,
-    variantAlign32: 8,
-    variantPayloadOffset32: 8,
-    variantFlatCount: 3,
-  })
-  ],
+  paramLiftFns: [_liftFlatList({
+    elemLiftFn: _liftFlatBorrow.bind(null, 0),
+    elemAlign32: 4,
+    elemSize32: 4,
+    typedArray: undefined,
+  })],
+  resultLowerFns: [_lowerFlatList({
+    elemLowerFn: _lowerFlatU32,
+    elemSize32: 4,
+    elemAlign32: 4,
+  })],
   hasResultPointer: true,
   funcTypeIsAsync: false,
   getCallbackFn: () => null,
@@ -12880,7 +13146,7 @@ null,
   memoryIdx: 0,
   stringEncoding: 'utf8',
   getMemoryFn: () => memory0,
-  getReallocFn: undefined,
+  getReallocFn: () => realloc0,
   importFn: _trampoline32,
 },
 ))) : _lowerImportBackwardsCompat.bind(
@@ -12890,42 +13156,17 @@ null,
   componentIdx: 0,
   isAsync: false,
   isManualAsync: _trampoline32.manuallyAsync,
-  paramLiftFns: [_liftFlatBorrow.bind(null, 3)],
-  resultLowerFns: [
-  _lowerFlatResult({
-    caseMetas: [
-    [ 'ok', _lowerFlatU64, 16, 8, 8 ],
-    [ 'err', _lowerFlatVariant({
-      caseMetas: [[ 'last-operation-failed', _lowerFlatOwn({
-        componentIdx: 0,
-        tableIdx: 1,
-        lowerFn: 
-        function lowerImportedOwnedHost_Error$1(obj) {
-          if (!(obj instanceof Error$1)) {
-            throw new TypeError('Resource error: Not a valid \"Error$1\" resource.');
-          }
-          let handle = obj[symbolRscHandle];
-          if (!handle) {
-            const rep = obj[symbolRscRep] || ++captureCnt1;
-            captureTable1.set(rep, obj);
-            handle = rscTableCreateOwn(handleTable1, rep);
-          }
-          return handle;
-        }
-        ,
-      }), 4, 4, 1 ],[ 'closed', null, 0, 0, 0 ],],
-      variantSize32: 8,
-      variantAlign32: 4,
-      variantPayloadOffset32: 4,
-      variantFlatCount: 2,
-    } ), 16, 8, 8 ],
-    ],
-    variantSize32: 16,
-    variantAlign32: 8,
-    variantPayloadOffset32: 8,
-    variantFlatCount: 3,
-  })
-  ],
+  paramLiftFns: [_liftFlatList({
+    elemLiftFn: _liftFlatBorrow.bind(null, 0),
+    elemAlign32: 4,
+    elemSize32: 4,
+    typedArray: undefined,
+  })],
+  resultLowerFns: [_lowerFlatList({
+    elemLowerFn: _lowerFlatU32,
+    elemSize32: 4,
+    elemAlign32: 4,
+  })],
   hasResultPointer: true,
   funcTypeIsAsync: false,
   getCallbackFn: () => null,
@@ -12934,7 +13175,7 @@ null,
   memoryIdx: 0,
   stringEncoding: 'utf8',
   getMemoryFn: () => memory0,
-  getReallocFn: undefined,
+  getReallocFn: () => realloc0,
   importFn: _trampoline32,
 },
 );
@@ -12945,16 +13186,11 @@ null,
   componentIdx: 0,
   isAsync: false,
   isManualAsync: _trampoline33.manuallyAsync,
-  paramLiftFns: [_liftFlatBorrow.bind(null, 3),_liftFlatList({
-    elemLiftFn: _liftFlatU8,
-    elemAlign32: 1,
-    elemSize32: 1,
-    typedArray: Uint8Array,
-  })],
+  paramLiftFns: [_liftFlatBorrow.bind(null, 3)],
   resultLowerFns: [
   _lowerFlatResult({
     caseMetas: [
-    [ 'ok', null, 12, 4, 4 ],
+    [ 'ok', _lowerFlatU64, 16, 8, 8 ],
     [ 'err', _lowerFlatVariant({
       caseMetas: [[ 'last-operation-failed', _lowerFlatOwn({
         componentIdx: 0,
@@ -12978,11 +13214,11 @@ null,
       variantAlign32: 4,
       variantPayloadOffset32: 4,
       variantFlatCount: 2,
-    } ), 12, 4, 4 ],
+    } ), 16, 8, 8 ],
     ],
-    variantSize32: 12,
-    variantAlign32: 4,
-    variantPayloadOffset32: 4,
+    variantSize32: 16,
+    variantAlign32: 8,
+    variantPayloadOffset32: 8,
     variantFlatCount: 3,
   })
   ],
@@ -13004,16 +13240,11 @@ null,
   componentIdx: 0,
   isAsync: false,
   isManualAsync: _trampoline33.manuallyAsync,
-  paramLiftFns: [_liftFlatBorrow.bind(null, 3),_liftFlatList({
-    elemLiftFn: _liftFlatU8,
-    elemAlign32: 1,
-    elemSize32: 1,
-    typedArray: Uint8Array,
-  })],
+  paramLiftFns: [_liftFlatBorrow.bind(null, 3)],
   resultLowerFns: [
   _lowerFlatResult({
     caseMetas: [
-    [ 'ok', null, 12, 4, 4 ],
+    [ 'ok', _lowerFlatU64, 16, 8, 8 ],
     [ 'err', _lowerFlatVariant({
       caseMetas: [[ 'last-operation-failed', _lowerFlatOwn({
         componentIdx: 0,
@@ -13037,11 +13268,11 @@ null,
       variantAlign32: 4,
       variantPayloadOffset32: 4,
       variantFlatCount: 2,
-    } ), 12, 4, 4 ],
+    } ), 16, 8, 8 ],
     ],
-    variantSize32: 12,
-    variantAlign32: 4,
-    variantPayloadOffset32: 4,
+    variantSize32: 16,
+    variantAlign32: 8,
+    variantPayloadOffset32: 8,
     variantFlatCount: 3,
   })
   ],
@@ -13064,7 +13295,12 @@ null,
   componentIdx: 0,
   isAsync: false,
   isManualAsync: _trampoline34.manuallyAsync,
-  paramLiftFns: [_liftFlatBorrow.bind(null, 3)],
+  paramLiftFns: [_liftFlatBorrow.bind(null, 3),_liftFlatList({
+    elemLiftFn: _liftFlatU8,
+    elemAlign32: 1,
+    elemSize32: 1,
+    typedArray: Uint8Array,
+  })],
   resultLowerFns: [
   _lowerFlatResult({
     caseMetas: [
@@ -13118,7 +13354,12 @@ null,
   componentIdx: 0,
   isAsync: false,
   isManualAsync: _trampoline34.manuallyAsync,
-  paramLiftFns: [_liftFlatBorrow.bind(null, 3)],
+  paramLiftFns: [_liftFlatBorrow.bind(null, 3),_liftFlatList({
+    elemLiftFn: _liftFlatU8,
+    elemAlign32: 1,
+    elemSize32: 1,
+    typedArray: Uint8Array,
+  })],
   resultLowerFns: [
   _lowerFlatResult({
     caseMetas: [
@@ -13173,12 +13414,42 @@ null,
   componentIdx: 0,
   isAsync: false,
   isManualAsync: _trampoline35.manuallyAsync,
-  paramLiftFns: [],
-  resultLowerFns: [_lowerFlatList({
-    elemLowerFn: _lowerFlatTuple({ elemLowerMetas: [[_lowerFlatStringAny, 8, 4],[_lowerFlatStringAny, 8, 4],], size32: 16, align32: 4 }),
-    elemSize32: 16,
-    elemAlign32: 4,
-  })],
+  paramLiftFns: [_liftFlatBorrow.bind(null, 3)],
+  resultLowerFns: [
+  _lowerFlatResult({
+    caseMetas: [
+    [ 'ok', null, 12, 4, 4 ],
+    [ 'err', _lowerFlatVariant({
+      caseMetas: [[ 'last-operation-failed', _lowerFlatOwn({
+        componentIdx: 0,
+        tableIdx: 1,
+        lowerFn: 
+        function lowerImportedOwnedHost_Error$1(obj) {
+          if (!(obj instanceof Error$1)) {
+            throw new TypeError('Resource error: Not a valid \"Error$1\" resource.');
+          }
+          let handle = obj[symbolRscHandle];
+          if (!handle) {
+            const rep = obj[symbolRscRep] || ++captureCnt1;
+            captureTable1.set(rep, obj);
+            handle = rscTableCreateOwn(handleTable1, rep);
+          }
+          return handle;
+        }
+        ,
+      }), 4, 4, 1 ],[ 'closed', null, 0, 0, 0 ],],
+      variantSize32: 8,
+      variantAlign32: 4,
+      variantPayloadOffset32: 4,
+      variantFlatCount: 2,
+    } ), 12, 4, 4 ],
+    ],
+    variantSize32: 12,
+    variantAlign32: 4,
+    variantPayloadOffset32: 4,
+    variantFlatCount: 3,
+  })
+  ],
   hasResultPointer: true,
   funcTypeIsAsync: false,
   getCallbackFn: () => null,
@@ -13187,7 +13458,7 @@ null,
   memoryIdx: 0,
   stringEncoding: 'utf8',
   getMemoryFn: () => memory0,
-  getReallocFn: () => realloc0,
+  getReallocFn: undefined,
   importFn: _trampoline35,
 },
 ))) : _lowerImportBackwardsCompat.bind(
@@ -13197,12 +13468,42 @@ null,
   componentIdx: 0,
   isAsync: false,
   isManualAsync: _trampoline35.manuallyAsync,
-  paramLiftFns: [],
-  resultLowerFns: [_lowerFlatList({
-    elemLowerFn: _lowerFlatTuple({ elemLowerMetas: [[_lowerFlatStringAny, 8, 4],[_lowerFlatStringAny, 8, 4],], size32: 16, align32: 4 }),
-    elemSize32: 16,
-    elemAlign32: 4,
-  })],
+  paramLiftFns: [_liftFlatBorrow.bind(null, 3)],
+  resultLowerFns: [
+  _lowerFlatResult({
+    caseMetas: [
+    [ 'ok', null, 12, 4, 4 ],
+    [ 'err', _lowerFlatVariant({
+      caseMetas: [[ 'last-operation-failed', _lowerFlatOwn({
+        componentIdx: 0,
+        tableIdx: 1,
+        lowerFn: 
+        function lowerImportedOwnedHost_Error$1(obj) {
+          if (!(obj instanceof Error$1)) {
+            throw new TypeError('Resource error: Not a valid \"Error$1\" resource.');
+          }
+          let handle = obj[symbolRscHandle];
+          if (!handle) {
+            const rep = obj[symbolRscRep] || ++captureCnt1;
+            captureTable1.set(rep, obj);
+            handle = rscTableCreateOwn(handleTable1, rep);
+          }
+          return handle;
+        }
+        ,
+      }), 4, 4, 1 ],[ 'closed', null, 0, 0, 0 ],],
+      variantSize32: 8,
+      variantAlign32: 4,
+      variantPayloadOffset32: 4,
+      variantFlatCount: 2,
+    } ), 12, 4, 4 ],
+    ],
+    variantSize32: 12,
+    variantAlign32: 4,
+    variantPayloadOffset32: 4,
+    variantFlatCount: 3,
+  })
+  ],
   hasResultPointer: true,
   funcTypeIsAsync: false,
   getCallbackFn: () => null,
@@ -13211,7 +13512,7 @@ null,
   memoryIdx: 0,
   stringEncoding: 'utf8',
   getMemoryFn: () => memory0,
-  getReallocFn: () => realloc0,
+  getReallocFn: undefined,
   importFn: _trampoline35,
 },
 );
@@ -13223,36 +13524,11 @@ null,
   isAsync: false,
   isManualAsync: _trampoline36.manuallyAsync,
   paramLiftFns: [],
-  resultLowerFns: [
-  _lowerFlatOption({
-    caseMetas: [
-    [ 'none', null, 0, 0, 0 ],
-    [ 'some', _lowerFlatOwn({
-      componentIdx: 0,
-      tableIdx: 4,
-      lowerFn: 
-      function lowerImportedOwnedHost_TerminalInput(obj) {
-        if (!(obj instanceof TerminalInput)) {
-          throw new TypeError('Resource error: Not a valid \"TerminalInput\" resource.');
-        }
-        let handle = obj[symbolRscHandle];
-        if (!handle) {
-          const rep = obj[symbolRscRep] || ++captureCnt4;
-          captureTable4.set(rep, obj);
-          handle = rscTableCreateOwn(handleTable4, rep);
-        }
-        return handle;
-      }
-      ,
-    }), 4, 4, 1],
-    ],
-    variantSize32: 8,
-    variantAlign32: 4,
-    variantPayloadOffset32: 4,
-    variantFlatCount: 2,
-    payloadMaybeNull: false,
-  })
-  ],
+  resultLowerFns: [_lowerFlatList({
+    elemLowerFn: _lowerFlatTuple({ elemLowerMetas: [[_lowerFlatStringAny, 8, 4],[_lowerFlatStringAny, 8, 4],], size32: 16, align32: 4 }),
+    elemSize32: 16,
+    elemAlign32: 4,
+  })],
   hasResultPointer: true,
   funcTypeIsAsync: false,
   getCallbackFn: () => null,
@@ -13261,7 +13537,7 @@ null,
   memoryIdx: 0,
   stringEncoding: 'utf8',
   getMemoryFn: () => memory0,
-  getReallocFn: undefined,
+  getReallocFn: () => realloc0,
   importFn: _trampoline36,
 },
 ))) : _lowerImportBackwardsCompat.bind(
@@ -13272,36 +13548,11 @@ null,
   isAsync: false,
   isManualAsync: _trampoline36.manuallyAsync,
   paramLiftFns: [],
-  resultLowerFns: [
-  _lowerFlatOption({
-    caseMetas: [
-    [ 'none', null, 0, 0, 0 ],
-    [ 'some', _lowerFlatOwn({
-      componentIdx: 0,
-      tableIdx: 4,
-      lowerFn: 
-      function lowerImportedOwnedHost_TerminalInput(obj) {
-        if (!(obj instanceof TerminalInput)) {
-          throw new TypeError('Resource error: Not a valid \"TerminalInput\" resource.');
-        }
-        let handle = obj[symbolRscHandle];
-        if (!handle) {
-          const rep = obj[symbolRscRep] || ++captureCnt4;
-          captureTable4.set(rep, obj);
-          handle = rscTableCreateOwn(handleTable4, rep);
-        }
-        return handle;
-      }
-      ,
-    }), 4, 4, 1],
-    ],
-    variantSize32: 8,
-    variantAlign32: 4,
-    variantPayloadOffset32: 4,
-    variantFlatCount: 2,
-    payloadMaybeNull: false,
-  })
-  ],
+  resultLowerFns: [_lowerFlatList({
+    elemLowerFn: _lowerFlatTuple({ elemLowerMetas: [[_lowerFlatStringAny, 8, 4],[_lowerFlatStringAny, 8, 4],], size32: 16, align32: 4 }),
+    elemSize32: 16,
+    elemAlign32: 4,
+  })],
   hasResultPointer: true,
   funcTypeIsAsync: false,
   getCallbackFn: () => null,
@@ -13310,7 +13561,7 @@ null,
   memoryIdx: 0,
   stringEncoding: 'utf8',
   getMemoryFn: () => memory0,
-  getReallocFn: undefined,
+  getReallocFn: () => realloc0,
   importFn: _trampoline36,
 },
 );
@@ -13328,17 +13579,17 @@ null,
     [ 'none', null, 0, 0, 0 ],
     [ 'some', _lowerFlatOwn({
       componentIdx: 0,
-      tableIdx: 5,
+      tableIdx: 4,
       lowerFn: 
-      function lowerImportedOwnedHost_TerminalOutput(obj) {
-        if (!(obj instanceof TerminalOutput)) {
-          throw new TypeError('Resource error: Not a valid \"TerminalOutput\" resource.');
+      function lowerImportedOwnedHost_TerminalInput(obj) {
+        if (!(obj instanceof TerminalInput)) {
+          throw new TypeError('Resource error: Not a valid \"TerminalInput\" resource.');
         }
         let handle = obj[symbolRscHandle];
         if (!handle) {
-          const rep = obj[symbolRscRep] || ++captureCnt5;
-          captureTable5.set(rep, obj);
-          handle = rscTableCreateOwn(handleTable5, rep);
+          const rep = obj[symbolRscRep] || ++captureCnt4;
+          captureTable4.set(rep, obj);
+          handle = rscTableCreateOwn(handleTable4, rep);
         }
         return handle;
       }
@@ -13377,17 +13628,17 @@ null,
     [ 'none', null, 0, 0, 0 ],
     [ 'some', _lowerFlatOwn({
       componentIdx: 0,
-      tableIdx: 5,
+      tableIdx: 4,
       lowerFn: 
-      function lowerImportedOwnedHost_TerminalOutput(obj) {
-        if (!(obj instanceof TerminalOutput)) {
-          throw new TypeError('Resource error: Not a valid \"TerminalOutput\" resource.');
+      function lowerImportedOwnedHost_TerminalInput(obj) {
+        if (!(obj instanceof TerminalInput)) {
+          throw new TypeError('Resource error: Not a valid \"TerminalInput\" resource.');
         }
         let handle = obj[symbolRscHandle];
         if (!handle) {
-          const rep = obj[symbolRscRep] || ++captureCnt5;
-          captureTable5.set(rep, obj);
-          handle = rscTableCreateOwn(handleTable5, rep);
+          const rep = obj[symbolRscRep] || ++captureCnt4;
+          captureTable4.set(rep, obj);
+          handle = rscTableCreateOwn(handleTable4, rep);
         }
         return handle;
       }
@@ -13520,7 +13771,36 @@ null,
   isAsync: false,
   isManualAsync: _trampoline39.manuallyAsync,
   paramLiftFns: [],
-  resultLowerFns: [_lowerFlatRecord({ fieldMetas: [['seconds', _lowerFlatU64, 8, 8 ],['nanoseconds', _lowerFlatU32, 4, 4 ],], size32: 16, align32: 8 })],
+  resultLowerFns: [
+  _lowerFlatOption({
+    caseMetas: [
+    [ 'none', null, 0, 0, 0 ],
+    [ 'some', _lowerFlatOwn({
+      componentIdx: 0,
+      tableIdx: 5,
+      lowerFn: 
+      function lowerImportedOwnedHost_TerminalOutput(obj) {
+        if (!(obj instanceof TerminalOutput)) {
+          throw new TypeError('Resource error: Not a valid \"TerminalOutput\" resource.');
+        }
+        let handle = obj[symbolRscHandle];
+        if (!handle) {
+          const rep = obj[symbolRscRep] || ++captureCnt5;
+          captureTable5.set(rep, obj);
+          handle = rscTableCreateOwn(handleTable5, rep);
+        }
+        return handle;
+      }
+      ,
+    }), 4, 4, 1],
+    ],
+    variantSize32: 8,
+    variantAlign32: 4,
+    variantPayloadOffset32: 4,
+    variantFlatCount: 2,
+    payloadMaybeNull: false,
+  })
+  ],
   hasResultPointer: true,
   funcTypeIsAsync: false,
   getCallbackFn: () => null,
@@ -13540,7 +13820,36 @@ null,
   isAsync: false,
   isManualAsync: _trampoline39.manuallyAsync,
   paramLiftFns: [],
-  resultLowerFns: [_lowerFlatRecord({ fieldMetas: [['seconds', _lowerFlatU64, 8, 8 ],['nanoseconds', _lowerFlatU32, 4, 4 ],], size32: 16, align32: 8 })],
+  resultLowerFns: [
+  _lowerFlatOption({
+    caseMetas: [
+    [ 'none', null, 0, 0, 0 ],
+    [ 'some', _lowerFlatOwn({
+      componentIdx: 0,
+      tableIdx: 5,
+      lowerFn: 
+      function lowerImportedOwnedHost_TerminalOutput(obj) {
+        if (!(obj instanceof TerminalOutput)) {
+          throw new TypeError('Resource error: Not a valid \"TerminalOutput\" resource.');
+        }
+        let handle = obj[symbolRscHandle];
+        if (!handle) {
+          const rep = obj[symbolRscRep] || ++captureCnt5;
+          captureTable5.set(rep, obj);
+          handle = rscTableCreateOwn(handleTable5, rep);
+        }
+        return handle;
+      }
+      ,
+    }), 4, 4, 1],
+    ],
+    variantSize32: 8,
+    variantAlign32: 4,
+    variantPayloadOffset32: 4,
+    variantFlatCount: 2,
+    payloadMaybeNull: false,
+  })
+  ],
   hasResultPointer: true,
   funcTypeIsAsync: false,
   getCallbackFn: () => null,
@@ -13553,12 +13862,53 @@ null,
   importFn: _trampoline39,
 },
 );
+let trampoline40 = _trampoline40.manuallyAsync ? new WebAssembly.Suspending(_suspendingImport(0, _lowerImportBackwardsCompat.bind(
+null,
+{
+  trampolineIdx: 40,
+  componentIdx: 0,
+  isAsync: false,
+  isManualAsync: _trampoline40.manuallyAsync,
+  paramLiftFns: [],
+  resultLowerFns: [_lowerFlatRecord({ fieldMetas: [['seconds', _lowerFlatU64, 8, 8 ],['nanoseconds', _lowerFlatU32, 4, 4 ],], size32: 16, align32: 8 })],
+  hasResultPointer: true,
+  funcTypeIsAsync: false,
+  getCallbackFn: () => null,
+  getPostReturnFn: () => null,
+  isCancellable: false,
+  memoryIdx: 0,
+  stringEncoding: 'utf8',
+  getMemoryFn: () => memory0,
+  getReallocFn: undefined,
+  importFn: _trampoline40,
+},
+))) : _lowerImportBackwardsCompat.bind(
+null,
+{
+  trampolineIdx: 40,
+  componentIdx: 0,
+  isAsync: false,
+  isManualAsync: _trampoline40.manuallyAsync,
+  paramLiftFns: [],
+  resultLowerFns: [_lowerFlatRecord({ fieldMetas: [['seconds', _lowerFlatU64, 8, 8 ],['nanoseconds', _lowerFlatU32, 4, 4 ],], size32: 16, align32: 8 })],
+  hasResultPointer: true,
+  funcTypeIsAsync: false,
+  getCallbackFn: () => null,
+  getPostReturnFn: () => null,
+  isCancellable: false,
+  memoryIdx: 0,
+  stringEncoding: 'utf8',
+  getMemoryFn: () => memory0,
+  getReallocFn: undefined,
+  importFn: _trampoline40,
+},
+);
 
 const $init = (() => {
   let gen = (function* _initGenerator () {
     const module0 = fetchCompile(__semioVersionedComponentAssetUrl('./semio_s_plugin_imperative_component.core.wasm'));
-    const module1 = base64Compile('AGFzbQEAAAABSwxgAX8AYAR/f39/AGACf38Bf2AEf39/fwBgBH9/f38AYAV/f39/fwBgBX9/f39/AGABfwBgAn9/AGADf39/AGACf38AYAR/f39/AAMaGQABAgMEBQMDBgYGBAcDAwgJCgsKAAAAAAAEBQFwARkZB38aATAAAAExAAEBMgACATMAAwE0AAQBNQAFATYABgE3AAcBOAAIATkACQIxMAAKAjExAAsCMTIADAIxMwANAjE0AA4CMTUADwIxNgAQAjE3ABECMTgAEgIxOQATAjIwABQCMjEAFQIyMgAWAjIzABcCMjQAGAgkaW1wb3J0cwEACt0CGQkAIABBABEAAAsPACAAIAEgAiADQQERAQALCwAgACABQQIRAgALDwAgACABIAIgA0EDEQMACw8AIAAgASACIANBBBEEAAsRACAAIAEgAiADIARBBREFAAsPACAAIAEgAiADQQYRAwALDwAgACABIAIgA0EHEQMACxEAIAAgASACIAMgBEEIEQYACxEAIAAgASACIAMgBEEJEQYACxEAIAAgASACIAMgBEEKEQYACw8AIAAgASACIANBCxEEAAsJACAAQQwRBwALDwAgACABIAIgA0ENEQMACw8AIAAgASACIANBDhEDAAsLACAAIAFBDxEIAAsNACAAIAEgAkEQEQkACwsAIAAgAUEREQoACw8AIAAgASACIANBEhELAAsLACAAIAFBExEKAAsJACAAQRQRAAALCQAgAEEVEQAACwkAIABBFhEAAAsJACAAQRcRAAALCQAgAEEYEQAACwAvCXByb2R1Y2VycwEMcHJvY2Vzc2VkLWJ5AQ13aXQtY29tcG9uZW50BzAuMjUyLjA');
-    const module2 = base64Compile('AGFzbQEAAAABSwxgAX8AYAR/f39/AGACf38Bf2AEf39/fwBgBH9/f38AYAV/f39/fwBgBX9/f39/AGABfwBgAn9/AGADf39/AGACf38AYAR/f39/AAKcARoAATAAAAABMQABAAEyAAIAATMAAwABNAAEAAE1AAUAATYAAwABNwADAAE4AAYAATkABgACMTAABgACMTEABAACMTIABwACMTMAAwACMTQAAwACMTUACAACMTYACQACMTcACgACMTgACwACMTkACgACMjAAAAACMjEAAAACMjIAAAACMjMAAAACMjQAAAAIJGltcG9ydHMBcAEZGQkfAQBBAAsZAAECAwQFBgcICQoLDA0ODxAREhMUFRYXGAAvCXByb2R1Y2VycwEMcHJvY2Vzc2VkLWJ5AQ13aXQtY29tcG9uZW50BzAuMjUyLjA');
+    const module1 = base64Compile('AGFzbQEAAAABSwxgAX8AYAR/f39/AGACf38Bf2AEf39/fwBgBH9/f38AYAV/f39/fwBgBX9/f39/AGABfwBgAn9/AGADf39/AGACf38AYAR/f39/AAMbGgABAgMEBQMDBgYGBAYHAwMICQoLCgAAAAAABAUBcAEaGgeEARsBMAAAATEAAQEyAAIBMwADATQABAE1AAUBNgAGATcABwE4AAgBOQAJAjEwAAoCMTEACwIxMgAMAjEzAA0CMTQADgIxNQAPAjE2ABACMTcAEQIxOAASAjE5ABMCMjAAFAIyMQAVAjIyABYCMjMAFwIyNAAYAjI1ABkIJGltcG9ydHMBAArvAhoJACAAQQARAAALDwAgACABIAIgA0EBEQEACwsAIAAgAUECEQIACw8AIAAgASACIANBAxEDAAsPACAAIAEgAiADQQQRBAALEQAgACABIAIgAyAEQQURBQALDwAgACABIAIgA0EGEQMACw8AIAAgASACIANBBxEDAAsRACAAIAEgAiADIARBCBEGAAsRACAAIAEgAiADIARBCREGAAsRACAAIAEgAiADIARBChEGAAsPACAAIAEgAiADQQsRBAALEQAgACABIAIgAyAEQQwRBgALCQAgAEENEQcACw8AIAAgASACIANBDhEDAAsPACAAIAEgAiADQQ8RAwALCwAgACABQRARCAALDQAgACABIAJBEREJAAsLACAAIAFBEhEKAAsPACAAIAEgAiADQRMRCwALCwAgACABQRQRCgALCQAgAEEVEQAACwkAIABBFhEAAAsJACAAQRcRAAALCQAgAEEYEQAACwkAIABBGREAAAsALwlwcm9kdWNlcnMBDHByb2Nlc3NlZC1ieQENd2l0LWNvbXBvbmVudAcwLjI1Mi4w');
+    const module2 = base64Compile('AGFzbQEAAAABSwxgAX8AYAR/f39/AGACf38Bf2AEf39/fwBgBH9/f38AYAV/f39/fwBgBX9/f39/AGABfwBgAn9/AGADf39/AGACf38AYAR/f39/AAKiARsAATAAAAABMQABAAEyAAIAATMAAwABNAAEAAE1AAUAATYAAwABNwADAAE4AAYAATkABgACMTAABgACMTEABAACMTIABgACMTMABwACMTQAAwACMTUAAwACMTYACAACMTcACQACMTgACgACMTkACwACMjAACgACMjEAAAACMjIAAAACMjMAAAACMjQAAAACMjUAAAAIJGltcG9ydHMBcAEaGgkgAQBBAAsaAAECAwQFBgcICQoLDA0ODxAREhMUFRYXGBkALwlwcm9kdWNlcnMBDHByb2Nlc3NlZC1ieQENd2l0LWNvbXBvbmVudAcwLjI1Mi4w');
     const instanceFlags0 = new WebAssembly.Global({ value: "i32", mutable: true }, 1);
     INSTANCE_FLAGS.set(0, instanceFlags0);
     let _initTaskID0;
@@ -13577,13 +13927,13 @@ const $init = (() => {
         $root: {
           '[context-get-0]': contextGet.bind(null, { componentIdx: 0, slot: 0 }),
           '[context-set-0]': contextSet.bind(null, { componentIdx: 0, slot: 0 }),
-          '[waitable-join]': Object.assign(_guardMayLeave(0, trampoline3), { _jcoMaySuspend: false }),
-          '[waitable-set-drop]': Object.assign(_guardMayLeave(0, trampoline5), { _jcoMaySuspend: false }),
-          '[waitable-set-new]': Object.assign(_guardMayLeave(0, trampoline4), { _jcoMaySuspend: false }),
+          '[waitable-join]': Object.assign(_guardMayLeave(0, trampoline4), { _jcoMaySuspend: false }),
+          '[waitable-set-drop]': Object.assign(_guardMayLeave(0, trampoline6), { _jcoMaySuspend: false }),
+          '[waitable-set-new]': Object.assign(_guardMayLeave(0, trampoline5), { _jcoMaySuspend: false }),
           '[waitable-set-poll]': Object.assign(exports0['2'], { _jcoMaySuspend: false }),
         },
         '[export]$root': {
-          '[task-cancel]': Object.assign(_guardMayLeave(0, trampoline1), { _jcoMaySuspend: false }),
+          '[task-cancel]': Object.assign(_guardMayLeave(0, trampoline2), { _jcoMaySuspend: false }),
         },
         '[export]semio:framework/checkpoint@1.0.0': {
           '[task-return]checkpoint': Object.assign(exports0['4'], { _jcoMaySuspend: false }),
@@ -13594,80 +13944,84 @@ const $init = (() => {
           '[task-return]genesis': Object.assign(exports0['8'], { _jcoMaySuspend: false }),
           '[task-return]pack-schema-hash': Object.assign(exports0['11'], { _jcoMaySuspend: false }),
           '[task-return]print-mirror': Object.assign(exports0['10'], { _jcoMaySuspend: false }),
+          '[task-return]replay-envelopes': Object.assign(exports0['12'], { _jcoMaySuspend: false }),
         },
         '[export]semio:framework/describe@1.0.0': {
-          '[task-return]describe': Object.assign(exports0['15'], { _jcoMaySuspend: false }),
+          '[task-return]describe': Object.assign(exports0['16'], { _jcoMaySuspend: false }),
         },
         '[export]semio:framework/jobs@1.0.0': {
-          '[task-return]cancel-job': Object.assign(_guardMayLeave(0, trampoline2), { _jcoMaySuspend: false }),
+          '[task-return]cancel-job': Object.assign(_guardMayLeave(0, trampoline3), { _jcoMaySuspend: false }),
           '[task-return]start-job': Object.assign(exports0['6'], { _jcoMaySuspend: false }),
           '[task-return]step-job': Object.assign(exports0['5'], { _jcoMaySuspend: false }),
           '[task-return]take-segmented-download-chunk': Object.assign(exports0['7'], { _jcoMaySuspend: false }),
         },
         '[export]semio:framework/reactor@1.0.0': {
-          '[task-return]poll': Object.assign(exports0['12'], { _jcoMaySuspend: false }),
-          '[task-return]stage-cold-pair-page': Object.assign(exports0['14'], { _jcoMaySuspend: false }),
-          '[task-return]stage-command-page': Object.assign(exports0['13'], { _jcoMaySuspend: false }),
+          '[task-return]poll': Object.assign(exports0['13'], { _jcoMaySuspend: false }),
+          '[task-return]stage-cold-pair-page': Object.assign(exports0['15'], { _jcoMaySuspend: false }),
+          '[task-return]stage-command-page': Object.assign(exports0['14'], { _jcoMaySuspend: false }),
         },
         'semio:framework/pure@1.0.0': {
           log: Object.assign(exports0['1'], { _jcoMaySuspend: false }),
-          'now-ms': Object.assign(trampoline0, { _jcoMaySuspend: false }),
+          'now-ms': Object.assign(trampoline1, { _jcoMaySuspend: false }),
         },
         'wasi:cli/environment@0.2.0': {
-          'get-environment': Object.assign(exports0['20'], { _jcoMaySuspend: false }),
+          'get-environment': Object.assign(exports0['21'], { _jcoMaySuspend: false }),
         },
         'wasi:cli/exit@0.2.0': {
-          exit: Object.assign(trampoline12, { _jcoMaySuspend: false }),
+          exit: Object.assign(trampoline13, { _jcoMaySuspend: false }),
         },
         'wasi:cli/stderr@0.2.0': {
-          'get-stderr': Object.assign(trampoline17, { _jcoMaySuspend: false }),
+          'get-stderr': Object.assign(trampoline18, { _jcoMaySuspend: false }),
         },
         'wasi:cli/stdin@0.2.0': {
-          'get-stdin': Object.assign(trampoline15, { _jcoMaySuspend: false }),
+          'get-stdin': Object.assign(trampoline16, { _jcoMaySuspend: false }),
         },
         'wasi:cli/stdout@0.2.0': {
-          'get-stdout': Object.assign(trampoline16, { _jcoMaySuspend: false }),
+          'get-stdout': Object.assign(trampoline17, { _jcoMaySuspend: false }),
         },
         'wasi:cli/terminal-input@0.2.0': {
-          '[resource-drop]terminal-input': Object.assign(_guardMayLeave(0, trampoline10), { _jcoMaySuspend: false }),
+          '[resource-drop]terminal-input': Object.assign(_guardMayLeave(0, trampoline11), { _jcoMaySuspend: false }),
         },
         'wasi:cli/terminal-output@0.2.0': {
-          '[resource-drop]terminal-output': Object.assign(_guardMayLeave(0, trampoline11), { _jcoMaySuspend: false }),
+          '[resource-drop]terminal-output': Object.assign(_guardMayLeave(0, trampoline12), { _jcoMaySuspend: false }),
         },
         'wasi:cli/terminal-stderr@0.2.0': {
-          'get-terminal-stderr': Object.assign(exports0['23'], { _jcoMaySuspend: false }),
+          'get-terminal-stderr': Object.assign(exports0['24'], { _jcoMaySuspend: false }),
         },
         'wasi:cli/terminal-stdin@0.2.0': {
-          'get-terminal-stdin': Object.assign(exports0['21'], { _jcoMaySuspend: false }),
+          'get-terminal-stdin': Object.assign(exports0['22'], { _jcoMaySuspend: false }),
         },
         'wasi:cli/terminal-stdout@0.2.0': {
-          'get-terminal-stdout': Object.assign(exports0['22'], { _jcoMaySuspend: false }),
+          'get-terminal-stdout': Object.assign(exports0['23'], { _jcoMaySuspend: false }),
         },
         'wasi:clocks/monotonic-clock@0.2.0': {
-          now: Object.assign(trampoline18, { _jcoMaySuspend: false }),
-          'subscribe-duration': Object.assign(trampoline19, { _jcoMaySuspend: false }),
+          now: Object.assign(trampoline19, { _jcoMaySuspend: false }),
+          'subscribe-duration': Object.assign(trampoline20, { _jcoMaySuspend: false }),
         },
         'wasi:clocks/wall-clock@0.2.0': {
-          now: Object.assign(exports0['24'], { _jcoMaySuspend: false }),
+          now: Object.assign(exports0['25'], { _jcoMaySuspend: false }),
         },
         'wasi:io/error@0.2.0': {
-          '[resource-drop]error': Object.assign(_guardMayLeave(0, trampoline6), { _jcoMaySuspend: false }),
+          '[resource-drop]error': Object.assign(_guardMayLeave(0, trampoline7), { _jcoMaySuspend: false }),
         },
         'wasi:io/poll@0.2.0': {
-          '[method]pollable.block': Object.assign(trampoline13, { _jcoMaySuspend: false }),
-          '[resource-drop]pollable': Object.assign(_guardMayLeave(0, trampoline7), { _jcoMaySuspend: false }),
-          poll: Object.assign(exports0['16'], { _jcoMaySuspend: false }),
+          '[method]pollable.block': Object.assign(trampoline14, { _jcoMaySuspend: false }),
+          '[resource-drop]pollable': Object.assign(_guardMayLeave(0, trampoline8), { _jcoMaySuspend: false }),
+          poll: Object.assign(exports0['17'], { _jcoMaySuspend: false }),
         },
         'wasi:io/streams@0.2.0': {
-          '[method]output-stream.blocking-flush': Object.assign(exports0['19'], { _jcoMaySuspend: false }),
-          '[method]output-stream.check-write': Object.assign(exports0['17'], { _jcoMaySuspend: false }),
-          '[method]output-stream.subscribe': Object.assign(trampoline14, { _jcoMaySuspend: false }),
-          '[method]output-stream.write': Object.assign(exports0['18'], { _jcoMaySuspend: false }),
-          '[resource-drop]input-stream': Object.assign(_guardMayLeave(0, trampoline8), { _jcoMaySuspend: false }),
-          '[resource-drop]output-stream': Object.assign(_guardMayLeave(0, trampoline9), { _jcoMaySuspend: false }),
+          '[method]output-stream.blocking-flush': Object.assign(exports0['20'], { _jcoMaySuspend: false }),
+          '[method]output-stream.check-write': Object.assign(exports0['18'], { _jcoMaySuspend: false }),
+          '[method]output-stream.subscribe': Object.assign(trampoline15, { _jcoMaySuspend: false }),
+          '[method]output-stream.write': Object.assign(exports0['19'], { _jcoMaySuspend: false }),
+          '[resource-drop]input-stream': Object.assign(_guardMayLeave(0, trampoline9), { _jcoMaySuspend: false }),
+          '[resource-drop]output-stream': Object.assign(_guardMayLeave(0, trampoline10), { _jcoMaySuspend: false }),
         },
         'wasi:random/insecure-seed@0.2.9': {
           'insecure-seed': Object.assign(exports0['0'], { _jcoMaySuspend: false }),
+        },
+        'wasi:random/random@0.2.9': {
+          'get-random-u64': Object.assign(trampoline0, { _jcoMaySuspend: false }),
         },
       })));
       memory0 = exports1.memory;
@@ -13682,31 +14036,32 @@ const $init = (() => {
       ({ exports: exports2 } = yield instantiateCore(yield module2, (_setGlobalCurrentTaskMeta({ componentIdx: 0, taskID: _initTaskID0 }), {
         '': {
           $imports: exports0.$imports,
-          '0': Object.assign(trampoline20, { _jcoMaySuspend: false }),
-          '1': Object.assign(trampoline21, { _jcoMaySuspend: false }),
-          '10': Object.assign(_guardMayLeave(0, trampoline28), { _jcoMaySuspend: false }),
-          '11': Object.assign(_guardMayLeave(0, trampoline24), { _jcoMaySuspend: false }),
-          '12': Object.assign(_guardMayLeave(0, trampoline29), { _jcoMaySuspend: false }),
-          '13': Object.assign(_guardMayLeave(0, trampoline23), { _jcoMaySuspend: false }),
-          '14': Object.assign(_guardMayLeave(0, trampoline23), { _jcoMaySuspend: false }),
-          '15': Object.assign(_guardMayLeave(0, trampoline30), { _jcoMaySuspend: false }),
-          '16': Object.assign(trampoline31, { _jcoMaySuspend: false }),
+          '0': Object.assign(trampoline21, { _jcoMaySuspend: false }),
+          '1': Object.assign(trampoline22, { _jcoMaySuspend: false }),
+          '10': Object.assign(_guardMayLeave(0, trampoline29), { _jcoMaySuspend: false }),
+          '11': Object.assign(_guardMayLeave(0, trampoline25), { _jcoMaySuspend: false }),
+          '12': Object.assign(_guardMayLeave(0, trampoline28), { _jcoMaySuspend: false }),
+          '13': Object.assign(_guardMayLeave(0, trampoline30), { _jcoMaySuspend: false }),
+          '14': Object.assign(_guardMayLeave(0, trampoline24), { _jcoMaySuspend: false }),
+          '15': Object.assign(_guardMayLeave(0, trampoline24), { _jcoMaySuspend: false }),
+          '16': Object.assign(_guardMayLeave(0, trampoline31), { _jcoMaySuspend: false }),
           '17': Object.assign(trampoline32, { _jcoMaySuspend: false }),
           '18': Object.assign(trampoline33, { _jcoMaySuspend: false }),
           '19': Object.assign(trampoline34, { _jcoMaySuspend: false }),
-          '2': Object.assign(_guardMayLeave(0, trampoline22), { _jcoMaySuspend: false }),
+          '2': Object.assign(_guardMayLeave(0, trampoline23), { _jcoMaySuspend: false }),
           '20': Object.assign(trampoline35, { _jcoMaySuspend: false }),
           '21': Object.assign(trampoline36, { _jcoMaySuspend: false }),
           '22': Object.assign(trampoline37, { _jcoMaySuspend: false }),
           '23': Object.assign(trampoline38, { _jcoMaySuspend: false }),
           '24': Object.assign(trampoline39, { _jcoMaySuspend: false }),
-          '3': Object.assign(_guardMayLeave(0, trampoline23), { _jcoMaySuspend: false }),
-          '4': Object.assign(_guardMayLeave(0, trampoline24), { _jcoMaySuspend: false }),
-          '5': Object.assign(_guardMayLeave(0, trampoline25), { _jcoMaySuspend: false }),
-          '6': Object.assign(_guardMayLeave(0, trampoline23), { _jcoMaySuspend: false }),
-          '7': Object.assign(_guardMayLeave(0, trampoline26), { _jcoMaySuspend: false }),
-          '8': Object.assign(_guardMayLeave(0, trampoline27), { _jcoMaySuspend: false }),
-          '9': Object.assign(_guardMayLeave(0, trampoline27), { _jcoMaySuspend: false }),
+          '25': Object.assign(trampoline40, { _jcoMaySuspend: false }),
+          '3': Object.assign(_guardMayLeave(0, trampoline24), { _jcoMaySuspend: false }),
+          '4': Object.assign(_guardMayLeave(0, trampoline25), { _jcoMaySuspend: false }),
+          '5': Object.assign(_guardMayLeave(0, trampoline26), { _jcoMaySuspend: false }),
+          '6': Object.assign(_guardMayLeave(0, trampoline24), { _jcoMaySuspend: false }),
+          '7': Object.assign(_guardMayLeave(0, trampoline27), { _jcoMaySuspend: false }),
+          '8': Object.assign(_guardMayLeave(0, trampoline28), { _jcoMaySuspend: false }),
+          '9': Object.assign(_guardMayLeave(0, trampoline28), { _jcoMaySuspend: false }),
         },
       })));
       
@@ -13733,6 +14088,7 @@ const $init = (() => {
     codec100Genesis = WebAssembly.promising(exports1['[async-lift]semio:framework/codec@1.0.0#genesis']);
     codec100PrintMirror = WebAssembly.promising(exports1['[async-lift]semio:framework/codec@1.0.0#print-mirror']);
     codec100ApplyOps = WebAssembly.promising(exports1['[async-lift]semio:framework/codec@1.0.0#apply-ops']);
+    codec100ReplayEnvelopes = WebAssembly.promising(exports1['[async-lift]semio:framework/codec@1.0.0#replay-envelopes']);
   })();
   let promise, resolve, reject;
   function normalizeInstantiationError (e) {
@@ -13779,6 +14135,7 @@ const codec100 = {
   genesis: genesis,
   packSchemaHash: packSchemaHash,
   printMirror: printMirror,
+  replayEnvelopes: replayEnvelopes,
   
 };
 const describe100 = {

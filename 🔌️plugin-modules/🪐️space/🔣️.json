@@ -29,11 +29,6 @@
             "subset": "*"
           },
           {
-            "artifactKind": "s.stdio.csv",
-            "standard": "rfc4180",
-            "subset": "*"
-          },
-          {
             "artifactKind": "s.stdio.json",
             "standard": "rfc8259",
             "subset": "*"
@@ -41,11 +36,6 @@
           {
             "artifactKind": "s.stdio.txt",
             "standard": "utf-8",
-            "subset": "*"
-          },
-          {
-            "artifactKind": "s.stdio.xlsx",
-            "standard": "ecma-376",
             "subset": "*"
           },
           {
@@ -77,19 +67,6 @@
       },
       {
         "counterpart": {
-          "artifactKind": "s.stdio.csv",
-          "standard": "rfc4180",
-          "subset": "*"
-        },
-        "direction": "import",
-        "owner": {
-          "artifactKind": "s.space.home",
-          "standard": "1",
-          "subset": "*"
-        }
-      },
-      {
-        "counterpart": {
           "artifactKind": "s.stdio.json",
           "standard": "rfc8259",
           "subset": "*"
@@ -105,19 +82,6 @@
         "counterpart": {
           "artifactKind": "s.stdio.txt",
           "standard": "utf-8",
-          "subset": "*"
-        },
-        "direction": "import",
-        "owner": {
-          "artifactKind": "s.space.home",
-          "standard": "1",
-          "subset": "*"
-        }
-      },
-      {
-        "counterpart": {
-          "artifactKind": "s.stdio.xlsx",
-          "standard": "ecma-376",
           "subset": "*"
         },
         "direction": "import",
@@ -318,12 +282,12 @@
   "descriptorVersion": 1,
   "execution": "isolated",
   "executionProtocol": {
-    "appChannelVersion": 17
+    "appChannelVersion": 19
   },
   "hashes": {
-    "coreWasmSha256": "c40dff03322303e9ecfb2ea1a3bc18da3a008ef9be1e477eb1a2941bbea974aa",
-    "descriptorSha256": "9d6e003c3746e3f89135a9c1f144f0cd842093a6d616db49670aab0f032a31da",
-    "wasmSha256": "416cb100cef23fc619e6b6bdc76f196bfe2f7e4af2c7f4abf31a775d2151869c"
+    "coreWasmSha256": "f4eb1ff799eb2a32b75c7764ae0b948ab68e04f98e535c220409810f1557e70a",
+    "descriptorSha256": "850dbe1b336717d272d0b8d53ed4c8cfbb36bdb00021a8f6c70fe36aabaeebd2",
+    "wasmSha256": "08a2199bef3a902f30b016cd2d0c33e88bb2583ebe5d4a6e35afa572d68339c9"
   },
   "manifest": {
     "apps": [
@@ -333,7 +297,7 @@
             "args": [],
             "iconId": "eye",
             "id": "applyDirectoryEventPage",
-            "inPalette": true,
+            "inPalette": false,
             "kind": "view",
             "label": {
               "native": {
@@ -346,6 +310,7 @@
               }
             },
             "semantics": {
+              "audience": "chrome",
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -377,53 +342,8 @@
           {
             "args": [],
             "iconId": "eye",
-            "id": "foldDirectoryEvents",
-            "inPalette": true,
-            "kind": "view",
-            "label": {
-              "native": {
-                "de": "Verzeichnisereignisse einspielen",
-                "en": "Fold Directory Events"
-              },
-              "reuse": {
-                "de": "Verzeichnisereignisse einspielen",
-                "en": "Fold Directory Events"
-              }
-            },
-            "semantics": {
-              "effects": {
-                "destructive": false,
-                "external": false,
-                "reads": [
-                  "config:{self}"
-                ],
-                "reversible": false
-              },
-              "execution": {
-                "cancellable": false,
-                "class": "interactive",
-                "expectedRevision": false,
-                "idempotency": "none",
-                "interactiveJob": "batchOnlyPendingRewrite",
-                "preview": "none",
-                "undo": {
-                  "kind": "none"
-                }
-              },
-              "policy": {
-                "approval": "never",
-                "scopes": [
-                  "artifacts.read",
-                  "shell.observe"
-                ]
-              }
-            }
-          },
-          {
-            "args": [],
-            "iconId": "eye",
             "id": "presenceHeartbeat",
-            "inPalette": true,
+            "inPalette": false,
             "kind": "view",
             "label": {
               "native": {
@@ -436,6 +356,7 @@
               }
             },
             "semantics": {
+              "audience": "chrome",
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -1167,6 +1088,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Öffnet den Tutorial-Rekorder für das geöffnete Dokument, damit die nächsten Interaktionen als Tutorial aufgezeichnet werden.",
+                  "en": "Opens the tutorial recorder on the open document so the next interactions are recorded as a tutorial."
+                },
+                "reuse": {
+                  "de": "Öffnet den Tutorial-Rekorder für das geöffnete Dokument, damit die nächsten Interaktionen als Tutorial aufgezeichnet werden.",
+                  "en": "Opens the tutorial recorder on the open document so the next interactions are recorded as a tutorial."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -1272,6 +1203,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Filtert den Verlaufsbereich auf alle Einträge, nur Dokumentoperationen oder alles außer Dokumentoperationen; das Dokument wird nicht verändert.",
+                  "en": "Filters the history panel to all entries, only document operations, or everything except document operations; the document is not changed."
+                },
+                "reuse": {
+                  "de": "Filtert den Verlaufsbereich auf alle Einträge, nur Dokumentoperationen oder alles außer Dokumentoperationen; das Dokument wird nicht verändert.",
+                  "en": "Filters the history panel to all entries, only document operations, or everything except document operations; the document is not changed."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -1370,6 +1311,16 @@
             },
             "semantics": {
               "audience": "chrome",
+              "description": {
+                "native": {
+                  "de": "Vermerkt eine bereits erfolgte Shell-Wirkung (Navigation, Export, Start) im Sitzungsprotokoll; das Dokument wird nicht verändert.",
+                  "en": "Records a shell effect that already happened (navigation, export, spawn) in the session command log; the document is not changed."
+                },
+                "reuse": {
+                  "de": "Vermerkt eine bereits erfolgte Shell-Wirkung (Navigation, Export, Start) im Sitzungsprotokoll; das Dokument wird nicht verändert.",
+                  "en": "Records a shell effect that already happened (navigation, export, spawn) in the session command log; the document is not changed."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -1966,8 +1917,11 @@
                     },
                     "required": true,
                     "schema": {
-                      "integer": false,
-                      "kind": "number"
+                      "integer": true,
+                      "kind": "number",
+                      "max": 4294967295,
+                      "min": 0,
+                      "step": 1
                     }
                   },
                   {
@@ -1982,9 +1936,13 @@
                         "en": "Column"
                       }
                     },
-                    "required": true,
+                    "required": false,
                     "schema": {
-                      "kind": "string"
+                      "integer": true,
+                      "kind": "number",
+                      "max": 4294967295,
+                      "min": 0,
+                      "step": 1
                     }
                   },
                   {
@@ -1999,9 +1957,10 @@
                         "en": "Value"
                       }
                     },
-                    "required": false,
+                    "required": true,
                     "schema": {
-                      "kind": "string"
+                      "kind": "string",
+                      "minLen": 0
                     }
                   }
                 ],
@@ -2020,6 +1979,16 @@
                   }
                 },
                 "semantics": {
+                  "description": {
+                    "native": {
+                      "de": "Schreibt den angegebenen Wert in eine Tabellenzelle, adressiert über Zeilenindex und Spalte, und ersetzt ihren bisherigen Inhalt.",
+                      "en": "Writes the given value into one table cell, addressed by row index and column, replacing what the cell held before."
+                    },
+                    "reuse": {
+                      "de": "Schreibt den angegebenen Wert in eine Tabellenzelle, adressiert über Zeilenindex und Spalte, und ersetzt ihren bisherigen Inhalt.",
+                      "en": "Writes the given value into one table cell, addressed by row index and column, replacing what the cell held before."
+                    }
+                  },
                   "effects": {
                     "destructive": false,
                     "external": false,
@@ -2064,6 +2033,16 @@
                   }
                 },
                 "semantics": {
+                  "description": {
+                    "native": {
+                      "de": "Erstellt ein neues Studio mit dem angegebenen Namen und der Art, entweder temporär und nur lokal oder mit Ordnerpfad in einem Ordner gespeichert; Teilen bleibt gesperrt, bis es hochgestuft wird.",
+                      "en": "Creates a new studio with the given name and kind, either a temporary local-only one or one kept in a folder when a folder path is given; sharing stays off until it is promoted."
+                    },
+                    "reuse": {
+                      "de": "Erstellt ein neues Studio mit dem angegebenen Namen und der Art, entweder temporär und nur lokal oder mit Ordnerpfad in einem Ordner gespeichert; Teilen bleibt gesperrt, bis es hochgestuft wird.",
+                      "en": "Creates a new studio with the given name and kind, either a temporary local-only one or one kept in a folder when a folder path is given; sharing stays off until it is promoted."
+                    }
+                  },
                   "effects": {
                     "destructive": false,
                     "external": false,
@@ -2108,6 +2087,16 @@
                   }
                 },
                 "semantics": {
+                  "description": {
+                    "native": {
+                      "de": "Verknüpft ein Studio anhand eines Pfads mit einer Datei auf dem Datenträger, sodass seine Ereignisse in diese Datei geschrieben und daraus gelesen werden.",
+                      "en": "Binds a studio to a file on disk by path, so the studio's events are persisted to and read from that file."
+                    },
+                    "reuse": {
+                      "de": "Verknüpft ein Studio anhand eines Pfads mit einer Datei auf dem Datenträger, sodass seine Ereignisse in diese Datei geschrieben und daraus gelesen werden.",
+                      "en": "Binds a studio to a file on disk by path, so the studio's events are persisted to and read from that file."
+                    }
+                  },
                   "effects": {
                     "destructive": false,
                     "external": false,
@@ -2149,6 +2138,16 @@
                   }
                 },
                 "semantics": {
+                  "description": {
+                    "native": {
+                      "de": "Importiert ein Studio aus dem angegebenen .os-DSL-Text oder öffnet ohne Text die Dateiauswahl des Hosts für eine .os-Datei.",
+                      "en": "Imports a studio from the given .os DSL text, or opens the host's file picker for an .os file when no text is given."
+                    },
+                    "reuse": {
+                      "de": "Importiert ein Studio aus dem angegebenen .os-DSL-Text oder öffnet ohne Text die Dateiauswahl des Hosts für eine .os-Datei.",
+                      "en": "Imports a studio from the given .os DSL text, or opens the host's file picker for an .os file when no text is given."
+                    }
+                  },
                   "effects": {
                     "destructive": false,
                     "external": false,
@@ -2193,6 +2192,16 @@
                   }
                 },
                 "semantics": {
+                  "description": {
+                    "native": {
+                      "de": "Öffnet den Space oder das Studio mit der angegebenen Id und navigiert die Shell dorthin.",
+                      "en": "Opens the space or studio with the given id, navigating the shell to it."
+                    },
+                    "reuse": {
+                      "de": "Öffnet den Space oder das Studio mit der angegebenen Id und navigiert die Shell dorthin.",
+                      "en": "Opens the space or studio with the given id, navigating the shell to it."
+                    }
+                  },
                   "effects": {
                     "destructive": false,
                     "external": false,
@@ -2234,6 +2243,16 @@
                   }
                 },
                 "semantics": {
+                  "description": {
+                    "native": {
+                      "de": "Navigiert die Shell zum Space hinter einem Knoten des Home-Dateibaums.",
+                      "en": "Navigates the shell to the space behind one node of the Home file tree."
+                    },
+                    "reuse": {
+                      "de": "Navigiert die Shell zum Space hinter einem Knoten des Home-Dateibaums.",
+                      "en": "Navigates the shell to the space behind one node of the Home file tree."
+                    }
+                  },
                   "effects": {
                     "destructive": false,
                     "external": false,
@@ -2275,6 +2294,16 @@
                   }
                 },
                 "semantics": {
+                  "description": {
+                    "native": {
+                      "de": "Löscht das lokale Studio hinter einem Knoten des Home-Dateibaums samt Entwurf; sein Inhalt ist fort.",
+                      "en": "Deletes the local studio behind one node of the Home file tree, including its draft; its content is gone."
+                    },
+                    "reuse": {
+                      "de": "Löscht das lokale Studio hinter einem Knoten des Home-Dateibaums samt Entwurf; sein Inhalt ist fort.",
+                      "en": "Deletes the local studio behind one node of the Home file tree, including its draft; its content is gone."
+                    }
+                  },
                   "effects": {
                     "destructive": true,
                     "external": false,
@@ -2319,6 +2348,16 @@
                   }
                 },
                 "semantics": {
+                  "description": {
+                    "native": {
+                      "de": "Navigiert die Shell zurück zum Home-Starter.",
+                      "en": "Navigates the shell back to the Home launcher."
+                    },
+                    "reuse": {
+                      "de": "Navigiert die Shell zurück zum Home-Starter.",
+                      "en": "Navigates the shell back to the Home launcher."
+                    }
+                  },
                   "effects": {
                     "destructive": false,
                     "external": false,
@@ -2360,6 +2399,16 @@
                   }
                 },
                 "semantics": {
+                  "description": {
+                    "native": {
+                      "de": "Erstellt auf dem Hub einen neuen geteilten Space mit dem angegebenen Namen; ohne Namen öffnet es den Dialog Space erstellen.",
+                      "en": "Creates a new shared space on the hub with the given name; without a name it opens the Create Space dialog."
+                    },
+                    "reuse": {
+                      "de": "Erstellt auf dem Hub einen neuen geteilten Space mit dem angegebenen Namen; ohne Namen öffnet es den Dialog Space erstellen.",
+                      "en": "Creates a new shared space on the hub with the given name; without a name it opens the Create Space dialog."
+                    }
+                  },
                   "effects": {
                     "destructive": false,
                     "external": false,
@@ -2401,8 +2450,18 @@
                   }
                 },
                 "semantics": {
+                  "description": {
+                    "native": {
+                      "de": "Löscht einen Space auf dem Hub für alle Mitglieder; der erste Aufruf öffnet einen Bestätigungsdialog, erst der bestätigte Aufruf löscht.",
+                      "en": "Deletes one space on the hub for every member; the first call opens a confirmation dialog, and only the confirmed call deletes it."
+                    },
+                    "reuse": {
+                      "de": "Löscht einen Space auf dem Hub für alle Mitglieder; der erste Aufruf öffnet einen Bestätigungsdialog, erst der bestätigte Aufruf löscht.",
+                      "en": "Deletes one space on the hub for every member; the first call opens a confirmation dialog, and only the confirmed call deletes it."
+                    }
+                  },
                   "effects": {
-                    "destructive": false,
+                    "destructive": true,
                     "external": false,
                     "reversible": false
                   },
@@ -2418,7 +2477,7 @@
                     }
                   },
                   "policy": {
-                    "approval": "never",
+                    "approval": "whenDestructive",
                     "scopes": [
                       "shell.navigate"
                     ]
@@ -2442,6 +2501,16 @@
                   }
                 },
                 "semantics": {
+                  "description": {
+                    "native": {
+                      "de": "Benennt einen Space auf dem Hub um; ohne neuen Namen öffnet es den Dialog Space umbenennen mit dem aktuellen Namen.",
+                      "en": "Renames one space on the hub; without a new name it opens the Rename Space dialog seeded with the current name."
+                    },
+                    "reuse": {
+                      "de": "Benennt einen Space auf dem Hub um; ohne neuen Namen öffnet es den Dialog Space umbenennen mit dem aktuellen Namen.",
+                      "en": "Renames one space on the hub; without a new name it opens the Rename Space dialog seeded with the current name."
+                    }
+                  },
                   "effects": {
                     "destructive": false,
                     "external": false,
@@ -2452,7 +2521,7 @@
                     "class": "interactive",
                     "expectedRevision": false,
                     "idempotency": "none",
-                    "interactiveJob": "batchOnlyPendingRewrite",
+                    "interactiveJob": "migrated",
                     "preview": "none",
                     "undo": {
                       "kind": "none"
@@ -2483,6 +2552,16 @@
                   }
                 },
                 "semantics": {
+                  "description": {
+                    "native": {
+                      "de": "Fügt auf dem Hub einem Space ein Mitglied per E-Mail und Rolle hinzu oder aktualisiert es; ohne E-Mail öffnet es den Dialog Space teilen.",
+                      "en": "Adds or updates a member of one space on the hub by email and role; without an email it opens the Share Space dialog."
+                    },
+                    "reuse": {
+                      "de": "Fügt auf dem Hub einem Space ein Mitglied per E-Mail und Rolle hinzu oder aktualisiert es; ohne E-Mail öffnet es den Dialog Space teilen.",
+                      "en": "Adds or updates a member of one space on the hub by email and role; without an email it opens the Share Space dialog."
+                    }
+                  },
                   "effects": {
                     "destructive": false,
                     "external": false,
@@ -2524,6 +2603,16 @@
                   }
                 },
                 "semantics": {
+                  "description": {
+                    "native": {
+                      "de": "Öffnet den Verwaltungsbereich der Shell für einen Space, in dem der Hub entscheidet, was der Nutzer verwalten darf.",
+                      "en": "Opens the shell's administration pane for one space, where the hub decides what the user may manage."
+                    },
+                    "reuse": {
+                      "de": "Öffnet den Verwaltungsbereich der Shell für einen Space, in dem der Hub entscheidet, was der Nutzer verwalten darf.",
+                      "en": "Opens the shell's administration pane for one space, where the hub decides what the user may manage."
+                    }
+                  },
                   "effects": {
                     "destructive": false,
                     "external": false,
@@ -2565,6 +2654,16 @@
                   }
                 },
                 "semantics": {
+                  "description": {
+                    "native": {
+                      "de": "Lässt den Hub eine Einladung für einen Space erzeugen und kopiert den einlösbaren Link in die Zwischenablage.",
+                      "en": "Asks the hub to mint an invite for one space and copies the redeemable link to the clipboard."
+                    },
+                    "reuse": {
+                      "de": "Lässt den Hub eine Einladung für einen Space erzeugen und kopiert den einlösbaren Link in die Zwischenablage.",
+                      "en": "Asks the hub to mint an invite for one space and copies the redeemable link to the clipboard."
+                    }
+                  },
                   "effects": {
                     "destructive": false,
                     "external": false,
@@ -2606,6 +2705,16 @@
                   }
                 },
                 "semantics": {
+                  "description": {
+                    "native": {
+                      "de": "Stuft ein temporäres lokales Studio unter dem angegebenen Namen zu einem geteilten Space auf dem Hub hoch, damit es geteilt und gemeinsam bearbeitet werden kann.",
+                      "en": "Promotes a temporary local studio to a shared space on the hub under the given name, so it can be shared and edited together."
+                    },
+                    "reuse": {
+                      "de": "Stuft ein temporäres lokales Studio unter dem angegebenen Namen zu einem geteilten Space auf dem Hub hoch, damit es geteilt und gemeinsam bearbeitet werden kann.",
+                      "en": "Promotes a temporary local studio to a shared space on the hub under the given name, so it can be shared and edited together."
+                    }
+                  },
                   "effects": {
                     "destructive": false,
                     "external": false,
@@ -2647,6 +2756,16 @@
                   }
                 },
                 "semantics": {
+                  "description": {
+                    "native": {
+                      "de": "Speichert ein temporäres lokales Studio in einen Ordner auf diesem Rechner, damit es Neustarts übersteht; es bleibt lokal und ungeteilt.",
+                      "en": "Saves a temporary local studio into a folder on this machine so it survives restarts; it stays local-only and unshared."
+                    },
+                    "reuse": {
+                      "de": "Speichert ein temporäres lokales Studio in einen Ordner auf diesem Rechner, damit es Neustarts übersteht; es bleibt lokal und ungeteilt.",
+                      "en": "Saves a temporary local studio into a folder on this machine so it survives restarts; it stays local-only and unshared."
+                    }
+                  },
                   "effects": {
                     "destructive": false,
                     "external": false,
@@ -2667,6 +2786,51 @@
                     "approval": "never",
                     "scopes": [
                       "shell.navigate"
+                    ]
+                  }
+                }
+              },
+              {
+                "args": [],
+                "iconId": "square",
+                "id": "cancelTypedOperation",
+                "inPalette": false,
+                "kind": "view",
+                "label": {
+                  "native": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  },
+                  "reuse": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  }
+                },
+                "semantics": {
+                  "effects": {
+                    "destructive": false,
+                    "external": false,
+                    "reads": [
+                      "config:{self}"
+                    ],
+                    "reversible": false
+                  },
+                  "execution": {
+                    "cancellable": false,
+                    "class": "interactive",
+                    "expectedRevision": false,
+                    "idempotency": "none",
+                    "interactiveJob": "migrated",
+                    "preview": "none",
+                    "undo": {
+                      "kind": "none"
+                    }
+                  },
+                  "policy": {
+                    "approval": "never",
+                    "scopes": [
+                      "artifacts.read",
+                      "shell.observe"
                     ]
                   }
                 }
@@ -2699,6 +2863,52 @@
       },
       {
         "actions": [
+          {
+            "args": [],
+            "iconId": "eye",
+            "id": "applyDirectoryEventPage",
+            "inPalette": false,
+            "kind": "view",
+            "label": {
+              "native": {
+                "de": "Verzeichnis-Ereignisseite anwenden",
+                "en": "Apply Directory Event Page"
+              },
+              "reuse": {
+                "de": "Verzeichnis-Ereignisseite anwenden",
+                "en": "Apply Directory Event Page"
+              }
+            },
+            "semantics": {
+              "audience": "chrome",
+              "effects": {
+                "destructive": false,
+                "external": false,
+                "reads": [
+                  "config:{self}"
+                ],
+                "reversible": false
+              },
+              "execution": {
+                "cancellable": false,
+                "class": "interactive",
+                "expectedRevision": false,
+                "idempotency": "none",
+                "interactiveJob": "migrated",
+                "preview": "none",
+                "undo": {
+                  "kind": "none"
+                }
+              },
+              "policy": {
+                "approval": "never",
+                "scopes": [
+                  "artifacts.read",
+                  "shell.observe"
+                ]
+              }
+            }
+          },
           {
             "args": [],
             "iconId": "undo-2",
@@ -3402,6 +3612,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Öffnet den Tutorial-Rekorder für das geöffnete Dokument, damit die nächsten Interaktionen als Tutorial aufgezeichnet werden.",
+                  "en": "Opens the tutorial recorder on the open document so the next interactions are recorded as a tutorial."
+                },
+                "reuse": {
+                  "de": "Öffnet den Tutorial-Rekorder für das geöffnete Dokument, damit die nächsten Interaktionen als Tutorial aufgezeichnet werden.",
+                  "en": "Opens the tutorial recorder on the open document so the next interactions are recorded as a tutorial."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -3507,6 +3727,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Filtert den Verlaufsbereich auf alle Einträge, nur Dokumentoperationen oder alles außer Dokumentoperationen; das Dokument wird nicht verändert.",
+                  "en": "Filters the history panel to all entries, only document operations, or everything except document operations; the document is not changed."
+                },
+                "reuse": {
+                  "de": "Filtert den Verlaufsbereich auf alle Einträge, nur Dokumentoperationen oder alles außer Dokumentoperationen; das Dokument wird nicht verändert.",
+                  "en": "Filters the history panel to all entries, only document operations, or everything except document operations; the document is not changed."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -3605,6 +3835,16 @@
             },
             "semantics": {
               "audience": "chrome",
+              "description": {
+                "native": {
+                  "de": "Vermerkt eine bereits erfolgte Shell-Wirkung (Navigation, Export, Start) im Sitzungsprotokoll; das Dokument wird nicht verändert.",
+                  "en": "Records a shell effect that already happened (navigation, export, spawn) in the session command log; the document is not changed."
+                },
+                "reuse": {
+                  "de": "Vermerkt eine bereits erfolgte Shell-Wirkung (Navigation, Export, Start) im Sitzungsprotokoll; das Dokument wird nicht verändert.",
+                  "en": "Records a shell effect that already happened (navigation, export, spawn) in the session command log; the document is not changed."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -3779,7 +4019,53 @@
         "utilities": [],
         "windowKinds": [
           {
-            "actions": [],
+            "actions": [
+              {
+                "args": [],
+                "iconId": "square",
+                "id": "cancelTypedOperation",
+                "inPalette": false,
+                "kind": "view",
+                "label": {
+                  "native": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  },
+                  "reuse": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  }
+                },
+                "semantics": {
+                  "effects": {
+                    "destructive": false,
+                    "external": false,
+                    "reads": [
+                      "config:{self}"
+                    ],
+                    "reversible": false
+                  },
+                  "execution": {
+                    "cancellable": false,
+                    "class": "interactive",
+                    "expectedRevision": false,
+                    "idempotency": "none",
+                    "interactiveJob": "migrated",
+                    "preview": "none",
+                    "undo": {
+                      "kind": "none"
+                    }
+                  },
+                  "policy": {
+                    "approval": "never",
+                    "scopes": [
+                      "artifacts.read",
+                      "shell.observe"
+                    ]
+                  }
+                }
+              }
+            ],
             "bodyKey": "framework.window.table",
             "capabilities": [],
             "iconId": "table-2",
@@ -3865,6 +4151,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Erstellt in diesem Space ein neues Artefakt der gewählten Art mit dem angegebenen Namen; ohne Namen oder Art öffnet es den Dialog Artefakt erstellen.",
+                  "en": "Creates a new artifact of the chosen kind with the given name in this space; without a name or kind it opens the Create Artifact dialog."
+                },
+                "reuse": {
+                  "de": "Erstellt in diesem Space ein neues Artefakt der gewählten Art mit dem angegebenen Namen; ohne Namen oder Art öffnet es den Dialog Artefakt erstellen.",
+                  "en": "Creates a new artifact of the chosen kind with the given name in this space; without a name or kind it opens the Create Artifact dialog."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -3909,6 +4205,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Entfernt ein Artefakt anhand seiner Id für alle Mitglieder aus dem Index dieses Space.",
+                  "en": "Removes one artifact by id from this space's index for every member."
+                },
+                "reuse": {
+                  "de": "Entfernt ein Artefakt anhand seiner Id für alle Mitglieder aus dem Index dieses Space.",
+                  "en": "Removes one artifact by id from this space's index for every member."
+                }
+              },
               "effects": {
                 "destructive": true,
                 "external": false,
@@ -3953,6 +4259,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Benennt ein Artefakt im Index dieses Space anhand seiner Id um.",
+                  "en": "Renames one artifact of this space's index by id."
+                },
+                "reuse": {
+                  "de": "Benennt ein Artefakt im Index dieses Space anhand seiner Id um.",
+                  "en": "Renames one artifact of this space's index by id."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -3997,6 +4313,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Hält fest, dass ein Akteur ein Artefakt zum angegebenen Zeitpunkt geöffnet oder bearbeitet hat, und aktualisiert dessen Zuletzt-berührt-Eintrag im Index.",
+                  "en": "Records that an actor opened or edited one artifact at the given time, updating its last-touched entry in the index."
+                },
+                "reuse": {
+                  "de": "Hält fest, dass ein Akteur ein Artefakt zum angegebenen Zeitpunkt geöffnet oder bearbeitet hat, und aktualisiert dessen Zuletzt-berührt-Eintrag im Index.",
+                  "en": "Records that an actor opened or edited one artifact at the given time, updating its last-touched entry in the index."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -4041,8 +4367,18 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Öffnet den Bestätigungsdialog zum Löschen eines Artefakts; die Bestätigung löscht es für alle Mitglieder.",
+                  "en": "Opens the confirmation dialog for deleting one artifact; confirming it deletes the artifact for every member."
+                },
+                "reuse": {
+                  "de": "Öffnet den Bestätigungsdialog zum Löschen eines Artefakts; die Bestätigung löscht es für alle Mitglieder.",
+                  "en": "Opens the confirmation dialog for deleting one artifact; confirming it deletes the artifact for every member."
+                }
+              },
               "effects": {
-                "destructive": false,
+                "destructive": true,
                 "external": false,
                 "reversible": false
               },
@@ -4058,7 +4394,7 @@
                 }
               },
               "policy": {
-                "approval": "never",
+                "approval": "whenDestructive",
                 "scopes": [
                   "shell.navigate"
                 ]
@@ -4082,6 +4418,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Öffnet ein Artefakt dieses Space mit der bevorzugten App des Nutzers für seine Art.",
+                  "en": "Opens one artifact of this space with the user's preferred app for its kind."
+                },
+                "reuse": {
+                  "de": "Öffnet ein Artefakt dieses Space mit der bevorzugten App des Nutzers für seine Art.",
+                  "en": "Opens one artifact of this space with the user's preferred app for its kind."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -4123,6 +4469,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Öffnet ein Artefakt dieses Space mit einer ausdrücklich gewählten App und Rolle (Editor oder Betrachter).",
+                  "en": "Opens one artifact of this space with an explicitly chosen app and role (editor or viewer)."
+                },
+                "reuse": {
+                  "de": "Öffnet ein Artefakt dieses Space mit einer ausdrücklich gewählten App und Rolle (Editor oder Betrachter).",
+                  "en": "Opens one artifact of this space with an explicitly chosen app and role (editor or viewer)."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -4164,6 +4520,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Lädt eine Person per E-Mail mit der angegebenen Rolle auf dem Hub in diesen Space ein.",
+                  "en": "Invites a person to this space on the hub by email with the given role."
+                },
+                "reuse": {
+                  "de": "Lädt eine Person per E-Mail mit der angegebenen Rolle auf dem Hub in diesen Space ein.",
+                  "en": "Invites a person to this space on the hub by email with the given role."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -4205,6 +4571,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Öffnet für diesen Space den Dialog Mitglied einladen (E-Mail und Rolle).",
+                  "en": "Opens the Invite Member dialog (email and role) for this space."
+                },
+                "reuse": {
+                  "de": "Öffnet für diesen Space den Dialog Mitglied einladen (E-Mail und Rolle).",
+                  "en": "Opens the Invite Member dialog (email and role) for this space."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -4246,8 +4622,18 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Entfernt ein Mitglied auf dem Hub aus diesem Space; es verliert den Zugriff auf dessen Artefakte.",
+                  "en": "Removes one member from this space on the hub; they lose access to its artifacts."
+                },
+                "reuse": {
+                  "de": "Entfernt ein Mitglied auf dem Hub aus diesem Space; es verliert den Zugriff auf dessen Artefakte.",
+                  "en": "Removes one member from this space on the hub; they lose access to its artifacts."
+                }
+              },
               "effects": {
-                "destructive": false,
+                "destructive": true,
                 "external": false,
                 "reversible": false
               },
@@ -4263,7 +4649,7 @@
                 }
               },
               "policy": {
-                "approval": "never",
+                "approval": "whenDestructive",
                 "scopes": [
                   "shell.navigate"
                 ]
@@ -4287,6 +4673,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Legt fest, wer diesen Space auf dem Hub finden kann (etwa privat oder öffentlich).",
+                  "en": "Sets who can find this space on the hub (such as private or public)."
+                },
+                "reuse": {
+                  "de": "Legt fest, wer diesen Space auf dem Hub finden kann (etwa privat oder öffentlich).",
+                  "en": "Sets who can find this space on the hub (such as private or public)."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -4328,6 +4724,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Lässt den Hub einen Einladungslink mit der angegebenen Rolle für diesen Space erzeugen und kopiert ihn in die Zwischenablage.",
+                  "en": "Asks the hub to mint an invite link with the given role for this space and copies it to the clipboard."
+                },
+                "reuse": {
+                  "de": "Lässt den Hub einen Einladungslink mit der angegebenen Rolle für diesen Space erzeugen und kopiert ihn in die Zwischenablage.",
+                  "en": "Asks the hub to mint an invite link with the given role for this space and copies it to the clipboard."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -4356,7 +4762,7 @@
             "args": [],
             "iconId": "eye",
             "id": "foldDirectoryEvents",
-            "inPalette": true,
+            "inPalette": false,
             "kind": "view",
             "label": {
               "native": {
@@ -4369,6 +4775,7 @@
               }
             },
             "semantics": {
+              "audience": "chrome",
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -4401,7 +4808,7 @@
             "args": [],
             "iconId": "eye",
             "id": "presenceHeartbeat",
-            "inPalette": true,
+            "inPalette": false,
             "kind": "view",
             "label": {
               "native": {
@@ -4414,6 +4821,7 @@
               }
             },
             "semantics": {
+              "audience": "chrome",
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -5145,6 +5553,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Öffnet den Tutorial-Rekorder für das geöffnete Dokument, damit die nächsten Interaktionen als Tutorial aufgezeichnet werden.",
+                  "en": "Opens the tutorial recorder on the open document so the next interactions are recorded as a tutorial."
+                },
+                "reuse": {
+                  "de": "Öffnet den Tutorial-Rekorder für das geöffnete Dokument, damit die nächsten Interaktionen als Tutorial aufgezeichnet werden.",
+                  "en": "Opens the tutorial recorder on the open document so the next interactions are recorded as a tutorial."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -5250,6 +5668,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Filtert den Verlaufsbereich auf alle Einträge, nur Dokumentoperationen oder alles außer Dokumentoperationen; das Dokument wird nicht verändert.",
+                  "en": "Filters the history panel to all entries, only document operations, or everything except document operations; the document is not changed."
+                },
+                "reuse": {
+                  "de": "Filtert den Verlaufsbereich auf alle Einträge, nur Dokumentoperationen oder alles außer Dokumentoperationen; das Dokument wird nicht verändert.",
+                  "en": "Filters the history panel to all entries, only document operations, or everything except document operations; the document is not changed."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -5348,6 +5776,16 @@
             },
             "semantics": {
               "audience": "chrome",
+              "description": {
+                "native": {
+                  "de": "Vermerkt eine bereits erfolgte Shell-Wirkung (Navigation, Export, Start) im Sitzungsprotokoll; das Dokument wird nicht verändert.",
+                  "en": "Records a shell effect that already happened (navigation, export, spawn) in the session command log; the document is not changed."
+                },
+                "reuse": {
+                  "de": "Vermerkt eine bereits erfolgte Shell-Wirkung (Navigation, Export, Start) im Sitzungsprotokoll; das Dokument wird nicht verändert.",
+                  "en": "Records a shell effect that already happened (navigation, export, spawn) in the session command log; the document is not changed."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -5774,8 +6212,11 @@
                     },
                     "required": true,
                     "schema": {
-                      "integer": false,
-                      "kind": "number"
+                      "integer": true,
+                      "kind": "number",
+                      "max": 4294967295,
+                      "min": 0,
+                      "step": 1
                     }
                   },
                   {
@@ -5790,9 +6231,13 @@
                         "en": "Column"
                       }
                     },
-                    "required": true,
+                    "required": false,
                     "schema": {
-                      "kind": "string"
+                      "integer": true,
+                      "kind": "number",
+                      "max": 4294967295,
+                      "min": 0,
+                      "step": 1
                     }
                   },
                   {
@@ -5807,9 +6252,10 @@
                         "en": "Value"
                       }
                     },
-                    "required": false,
+                    "required": true,
                     "schema": {
-                      "kind": "string"
+                      "kind": "string",
+                      "minLen": 0
                     }
                   }
                 ],
@@ -5828,6 +6274,16 @@
                   }
                 },
                 "semantics": {
+                  "description": {
+                    "native": {
+                      "de": "Schreibt den angegebenen Wert in eine Tabellenzelle, adressiert über Zeilenindex und Spalte, und ersetzt ihren bisherigen Inhalt.",
+                      "en": "Writes the given value into one table cell, addressed by row index and column, replacing what the cell held before."
+                    },
+                    "reuse": {
+                      "de": "Schreibt den angegebenen Wert in eine Tabellenzelle, adressiert über Zeilenindex und Spalte, und ersetzt ihren bisherigen Inhalt.",
+                      "en": "Writes the given value into one table cell, addressed by row index and column, replacing what the cell held before."
+                    }
+                  },
                   "effects": {
                     "destructive": false,
                     "external": false,
@@ -5851,6 +6307,51 @@
                     "approval": "whenDestructive",
                     "scopes": [
                       "artifacts.write"
+                    ]
+                  }
+                }
+              },
+              {
+                "args": [],
+                "iconId": "square",
+                "id": "cancelTypedOperation",
+                "inPalette": false,
+                "kind": "view",
+                "label": {
+                  "native": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  },
+                  "reuse": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  }
+                },
+                "semantics": {
+                  "effects": {
+                    "destructive": false,
+                    "external": false,
+                    "reads": [
+                      "config:{self}"
+                    ],
+                    "reversible": false
+                  },
+                  "execution": {
+                    "cancellable": false,
+                    "class": "interactive",
+                    "expectedRevision": false,
+                    "idempotency": "none",
+                    "interactiveJob": "migrated",
+                    "preview": "none",
+                    "undo": {
+                      "kind": "none"
+                    }
+                  },
+                  "policy": {
+                    "approval": "never",
+                    "scopes": [
+                      "artifacts.read",
+                      "shell.observe"
                     ]
                   }
                 }
@@ -6586,6 +7087,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Öffnet den Tutorial-Rekorder für das geöffnete Dokument, damit die nächsten Interaktionen als Tutorial aufgezeichnet werden.",
+                  "en": "Opens the tutorial recorder on the open document so the next interactions are recorded as a tutorial."
+                },
+                "reuse": {
+                  "de": "Öffnet den Tutorial-Rekorder für das geöffnete Dokument, damit die nächsten Interaktionen als Tutorial aufgezeichnet werden.",
+                  "en": "Opens the tutorial recorder on the open document so the next interactions are recorded as a tutorial."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -6691,6 +7202,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Filtert den Verlaufsbereich auf alle Einträge, nur Dokumentoperationen oder alles außer Dokumentoperationen; das Dokument wird nicht verändert.",
+                  "en": "Filters the history panel to all entries, only document operations, or everything except document operations; the document is not changed."
+                },
+                "reuse": {
+                  "de": "Filtert den Verlaufsbereich auf alle Einträge, nur Dokumentoperationen oder alles außer Dokumentoperationen; das Dokument wird nicht verändert.",
+                  "en": "Filters the history panel to all entries, only document operations, or everything except document operations; the document is not changed."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -6789,6 +7310,16 @@
             },
             "semantics": {
               "audience": "chrome",
+              "description": {
+                "native": {
+                  "de": "Vermerkt eine bereits erfolgte Shell-Wirkung (Navigation, Export, Start) im Sitzungsprotokoll; das Dokument wird nicht verändert.",
+                  "en": "Records a shell effect that already happened (navigation, export, spawn) in the session command log; the document is not changed."
+                },
+                "reuse": {
+                  "de": "Vermerkt eine bereits erfolgte Shell-Wirkung (Navigation, Export, Start) im Sitzungsprotokoll; das Dokument wird nicht verändert.",
+                  "en": "Records a shell effect that already happened (navigation, export, spawn) in the session command log; the document is not changed."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -6970,7 +7501,53 @@
         "utilities": [],
         "windowKinds": [
           {
-            "actions": [],
+            "actions": [
+              {
+                "args": [],
+                "iconId": "square",
+                "id": "cancelTypedOperation",
+                "inPalette": false,
+                "kind": "view",
+                "label": {
+                  "native": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  },
+                  "reuse": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  }
+                },
+                "semantics": {
+                  "effects": {
+                    "destructive": false,
+                    "external": false,
+                    "reads": [
+                      "config:{self}"
+                    ],
+                    "reversible": false
+                  },
+                  "execution": {
+                    "cancellable": false,
+                    "class": "interactive",
+                    "expectedRevision": false,
+                    "idempotency": "none",
+                    "interactiveJob": "migrated",
+                    "preview": "none",
+                    "undo": {
+                      "kind": "none"
+                    }
+                  },
+                  "policy": {
+                    "approval": "never",
+                    "scopes": [
+                      "artifacts.read",
+                      "shell.observe"
+                    ]
+                  }
+                }
+              }
+            ],
             "bodyKey": "framework.window.table",
             "capabilities": [],
             "iconId": "table-2",
@@ -7015,6 +7592,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Schaltet das Seitenpanel des Studios auf den angegebenen Reiter um; nur die Ansicht ändert sich.",
+                  "en": "Switches the studio's side panel to the given tab; only the view changes."
+                },
+                "reuse": {
+                  "de": "Schaltet das Seitenpanel des Studios auf den angegebenen Reiter um; nur die Ansicht ändert sich.",
+                  "en": "Switches the studio's side panel to the given tab; only the view changes."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -7047,7 +7634,7 @@
             "args": [],
             "iconId": "camera",
             "id": "nodeGraphViewport",
-            "inPalette": true,
+            "inPalette": false,
             "kind": "view",
             "label": {
               "native": {
@@ -7060,6 +7647,7 @@
               }
             },
             "semantics": {
+              "audience": "chrome",
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -7092,7 +7680,7 @@
             "args": [],
             "iconId": "eye",
             "id": "presenceHeartbeat",
-            "inPalette": true,
+            "inPalette": false,
             "kind": "view",
             "label": {
               "native": {
@@ -7105,6 +7693,7 @@
               }
             },
             "semantics": {
+              "audience": "chrome",
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -7150,6 +7739,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Öffnet eines der mitgelieferten Beispielstudios, indem die Shell dorthin navigiert; das aktuelle Studio ändert sich nicht.",
+                  "en": "Opens one of the bundled example studios by navigating the shell to it; the current studio is not changed."
+                },
+                "reuse": {
+                  "de": "Öffnet eines der mitgelieferten Beispielstudios, indem die Shell dorthin navigiert; das aktuelle Studio ändert sich nicht.",
+                  "en": "Opens one of the bundled example studios by navigating the shell to it; the current studio is not changed."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -7191,8 +7790,18 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Schreibt das gesamte Studio als .pack-Datei und .ops-Ereignisprotokoll in zwei heruntergeladene Dateien auf dem Rechner des Nutzers.",
+                  "en": "Writes the whole studio as a .pack file and an .ops event log to two downloaded files on the user's machine."
+                },
+                "reuse": {
+                  "de": "Schreibt das gesamte Studio als .pack-Datei und .ops-Ereignisprotokoll in zwei heruntergeladene Dateien auf dem Rechner des Nutzers.",
+                  "en": "Writes the whole studio as a .pack file and an .ops event log to two downloaded files on the user's machine."
+                }
+              },
               "effects": {
-                "destructive": false,
+                "destructive": true,
                 "external": false,
                 "reversible": false
               },
@@ -7201,14 +7810,14 @@
                 "class": "interactive",
                 "expectedRevision": false,
                 "idempotency": "none",
-                "interactiveJob": "batchOnlyPendingRewrite",
+                "interactiveJob": "migrated",
                 "preview": "none",
                 "undo": {
                   "kind": "none"
                 }
               },
               "policy": {
-                "approval": "never",
+                "approval": "whenDestructive",
                 "scopes": [
                   "shell.navigate"
                 ]
@@ -7232,8 +7841,18 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Schreibt das gesamte Studio als DSL-Text in eine heruntergeladene Datei auf dem Rechner des Nutzers.",
+                  "en": "Writes the whole studio as DSL text to a downloaded file on the user's machine."
+                },
+                "reuse": {
+                  "de": "Schreibt das gesamte Studio als DSL-Text in eine heruntergeladene Datei auf dem Rechner des Nutzers.",
+                  "en": "Writes the whole studio as DSL text to a downloaded file on the user's machine."
+                }
+              },
               "effects": {
-                "destructive": false,
+                "destructive": true,
                 "external": false,
                 "reversible": false
               },
@@ -7242,14 +7861,14 @@
                 "class": "interactive",
                 "expectedRevision": false,
                 "idempotency": "none",
-                "interactiveJob": "batchOnlyPendingRewrite",
+                "interactiveJob": "migrated",
                 "preview": "none",
                 "undo": {
                   "kind": "none"
                 }
               },
               "policy": {
-                "approval": "never",
+                "approval": "whenDestructive",
                 "scopes": [
                   "shell.navigate"
                 ]
@@ -7273,6 +7892,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Öffnet die Dateiauswahl des Hosts für eine Studio-.pack-Datei; die gewählte Datei wird dann importiert.",
+                  "en": "Opens the host's file picker for a studio .pack file; the chosen file is then imported."
+                },
+                "reuse": {
+                  "de": "Öffnet die Dateiauswahl des Hosts für eine Studio-.pack-Datei; die gewählte Datei wird dann importiert.",
+                  "en": "Opens the host's file picker for a studio .pack file; the chosen file is then imported."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -7314,6 +7943,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Importiert ein Studio aus dem Inhalt (Data-URL) einer gewählten .pack-Datei.",
+                  "en": "Imports a studio from the content (data URL) of a picked .pack file."
+                },
+                "reuse": {
+                  "de": "Importiert ein Studio aus dem Inhalt (Data-URL) einer gewählten .pack-Datei.",
+                  "en": "Imports a studio from the content (data URL) of a picked .pack file."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -7355,6 +7994,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Öffnet das Studio mit der angegebenen Id und navigiert die Shell dorthin.",
+                  "en": "Opens the studio with the given id, navigating the shell to it."
+                },
+                "reuse": {
+                  "de": "Öffnet das Studio mit der angegebenen Id und navigiert die Shell dorthin.",
+                  "en": "Opens the studio with the given id, navigating the shell to it."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -7397,6 +8046,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Öffnet die angegebene oder ausgewählte App-Instanz in einem eigenen Fenster, damit ihr Artefakt angesehen oder bearbeitet werden kann.",
+                  "en": "Opens the given or selected app instance in its own window so its artifact can be viewed or edited."
+                },
+                "reuse": {
+                  "de": "Öffnet die angegebene oder ausgewählte App-Instanz in einem eigenen Fenster, damit ihr Artefakt angesehen oder bearbeitet werden kann.",
+                  "en": "Opens the given or selected app instance in its own window so its artifact can be viewed or edited."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -7438,6 +8097,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Schließt das gerade fokussierte App-Instanz-Fenster; der Workflow ändert sich nicht.",
+                  "en": "Closes the app instance window that is currently focused; the workflow is not changed."
+                },
+                "reuse": {
+                  "de": "Schließt das gerade fokussierte App-Instanz-Fenster; der Workflow ändert sich nicht.",
+                  "en": "Closes the app instance window that is currently focused; the workflow is not changed."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -7479,6 +8148,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Navigiert die Shell zurück zum Home-Starter.",
+                  "en": "Navigates the shell back to the Home launcher."
+                },
+                "reuse": {
+                  "de": "Navigiert die Shell zurück zum Home-Starter.",
+                  "en": "Navigates the shell back to the Home launcher."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -8206,6 +8885,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Öffnet den Tutorial-Rekorder für das geöffnete Dokument, damit die nächsten Interaktionen als Tutorial aufgezeichnet werden.",
+                  "en": "Opens the tutorial recorder on the open document so the next interactions are recorded as a tutorial."
+                },
+                "reuse": {
+                  "de": "Öffnet den Tutorial-Rekorder für das geöffnete Dokument, damit die nächsten Interaktionen als Tutorial aufgezeichnet werden.",
+                  "en": "Opens the tutorial recorder on the open document so the next interactions are recorded as a tutorial."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -8311,6 +9000,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Filtert den Verlaufsbereich auf alle Einträge, nur Dokumentoperationen oder alles außer Dokumentoperationen; das Dokument wird nicht verändert.",
+                  "en": "Filters the history panel to all entries, only document operations, or everything except document operations; the document is not changed."
+                },
+                "reuse": {
+                  "de": "Filtert den Verlaufsbereich auf alle Einträge, nur Dokumentoperationen oder alles außer Dokumentoperationen; das Dokument wird nicht verändert.",
+                  "en": "Filters the history panel to all entries, only document operations, or everything except document operations; the document is not changed."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -8409,6 +9108,16 @@
             },
             "semantics": {
               "audience": "chrome",
+              "description": {
+                "native": {
+                  "de": "Vermerkt eine bereits erfolgte Shell-Wirkung (Navigation, Export, Start) im Sitzungsprotokoll; das Dokument wird nicht verändert.",
+                  "en": "Records a shell effect that already happened (navigation, export, spawn) in the session command log; the document is not changed."
+                },
+                "reuse": {
+                  "de": "Vermerkt eine bereits erfolgte Shell-Wirkung (Navigation, Export, Start) im Sitzungsprotokoll; das Dokument wird nicht verändert.",
+                  "en": "Records a shell effect that already happened (navigation, export, spawn) in the session command log; the document is not changed."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -8842,6 +9551,16 @@
                   }
                 },
                 "semantics": {
+                  "description": {
+                    "native": {
+                      "de": "Setzt ein Feld (etwa Name, Wert oder Bereich) eines Studioparameters anhand seiner Id; der Wert darf JSON oder Klartext sein.",
+                      "en": "Sets one field (such as name, value or range) of one studio parameter by id; the value may be JSON or plain text."
+                    },
+                    "reuse": {
+                      "de": "Setzt ein Feld (etwa Name, Wert oder Bereich) eines Studioparameters anhand seiner Id; der Wert darf JSON oder Klartext sein.",
+                      "en": "Sets one field (such as name, value or range) of one studio parameter by id; the value may be JSON or plain text."
+                    }
+                  },
                   "effects": {
                     "destructive": false,
                     "external": false,
@@ -8855,7 +9574,7 @@
                     "class": "interactive",
                     "expectedRevision": true,
                     "idempotency": "none",
-                    "interactiveJob": "batchOnlyPendingRewrite",
+                    "interactiveJob": "migrated",
                     "preview": "diff",
                     "undo": {
                       "kind": "inverse"
@@ -8977,6 +9696,16 @@
                   }
                 },
                 "semantics": {
+                  "description": {
+                    "native": {
+                      "de": "Fügt einen Studioparameter mit dem angegebenen Namen und Typ (Zahl, Auswahl, Schalter oder Text) hinzu, an den App-Felder gebunden werden können.",
+                      "en": "Adds a studio parameter with the given name and type (numeric, categorical, toggle or text) that app fields can be bound to."
+                    },
+                    "reuse": {
+                      "de": "Fügt einen Studioparameter mit dem angegebenen Namen und Typ (Zahl, Auswahl, Schalter oder Text) hinzu, an den App-Felder gebunden werden können.",
+                      "en": "Adds a studio parameter with the given name and type (numeric, categorical, toggle or text) that app fields can be bound to."
+                    }
+                  },
                   "effects": {
                     "destructive": false,
                     "external": false,
@@ -8990,7 +9719,7 @@
                     "class": "interactive",
                     "expectedRevision": true,
                     "idempotency": "none",
-                    "interactiveJob": "batchOnlyPendingRewrite",
+                    "interactiveJob": "migrated",
                     "preview": "diff",
                     "undo": {
                       "kind": "inverse"
@@ -9021,6 +9750,16 @@
                   }
                 },
                 "semantics": {
+                  "description": {
+                    "native": {
+                      "de": "Entfernt einen Studioparameter anhand seiner Id samt seiner Feldbindungen.",
+                      "en": "Removes one studio parameter by id together with its field bindings."
+                    },
+                    "reuse": {
+                      "de": "Entfernt einen Studioparameter anhand seiner Id samt seiner Feldbindungen.",
+                      "en": "Removes one studio parameter by id together with its field bindings."
+                    }
+                  },
                   "effects": {
                     "destructive": true,
                     "external": false,
@@ -9034,7 +9773,7 @@
                     "class": "interactive",
                     "expectedRevision": true,
                     "idempotency": "none",
-                    "interactiveJob": "batchOnlyPendingRewrite",
+                    "interactiveJob": "migrated",
                     "preview": "diff",
                     "undo": {
                       "kind": "inverse"
@@ -9065,6 +9804,16 @@
                   }
                 },
                 "semantics": {
+                  "description": {
+                    "native": {
+                      "de": "Fügt dem Studio-Workflow an x, y eine Instanz einer Plugin-App (Plugin-Id und App-Id) hinzu und macht sie zur aktiven Instanz.",
+                      "en": "Adds an instance of a plugin app (plugin id and app id) to the studio workflow at x, y and makes it the active instance."
+                    },
+                    "reuse": {
+                      "de": "Fügt dem Studio-Workflow an x, y eine Instanz einer Plugin-App (Plugin-Id und App-Id) hinzu und macht sie zur aktiven Instanz.",
+                      "en": "Adds an instance of a plugin app (plugin id and app id) to the studio workflow at x, y and makes it the active instance."
+                    }
+                  },
                   "effects": {
                     "destructive": false,
                     "external": false,
@@ -9109,6 +9858,16 @@
                   }
                 },
                 "semantics": {
+                  "description": {
+                    "native": {
+                      "de": "Verschiebt eine App-Instanz an die Position x, y der Workflow-Fläche.",
+                      "en": "Moves one app instance to the workflow canvas position x, y."
+                    },
+                    "reuse": {
+                      "de": "Verschiebt eine App-Instanz an die Position x, y der Workflow-Fläche.",
+                      "en": "Moves one app instance to the workflow canvas position x, y."
+                    }
+                  },
                   "effects": {
                     "destructive": false,
                     "external": false,
@@ -9122,7 +9881,7 @@
                     "class": "interactive",
                     "expectedRevision": true,
                     "idempotency": "none",
-                    "interactiveJob": "batchOnlyPendingRewrite",
+                    "interactiveJob": "migrated",
                     "preview": "diff",
                     "undo": {
                       "kind": "inverse"
@@ -9153,6 +9912,16 @@
                   }
                 },
                 "semantics": {
+                  "description": {
+                    "native": {
+                      "de": "Verbindet einen Medienausgang einer App-Instanz mit einem Medieneingang einer anderen, sodass deren Ausgabe in die zweite fließt.",
+                      "en": "Connects a media output port of one app instance to a media input port of another, so its output flows into the second."
+                    },
+                    "reuse": {
+                      "de": "Verbindet einen Medienausgang einer App-Instanz mit einem Medieneingang einer anderen, sodass deren Ausgabe in die zweite fließt.",
+                      "en": "Connects a media output port of one app instance to a media input port of another, so its output flows into the second."
+                    }
+                  },
                   "effects": {
                     "destructive": false,
                     "external": false,
@@ -9166,7 +9935,7 @@
                     "class": "interactive",
                     "expectedRevision": true,
                     "idempotency": "none",
-                    "interactiveJob": "batchOnlyPendingRewrite",
+                    "interactiveJob": "migrated",
                     "preview": "diff",
                     "undo": {
                       "kind": "inverse"
@@ -9197,6 +9966,16 @@
                   }
                 },
                 "semantics": {
+                  "description": {
+                    "native": {
+                      "de": "Entfernt eine Medienverbindung zwischen zwei App-Instanzen anhand ihrer Id.",
+                      "en": "Removes one media connection between two app instances by id."
+                    },
+                    "reuse": {
+                      "de": "Entfernt eine Medienverbindung zwischen zwei App-Instanzen anhand ihrer Id.",
+                      "en": "Removes one media connection between two app instances by id."
+                    }
+                  },
                   "effects": {
                     "destructive": false,
                     "external": false,
@@ -9210,7 +9989,7 @@
                     "class": "interactive",
                     "expectedRevision": true,
                     "idempotency": "none",
-                    "interactiveJob": "batchOnlyPendingRewrite",
+                    "interactiveJob": "migrated",
                     "preview": "diff",
                     "undo": {
                       "kind": "inverse"
@@ -9242,6 +10021,16 @@
                   }
                 },
                 "semantics": {
+                  "description": {
+                    "native": {
+                      "de": "Entfernt eine App-Instanz (die angegebene oder die ausgewählte) samt ihrer Verbindungen aus dem Workflow.",
+                      "en": "Removes one app instance (the given one, or the selected one) from the workflow with its connections."
+                    },
+                    "reuse": {
+                      "de": "Entfernt eine App-Instanz (die angegebene oder die ausgewählte) samt ihrer Verbindungen aus dem Workflow.",
+                      "en": "Removes one app instance (the given one, or the selected one) from the workflow with its connections."
+                    }
+                  },
                   "effects": {
                     "destructive": true,
                     "external": false,
@@ -9255,7 +10044,7 @@
                     "class": "interactive",
                     "expectedRevision": true,
                     "idempotency": "none",
-                    "interactiveJob": "batchOnlyPendingRewrite",
+                    "interactiveJob": "migrated",
                     "preview": "diff",
                     "undo": {
                       "kind": "inverse"
@@ -9286,6 +10075,16 @@
                   }
                 },
                 "semantics": {
+                  "description": {
+                    "native": {
+                      "de": "Entfernt alle ausgewählten App-Instanzen und Verbindungen aus dem Studio-Workflow.",
+                      "en": "Removes every selected app instance and connection from the studio workflow."
+                    },
+                    "reuse": {
+                      "de": "Entfernt alle ausgewählten App-Instanzen und Verbindungen aus dem Studio-Workflow.",
+                      "en": "Removes every selected app instance and connection from the studio workflow."
+                    }
+                  },
                   "effects": {
                     "destructive": true,
                     "external": false,
@@ -9331,6 +10130,16 @@
                   }
                 },
                 "semantics": {
+                  "description": {
+                    "native": {
+                      "de": "Kopiert die ausgewählten App-Instanzen für ein späteres Einfügen in die Studio-Zwischenablage; der Workflow ändert sich nicht.",
+                      "en": "Copies the selected app instances to the studio clipboard for a later paste; the workflow is not changed."
+                    },
+                    "reuse": {
+                      "de": "Kopiert die ausgewählten App-Instanzen für ein späteres Einfügen in die Studio-Zwischenablage; der Workflow ändert sich nicht.",
+                      "en": "Copies the selected app instances to the studio clipboard for a later paste; the workflow is not changed."
+                    }
+                  },
                   "effects": {
                     "destructive": false,
                     "external": false,
@@ -9344,7 +10153,7 @@
                     "class": "interactive",
                     "expectedRevision": true,
                     "idempotency": "none",
-                    "interactiveJob": "batchOnlyPendingRewrite",
+                    "interactiveJob": "migrated",
                     "preview": "diff",
                     "undo": {
                       "kind": "inverse"
@@ -9376,6 +10185,16 @@
                   }
                 },
                 "semantics": {
+                  "description": {
+                    "native": {
+                      "de": "Fügt neben jeder ausgewählten App-Instanz eine mit Kopie beschriftete Kopie hinzu.",
+                      "en": "Adds a copy of each selected app instance next to it, labelled with Copy."
+                    },
+                    "reuse": {
+                      "de": "Fügt neben jeder ausgewählten App-Instanz eine mit Kopie beschriftete Kopie hinzu.",
+                      "en": "Adds a copy of each selected app instance next to it, labelled with Copy."
+                    }
+                  },
                   "effects": {
                     "destructive": false,
                     "external": false,
@@ -9389,7 +10208,7 @@
                     "class": "interactive",
                     "expectedRevision": true,
                     "idempotency": "none",
-                    "interactiveJob": "batchOnlyPendingRewrite",
+                    "interactiveJob": "migrated",
                     "preview": "diff",
                     "undo": {
                       "kind": "inverse"
@@ -9421,6 +10240,16 @@
                   }
                 },
                 "semantics": {
+                  "description": {
+                    "native": {
+                      "de": "Fügt dem Workflow eine versetzte Kopie jeder App-Instanz aus der Studio-Zwischenablage hinzu.",
+                      "en": "Adds a copy of every app instance on the studio clipboard to the workflow, offset from the original."
+                    },
+                    "reuse": {
+                      "de": "Fügt dem Workflow eine versetzte Kopie jeder App-Instanz aus der Studio-Zwischenablage hinzu.",
+                      "en": "Adds a copy of every app instance on the studio clipboard to the workflow, offset from the original."
+                    }
+                  },
                   "effects": {
                     "destructive": false,
                     "external": false,
@@ -9434,7 +10263,7 @@
                     "class": "interactive",
                     "expectedRevision": true,
                     "idempotency": "none",
-                    "interactiveJob": "batchOnlyPendingRewrite",
+                    "interactiveJob": "migrated",
                     "preview": "diff",
                     "undo": {
                       "kind": "inverse"
@@ -9466,6 +10295,16 @@
                   }
                 },
                 "semantics": {
+                  "description": {
+                    "native": {
+                      "de": "Benennt eine App-Instanz des Workflows um.",
+                      "en": "Renames one app instance of the workflow."
+                    },
+                    "reuse": {
+                      "de": "Benennt eine App-Instanz des Workflows um.",
+                      "en": "Renames one app instance of the workflow."
+                    }
+                  },
                   "effects": {
                     "destructive": false,
                     "external": false,
@@ -9479,7 +10318,7 @@
                     "class": "interactive",
                     "expectedRevision": true,
                     "idempotency": "none",
-                    "interactiveJob": "batchOnlyPendingRewrite",
+                    "interactiveJob": "migrated",
                     "preview": "diff",
                     "undo": {
                       "kind": "inverse"
@@ -9510,6 +10349,16 @@
                   }
                 },
                 "semantics": {
+                  "description": {
+                    "native": {
+                      "de": "Setzt ein Feld (etwa die Position entlang einer Achse) auf mehreren App-Instanzen zugleich.",
+                      "en": "Sets one field (such as the position along an axis) on several app instances at once."
+                    },
+                    "reuse": {
+                      "de": "Setzt ein Feld (etwa die Position entlang einer Achse) auf mehreren App-Instanzen zugleich.",
+                      "en": "Sets one field (such as the position along an axis) on several app instances at once."
+                    }
+                  },
                   "effects": {
                     "destructive": false,
                     "external": false,
@@ -9523,7 +10372,7 @@
                     "class": "interactive",
                     "expectedRevision": true,
                     "idempotency": "none",
-                    "interactiveJob": "batchOnlyPendingRewrite",
+                    "interactiveJob": "migrated",
                     "preview": "diff",
                     "undo": {
                       "kind": "inverse"
@@ -9554,6 +10403,16 @@
                   }
                 },
                 "semantics": {
+                  "description": {
+                    "native": {
+                      "de": "Setzt die Beschriftung mehrerer App-Instanzen zugleich.",
+                      "en": "Sets the label of several app instances at once."
+                    },
+                    "reuse": {
+                      "de": "Setzt die Beschriftung mehrerer App-Instanzen zugleich.",
+                      "en": "Sets the label of several app instances at once."
+                    }
+                  },
                   "effects": {
                     "destructive": false,
                     "external": false,
@@ -9567,7 +10426,7 @@
                     "class": "interactive",
                     "expectedRevision": true,
                     "idempotency": "none",
-                    "interactiveJob": "batchOnlyPendingRewrite",
+                    "interactiveJob": "migrated",
                     "preview": "diff",
                     "undo": {
                       "kind": "inverse"
@@ -9598,6 +10457,16 @@
                   }
                 },
                 "semantics": {
+                  "description": {
+                    "native": {
+                      "de": "Bindet ein Feld einer App-Instanz (per Feldpfad) an einen Studioparameter, sodass dessen Wert es steuert; ein leerer Parameter löst die Bindung.",
+                      "en": "Binds one field of an app instance (by field path) to a studio parameter, so the parameter's value drives it; an empty parameter unbinds it."
+                    },
+                    "reuse": {
+                      "de": "Bindet ein Feld einer App-Instanz (per Feldpfad) an einen Studioparameter, sodass dessen Wert es steuert; ein leerer Parameter löst die Bindung.",
+                      "en": "Binds one field of an app instance (by field path) to a studio parameter, so the parameter's value drives it; an empty parameter unbinds it."
+                    }
+                  },
                   "effects": {
                     "destructive": false,
                     "external": false,
@@ -9611,7 +10480,7 @@
                     "class": "interactive",
                     "expectedRevision": true,
                     "idempotency": "none",
-                    "interactiveJob": "batchOnlyPendingRewrite",
+                    "interactiveJob": "migrated",
                     "preview": "diff",
                     "undo": {
                       "kind": "inverse"
@@ -9642,6 +10511,16 @@
                   }
                 },
                 "semantics": {
+                  "description": {
+                    "native": {
+                      "de": "Entfernt die Parameterbindung von einem Feld einer App-Instanz, sodass das Feld wieder seinen eigenen Wert behält.",
+                      "en": "Removes the parameter binding from one field of an app instance, so the field keeps its own value again."
+                    },
+                    "reuse": {
+                      "de": "Entfernt die Parameterbindung von einem Feld einer App-Instanz, sodass das Feld wieder seinen eigenen Wert behält.",
+                      "en": "Removes the parameter binding from one field of an app instance, so the field keeps its own value again."
+                    }
+                  },
                   "effects": {
                     "destructive": false,
                     "external": false,
@@ -9655,7 +10534,7 @@
                     "class": "interactive",
                     "expectedRevision": true,
                     "idempotency": "none",
-                    "interactiveJob": "batchOnlyPendingRewrite",
+                    "interactiveJob": "migrated",
                     "preview": "diff",
                     "undo": {
                       "kind": "inverse"
@@ -9687,8 +10566,18 @@
                   }
                 },
                 "semantics": {
+                  "description": {
+                    "native": {
+                      "de": "Ordnet alle App-Instanzen des Workflows automatisch an und überschreibt ihre manuellen Positionen.",
+                      "en": "Lays out every app instance of the workflow automatically, overwriting their manual positions."
+                    },
+                    "reuse": {
+                      "de": "Ordnet alle App-Instanzen des Workflows automatisch an und überschreibt ihre manuellen Positionen.",
+                      "en": "Lays out every app instance of the workflow automatically, overwriting their manual positions."
+                    }
+                  },
                   "effects": {
-                    "destructive": false,
+                    "destructive": true,
                     "external": false,
                     "reversible": true,
                     "writes": [
@@ -9700,7 +10589,7 @@
                     "class": "interactive",
                     "expectedRevision": true,
                     "idempotency": "none",
-                    "interactiveJob": "batchOnlyPendingRewrite",
+                    "interactiveJob": "migrated",
                     "preview": "diff",
                     "undo": {
                       "kind": "inverse"
@@ -9745,7 +10634,7 @@
                     "class": "interactive",
                     "expectedRevision": true,
                     "idempotency": "none",
-                    "interactiveJob": "batchOnlyPendingRewrite",
+                    "interactiveJob": "migrated",
                     "preview": "diff",
                     "undo": {
                       "kind": "inverse"
@@ -9809,7 +10698,7 @@
                 "args": [],
                 "iconId": "sparkles",
                 "id": "nodeGraphEdit",
-                "inPalette": true,
+                "inPalette": false,
                 "kind": "mutation",
                 "label": {
                   "native": {
@@ -9822,6 +10711,7 @@
                   }
                 },
                 "semantics": {
+                  "audience": "input",
                   "effects": {
                     "destructive": false,
                     "external": false,
@@ -9835,7 +10725,7 @@
                     "class": "interactive",
                     "expectedRevision": true,
                     "idempotency": "none",
-                    "interactiveJob": "batchOnlyPendingRewrite",
+                    "interactiveJob": "migrated",
                     "preview": "diff",
                     "undo": {
                       "kind": "inverse"
@@ -9866,8 +10756,18 @@
                   }
                 },
                 "semantics": {
+                  "description": {
+                    "native": {
+                      "de": "Schreibt die Medien, die eine App-Instanz erzeugt, im gewählten Format in eine heruntergeladene Datei auf dem Rechner des Nutzers.",
+                      "en": "Writes the media one app instance produces in the chosen format to a downloaded file on the user's machine."
+                    },
+                    "reuse": {
+                      "de": "Schreibt die Medien, die eine App-Instanz erzeugt, im gewählten Format in eine heruntergeladene Datei auf dem Rechner des Nutzers.",
+                      "en": "Writes the media one app instance produces in the chosen format to a downloaded file on the user's machine."
+                    }
+                  },
                   "effects": {
-                    "destructive": false,
+                    "destructive": true,
                     "external": false,
                     "reversible": false
                   },
@@ -9876,14 +10776,14 @@
                     "class": "interactive",
                     "expectedRevision": false,
                     "idempotency": "none",
-                    "interactiveJob": "batchOnlyPendingRewrite",
+                    "interactiveJob": "migrated",
                     "preview": "none",
                     "undo": {
                       "kind": "none"
                     }
                   },
                   "policy": {
-                    "approval": "never",
+                    "approval": "whenDestructive",
                     "scopes": [
                       "shell.navigate"
                     ]
@@ -9907,6 +10807,16 @@
                   }
                 },
                 "semantics": {
+                  "description": {
+                    "native": {
+                      "de": "Öffnet die Dateiauswahl des Hosts für eine Datei des angegebenen Formats; die gewählte Datei wird dann in die angegebene App-Instanz importiert.",
+                      "en": "Opens the host's file picker for a file of the given format; the chosen file is then imported into the given app instance."
+                    },
+                    "reuse": {
+                      "de": "Öffnet die Dateiauswahl des Hosts für eine Datei des angegebenen Formats; die gewählte Datei wird dann in die angegebene App-Instanz importiert.",
+                      "en": "Opens the host's file picker for a file of the given format; the chosen file is then imported into the given app instance."
+                    }
+                  },
                   "effects": {
                     "destructive": false,
                     "external": false,
@@ -9917,7 +10827,7 @@
                     "class": "interactive",
                     "expectedRevision": false,
                     "idempotency": "none",
-                    "interactiveJob": "batchOnlyPendingRewrite",
+                    "interactiveJob": "migrated",
                     "preview": "none",
                     "undo": {
                       "kind": "none"
@@ -9948,6 +10858,16 @@
                   }
                 },
                 "semantics": {
+                  "description": {
+                    "native": {
+                      "de": "Importiert den Inhalt einer gewählten Datei (Data-URL) in die App-Instanz, für die Medien importieren gestartet wurde.",
+                      "en": "Imports a picked file's content (data URL) into the app instance that Import Media was started for."
+                    },
+                    "reuse": {
+                      "de": "Importiert den Inhalt einer gewählten Datei (Data-URL) in die App-Instanz, für die Medien importieren gestartet wurde.",
+                      "en": "Imports a picked file's content (data URL) into the app instance that Import Media was started for."
+                    }
+                  },
                   "effects": {
                     "destructive": false,
                     "external": false,
@@ -9958,7 +10878,7 @@
                     "class": "interactive",
                     "expectedRevision": false,
                     "idempotency": "none",
-                    "interactiveJob": "batchOnlyPendingRewrite",
+                    "interactiveJob": "migrated",
                     "preview": "none",
                     "undo": {
                       "kind": "none"
@@ -10254,11 +11174,11 @@
                 "kind": "interaction",
                 "label": {
                   "native": {
-                    "de": "Hover",
+                    "de": "Darüberfahren",
                     "en": "Hover"
                   },
                   "reuse": {
-                    "de": "Hover",
+                    "de": "Darüberfahren",
                     "en": "Hover"
                   }
                 },
@@ -10540,6 +11460,51 @@
                   "reuse": {
                     "de": "Granularität festlegen",
                     "en": "Set Granularity"
+                  }
+                },
+                "semantics": {
+                  "effects": {
+                    "destructive": false,
+                    "external": false,
+                    "reads": [
+                      "config:{self}"
+                    ],
+                    "reversible": false
+                  },
+                  "execution": {
+                    "cancellable": false,
+                    "class": "interactive",
+                    "expectedRevision": false,
+                    "idempotency": "none",
+                    "interactiveJob": "migrated",
+                    "preview": "none",
+                    "undo": {
+                      "kind": "none"
+                    }
+                  },
+                  "policy": {
+                    "approval": "never",
+                    "scopes": [
+                      "artifacts.read",
+                      "shell.observe"
+                    ]
+                  }
+                }
+              },
+              {
+                "args": [],
+                "iconId": "square",
+                "id": "cancelTypedOperation",
+                "inPalette": false,
+                "kind": "view",
+                "label": {
+                  "native": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  },
+                  "reuse": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
                   }
                 },
                 "semantics": {
@@ -10638,6 +11603,16 @@
                   }
                 },
                 "semantics": {
+                  "description": {
+                    "native": {
+                      "de": "Navigiert die Shell zum Space mit der angegebenen Id.",
+                      "en": "Navigates the shell to the space with the given id."
+                    },
+                    "reuse": {
+                      "de": "Navigiert die Shell zum Space mit der angegebenen Id.",
+                      "en": "Navigates the shell to the space with the given id."
+                    }
+                  },
                   "effects": {
                     "destructive": false,
                     "external": false,
@@ -10944,11 +11919,11 @@
                 "kind": "interaction",
                 "label": {
                   "native": {
-                    "de": "Hover",
+                    "de": "Darüberfahren",
                     "en": "Hover"
                   },
                   "reuse": {
-                    "de": "Hover",
+                    "de": "Darüberfahren",
                     "en": "Hover"
                   }
                 },
@@ -11260,6 +12235,51 @@
                     ]
                   }
                 }
+              },
+              {
+                "args": [],
+                "iconId": "square",
+                "id": "cancelTypedOperation",
+                "inPalette": false,
+                "kind": "view",
+                "label": {
+                  "native": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  },
+                  "reuse": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  }
+                },
+                "semantics": {
+                  "effects": {
+                    "destructive": false,
+                    "external": false,
+                    "reads": [
+                      "config:{self}"
+                    ],
+                    "reversible": false
+                  },
+                  "execution": {
+                    "cancellable": false,
+                    "class": "interactive",
+                    "expectedRevision": false,
+                    "idempotency": "none",
+                    "interactiveJob": "migrated",
+                    "preview": "none",
+                    "undo": {
+                      "kind": "none"
+                    }
+                  },
+                  "policy": {
+                    "approval": "never",
+                    "scopes": [
+                      "artifacts.read",
+                      "shell.observe"
+                    ]
+                  }
+                }
               }
             ],
             "bodyKey": "s.play.media-vfs",
@@ -11318,7 +12338,7 @@
                     "class": "interactive",
                     "expectedRevision": true,
                     "idempotency": "none",
-                    "interactiveJob": "batchOnlyPendingRewrite",
+                    "interactiveJob": "migrated",
                     "preview": "diff",
                     "undo": {
                       "kind": "inverse"
@@ -11660,11 +12680,11 @@
                 "kind": "interaction",
                 "label": {
                   "native": {
-                    "de": "Hover",
+                    "de": "Darüberfahren",
                     "en": "Hover"
                   },
                   "reuse": {
-                    "de": "Hover",
+                    "de": "Darüberfahren",
                     "en": "Hover"
                   }
                 },
@@ -11946,6 +12966,51 @@
                   "reuse": {
                     "de": "Granularität festlegen",
                     "en": "Set Granularity"
+                  }
+                },
+                "semantics": {
+                  "effects": {
+                    "destructive": false,
+                    "external": false,
+                    "reads": [
+                      "config:{self}"
+                    ],
+                    "reversible": false
+                  },
+                  "execution": {
+                    "cancellable": false,
+                    "class": "interactive",
+                    "expectedRevision": false,
+                    "idempotency": "none",
+                    "interactiveJob": "migrated",
+                    "preview": "none",
+                    "undo": {
+                      "kind": "none"
+                    }
+                  },
+                  "policy": {
+                    "approval": "never",
+                    "scopes": [
+                      "artifacts.read",
+                      "shell.observe"
+                    ]
+                  }
+                }
+              },
+              {
+                "args": [],
+                "iconId": "square",
+                "id": "cancelTypedOperation",
+                "inPalette": false,
+                "kind": "view",
+                "label": {
+                  "native": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  },
+                  "reuse": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
                   }
                 },
                 "semantics": {

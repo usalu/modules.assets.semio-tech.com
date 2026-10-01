@@ -116,12 +116,12 @@
   "descriptorVersion": 1,
   "execution": "isolated",
   "executionProtocol": {
-    "appChannelVersion": 17
+    "appChannelVersion": 19
   },
   "hashes": {
-    "coreWasmSha256": "7da486e28e411fcda57f50c1bd9bfd28aa9e64f04e93513e0cdb2db465de0084",
-    "descriptorSha256": "1bdf03de1a5ed98c2e16f0daca2ac1b1b13910abaee12effbccdc91af952e5b7",
-    "wasmSha256": "70640810ce10db1d82a54ca2ff05676fbf71e7cb53007aa933e3e056e87600e2"
+    "coreWasmSha256": "c9229c0c1de5a8f94bf877e34ec9dfb237a50f2ffffc65fd552b897b346830bf",
+    "descriptorSha256": "b806c6758ae0028a6c7d2fc3064dd19bf9dadd23e97cfc8ca304b3bb8929341b",
+    "wasmSha256": "284b3d1817e90d4632ee7ccb7739c12fed1e95ccf70bdf27542e171cdd5d79d5"
   },
   "manifest": {
     "apps": [
@@ -692,7 +692,26 @@
             }
           },
           {
-            "args": [],
+            "args": [
+              {
+                "id": "value",
+                "label": {
+                  "native": {
+                    "de": "Rasterabstand",
+                    "en": "Grid spacing"
+                  },
+                  "reuse": {
+                    "de": "Rasterabstand",
+                    "en": "Grid spacing"
+                  }
+                },
+                "required": true,
+                "schema": {
+                  "integer": false,
+                  "kind": "number"
+                }
+              }
+            ],
             "iconId": "sparkles",
             "id": "setGridSpacing",
             "inPalette": false,
@@ -746,7 +765,31 @@
             }
           },
           {
-            "args": [],
+            "args": [
+              {
+                "id": "value",
+                "label": {
+                  "native": {
+                    "de": "Unterteilungen",
+                    "en": "Subdivisions"
+                  },
+                  "reuse": {
+                    "de": "Unterteilungen",
+                    "en": "Subdivisions"
+                  }
+                },
+                "presentation": {
+                  "kind": "slider"
+                },
+                "required": true,
+                "schema": {
+                  "integer": false,
+                  "kind": "number",
+                  "max": 16,
+                  "min": 1
+                }
+              }
+            ],
             "iconId": "sparkles",
             "id": "setGridSubdivisions",
             "inPalette": false,
@@ -800,7 +843,31 @@
             }
           },
           {
-            "args": [],
+            "args": [
+              {
+                "id": "value",
+                "label": {
+                  "native": {
+                    "de": "Rasterdeckkraft",
+                    "en": "Grid opacity"
+                  },
+                  "reuse": {
+                    "de": "Rasterdeckkraft",
+                    "en": "Grid opacity"
+                  }
+                },
+                "presentation": {
+                  "kind": "slider"
+                },
+                "required": true,
+                "schema": {
+                  "integer": false,
+                  "kind": "number",
+                  "max": 1,
+                  "min": 0.05
+                }
+              }
+            ],
             "iconId": "sparkles",
             "id": "setGridOpacity",
             "inPalette": false,
@@ -908,7 +975,26 @@
             }
           },
           {
-            "args": [],
+            "args": [
+              {
+                "id": "value",
+                "label": {
+                  "native": {
+                    "de": "Einrastabstand",
+                    "en": "Snap spacing"
+                  },
+                  "reuse": {
+                    "de": "Einrastabstand",
+                    "en": "Snap spacing"
+                  }
+                },
+                "required": true,
+                "schema": {
+                  "integer": false,
+                  "kind": "number"
+                }
+              }
+            ],
             "iconId": "sparkles",
             "id": "setSnapGridSpacing",
             "inPalette": false,
@@ -962,7 +1048,26 @@
             }
           },
           {
-            "args": [],
+            "args": [
+              {
+                "id": "value",
+                "label": {
+                  "native": {
+                    "de": "Stiftbreite",
+                    "en": "Pencil width"
+                  },
+                  "reuse": {
+                    "de": "Stiftbreite",
+                    "en": "Pencil width"
+                  }
+                },
+                "required": true,
+                "schema": {
+                  "integer": false,
+                  "kind": "number"
+                }
+              }
+            ],
             "iconId": "sparkles",
             "id": "setPencilWidth",
             "inPalette": false,
@@ -1016,7 +1121,26 @@
             }
           },
           {
-            "args": [],
+            "args": [
+              {
+                "id": "value",
+                "label": {
+                  "native": {
+                    "de": "Radiergummi-Radius",
+                    "en": "Eraser radius"
+                  },
+                  "reuse": {
+                    "de": "Radiergummi-Radius",
+                    "en": "Eraser radius"
+                  }
+                },
+                "required": true,
+                "schema": {
+                  "integer": false,
+                  "kind": "number"
+                }
+              }
+            ],
             "iconId": "sparkles",
             "id": "setEraserRadius",
             "inPalette": false,
@@ -1070,7 +1194,101 @@
             }
           },
           {
-            "args": [],
+            "args": [
+              {
+                "id": "blockId",
+                "label": {
+                  "native": {
+                    "de": "Block",
+                    "en": "Block"
+                  },
+                  "reuse": {
+                    "de": "Block",
+                    "en": "Block"
+                  }
+                },
+                "required": true,
+                "schema": {
+                  "kind": "string"
+                }
+              },
+              {
+                "id": "targetRowId",
+                "label": {
+                  "native": {
+                    "de": "Zielzeile",
+                    "en": "Target row"
+                  },
+                  "reuse": {
+                    "de": "Zielzeile",
+                    "en": "Target row"
+                  }
+                },
+                "required": true,
+                "schema": {
+                  "kind": "string"
+                }
+              },
+              {
+                "default": "inside",
+                "id": "dropPosition",
+                "label": {
+                  "native": {
+                    "de": "Position",
+                    "en": "Position"
+                  },
+                  "reuse": {
+                    "de": "Position",
+                    "en": "Position"
+                  }
+                },
+                "required": false,
+                "schema": {
+                  "kind": "string",
+                  "options": [
+                    {
+                      "label": {
+                        "native": {
+                          "de": "Davor",
+                          "en": "Before"
+                        },
+                        "reuse": {
+                          "de": "Davor",
+                          "en": "Before"
+                        }
+                      },
+                      "value": "before"
+                    },
+                    {
+                      "label": {
+                        "native": {
+                          "de": "Hinein",
+                          "en": "Inside"
+                        },
+                        "reuse": {
+                          "de": "Hinein",
+                          "en": "Inside"
+                        }
+                      },
+                      "value": "inside"
+                    },
+                    {
+                      "label": {
+                        "native": {
+                          "de": "Danach",
+                          "en": "After"
+                        },
+                        "reuse": {
+                          "de": "Danach",
+                          "en": "After"
+                        }
+                      },
+                      "value": "after"
+                    }
+                  ]
+                }
+              }
+            ],
             "iconId": "sparkles",
             "id": "moveBlock",
             "inPalette": false,
@@ -1124,7 +1342,25 @@
             }
           },
           {
-            "args": [],
+            "args": [
+              {
+                "id": "blockId",
+                "label": {
+                  "native": {
+                    "de": "Block",
+                    "en": "Block"
+                  },
+                  "reuse": {
+                    "de": "Block",
+                    "en": "Block"
+                  }
+                },
+                "required": true,
+                "schema": {
+                  "kind": "string"
+                }
+              }
+            ],
             "iconId": "sparkles",
             "id": "deleteBlock",
             "inPalette": false,
@@ -1178,7 +1414,25 @@
             }
           },
           {
-            "args": [],
+            "args": [
+              {
+                "id": "blockId",
+                "label": {
+                  "native": {
+                    "de": "Block",
+                    "en": "Block"
+                  },
+                  "reuse": {
+                    "de": "Block",
+                    "en": "Block"
+                  }
+                },
+                "required": true,
+                "schema": {
+                  "kind": "string"
+                }
+              }
+            ],
             "iconId": "sparkles",
             "id": "duplicateBlock",
             "inPalette": false,
@@ -1232,7 +1486,259 @@
             }
           },
           {
-            "args": [],
+            "args": [
+              {
+                "id": "blockIds",
+                "label": {
+                  "native": {
+                    "de": "Blöcke",
+                    "en": "Blocks"
+                  },
+                  "reuse": {
+                    "de": "Blöcke",
+                    "en": "Blocks"
+                  }
+                },
+                "required": true,
+                "schema": {
+                  "items": {
+                    "kind": "string"
+                  },
+                  "kind": "array"
+                }
+              },
+              {
+                "id": "field",
+                "label": {
+                  "native": {
+                    "de": "Feld",
+                    "en": "Field"
+                  },
+                  "reuse": {
+                    "de": "Feld",
+                    "en": "Field"
+                  }
+                },
+                "required": true,
+                "schema": {
+                  "kind": "string",
+                  "options": [
+                    {
+                      "label": {
+                        "native": {
+                          "de": "Name",
+                          "en": "Name"
+                        },
+                        "reuse": {
+                          "de": "Name",
+                          "en": "Name"
+                        }
+                      },
+                      "value": "name"
+                    },
+                    {
+                      "label": {
+                        "native": {
+                          "de": "Sichtbar",
+                          "en": "Visible"
+                        },
+                        "reuse": {
+                          "de": "Sichtbar",
+                          "en": "Visible"
+                        }
+                      },
+                      "value": "visible"
+                    },
+                    {
+                      "label": {
+                        "native": {
+                          "de": "Gesperrt",
+                          "en": "Locked"
+                        },
+                        "reuse": {
+                          "de": "Gesperrt",
+                          "en": "Locked"
+                        }
+                      },
+                      "value": "locked"
+                    },
+                    {
+                      "label": {
+                        "native": {
+                          "de": "X",
+                          "en": "X"
+                        },
+                        "reuse": {
+                          "de": "X",
+                          "en": "X"
+                        }
+                      },
+                      "value": "x"
+                    },
+                    {
+                      "label": {
+                        "native": {
+                          "de": "Y",
+                          "en": "Y"
+                        },
+                        "reuse": {
+                          "de": "Y",
+                          "en": "Y"
+                        }
+                      },
+                      "value": "y"
+                    },
+                    {
+                      "label": {
+                        "native": {
+                          "de": "Breite",
+                          "en": "Width"
+                        },
+                        "reuse": {
+                          "de": "Breite",
+                          "en": "Width"
+                        }
+                      },
+                      "value": "width"
+                    },
+                    {
+                      "label": {
+                        "native": {
+                          "de": "Höhe",
+                          "en": "Height"
+                        },
+                        "reuse": {
+                          "de": "Höhe",
+                          "en": "Height"
+                        }
+                      },
+                      "value": "height"
+                    },
+                    {
+                      "label": {
+                        "native": {
+                          "de": "Text",
+                          "en": "Text"
+                        },
+                        "reuse": {
+                          "de": "Text",
+                          "en": "Text"
+                        }
+                      },
+                      "value": "textContent"
+                    },
+                    {
+                      "label": {
+                        "native": {
+                          "de": "Textgröße",
+                          "en": "Text size"
+                        },
+                        "reuse": {
+                          "de": "Textgröße",
+                          "en": "Text size"
+                        }
+                      },
+                      "value": "textSize"
+                    },
+                    {
+                      "label": {
+                        "native": {
+                          "de": "Mathematik (TeX)",
+                          "en": "Math (TeX)"
+                        },
+                        "reuse": {
+                          "de": "Mathematik (TeX)",
+                          "en": "Math (TeX)"
+                        }
+                      },
+                      "value": "mathTex"
+                    },
+                    {
+                      "label": {
+                        "native": {
+                          "de": "Tintenbreite",
+                          "en": "Ink width"
+                        },
+                        "reuse": {
+                          "de": "Tintenbreite",
+                          "en": "Ink width"
+                        }
+                      },
+                      "value": "inkWidth"
+                    },
+                    {
+                      "label": {
+                        "native": {
+                          "de": "Tabellenzeile hinzufügen",
+                          "en": "Add table row"
+                        },
+                        "reuse": {
+                          "de": "Tabellenzeile hinzufügen",
+                          "en": "Add table row"
+                        }
+                      },
+                      "value": "tableAddRow"
+                    },
+                    {
+                      "label": {
+                        "native": {
+                          "de": "Tabellenzeile entfernen",
+                          "en": "Remove table row"
+                        },
+                        "reuse": {
+                          "de": "Tabellenzeile entfernen",
+                          "en": "Remove table row"
+                        }
+                      },
+                      "value": "tableRemoveRow"
+                    },
+                    {
+                      "label": {
+                        "native": {
+                          "de": "Tabellenspalte hinzufügen",
+                          "en": "Add table column"
+                        },
+                        "reuse": {
+                          "de": "Tabellenspalte hinzufügen",
+                          "en": "Add table column"
+                        }
+                      },
+                      "value": "tableAddColumn"
+                    },
+                    {
+                      "label": {
+                        "native": {
+                          "de": "Tabellenspalte entfernen",
+                          "en": "Remove table column"
+                        },
+                        "reuse": {
+                          "de": "Tabellenspalte entfernen",
+                          "en": "Remove table column"
+                        }
+                      },
+                      "value": "tableRemoveColumn"
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "value",
+                "label": {
+                  "native": {
+                    "de": "Wert",
+                    "en": "Value"
+                  },
+                  "reuse": {
+                    "de": "Wert",
+                    "en": "Value"
+                  }
+                },
+                "required": false,
+                "schema": {
+                  "kind": "string"
+                }
+              }
+            ],
             "iconId": "sparkles",
             "id": "patchBlocks",
             "inPalette": false,
@@ -2003,7 +2509,26 @@
             }
           },
           {
-            "args": [],
+            "args": [
+              {
+                "id": "value",
+                "label": {
+                  "native": {
+                    "de": "Zoom",
+                    "en": "Zoom"
+                  },
+                  "reuse": {
+                    "de": "Zoom",
+                    "en": "Zoom"
+                  }
+                },
+                "required": true,
+                "schema": {
+                  "integer": false,
+                  "kind": "number"
+                }
+              }
+            ],
             "iconId": "eye",
             "id": "setCameraZoom",
             "inPalette": false,
@@ -2830,6 +3355,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Öffnet den Tutorial-Rekorder für das geöffnete Dokument, damit die nächsten Interaktionen als Tutorial aufgezeichnet werden.",
+                  "en": "Opens the tutorial recorder on the open document so the next interactions are recorded as a tutorial."
+                },
+                "reuse": {
+                  "de": "Öffnet den Tutorial-Rekorder für das geöffnete Dokument, damit die nächsten Interaktionen als Tutorial aufgezeichnet werden.",
+                  "en": "Opens the tutorial recorder on the open document so the next interactions are recorded as a tutorial."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -2935,6 +3470,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Filtert den Verlaufsbereich auf alle Einträge, nur Dokumentoperationen oder alles außer Dokumentoperationen; das Dokument wird nicht verändert.",
+                  "en": "Filters the history panel to all entries, only document operations, or everything except document operations; the document is not changed."
+                },
+                "reuse": {
+                  "de": "Filtert den Verlaufsbereich auf alle Einträge, nur Dokumentoperationen oder alles außer Dokumentoperationen; das Dokument wird nicht verändert.",
+                  "en": "Filters the history panel to all entries, only document operations, or everything except document operations; the document is not changed."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -3033,6 +3578,16 @@
             },
             "semantics": {
               "audience": "chrome",
+              "description": {
+                "native": {
+                  "de": "Vermerkt eine bereits erfolgte Shell-Wirkung (Navigation, Export, Start) im Sitzungsprotokoll; das Dokument wird nicht verändert.",
+                  "en": "Records a shell effect that already happened (navigation, export, spawn) in the session command log; the document is not changed."
+                },
+                "reuse": {
+                  "de": "Vermerkt eine bereits erfolgte Shell-Wirkung (Navigation, Export, Start) im Sitzungsprotokoll; das Dokument wird nicht verändert.",
+                  "en": "Records a shell effect that already happened (navigation, export, spawn) in the session command log; the document is not changed."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -3213,7 +3768,7 @@
             "class": "data",
             "form": "value"
           },
-          "artifactSchema": "",
+          "artifactSchema": "note.document",
           "exportFormats": [],
           "importFormats": [],
           "ports": []
@@ -4240,6 +4795,51 @@
                     ]
                   }
                 }
+              },
+              {
+                "args": [],
+                "iconId": "square",
+                "id": "cancelTypedOperation",
+                "inPalette": false,
+                "kind": "view",
+                "label": {
+                  "native": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  },
+                  "reuse": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  }
+                },
+                "semantics": {
+                  "effects": {
+                    "destructive": false,
+                    "external": false,
+                    "reads": [
+                      "config:{self}"
+                    ],
+                    "reversible": false
+                  },
+                  "execution": {
+                    "cancellable": false,
+                    "class": "interactive",
+                    "expectedRevision": false,
+                    "idempotency": "none",
+                    "interactiveJob": "migrated",
+                    "preview": "none",
+                    "undo": {
+                      "kind": "none"
+                    }
+                  },
+                  "policy": {
+                    "approval": "never",
+                    "scopes": [
+                      "artifacts.read",
+                      "shell.observe"
+                    ]
+                  }
+                }
               }
             ],
             "bodyKey": "note.play.composite",
@@ -5059,6 +5659,51 @@
                     ]
                   }
                 }
+              },
+              {
+                "args": [],
+                "iconId": "square",
+                "id": "cancelTypedOperation",
+                "inPalette": false,
+                "kind": "view",
+                "label": {
+                  "native": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  },
+                  "reuse": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  }
+                },
+                "semantics": {
+                  "effects": {
+                    "destructive": false,
+                    "external": false,
+                    "reads": [
+                      "config:{self}"
+                    ],
+                    "reversible": false
+                  },
+                  "execution": {
+                    "cancellable": false,
+                    "class": "interactive",
+                    "expectedRevision": false,
+                    "idempotency": "none",
+                    "interactiveJob": "migrated",
+                    "preview": "none",
+                    "undo": {
+                      "kind": "none"
+                    }
+                  },
+                  "policy": {
+                    "approval": "never",
+                    "scopes": [
+                      "artifacts.read",
+                      "shell.observe"
+                    ]
+                  }
+                }
               }
             ],
             "bodyKey": "note.play.navigator",
@@ -5818,6 +6463,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Öffnet den Tutorial-Rekorder für das geöffnete Dokument, damit die nächsten Interaktionen als Tutorial aufgezeichnet werden.",
+                  "en": "Opens the tutorial recorder on the open document so the next interactions are recorded as a tutorial."
+                },
+                "reuse": {
+                  "de": "Öffnet den Tutorial-Rekorder für das geöffnete Dokument, damit die nächsten Interaktionen als Tutorial aufgezeichnet werden.",
+                  "en": "Opens the tutorial recorder on the open document so the next interactions are recorded as a tutorial."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -5923,6 +6578,16 @@
               }
             },
             "semantics": {
+              "description": {
+                "native": {
+                  "de": "Filtert den Verlaufsbereich auf alle Einträge, nur Dokumentoperationen oder alles außer Dokumentoperationen; das Dokument wird nicht verändert.",
+                  "en": "Filters the history panel to all entries, only document operations, or everything except document operations; the document is not changed."
+                },
+                "reuse": {
+                  "de": "Filtert den Verlaufsbereich auf alle Einträge, nur Dokumentoperationen oder alles außer Dokumentoperationen; das Dokument wird nicht verändert.",
+                  "en": "Filters the history panel to all entries, only document operations, or everything except document operations; the document is not changed."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -6021,6 +6686,16 @@
             },
             "semantics": {
               "audience": "chrome",
+              "description": {
+                "native": {
+                  "de": "Vermerkt eine bereits erfolgte Shell-Wirkung (Navigation, Export, Start) im Sitzungsprotokoll; das Dokument wird nicht verändert.",
+                  "en": "Records a shell effect that already happened (navigation, export, spawn) in the session command log; the document is not changed."
+                },
+                "reuse": {
+                  "de": "Vermerkt eine bereits erfolgte Shell-Wirkung (Navigation, Export, Start) im Sitzungsprotokoll; das Dokument wird nicht verändert.",
+                  "en": "Records a shell effect that already happened (navigation, export, spawn) in the session command log; the document is not changed."
+                }
+              },
               "effects": {
                 "destructive": false,
                 "external": false,
@@ -6092,7 +6767,7 @@
             "class": "data",
             "form": "value"
           },
-          "artifactSchema": "",
+          "artifactSchema": "note.document",
           "exportFormats": [],
           "importFormats": [],
           "ports": []
@@ -6194,7 +6869,53 @@
         "utilities": [],
         "windowKinds": [
           {
-            "actions": [],
+            "actions": [
+              {
+                "args": [],
+                "iconId": "square",
+                "id": "cancelTypedOperation",
+                "inPalette": false,
+                "kind": "view",
+                "label": {
+                  "native": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  },
+                  "reuse": {
+                    "de": "Vorgang abbrechen",
+                    "en": "Cancel Operation"
+                  }
+                },
+                "semantics": {
+                  "effects": {
+                    "destructive": false,
+                    "external": false,
+                    "reads": [
+                      "config:{self}"
+                    ],
+                    "reversible": false
+                  },
+                  "execution": {
+                    "cancellable": false,
+                    "class": "interactive",
+                    "expectedRevision": false,
+                    "idempotency": "none",
+                    "interactiveJob": "migrated",
+                    "preview": "none",
+                    "undo": {
+                      "kind": "none"
+                    }
+                  },
+                  "policy": {
+                    "approval": "never",
+                    "scopes": [
+                      "artifacts.read",
+                      "shell.observe"
+                    ]
+                  }
+                }
+              }
+            ],
             "bodyKey": "note.view.composite",
             "capabilities": [],
             "iconId": "pen-tool",

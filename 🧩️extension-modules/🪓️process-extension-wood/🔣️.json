@@ -16,12 +16,12 @@
   "descriptorVersion": 1,
   "execution": "declarative",
   "executionProtocol": {
-    "appChannelVersion": 17
+    "appChannelVersion": 19
   },
   "hashes": {
-    "coreWasmSha256": "67e68cb275f302276af92b790b75c5ff6eb790f31e2c956ed7910a57cd8385ac",
-    "descriptorSha256": "3e04ef81e5dd779a1118529e3fb9d32f24672bf319cf7f92a542d5571fcac011",
-    "wasmSha256": "0cdda05d20a7f34303660133b6ee227f2bb7c73f871bf425b62d320d4937f5e6"
+    "coreWasmSha256": "e6efb001065b047e628a9fb4e940c185051999967bd4e571dbef34259160fa35",
+    "descriptorSha256": "285ffc6f6c2e91f4cecf385d7d91dfe7c9b3dcb1f72f65374fdc7ab75bdd76cc",
+    "wasmSha256": "acab884c6541467c24fb7a3e888220784be2bd7f15f10cc27da588ba0b378930"
   },
   "manifest": {
     "apps": [],
@@ -31,7 +31,7 @@
     "dependencies": [
       {
         "pluginId": "process",
-        "version": "*"
+        "version": "=0.1.0"
       }
     ],
     "examples": [],

@@ -22,6 +22,7 @@ export type * as WasiIoError029 from './interfaces/wasi-io-error.js'; // import 
 export type * as WasiIoPoll029 from './interfaces/wasi-io-poll.js'; // import wasi:io/poll@0.2.9
 export type * as WasiIoStreams029 from './interfaces/wasi-io-streams.js'; // import wasi:io/streams@0.2.9
 export type * as WasiRandomInsecureSeed029 from './interfaces/wasi-random-insecure-seed.js'; // import wasi:random/insecure-seed@0.2.9
+export type * as WasiRandomRandom029 from './interfaces/wasi-random-random.js'; // import wasi:random/random@0.2.9
 export * as reactor from './interfaces/semio-framework-reactor.js'; // export semio:framework/reactor@1.0.0
 export * as jobs from './interfaces/semio-framework-jobs.js'; // export semio:framework/jobs@1.0.0
 export * as checkpoint from './interfaces/semio-framework-checkpoint.js'; // export semio:framework/checkpoint@1.0.0
